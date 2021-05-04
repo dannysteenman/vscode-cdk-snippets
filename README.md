@@ -23,7 +23,7 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 
 > **Note:** Once you start typing a prefix (explained in step 3), the corresponding snippet will show up in the dropdown menu. If this doesn't happen automatically, press `ctrl + space` to invoke IntelliSense and search for the prefix of the resource type that you want to add (as listed in step 3).
 
-![CDK Construct Snippets example](https://raw.githubusercontent.com/dannysteenman/cdk-snippets/main/images/cdk-snippet-tutorial.gif)
+![CDK Construct Snippets example](https://raw.githubusercontent.com/dannysteenman/vscode-cdk-snippets/main/images/cdk-snippet-tutorial.gif)
 
 ---
 
