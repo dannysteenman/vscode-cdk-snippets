@@ -1,0 +1,42 @@
+name: Fetch CloudFormation resource specification and update this VSCode extension.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 11 * * 5" # At 11:30 on Friday.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v2
+      - name: Install Python and NPM requirements
+        run: |
+          set -x -e
+          sudo apt install python3-setuptools
+          python3 -m pip install --upgrade pip && pip3 install -r src/requirements.txt
+          sudo chown -R $USER /usr/local/lib/node_modules
+          sudo npm install -g vsce
+      - name: Check for update and create snippets if needed
+        run: |
+          echo "checking for update"
+          python3 src/update-cdk-construct-snippets.py
+      - name: Commit changes and publish package VSCode Marketplace
+        env:
+          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
+        run: |
+          set -x -e
+          git config --global user.name 'Github Actions'
+          git config --global user.email 'danny@s.cloud'
+          npm version minor --force --no-git-tag-version
+          package_version=$(cat package.json|grep version|sed 's/[",]//g'|awk '{print $2}')
+          cfn_release_rss_summary=$(python3 src/feed.py)
+          git commit -am "$cfn_release_rss_summary"
+          git tag $package_version
+          gitchangelog|tee "CHANGELOG.md"
+          git commit -am "Changelog version: $package_version"
+          git push
+          git push origin --tags
+          vsce package
+          vsce publish -p $VSCE_TOKEN

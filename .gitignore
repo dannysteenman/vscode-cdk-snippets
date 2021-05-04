@@ -1,0 +1,2 @@
+*.vsix
+.mypy_cache

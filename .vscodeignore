@@ -1,0 +1,8 @@
+.gitchangelog.rc
+.gitignore
+.vscode-test/**
+.vscode/**
+**/*.ts
+azure-pipelines.yml
+src/**
+vsc-extension-quickstart.md
