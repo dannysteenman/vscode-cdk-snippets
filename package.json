@@ -20,29 +20,32 @@
     "theme": "dark"
   },
   "categories": [
-    "Snippets",
-    "Programming Languages",
-    "Other"
+    "Snippets"
   ],
   "keywords": [
-    "amazon",
-    "autocompletion",
     "aws",
-    "cfn",
     "cdk",
-    "cloud",
     "cloudformation",
     "construct",
-    "iac",
-    "infrastructure",
-    "intellisense",
-    "multi-root ready",
-    "property",
-    "resource",
-    "specification",
-    "stack",
     "typescript"
   ],
+	"badges": [
+		{
+			"url": "https://vsmarketplacebadge.apphb.com/version/dsteenman.cdk-snippets.svg",
+			"href": "https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets",
+			"description": "Version"
+		},
+		{
+			"url": "https://vsmarketplacebadge.apphb.com/installs-short/dsteenman.cdk-snippets.svg",
+			"href": "https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets",
+			"description": "Installs"
+		},
+		{
+			"url": "https://vsmarketplacebadge.apphb.com/rating-star/dsteenman.cdk-snippets.svg",
+			"href": "https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets",
+			"description": "Ratings"
+		}
+	],
   "contributes": {
     "snippets": [
       {

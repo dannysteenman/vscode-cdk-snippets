@@ -1,7 +1,7 @@
 # CDK Construct Snippets for VS Code
 
-[![Marketplace Version](https://vsmarketplacebadge.apphb.com/version/dsteenman.cdk-snippets.svg 'Current Release')](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
-[![Current Installs](https://vsmarketplacebadge.apphb.com/installs-short/dsteenman.cdk-snippets.svg 'Currently Installed')](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
+[![Version](https://vsmarketplacebadge.apphb.com/version/dsteenman.cdk-snippets.svg 'Current Release')](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/dsteenman.cdk-snippets.svg 'Currently Installed')](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
 [![Rating](https://vsmarketplacebadge.apphb.com/rating-star/dsteenman.cdk-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
 
 This extension adds L1 construct snippets from CDK into Visual Studio Code.
@@ -21,9 +21,9 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 * **Step 2.** Start working in your CDK project (TypeScript)
 * **Step 3.** Start adding L1 constructs in your code by using their prefix name e.g. ```l1-s3-bucket``` equals to L1 construct ```s3.CfnBucket```
 
-> **Note:** Once you start typing a prefix (explained in step 3), the corresponding snippet will show up in the dropdown menu. If this doesn't happen automatically, press `ctrl + space` to invoke IntelliSense and search for the prefix of the resource type that you want to add (as listed in step 3).
-
 ![CDK Construct Snippets example](https://raw.githubusercontent.com/dannysteenman/vscode-cdk-snippets/main/images/cdk-snippet-tutorial.gif)
+
+> **Note:** Once you start typing a prefix (explained in step 3), the corresponding snippet shows up in the dropdown menu. If this doesn't happen automatically, press `ctrl + space` to invoke IntelliSense and search for the prefix of the resource type that you want to add (as listed in step 3).
 
 ---
 
@@ -32,9 +32,18 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 If you have a feature request or an issue, please let me know on [Github](https://github.com/dannysteenman/vscode-cdk-snippets/issues)
 
 
----
-<br>
+## Contributing
 
-<p align="center">
+If you want to add more snippets or support another programming language, your contribution is more than welcome!
+
+Review the [Contributing Guidelines](https://github.com/dannysteenman/vscode-cdk-snippets/blob/main/.github/CONTRIBUTING.md).
+
+---
+
+## Author
+
+**[Danny Steenman](https://dannys.cloud)**
+
+<p align="left">
   <a href="https://twitter.com/intent/follow?screen_name=dannysteenman&tw_p=followbutton"><img src="https://img.shields.io/twitter/follow/dannysteenman?label=%40dannysteenman&style=social"></a>
 </p>
