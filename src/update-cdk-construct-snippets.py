@@ -42,7 +42,7 @@ def check_for_update():
             )
             file.seek(0)
             file.write(new_hash)
-            create_cfn_snippet(get_resource_spec().json())
+            create_cdk_snippet(get_resource_spec().json())
 
 
 def change_case(property):
@@ -78,27 +78,26 @@ def get_item_type_prop(body, item, resource_type, counter):
     resource_property_name = resource_type + "." + item
 
     for property_type in response_data["PropertyTypes"]:
-        if resource_property_name == property_type:
-            properties = response_data["PropertyTypes"][property_type].get("Properties")
-            if properties:
-                for updated_counter, property in enumerate(
-                    sorted(properties), start=counter
-                ):
-                    item = types(properties[property])
-                    if "Type" in properties[property]:
-                        if properties[property]["Type"] == "List":
-                            body.append(" " * 4 + change_case(property) + ": [],")
-                        elif property == (properties[property]["Type"] or None):
-                            continue
-                    else:
-                        set_value_type(
-                            body,
-                            property,
-                            item,
-                            updated_counter,
-                            required=None,
-                            indent=4,
-                        )
+        properties = response_data["PropertyTypes"][property_type].get("Properties")
+        if resource_property_name == property_type and properties:
+            for updated_counter, property in enumerate(
+                sorted(properties), start=counter
+            ):
+                item = types(properties[property])
+                if "Type" in properties[property]:
+                    if properties[property]["Type"] == "List":
+                        body.append(" " * 4 + change_case(property) + ": [],")
+                    elif property == (properties[property]["Type"] or None):
+                        continue
+                else:
+                    set_value_type(
+                        body,
+                        property,
+                        item,
+                        updated_counter,
+                        required=None,
+                        indent=4,
+                    )
 
     body.append(" " * 2 + "},")
     return body
@@ -152,7 +151,7 @@ def fetch_description(resource_type, cdk_l1_construct):
     return description
 
 
-def create_cfn_snippet(response_data):
+def create_cdk_snippet(response_data):
     # Start the output data
     output = {}
 
@@ -195,6 +194,6 @@ def create_cfn_snippet(response_data):
         file.write(json.dumps(output, sort_keys=True, indent=4))
 
 
-# Run cfn resource updater
+# Run cdk resource updater
 if __name__ == "__main__":
     check_for_update()
