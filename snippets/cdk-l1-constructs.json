@@ -615,7 +615,9 @@
         ],
         "description": [
             "Construct: apigateway.CfnRequestValidator",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnRequestValidator"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnRequestValidator",
+            "Attributes: ",
+            "  attrRequestValidatorId"
         ],
         "prefix": "l1-apigateway-requestvalidator",
         "scope": "javascript,typescript"
@@ -1509,6 +1511,45 @@
             "  attrArn"
         ],
         "prefix": "l1-appmesh-virtualservice",
+        "scope": "javascript,typescript"
+    },
+    "apprunner.CfnService": {
+        "body": [
+            "new apprunner.CfnService(this, \"${1:id}\", {",
+            "  autoScalingConfigurationArn: \"${2:string}\",",
+            "  encryptionConfiguration: {",
+            "    kmsKey: \"${3:string}\",",
+            "  },",
+            "  healthCheckConfiguration: {",
+            "    healthyThreshold: ${4:Number},",
+            "    interval: ${5:Number},",
+            "    path: \"${6:string}\",",
+            "    protocol: \"${7:string}\",",
+            "    timeout: ${8:Number},",
+            "    unhealthyThreshold: ${9:Number},",
+            "  },",
+            "  instanceConfiguration: {",
+            "    cpu: \"${5:string}\",",
+            "    instanceRoleArn: \"${6:string}\",",
+            "    memory: \"${7:string}\",",
+            "  },",
+            "  serviceName: \"${6:string}\",",
+            "  sourceConfiguration: {",
+            "    autoDeploymentsEnabled: ${8|false,true|},",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: apprunner.CfnService",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apprunner.CfnService",
+            "Attributes: ",
+            "  attrServiceId",
+            "  attrServiceArn",
+            "  attrServiceUrl",
+            "  attrStatus"
+        ],
+        "prefix": "l1-apprunner-service",
         "scope": "javascript,typescript"
     },
     "appstream.CfnDirectoryConfig": {
@@ -2692,24 +2733,25 @@
             "    enabled: ${3|false,true|},",
             "    retainStacksOnAccountRemoval: ${4|false,true|},",
             "  },",
+            "  callAs: \"${4:string}\",",
             "  capabilities: [],",
-            "  description: \"${5:string}\",",
-            "  executionRoleName: \"${6:string}\",",
+            "  description: \"${6:string}\",",
+            "  executionRoleName: \"${7:string}\",",
             "  operationPreferences: {",
-            "    failureToleranceCount: ${7:Number},",
-            "    failureTolerancePercentage: ${8:Number},",
-            "    maxConcurrentCount: ${9:Number},",
-            "    maxConcurrentPercentage: ${10:Number},",
-            "    regionConcurrencyType: \"${11:string}\",",
+            "    failureToleranceCount: ${8:Number},",
+            "    failureTolerancePercentage: ${9:Number},",
+            "    maxConcurrentCount: ${10:Number},",
+            "    maxConcurrentPercentage: ${11:Number},",
+            "    regionConcurrencyType: \"${12:string}\",",
             "    regionOrder: [],",
             "  },",
             "  parameters: [],",
-            "  permissionModel: \"${9:string}\", // Required",
+            "  permissionModel: \"${10:string}\", // Required",
             "  stackInstancesGroup: [],",
-            "  stackSetName: \"${11:string}\", // Required",
+            "  stackSetName: \"${12:string}\", // Required",
             "  tags: [],",
-            "  templateBody: \"${13:string}\",",
-            "  templateURL: \"${14:string}\",",
+            "  templateBody: \"${14:string}\",",
+            "  templateURL: \"${15:string}\",",
             "})"
         ],
         "description": [
@@ -4104,9 +4146,15 @@
         "body": [
             "new customerprofiles.CfnIntegration(this, \"${1:id}\", {",
             "  domainName: \"${2:string}\", // Required",
-            "  objectTypeName: \"${3:string}\",",
+            "  flowDefinition: {",
+            "    description: \"${3:string}\",",
+            "    flowName: \"${4:string}\",",
+            "    kmsArn: \"${5:string}\",",
+            "    tasks: [],",
+            "  },",
+            "  objectTypeName: \"${4:string}\", // Required",
             "  tags: [],",
-            "  uri: \"${5:string}\",",
+            "  uri: \"${6:string}\",",
             "})"
         ],
         "description": [
@@ -4985,6 +5033,42 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-docdb.CfnDBSubnetGroup"
         ],
         "prefix": "l1-docdb-dbsubnetgroup",
+        "scope": "javascript,typescript"
+    },
+    "dynamodb.CfnGlobalTable": {
+        "body": [
+            "new dynamodb.CfnGlobalTable(this, \"${1:id}\", {",
+            "  attributeDefinitions: [], // Required",
+            "  billingMode: \"${3:string}\",",
+            "  globalSecondaryIndexes: [],",
+            "  keySchema: [], // Required",
+            "  localSecondaryIndexes: [],",
+            "  replicas: [], // Required",
+            "  sSESpecification: {",
+            "    sSEEnabled: ${8|false,true|},",
+            "    sSEType: \"${9:string}\",",
+            "  },",
+            "  streamSpecification: {",
+            "    streamViewType: \"${9:string}\",",
+            "  },",
+            "  tableName: \"${10:string}\",",
+            "  timeToLiveSpecification: {",
+            "    attributeName: \"${11:string}\",",
+            "    enabled: ${12|false,true|},",
+            "  },",
+            "  writeProvisionedThroughputSettings: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: dynamodb.CfnGlobalTable",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-dynamodb.CfnGlobalTable",
+            "Attributes: ",
+            "  attrArn",
+            "  attrStreamArn",
+            "  attrTableId"
+        ],
+        "prefix": "l1-dynamodb-globaltable",
         "scope": "javascript,typescript"
     },
     "dynamodb.CfnTable": {
@@ -6141,6 +6225,27 @@
             "  attrSourceType"
         ],
         "prefix": "l1-ec2-transitgatewaymulticastgroupsource",
+        "scope": "javascript,typescript"
+    },
+    "ec2.CfnTransitGatewayPeeringAttachment": {
+        "body": [
+            "new ec2.CfnTransitGatewayPeeringAttachment(this, \"${1:id}\", {",
+            "  peerAccountId: \"${2:string}\", // Required",
+            "  peerRegion: \"${3:string}\", // Required",
+            "  peerTransitGatewayId: \"${4:string}\", // Required",
+            "  tags: [],",
+            "  transitGatewayId: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnTransitGatewayPeeringAttachment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnTransitGatewayPeeringAttachment",
+            "Attributes: ",
+            "  attrTransitGatewayAttachmentId",
+            "  attrState",
+            "  attrCreationTime"
+        ],
+        "prefix": "l1-ec2-transitgatewaypeeringattachment",
         "scope": "javascript,typescript"
     },
     "ec2.CfnTransitGatewayRoute": {
@@ -10237,6 +10342,24 @@
         "prefix": "l1-iotanalytics-pipeline",
         "scope": "javascript,typescript"
     },
+    "iotcoredeviceadvisor.CfnSuiteDefinition": {
+        "body": [
+            "new iotcoredeviceadvisor.CfnSuiteDefinition(this, \"${1:id}\", {",
+            "  suiteDefinitionConfiguration: ${2:JSON}, // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotcoredeviceadvisor.CfnSuiteDefinition",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotcoredeviceadvisor.CfnSuiteDefinition",
+            "Attributes: ",
+            "  attrSuiteDefinitionId",
+            "  attrSuiteDefinitionArn",
+            "  attrSuiteDefinitionVersion"
+        ],
+        "prefix": "l1-iotcoredeviceadvisor-suitedefinition",
+        "scope": "javascript,typescript"
+    },
     "iotevents.CfnDetectorModel": {
         "body": [
             "new iotevents.CfnDetectorModel(this, \"${1:id}\", {",
@@ -11215,14 +11338,13 @@
             "  maximumRecordAgeInSeconds: ${10:Number},",
             "  maximumRetryAttempts: ${11:Number},",
             "  parallelizationFactor: ${12:Number},",
-            "  partialBatchResponse: ${13|false,true|},",
             "  queues: [],",
             "  selfManagedEventSource: {",
             "  },",
             "  sourceAccessConfigurations: [],",
-            "  startingPosition: \"${17:string}\",",
+            "  startingPosition: \"${16:string}\",",
             "  topics: [],",
-            "  tumblingWindowInSeconds: ${19:Number},",
+            "  tumblingWindowInSeconds: ${18:Number},",
             "})"
         ],
         "description": [
@@ -11290,15 +11412,16 @@
     "lambda.CfnLayerVersion": {
         "body": [
             "new lambda.CfnLayerVersion(this, \"${1:id}\", {",
+            "  compatibleArchitectures: [],",
             "  compatibleRuntimes: [],",
             "  content: {",
-            "    s3Bucket: \"${3:string}\",",
-            "    s3Key: \"${4:string}\",",
-            "    s3ObjectVersion: \"${5:string}\",",
+            "    s3Bucket: \"${4:string}\",",
+            "    s3Key: \"${5:string}\",",
+            "    s3ObjectVersion: \"${6:string}\",",
             "  },",
-            "  description: \"${4:string}\",",
-            "  layerName: \"${5:string}\",",
-            "  licenseInfo: \"${6:string}\",",
+            "  description: \"${5:string}\",",
+            "  layerName: \"${6:string}\",",
+            "  licenseInfo: \"${7:string}\",",
             "})"
         ],
         "description": [
@@ -12016,7 +12139,13 @@
         "body": [
             "new mediapackage.CfnChannel(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
-            "  id: \"${3:string}\", // Required",
+            "  egressAccessLogs: {",
+            "    logGroupName: \"${3:string}\",",
+            "  },",
+            "  id: \"${4:string}\", // Required",
+            "  ingressAccessLogs: {",
+            "    logGroupName: \"${5:string}\",",
+            "  },",
             "  tags: [],",
             "})"
         ],
@@ -12054,6 +12183,8 @@
             "    segmentDurationSeconds: ${14:Number},",
             "    segmentTemplateFormat: \"${15:string}\",",
             "    suggestedPresentationDelaySeconds: ${17:Number},",
+            "    utcTiming: \"${18:string}\",",
+            "    utcTimingUri: \"${19:string}\",",
             "  },",
             "  description: \"${6:string}\",",
             "  hlsPackage: {",
@@ -12095,13 +12226,15 @@
             "new mediapackage.CfnPackagingConfiguration(this, \"${1:id}\", {",
             "  cmafPackage: {",
             "    hlsManifests: [],",
-            "    segmentDurationSeconds: ${4:Number},",
+            "    includeEncoderConfigurationInSegments: ${4|false,true|},",
+            "    segmentDurationSeconds: ${5:Number},",
             "  },",
             "  dashPackage: {",
             "    dashManifests: [],",
+            "    includeEncoderConfigurationInSegments: ${5|false,true|},",
             "    periodTriggers: [],",
-            "    segmentDurationSeconds: ${6:Number},",
-            "    segmentTemplateFormat: \"${7:string}\",",
+            "    segmentDurationSeconds: ${7:Number},",
+            "    segmentTemplateFormat: \"${8:string}\",",
             "  },",
             "  hlsPackage: {",
             "    hlsManifests: [],",
@@ -12133,7 +12266,10 @@
             "    cdnIdentifierSecret: \"${2:string}\",",
             "    secretsRoleArn: \"${3:string}\",",
             "  },",
-            "  id: \"${3:string}\", // Required",
+            "  egressAccessLogs: {",
+            "    logGroupName: \"${3:string}\",",
+            "  },",
+            "  id: \"${4:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -16313,20 +16449,21 @@
             "  applyOnlyAtCronInterval: ${2|false,true|},",
             "  associationName: \"${3:string}\",",
             "  automationTargetParameterName: \"${4:string}\",",
-            "  complianceSeverity: \"${5:string}\",",
-            "  documentVersion: \"${6:string}\",",
-            "  instanceId: \"${7:string}\",",
-            "  maxConcurrency: \"${8:string}\",",
-            "  maxErrors: \"${9:string}\",",
-            "  name: \"${10:string}\", // Required",
+            "  calendarNames: [],",
+            "  complianceSeverity: \"${6:string}\",",
+            "  documentVersion: \"${7:string}\",",
+            "  instanceId: \"${8:string}\",",
+            "  maxConcurrency: \"${9:string}\",",
+            "  maxErrors: \"${10:string}\",",
+            "  name: \"${11:string}\", // Required",
             "  outputLocation: {",
             "  },",
             "  parameters: {",
             "  },",
-            "  scheduleExpression: \"${13:string}\",",
-            "  syncCompliance: \"${14:string}\",",
+            "  scheduleExpression: \"${14:string}\",",
+            "  syncCompliance: \"${15:string}\",",
             "  targets: [],",
-            "  waitForSuccessTimeoutSeconds: ${16:Number},",
+            "  waitForSuccessTimeoutSeconds: ${17:Number},",
             "})"
         ],
         "description": [
@@ -16514,6 +16651,88 @@
             "  attrSyncName"
         ],
         "prefix": "l1-ssm-resourcedatasync",
+        "scope": "javascript,typescript"
+    },
+    "ssmcontacts.CfnContact": {
+        "body": [
+            "new ssmcontacts.CfnContact(this, \"${1:id}\", {",
+            "  alias: \"${2:string}\", // Required",
+            "  displayName: \"${3:string}\", // Required",
+            "  plan: [], // Required",
+            "  type: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: ssmcontacts.CfnContact",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssmcontacts.CfnContact",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-ssmcontacts-contact",
+        "scope": "javascript,typescript"
+    },
+    "ssmcontacts.CfnContactChannel": {
+        "body": [
+            "new ssmcontacts.CfnContactChannel(this, \"${1:id}\", {",
+            "  channelAddress: \"${2:string}\", // Required",
+            "  channelName: \"${3:string}\", // Required",
+            "  channelType: \"${4:string}\", // Required",
+            "  contactId: \"${5:string}\", // Required",
+            "  deferActivation: ${6|false,true|},",
+            "})"
+        ],
+        "description": [
+            "Construct: ssmcontacts.CfnContactChannel",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssmcontacts.CfnContactChannel",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-ssmcontacts-contactchannel",
+        "scope": "javascript,typescript"
+    },
+    "ssmincidents.CfnReplicationSet": {
+        "body": [
+            "new ssmincidents.CfnReplicationSet(this, \"${1:id}\", {",
+            "  deletionProtected: ${2|false,true|},",
+            "  regions: [], // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: ssmincidents.CfnReplicationSet",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssmincidents.CfnReplicationSet",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-ssmincidents-replicationset",
+        "scope": "javascript,typescript"
+    },
+    "ssmincidents.CfnResponsePlan": {
+        "body": [
+            "new ssmincidents.CfnResponsePlan(this, \"${1:id}\", {",
+            "  actions: [],",
+            "  chatChannel: {",
+            "    chatbotSns: [],",
+            "  },",
+            "  displayName: \"${4:string}\",",
+            "  engagements: [],",
+            "  incidentTemplate: {",
+            "    dedupeString: \"${6:string}\",",
+            "    impact: ${7:Number},",
+            "    notificationTargets: [],",
+            "    summary: \"${9:string}\",",
+            "    title: \"${10:string}\",",
+            "  },",
+            "  name: \"${7:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ssmincidents.CfnResponsePlan",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssmincidents.CfnResponsePlan",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-ssmincidents-responseplan",
         "scope": "javascript,typescript"
     },
     "sso.CfnAssignment": {
