@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.5.0 (2021-06-11)
+------------------
+- The following resource was updated: AWS::EC2::NatGateway. [Github
+  Actions]
+
+
 1.4.0 (2021-05-28)
 ------------------
 - The following resources were updated: AWS::MediaPackage::Channel,
