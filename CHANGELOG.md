@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.6.0 (2021-06-18)
+------------------
+- The following resources were updated: AWS::AppMesh::VirtualNode,
+  AWS::AppMesh::GatewayRoute, and AWS::AppMesh::Route. [Github Actions]
+
+
 1.5.0 (2021-06-11)
 ------------------
 - The following resource was updated: AWS::EC2::NatGateway. [Github
