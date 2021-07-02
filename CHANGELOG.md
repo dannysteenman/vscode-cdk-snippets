@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.8.0 (2021-07-02)
+------------------
+- The following resource was updated: AWS::FSx::FileSystem. [Github
+  Actions]
+
+
 1.7.0 (2021-06-25)
 ------------------
 - The following resources were added:
