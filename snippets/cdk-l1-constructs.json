@@ -325,14 +325,14 @@
             "Construct: amplify.CfnDomain",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-amplify.CfnDomain",
             "Attributes: ",
-            "  attrAutoSubDomainIAMRole",
-            "  attrDomainName",
-            "  attrStatusReason",
-            "  attrEnableAutoSubDomain",
             "  attrArn",
-            "  attrDomainStatus",
             "  attrAutoSubDomainCreationPatterns",
-            "  attrCertificateRecord"
+            "  attrAutoSubDomainIAMRole",
+            "  attrCertificateRecord",
+            "  attrDomainName",
+            "  attrDomainStatus",
+            "  attrEnableAutoSubDomain",
+            "  attrStatusReason"
         ],
         "prefix": "l1-amplify-domain",
         "scope": "javascript,typescript"
@@ -2443,11 +2443,15 @@
             "    mode: \"${2:string}\",",
             "  },",
             "  clusteringKeyColumns: [],",
-            "  keyspaceName: \"${4:string}\", // Required",
+            "  encryptionSpecification: {",
+            "    encryptionType: \"${4:string}\",",
+            "    kmsKeyIdentifier: \"${5:string}\",",
+            "  },",
+            "  keyspaceName: \"${5:string}\", // Required",
             "  partitionKeyColumns: [], // Required",
-            "  pointInTimeRecoveryEnabled: ${6|false,true|},",
+            "  pointInTimeRecoveryEnabled: ${7|false,true|},",
             "  regularColumns: [],",
-            "  tableName: \"${8:string}\",",
+            "  tableName: \"${9:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -6222,14 +6226,17 @@
         "body": [
             "new ec2.CfnTransitGateway(this, \"${1:id}\", {",
             "  amazonSideAsn: ${2:Number},",
-            "  autoAcceptSharedAttachments: \"${3:string}\",",
-            "  defaultRouteTableAssociation: \"${4:string}\",",
-            "  defaultRouteTablePropagation: \"${5:string}\",",
-            "  description: \"${6:string}\",",
-            "  dnsSupport: \"${7:string}\",",
-            "  multicastSupport: \"${8:string}\",",
+            "  associationDefaultRouteTableId: \"${3:string}\",",
+            "  autoAcceptSharedAttachments: \"${4:string}\",",
+            "  defaultRouteTableAssociation: \"${5:string}\",",
+            "  defaultRouteTablePropagation: \"${6:string}\",",
+            "  description: \"${7:string}\",",
+            "  dnsSupport: \"${8:string}\",",
+            "  multicastSupport: \"${9:string}\",",
+            "  propagationDefaultRouteTableId: \"${10:string}\",",
             "  tags: [],",
-            "  vpnEcmpSupport: \"${10:string}\",",
+            "  transitGatewayCidrBlocks: [],",
+            "  vpnEcmpSupport: \"${13:string}\",",
             "})"
         ],
         "description": [
@@ -6473,7 +6480,9 @@
             "new ec2.CfnVPCCidrBlock(this, \"${1:id}\", {",
             "  amazonProvidedIpv6CidrBlock: ${2|false,true|},",
             "  cidrBlock: \"${3:string}\",",
-            "  vpcId: \"${4:string}\", // Required",
+            "  ipv6CidrBlock: \"${4:string}\",",
+            "  ipv6Pool: \"${5:string}\",",
+            "  vpcId: \"${6:string}\", // Required",
             "})"
         ],
         "description": [
@@ -8721,16 +8730,19 @@
             "  databaseName: \"${5:string}\",",
             "  description: \"${6:string}\",",
             "  name: \"${7:string}\",",
-            "  role: \"${8:string}\", // Required",
+            "  recrawlPolicy: {",
+            "    recrawlBehavior: \"${8:string}\",",
+            "  },",
+            "  role: \"${9:string}\", // Required",
             "  schedule: {",
-            "    scheduleExpression: \"${9:string}\",",
+            "    scheduleExpression: \"${10:string}\",",
             "  },",
             "  schemaChangePolicy: {",
-            "    deleteBehavior: \"${10:string}\",",
-            "    updateBehavior: \"${11:string}\",",
+            "    deleteBehavior: \"${11:string}\",",
+            "    updateBehavior: \"${12:string}\",",
             "  },",
-            "  tablePrefix: \"${11:string}\",",
-            "  tags: ${12:JSON},",
+            "  tablePrefix: \"${12:string}\",",
+            "  tags: ${13:JSON},",
             "  targets: {",
             "    catalogTargets: [],",
             "    dynamoDBTargets: [],",
@@ -8766,10 +8778,11 @@
             "new glue.CfnDatabase(this, \"${1:id}\", {",
             "  catalogId: \"${2:string}\", // Required",
             "  databaseInput: {",
-            "    description: \"${3:string}\",",
-            "    locationUri: \"${4:string}\",",
-            "    name: \"${5:string}\",",
-            "    parameters: ${6:JSON},",
+            "    createTableDefaultPermissions: [],",
+            "    description: \"${4:string}\",",
+            "    locationUri: \"${5:string}\",",
+            "    name: \"${6:string}\",",
+            "    parameters: ${7:JSON},",
             "  },",
             "})"
         ],
@@ -9938,15 +9951,18 @@
     "imagebuilder.CfnImageRecipe": {
         "body": [
             "new imagebuilder.CfnImageRecipe(this, \"${1:id}\", {",
+            "  additionalInstanceConfiguration: {",
+            "    userDataOverride: \"${3:string}\",",
+            "  },",
             "  blockDeviceMappings: [],",
             "  components: [], // Required",
-            "  description: \"${4:string}\",",
-            "  name: \"${5:string}\", // Required",
-            "  parentImage: \"${6:string}\", // Required",
+            "  description: \"${5:string}\",",
+            "  name: \"${6:string}\", // Required",
+            "  parentImage: \"${7:string}\", // Required",
             "  tags: {",
             "  },",
-            "  version: \"${8:string}\", // Required",
-            "  workingDirectory: \"${9:string}\",",
+            "  version: \"${9:string}\", // Required",
+            "  workingDirectory: \"${10:string}\",",
             "})"
         ],
         "description": [
@@ -11926,6 +11942,20 @@
         "prefix": "l1-logs-querydefinition",
         "scope": "javascript,typescript"
     },
+    "logs.CfnResourcePolicy": {
+        "body": [
+            "new logs.CfnResourcePolicy(this, \"${1:id}\", {",
+            "  policyDocument: \"${2:string}\", // Required",
+            "  policyName: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: logs.CfnResourcePolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnResourcePolicy"
+        ],
+        "prefix": "l1-logs-resourcepolicy",
+        "scope": "javascript,typescript"
+    },
     "logs.CfnSubscriptionFilter": {
         "body": [
             "new logs.CfnSubscriptionFilter(this, \"${1:id}\", {",
@@ -11942,10 +11972,34 @@
         "prefix": "l1-logs-subscriptionfilter",
         "scope": "javascript,typescript"
     },
+    "lookoutequipment.CfnInferenceScheduler": {
+        "body": [
+            "new lookoutequipment.CfnInferenceScheduler(this, \"${1:id}\", {",
+            "  dataDelayOffsetInMinutes: ${2:Number},",
+            "  dataInputConfiguration: ${3:JSON}, // Required",
+            "  dataOutputConfiguration: ${4:JSON}, // Required",
+            "  dataUploadFrequency: \"${5:string}\", // Required",
+            "  inferenceSchedulerName: \"${6:string}\",",
+            "  modelName: \"${7:string}\", // Required",
+            "  roleArn: \"${8:string}\", // Required",
+            "  serverSideKmsKeyId: \"${9:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: lookoutequipment.CfnInferenceScheduler",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lookoutequipment.CfnInferenceScheduler",
+            "Attributes: ",
+            "  attrInferenceSchedulerArn"
+        ],
+        "prefix": "l1-lookoutequipment-inferencescheduler",
+        "scope": "javascript,typescript"
+    },
     "lookoutmetrics.CfnAlert": {
         "body": [
             "new lookoutmetrics.CfnAlert(this, \"${1:id}\", {",
-            "  action: ${2:JSON}, // Required",
+            "  action: {",
+            "  },",
             "  alertDescription: \"${3:string}\",",
             "  alertName: \"${4:string}\",",
             "  alertSensitivityThreshold: ${5:Number}, // Required",
@@ -11964,7 +12018,9 @@
     "lookoutmetrics.CfnAnomalyDetector": {
         "body": [
             "new lookoutmetrics.CfnAnomalyDetector(this, \"${1:id}\", {",
-            "  anomalyDetectorConfig: ${2:JSON}, // Required",
+            "  anomalyDetectorConfig: {",
+            "    anomalyDetectorFrequency: \"${2:string}\",",
+            "  },",
             "  anomalyDetectorDescription: \"${3:string}\",",
             "  anomalyDetectorName: \"${4:string}\",",
             "  kmsKeyArn: \"${5:string}\",",
@@ -14019,8 +14075,9 @@
             "  },",
             "  rowLevelPermissionDataSet: {",
             "    arn: \"${13:string}\",",
-            "    namespace: \"${14:string}\",",
-            "    permissionPolicy: \"${15:string}\",",
+            "    formatVersion: \"${14:string}\",",
+            "    namespace: \"${15:string}\",",
+            "    permissionPolicy: \"${16:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -15058,8 +15115,8 @@
         "body": [
             "new s3.CfnAccessPoint(this, \"${1:id}\", {",
             "  bucket: \"${2:string}\", // Required",
-            "  name: \"${3:string}\",",
-            "  policy: ${4:JSON},",
+            "  policy: ${3:JSON},",
+            "  policyStatus: ${4:JSON},",
             "  publicAccessBlockConfiguration: {",
             "    blockPublicAcls: ${5|false,true|},",
             "    blockPublicPolicy: ${6|false,true|},",
@@ -15075,7 +15132,9 @@
             "Construct: s3.CfnAccessPoint",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.CfnAccessPoint",
             "Attributes: ",
-            "  attrNetworkOrigin"
+            "  attrName",
+            "  attrNetworkOrigin",
+            "  attrArn"
         ],
         "prefix": "l1-s3-accesspoint",
         "scope": "javascript,typescript"
