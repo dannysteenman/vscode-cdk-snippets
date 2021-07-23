@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.10.0 (2021-07-23)
+-------------------
+- The following resources were added:
+  AWS::LookoutEquipment::InferenceScheduler. [Github Actions]
+
+
 1.9.0 (2021-07-16)
 ------------------
 - The following resource was updated:
