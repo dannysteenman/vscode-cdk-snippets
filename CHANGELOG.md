@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.12.0 (2021-08-06)
+-------------------
+- The following resource was updated: AWS::AppSync::GraphQLApi. [Github
+  Actions]
+
+
 1.11.0 (2021-07-30)
 -------------------
 - The following resource was updated: AWS::DataBrew::Job. [Github
