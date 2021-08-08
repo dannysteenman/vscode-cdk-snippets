@@ -9,7 +9,7 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 ## Features
 
 1. Supports all resources that are defined by CloudFormation in the form of L1 constructs in CDK
-2. Triggers autocomplete by invoking 'l1-<cloudformation-resource>`
+2. Triggers autocomplete by invoking `l1-<cloudformation-resource>`
 3. The construct snippets are automatically updated every week after AWS updates their [CloudFormation Resource Specification.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html)
 4. Has builtin support for placeholders. This means you can quickly jump from property to property in each resource by using `Tab`
 5. The extension will show which property is required by adding a ```// required``` comment next to it.
