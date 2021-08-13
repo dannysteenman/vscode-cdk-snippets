@@ -2,6 +2,18 @@ Changelog
 =========
 
 
+1.13.0 (2021-08-13)
+-------------------
+- The following resource was updated: AWS::WAFv2::WebACL. [Github
+  Actions]
+- Merge pull request #2 from rhvdpols/patch-1. [Danny]
+
+  Small fix in readme
+- Small fix in readme. [ron]
+
+  Autocomplete command should render correctly in markdown now
+
+
 1.12.0 (2021-08-06)
 -------------------
 - The following resource was updated: AWS::AppSync::GraphQLApi. [Github
