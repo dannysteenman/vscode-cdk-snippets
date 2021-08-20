@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.14.0 (2021-08-20)
+-------------------
+- The following resource was updated: AWS::Elasticsearch::Domain.
+  [Github Actions]
+
+
 1.13.0 (2021-08-13)
 -------------------
 - The following resource was updated: AWS::WAFv2::WebACL. [Github
