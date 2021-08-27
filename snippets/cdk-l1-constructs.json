@@ -2543,6 +2543,7 @@
             "  name: \"${3:string}\", // Required",
             "  ruleVersion: \"${4:string}\", // Required",
             "  rules: \"${5:string}\", // Required",
+            "  splitChargeRules: \"${6:string}\",",
             "})"
         ],
         "description": [
