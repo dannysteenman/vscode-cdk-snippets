@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.15.0 (2021-08-27)
+-------------------
+- The following resource was updated: AWS::CodeBuild::Project. [Github
+  Actions]
+
+
 1.14.0 (2021-08-20)
 -------------------
 - The following resource was updated: AWS::Elasticsearch::Domain.
