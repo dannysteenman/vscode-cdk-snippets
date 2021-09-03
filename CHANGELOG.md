@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.16.0 (2021-09-03)
+-------------------
+- The following resource was updated: AWS::Transfer::Server. [Github
+  Actions]
+
+
 1.15.0 (2021-08-27)
 -------------------
 - The following resource was updated: AWS::CodeBuild::Project. [Github
