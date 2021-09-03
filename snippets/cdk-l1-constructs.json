@@ -345,7 +345,9 @@
         ],
         "description": [
             "Construct: apigateway.CfnAccount",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnAccount"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnAccount",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-apigateway-account",
         "scope": "javascript,typescript"
@@ -732,7 +734,9 @@
         ],
         "description": [
             "Construct: apigateway.CfnUsagePlan",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnUsagePlan"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnUsagePlan",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-apigateway-usageplan",
         "scope": "javascript,typescript"
@@ -3102,14 +3106,16 @@
             "  enableLogFileValidation: ${4|false,true|},",
             "  eventSelectors: [],",
             "  includeGlobalServiceEvents: ${6|false,true|},",
-            "  isLogging: ${7|false,true|}, // Required",
-            "  isMultiRegionTrail: ${8|false,true|},",
-            "  kMSKeyId: \"${9:string}\",",
-            "  s3BucketName: \"${10:string}\", // Required",
-            "  s3KeyPrefix: \"${11:string}\",",
-            "  snsTopicName: \"${12:string}\",",
+            "  insightSelectors: [],",
+            "  isLogging: ${8|false,true|}, // Required",
+            "  isMultiRegionTrail: ${9|false,true|},",
+            "  isOrganizationTrail: ${10|false,true|},",
+            "  kMSKeyId: \"${11:string}\",",
+            "  s3BucketName: \"${12:string}\", // Required",
+            "  s3KeyPrefix: \"${13:string}\",",
+            "  snsTopicName: \"${14:string}\",",
             "  tags: [],",
-            "  trailName: \"${14:string}\",",
+            "  trailName: \"${16:string}\",",
             "})"
         ],
         "description": [
@@ -3705,7 +3711,9 @@
         ],
         "description": [
             "Construct: codestarnotifications.CfnNotificationRule",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-codestarnotifications.CfnNotificationRule"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-codestarnotifications.CfnNotificationRule",
+            "Attributes: ",
+            "  attrArn"
         ],
         "prefix": "l1-codestarnotifications-notificationrule",
         "scope": "javascript,typescript"
@@ -4661,27 +4669,28 @@
             "  cloudWatchLogGroupArn: \"${2:string}\",",
             "  destinationLocationArn: \"${3:string}\", // Required",
             "  excludes: [],",
-            "  name: \"${5:string}\",",
+            "  includes: [],",
+            "  name: \"${6:string}\",",
             "  options: {",
-            "    atime: \"${6:string}\",",
-            "    bytesPerSecond: ${7:Number},",
-            "    gid: \"${8:string}\",",
-            "    logLevel: \"${9:string}\",",
-            "    mtime: \"${10:string}\",",
-            "    overwriteMode: \"${11:string}\",",
-            "    posixPermissions: \"${12:string}\",",
-            "    preserveDeletedFiles: \"${13:string}\",",
-            "    preserveDevices: \"${14:string}\",",
-            "    securityDescriptorCopyFlags: \"${15:string}\",",
-            "    taskQueueing: \"${16:string}\",",
-            "    transferMode: \"${17:string}\",",
-            "    uid: \"${18:string}\",",
-            "    verifyMode: \"${19:string}\",",
+            "    atime: \"${7:string}\",",
+            "    bytesPerSecond: ${8:Number},",
+            "    gid: \"${9:string}\",",
+            "    logLevel: \"${10:string}\",",
+            "    mtime: \"${11:string}\",",
+            "    overwriteMode: \"${12:string}\",",
+            "    posixPermissions: \"${13:string}\",",
+            "    preserveDeletedFiles: \"${14:string}\",",
+            "    preserveDevices: \"${15:string}\",",
+            "    securityDescriptorCopyFlags: \"${16:string}\",",
+            "    taskQueueing: \"${17:string}\",",
+            "    transferMode: \"${18:string}\",",
+            "    uid: \"${19:string}\",",
+            "    verifyMode: \"${20:string}\",",
             "  },",
             "  schedule: {",
-            "    scheduleExpression: \"${7:string}\",",
+            "    scheduleExpression: \"${8:string}\",",
             "  },",
-            "  sourceLocationArn: \"${8:string}\", // Required",
+            "  sourceLocationArn: \"${9:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -7648,20 +7657,21 @@
             "  healthCheckProtocol: \"${6:string}\",",
             "  healthCheckTimeoutSeconds: ${7:Number},",
             "  healthyThresholdCount: ${8:Number},",
+            "  ipAddressType: \"${9:string}\",",
             "  matcher: {",
-            "    grpcCode: \"${9:string}\",",
-            "    httpCode: \"${10:string}\",",
+            "    grpcCode: \"${10:string}\",",
+            "    httpCode: \"${11:string}\",",
             "  },",
-            "  name: \"${10:string}\",",
-            "  port: ${11:Number},",
-            "  protocol: \"${12:string}\",",
-            "  protocolVersion: \"${13:string}\",",
+            "  name: \"${11:string}\",",
+            "  port: ${12:Number},",
+            "  protocol: \"${13:string}\",",
+            "  protocolVersion: \"${14:string}\",",
             "  tags: [],",
             "  targetGroupAttributes: [],",
-            "  targetType: \"${16:string}\",",
+            "  targetType: \"${17:string}\",",
             "  targets: [],",
-            "  unhealthyThresholdCount: ${18:Number},",
-            "  vpcId: \"${19:string}\",",
+            "  unhealthyThresholdCount: ${19:Number},",
+            "  vpcId: \"${20:string}\",",
             "})"
         ],
         "description": [
@@ -8072,8 +8082,9 @@
     "eventschemas.CfnDiscoverer": {
         "body": [
             "new eventschemas.CfnDiscoverer(this, \"${1:id}\", {",
-            "  description: \"${2:string}\",",
-            "  sourceArn: \"${3:string}\", // Required",
+            "  crossAccount: ${2|false,true|},",
+            "  description: \"${3:string}\",",
+            "  sourceArn: \"${4:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -8082,7 +8093,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-eventschemas.CfnDiscoverer",
             "Attributes: ",
             "  attrDiscovererArn",
-            "  attrDiscovererId"
+            "  attrDiscovererId",
+            "  attrCrossAccount"
         ],
         "prefix": "l1-eventschemas-discoverer",
         "scope": "javascript,typescript"
@@ -10223,6 +10235,36 @@
         "prefix": "l1-iot-domainconfiguration",
         "scope": "javascript,typescript"
     },
+    "iot.CfnFleetMetric": {
+        "body": [
+            "new iot.CfnFleetMetric(this, \"${1:id}\", {",
+            "  aggregationField: \"${2:string}\",",
+            "  aggregationType: {",
+            "    name: \"${3:string}\",",
+            "    values: [],",
+            "  },",
+            "  description: \"${4:string}\",",
+            "  indexName: \"${5:string}\",",
+            "  metricName: \"${6:string}\", // Required",
+            "  period: ${7:Number},",
+            "  queryString: \"${8:string}\",",
+            "  queryVersion: \"${9:string}\",",
+            "  tags: [],",
+            "  unit: \"${11:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: iot.CfnFleetMetric",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnFleetMetric",
+            "Attributes: ",
+            "  attrMetricArn",
+            "  attrCreationDate",
+            "  attrLastModifiedDate",
+            "  attrVersion"
+        ],
+        "prefix": "l1-iot-fleetmetric",
+        "scope": "javascript,typescript"
+    },
     "iot.CfnMitigationAction": {
         "body": [
             "new iot.CfnMitigationAction(this, \"${1:id}\", {",
@@ -11350,10 +11392,10 @@
             "  extendedS3DestinationConfiguration: {",
             "    bucketARN: \"${6:string}\",",
             "    compressionFormat: \"${9:string}\",",
-            "    errorOutputPrefix: \"${12:string}\",",
-            "    prefix: \"${13:string}\",",
-            "    roleARN: \"${15:string}\",",
-            "    s3BackupMode: \"${17:string}\",",
+            "    errorOutputPrefix: \"${13:string}\",",
+            "    prefix: \"${14:string}\",",
+            "    roleARN: \"${16:string}\",",
+            "    s3BackupMode: \"${18:string}\",",
             "  },",
             "  httpEndpointDestinationConfiguration: {",
             "    roleARN: \"${13:string}\",",
@@ -11797,6 +11839,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-location.CfnGeofenceCollection",
             "Attributes: ",
             "  attrCollectionArn",
+            "  attrArn",
             "  attrCreateTime",
             "  attrUpdateTime"
         ],
@@ -11865,6 +11908,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-location.CfnRouteCalculator",
             "Attributes: ",
             "  attrCalculatorArn",
+            "  attrArn",
             "  attrCreateTime",
             "  attrUpdateTime"
         ],
@@ -11887,6 +11931,7 @@
             "Attributes: ",
             "  attrCreateTime",
             "  attrTrackerArn",
+            "  attrArn",
             "  attrUpdateTime"
         ],
         "prefix": "l1-location-tracker",
@@ -12112,9 +12157,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-macie.CfnCustomDataIdentifier",
             "Attributes: ",
             "  attrId",
-            "  attrArn",
-            "  attrCreatedAt",
-            "  attrDeleted"
+            "  attrArn"
         ],
         "prefix": "l1-macie-customdataidentifier",
         "scope": "javascript,typescript"
@@ -14602,42 +14645,41 @@
             "  deferMaintenance: ${16|false,true|},",
             "  deferMaintenanceDuration: ${17:Number},",
             "  deferMaintenanceEndTime: \"${18:string}\",",
-            "  deferMaintenanceIdentifier: \"${19:string}\",",
-            "  deferMaintenanceStartTime: \"${20:string}\",",
-            "  destinationRegion: \"${21:string}\",",
-            "  elasticIp: \"${22:string}\",",
-            "  encrypted: ${23|false,true|},",
+            "  deferMaintenanceStartTime: \"${19:string}\",",
+            "  destinationRegion: \"${20:string}\",",
+            "  elasticIp: \"${21:string}\",",
+            "  encrypted: ${22|false,true|},",
             "  endpoint: {",
-            "    address: \"${24:string}\",",
-            "    port: \"${25:string}\",",
+            "    address: \"${23:string}\",",
+            "    port: \"${24:string}\",",
             "  },",
-            "  enhancedVpcRouting: ${25|false,true|},",
-            "  hsmClientCertificateIdentifier: \"${26:string}\",",
-            "  hsmConfigurationIdentifier: \"${27:string}\",",
+            "  enhancedVpcRouting: ${24|false,true|},",
+            "  hsmClientCertificateIdentifier: \"${25:string}\",",
+            "  hsmConfigurationIdentifier: \"${26:string}\",",
             "  iamRoles: [],",
-            "  kmsKeyId: \"${29:string}\",",
+            "  kmsKeyId: \"${28:string}\",",
             "  loggingProperties: {",
-            "    bucketName: \"${30:string}\",",
-            "    s3KeyPrefix: \"${31:string}\",",
+            "    bucketName: \"${29:string}\",",
+            "    s3KeyPrefix: \"${30:string}\",",
             "  },",
-            "  maintenanceTrackName: \"${31:string}\",",
-            "  manualSnapshotRetentionPeriod: ${32:Number},",
-            "  masterUserPassword: \"${33:string}\", // Required",
-            "  masterUsername: \"${34:string}\", // Required",
-            "  nodeType: \"${35:string}\", // Required",
-            "  numberOfNodes: ${36:Number},",
-            "  ownerAccount: \"${37:string}\",",
-            "  port: ${38:Number},",
-            "  preferredMaintenanceWindow: \"${39:string}\",",
-            "  publiclyAccessible: ${40|false,true|},",
-            "  resourceAction: \"${41:string}\",",
-            "  revisionTarget: \"${42:string}\",",
-            "  rotateEncryptionKey: ${43|false,true|},",
-            "  snapshotClusterIdentifier: \"${44:string}\",",
-            "  snapshotCopyGrantName: \"${45:string}\",",
-            "  snapshotCopyManual: ${46|false,true|},",
-            "  snapshotCopyRetentionPeriod: ${47:Number},",
-            "  snapshotIdentifier: \"${48:string}\",",
+            "  maintenanceTrackName: \"${30:string}\",",
+            "  manualSnapshotRetentionPeriod: ${31:Number},",
+            "  masterUserPassword: \"${32:string}\", // Required",
+            "  masterUsername: \"${33:string}\", // Required",
+            "  nodeType: \"${34:string}\", // Required",
+            "  numberOfNodes: ${35:Number},",
+            "  ownerAccount: \"${36:string}\",",
+            "  port: ${37:Number},",
+            "  preferredMaintenanceWindow: \"${38:string}\",",
+            "  publiclyAccessible: ${39|false,true|},",
+            "  resourceAction: \"${40:string}\",",
+            "  revisionTarget: \"${41:string}\",",
+            "  rotateEncryptionKey: ${42|false,true|},",
+            "  snapshotClusterIdentifier: \"${43:string}\",",
+            "  snapshotCopyGrantName: \"${44:string}\",",
+            "  snapshotCopyManual: ${45|false,true|},",
+            "  snapshotCopyRetentionPeriod: ${46:Number},",
+            "  snapshotIdentifier: \"${47:string}\",",
             "  tags: [],",
             "  vpcSecurityGroupIds: [],",
             "})"
@@ -14648,7 +14690,8 @@
             "Attributes: ",
             "  attrId",
             "  attrEndpoint.Port",
-            "  attrEndpoint.Address"
+            "  attrEndpoint.Address",
+            "  attrDeferMaintenanceIdentifier"
         ],
         "prefix": "l1-redshift-cluster",
         "scope": "javascript,typescript"
@@ -14740,7 +14783,8 @@
         "body": [
             "new robomaker.CfnFleet(this, \"${1:id}\", {",
             "  name: \"${2:string}\",",
-            "  tags: ${3:JSON},",
+            "  tags: {",
+            "  },",
             "})"
         ],
         "description": [
@@ -14759,12 +14803,15 @@
             "  fleet: \"${3:string}\",",
             "  greengrassGroupId: \"${4:string}\", // Required",
             "  name: \"${5:string}\",",
-            "  tags: ${6:JSON},",
+            "  tags: {",
+            "  },",
             "})"
         ],
         "description": [
             "Construct: robomaker.CfnRobot",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-robomaker.CfnRobot"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-robomaker.CfnRobot",
+            "Attributes: ",
+            "  attrArn"
         ],
         "prefix": "l1-robomaker-robot",
         "scope": "javascript,typescript"
@@ -14801,7 +14848,10 @@
         ],
         "description": [
             "Construct: robomaker.CfnRobotApplicationVersion",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-robomaker.CfnRobotApplicationVersion"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-robomaker.CfnRobotApplicationVersion",
+            "Attributes: ",
+            "  attrApplicationVersion",
+            "  attrArn"
         ],
         "prefix": "l1-robomaker-robotapplicationversion",
         "scope": "javascript,typescript"
@@ -14824,15 +14874,16 @@
             "    version: \"${7:string}\",",
             "  },",
             "  sources: [], // Required",
-            "  tags: ${8:JSON},",
+            "  tags: {",
+            "  },",
             "})"
         ],
         "description": [
             "Construct: robomaker.CfnSimulationApplication",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-robomaker.CfnSimulationApplication",
             "Attributes: ",
-            "  attrCurrentRevisionId",
-            "  attrArn"
+            "  attrArn",
+            "  attrCurrentRevisionId"
         ],
         "prefix": "l1-robomaker-simulationapplication",
         "scope": "javascript,typescript"
@@ -14846,7 +14897,10 @@
         ],
         "description": [
             "Construct: robomaker.CfnSimulationApplicationVersion",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-robomaker.CfnSimulationApplicationVersion"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-robomaker.CfnSimulationApplicationVersion",
+            "Attributes: ",
+            "  attrApplicationVersion",
+            "  attrArn"
         ],
         "prefix": "l1-robomaker-simulationapplicationversion",
         "scope": "javascript,typescript"
@@ -15447,6 +15501,43 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.CfnBucketPolicy"
         ],
         "prefix": "l1-s3-bucketpolicy",
+        "scope": "javascript,typescript"
+    },
+    "s3.CfnMultiRegionAccessPoint": {
+        "body": [
+            "new s3.CfnMultiRegionAccessPoint(this, \"${1:id}\", {",
+            "  name: \"${2:string}\",",
+            "  publicAccessBlockConfiguration: {",
+            "    blockPublicAcls: ${3|false,true|},",
+            "    blockPublicPolicy: ${4|false,true|},",
+            "    ignorePublicAcls: ${5|false,true|},",
+            "    restrictPublicBuckets: ${6|false,true|},",
+            "  },",
+            "  regions: [], // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: s3.CfnMultiRegionAccessPoint",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.CfnMultiRegionAccessPoint",
+            "Attributes: ",
+            "  attrAlias",
+            "  attrCreatedAt"
+        ],
+        "prefix": "l1-s3-multiregionaccesspoint",
+        "scope": "javascript,typescript"
+    },
+    "s3.CfnMultiRegionAccessPointPolicy": {
+        "body": [
+            "new s3.CfnMultiRegionAccessPointPolicy(this, \"${1:id}\", {",
+            "  mrapName: \"${2:string}\", // Required",
+            "  policy: ${3:JSON}, // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: s3.CfnMultiRegionAccessPointPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.CfnMultiRegionAccessPointPolicy"
+        ],
+        "prefix": "l1-s3-multiregionaccesspointpolicy",
         "scope": "javascript,typescript"
     },
     "s3.CfnStorageLens": {
@@ -17562,6 +17653,9 @@
             "  protocols: [],",
             "  securityPolicyName: \"${11:string}\",",
             "  tags: [],",
+            "  workflowDetails: {",
+            "    onUpload: [],",
+            "  },",
             "})"
         ],
         "description": [
