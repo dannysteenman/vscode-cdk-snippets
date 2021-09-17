@@ -6506,6 +6506,27 @@
         "prefix": "l1-ec2-transitgatewayroutetablepropagation",
         "scope": "javascript,typescript"
     },
+    "ec2.CfnTransitGatewayVpcAttachment": {
+        "body": [
+            "new ec2.CfnTransitGatewayVpcAttachment(this, \"${1:id}\", {",
+            "  addSubnetIds: [],",
+            "  options: ${3:JSON},",
+            "  removeSubnetIds: [],",
+            "  subnetIds: [],",
+            "  tags: [],",
+            "  transitGatewayId: \"${7:string}\",",
+            "  vpcId: \"${8:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnTransitGatewayVpcAttachment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnTransitGatewayVpcAttachment",
+            "Attributes: ",
+            "  attrId"
+        ],
+        "prefix": "l1-ec2-transitgatewayvpcattachment",
+        "scope": "javascript,typescript"
+    },
     "ec2.CfnVPC": {
         "body": [
             "new ec2.CfnVPC(this, \"${1:id}\", {",
