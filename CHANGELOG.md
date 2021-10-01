@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.18.0 (2021-10-01)
+-------------------
+- The following resource was updated: AWS::APS::Workspace. [Github
+  Actions]
+
+
 1.17.0 (2021-09-17)
 -------------------
 - The following resource was updated: AWS::CloudTrail::Trail. [Github
