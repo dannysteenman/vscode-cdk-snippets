@@ -42,8 +42,8 @@ Review the [Contributing Guidelines](https://github.com/dannysteenman/vscode-cdk
 
 ## Author
 
-**[Danny Steenman](https://dannys.cloud)**
+**[Danny Steenman](https://towardsthecloud.com)**
 
 <p align="left">
-  <a href="https://dannys.cloud/twitter"><img src="https://img.shields.io/twitter/follow/dannysteenman?label=%40dannysteenman&style=social"></a>
+  <a href="https://twitter.com/dannysteenman"><img src="https://img.shields.io/twitter/follow/dannysteenman?label=%40dannysteenman&style=social"></a>
 </p>
