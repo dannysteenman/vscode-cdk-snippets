@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.19.0 (2021-10-29)
+-------------------
+- The following resource was updated: AWS::EC2::EC2Fleet. [Github
+  Actions]
+- Update my website :) [Danny Steenman]
+
+
 1.18.0 (2021-10-01)
 -------------------
 - The following resource was updated: AWS::APS::Workspace. [Github
