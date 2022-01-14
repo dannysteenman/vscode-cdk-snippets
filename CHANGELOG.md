@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.24.0 (2022-01-14)
+-------------------
+- The following resources were added: AWS::Forecast::Dataset and
+  AWS::Forecast::DatasetGroup. [Github Actions]
+
+
 1.23.0 (2022-01-07)
 -------------------
 - The following property was updated: <code
