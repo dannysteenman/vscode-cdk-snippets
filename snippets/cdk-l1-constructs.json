@@ -2038,14 +2038,15 @@
             "  dataSourceName: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
             "  functionVersion: \"${5:string}\", // Required",
-            "  name: \"${6:string}\", // Required",
-            "  requestMappingTemplate: \"${7:string}\",",
-            "  requestMappingTemplateS3Location: \"${8:string}\",",
-            "  responseMappingTemplate: \"${9:string}\",",
-            "  responseMappingTemplateS3Location: \"${10:string}\",",
+            "  maxBatchSize: ${6:Number},",
+            "  name: \"${7:string}\", // Required",
+            "  requestMappingTemplate: \"${8:string}\",",
+            "  requestMappingTemplateS3Location: \"${9:string}\",",
+            "  responseMappingTemplate: \"${10:string}\",",
+            "  responseMappingTemplateS3Location: \"${11:string}\",",
             "  syncConfig: {",
-            "    conflictDetection: \"${11:string}\",",
-            "    conflictHandler: \"${12:string}\",",
+            "    conflictDetection: \"${12:string}\",",
+            "    conflictHandler: \"${13:string}\",",
             "  },",
             "})"
         ],
@@ -2132,18 +2133,19 @@
             "  dataSourceName: \"${4:string}\",",
             "  fieldName: \"${5:string}\", // Required",
             "  kind: \"${6:string}\",",
+            "  maxBatchSize: ${7:Number},",
             "  pipelineConfig: {",
             "    functions: [],",
             "  },",
-            "  requestMappingTemplate: \"${8:string}\",",
-            "  requestMappingTemplateS3Location: \"${9:string}\",",
-            "  responseMappingTemplate: \"${10:string}\",",
-            "  responseMappingTemplateS3Location: \"${11:string}\",",
+            "  requestMappingTemplate: \"${9:string}\",",
+            "  requestMappingTemplateS3Location: \"${10:string}\",",
+            "  responseMappingTemplate: \"${11:string}\",",
+            "  responseMappingTemplateS3Location: \"${12:string}\",",
             "  syncConfig: {",
-            "    conflictDetection: \"${12:string}\",",
-            "    conflictHandler: \"${13:string}\",",
+            "    conflictDetection: \"${13:string}\",",
+            "    conflictHandler: \"${14:string}\",",
             "  },",
-            "  typeName: \"${13:string}\", // Required",
+            "  typeName: \"${14:string}\", // Required",
             "})"
         ],
         "description": [
@@ -2478,9 +2480,12 @@
         "body": [
             "new autoscaling.CfnWarmPool(this, \"${1:id}\", {",
             "  autoScalingGroupName: \"${2:string}\", // Required",
-            "  maxGroupPreparedCapacity: ${3:Number},",
-            "  minSize: ${4:Number},",
-            "  poolState: \"${5:string}\",",
+            "  instanceReusePolicy: {",
+            "    reuseOnScaleIn: ${3|false,true|},",
+            "  },",
+            "  maxGroupPreparedCapacity: ${4:Number},",
+            "  minSize: ${5:Number},",
+            "  poolState: \"${6:string}\",",
             "})"
         ],
         "description": [
@@ -5978,21 +5983,26 @@
             "    enabled: ${4|false,true|},",
             "    lambdaFunctionArn: \"${5:string}\",",
             "  },",
-            "  connectionLogOptions: {",
-            "    cloudwatchLogGroup: \"${5:string}\",",
-            "    cloudwatchLogStream: \"${6:string}\",",
-            "    enabled: ${7|false,true|},",
+            "  clientLoginBannerOptions: {",
+            "    bannerText: \"${5:string}\",",
+            "    enabled: ${6|false,true|},",
             "  },",
-            "  description: \"${6:string}\",",
+            "  connectionLogOptions: {",
+            "    cloudwatchLogGroup: \"${6:string}\",",
+            "    cloudwatchLogStream: \"${7:string}\",",
+            "    enabled: ${8|false,true|},",
+            "  },",
+            "  description: \"${7:string}\",",
             "  dnsServers: [],",
             "  securityGroupIds: [],",
-            "  selfServicePortal: \"${9:string}\",",
-            "  serverCertificateArn: \"${10:string}\", // Required",
-            "  splitTunnel: ${11|false,true|},",
+            "  selfServicePortal: \"${10:string}\",",
+            "  serverCertificateArn: \"${11:string}\", // Required",
+            "  sessionTimeoutHours: ${12:Number},",
+            "  splitTunnel: ${13|false,true|},",
             "  tagSpecifications: [],",
-            "  transportProtocol: \"${13:string}\",",
-            "  vpcId: \"${14:string}\",",
-            "  vpnPort: ${15:Number},",
+            "  transportProtocol: \"${15:string}\",",
+            "  vpcId: \"${16:string}\",",
+            "  vpnPort: ${17:Number},",
             "})"
         ],
         "description": [
@@ -6234,7 +6244,9 @@
         ],
         "description": [
             "Construct: ec2.CfnHost",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnHost"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnHost",
+            "Attributes: ",
+            "  attrHostId"
         ],
         "prefix": "l1-ec2-host",
         "scope": "javascript,typescript"
@@ -7502,7 +7514,9 @@
         ],
         "description": [
             "Construct: ec2.CfnVPNGatewayRoutePropagation",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPNGatewayRoutePropagation"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPNGatewayRoutePropagation",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ec2-vpngatewayroutepropagation",
         "scope": "javascript,typescript"
@@ -9156,6 +9170,45 @@
         "prefix": "l1-fms-policy",
         "scope": "javascript,typescript"
     },
+    "forecast.CfnDataset": {
+        "body": [
+            "new forecast.CfnDataset(this, \"${1:id}\", {",
+            "  dataFrequency: \"${2:string}\",",
+            "  datasetName: \"${3:string}\", // Required",
+            "  datasetType: \"${4:string}\", // Required",
+            "  domain: \"${5:string}\", // Required",
+            "  encryptionConfig: ${6:JSON},",
+            "  schema: ${7:JSON}, // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: forecast.CfnDataset",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-forecast.CfnDataset",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-forecast-dataset",
+        "scope": "javascript,typescript"
+    },
+    "forecast.CfnDatasetGroup": {
+        "body": [
+            "new forecast.CfnDatasetGroup(this, \"${1:id}\", {",
+            "  datasetArns: [],",
+            "  datasetGroupName: \"${3:string}\", // Required",
+            "  domain: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: forecast.CfnDatasetGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-forecast.CfnDatasetGroup",
+            "Attributes: ",
+            "  attrDatasetGroupArn"
+        ],
+        "prefix": "l1-forecast-datasetgroup",
+        "scope": "javascript,typescript"
+    },
     "frauddetector.CfnDetector": {
         "body": [
             "new frauddetector.CfnDetector(this, \"${1:id}\", {",
@@ -9729,6 +9782,7 @@
             "    catalogTargets: [],",
             "    dynamoDBTargets: [],",
             "    jdbcTargets: [],",
+            "    mongoDBTargets: [],",
             "    s3Targets: [],",
             "  },",
             "})"
@@ -18308,11 +18362,12 @@
     "sagemaker.CfnPipeline": {
         "body": [
             "new sagemaker.CfnPipeline(this, \"${1:id}\", {",
-            "  pipelineDefinition: ${2:JSON}, // Required",
-            "  pipelineDescription: \"${3:string}\",",
-            "  pipelineDisplayName: \"${4:string}\",",
-            "  pipelineName: \"${5:string}\", // Required",
-            "  roleArn: \"${6:string}\", // Required",
+            "  parallelismConfiguration: ${2:JSON},",
+            "  pipelineDefinition: ${3:JSON}, // Required",
+            "  pipelineDescription: \"${4:string}\",",
+            "  pipelineDisplayName: \"${5:string}\",",
+            "  pipelineName: \"${6:string}\", // Required",
+            "  roleArn: \"${7:string}\", // Required",
             "  tags: [],",
             "})"
         ],
