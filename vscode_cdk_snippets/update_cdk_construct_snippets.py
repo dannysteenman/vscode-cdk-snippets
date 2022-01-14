@@ -25,7 +25,7 @@ def check_for_update():
     """
 
     # Load the current hash
-    with open("src/current-json-spec-hash", "r+") as file:
+    with open("vscode_cdk_snippets/current-json-spec-hash", "r+") as file:
         current_hash = file.read()
         # Load the source data and hash it
         new_hash = hashlib.md5(get_resource_spec().content).hexdigest()
@@ -192,8 +192,3 @@ def create_cdk_snippet(response_data):
 
     with open("snippets/cdk-l1-constructs.json", "w") as file:
         file.write(json.dumps(output, sort_keys=True, indent=4))
-
-
-# Run cdk resource updater
-if __name__ == "__main__":
-    check_for_update()
