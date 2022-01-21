@@ -3,7 +3,7 @@
   "displayName": "CDK Construct Snippets",
   "description": "This extension adds L1 construct snippets from CDK into Visual Studio Code.",
   "author": "Danny Steenman",
-  "version": "1.24.0",
+  "version": "1.25.0",
   "publisher": "dsteenman",
   "icon": "images/cdk-extension-icon.png",
   "homepage": "https://towardsthecloud.com",
