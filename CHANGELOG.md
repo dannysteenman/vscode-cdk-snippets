@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.25.0 (2022-01-21)
+-------------------
+- The following resources were updated: AWS::DataBrew::Job. [Github
+  Actions]
+
+
 1.24.0 (2022-01-14)
 -------------------
 - The following resources were added: AWS::Forecast::Dataset and
