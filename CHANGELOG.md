@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.26.0 (2022-01-28)
+-------------------
+- The following resource was updated: AWS::GuardDuty::Detector. [Github
+  Actions]
+
+
 1.25.0 (2022-01-21)
 -------------------
 - The following resources were updated: AWS::DataBrew::Job. [Github
