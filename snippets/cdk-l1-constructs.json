@@ -1322,6 +1322,31 @@
         "prefix": "l1-appflow-flow",
         "scope": "javascript,typescript"
     },
+    "appintegrations.CfnDataIntegration": {
+        "body": [
+            "new appintegrations.CfnDataIntegration(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  kmsKey: \"${3:string}\", // Required",
+            "  name: \"${4:string}\", // Required",
+            "  scheduleConfig: {",
+            "    firstExecutionFrom: \"${5:string}\",",
+            "    object: \"${6:string}\",",
+            "    scheduleExpression: \"${7:string}\",",
+            "  },",
+            "  sourceURI: \"${6:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: appintegrations.CfnDataIntegration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appintegrations.CfnDataIntegration",
+            "Attributes: ",
+            "  attrId",
+            "  attrDataIntegrationArn"
+        ],
+        "prefix": "l1-appintegrations-dataintegration",
+        "scope": "javascript,typescript"
+    },
     "appintegrations.CfnEventIntegration": {
         "body": [
             "new appintegrations.CfnEventIntegration(this, \"${1:id}\", {",
@@ -12304,6 +12329,10 @@
             "  },",
             "  name: \"${3:string}\",",
             "  tags: [],",
+            "  thumbnailConfiguration: {",
+            "    recordingMode: \"${5:string}\",",
+            "    targetIntervalSeconds: ${6:Number},",
+            "  },",
             "})"
         ],
         "description": [
@@ -12331,6 +12360,43 @@
             "  attrValue"
         ],
         "prefix": "l1-ivs-streamkey",
+        "scope": "javascript,typescript"
+    },
+    "kafkaconnect.CfnConnector": {
+        "body": [
+            "new kafkaconnect.CfnConnector(this, \"${1:id}\", {",
+            "  capacity: {",
+            "  },",
+            "  connectorConfiguration: {",
+            "  },",
+            "  connectorDescription: \"${4:string}\",",
+            "  connectorName: \"${5:string}\", // Required",
+            "  kafkaCluster: {",
+            "  },",
+            "  kafkaClusterClientAuthentication: {",
+            "    authenticationType: \"${7:string}\",",
+            "  },",
+            "  kafkaClusterEncryptionInTransit: {",
+            "    encryptionType: \"${8:string}\",",
+            "  },",
+            "  kafkaConnectVersion: \"${9:string}\", // Required",
+            "  logDelivery: {",
+            "  },",
+            "  plugins: [], // Required",
+            "  serviceExecutionRoleArn: \"${12:string}\", // Required",
+            "  workerConfiguration: {",
+            "    revision: ${13:Number},",
+            "    workerConfigurationArn: \"${14:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: kafkaconnect.CfnConnector",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-kafkaconnect.CfnConnector",
+            "Attributes: ",
+            "  attrConnectorArn"
+        ],
+        "prefix": "l1-kafkaconnect-connector",
         "scope": "javascript,typescript"
     },
     "kendra.CfnDataSource": {
@@ -13466,7 +13532,7 @@
             "  collectionName: \"${2:string}\", // Required",
             "  description: \"${3:string}\",",
             "  kmsKeyId: \"${4:string}\",",
-            "  pricingPlan: \"${5:string}\", // Required",
+            "  pricingPlan: \"${5:string}\",",
             "  pricingPlanDataSource: \"${6:string}\",",
             "})"
         ],
@@ -13490,7 +13556,7 @@
             "  },",
             "  description: \"${3:string}\",",
             "  mapName: \"${4:string}\", // Required",
-            "  pricingPlan: \"${5:string}\", // Required",
+            "  pricingPlan: \"${5:string}\",",
             "})"
         ],
         "description": [
@@ -13515,7 +13581,7 @@
             "  },",
             "  description: \"${4:string}\",",
             "  indexName: \"${5:string}\", // Required",
-            "  pricingPlan: \"${6:string}\", // Required",
+            "  pricingPlan: \"${6:string}\",",
             "})"
         ],
         "description": [
@@ -13536,7 +13602,7 @@
             "  calculatorName: \"${2:string}\", // Required",
             "  dataSource: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
-            "  pricingPlan: \"${5:string}\", // Required",
+            "  pricingPlan: \"${5:string}\",",
             "})"
         ],
         "description": [
@@ -13557,7 +13623,7 @@
             "  description: \"${2:string}\",",
             "  kmsKeyId: \"${3:string}\",",
             "  positionFiltering: \"${4:string}\",",
-            "  pricingPlan: \"${5:string}\", // Required",
+            "  pricingPlan: \"${5:string}\",",
             "  pricingPlanDataSource: \"${6:string}\",",
             "  trackerName: \"${7:string}\", // Required",
             "})"
@@ -16889,6 +16955,22 @@
         "prefix": "l1-refactorspaces-service",
         "scope": "javascript,typescript"
     },
+    "rekognition.CfnCollection": {
+        "body": [
+            "new rekognition.CfnCollection(this, \"${1:id}\", {",
+            "  collectionId: \"${2:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: rekognition.CfnCollection",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rekognition.CfnCollection",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-rekognition-collection",
+        "scope": "javascript,typescript"
+    },
     "rekognition.CfnProject": {
         "body": [
             "new rekognition.CfnProject(this, \"${1:id}\", {",
@@ -18582,11 +18664,14 @@
             "    vpcSecurityGroupIds: \"${9:string}\",",
             "    vpcSubnetIds: \"${10:string}\",",
             "  },",
-            "  rotationLambdaARN: \"${3:string}\",",
+            "  rotateImmediatelyOnUpdate: ${3|false,true|},",
+            "  rotationLambdaARN: \"${4:string}\",",
             "  rotationRules: {",
-            "    automaticallyAfterDays: ${4:Number},",
+            "    automaticallyAfterDays: ${5:Number},",
+            "    duration: \"${6:string}\",",
+            "    scheduleExpression: \"${7:string}\",",
             "  },",
-            "  secretId: \"${5:string}\", // Required",
+            "  secretId: \"${6:string}\", // Required",
             "})"
         ],
         "description": [
@@ -19903,8 +19988,9 @@
         "body": [
             "new timestream.CfnTable(this, \"${1:id}\", {",
             "  databaseName: \"${2:string}\", // Required",
-            "  retentionProperties: ${3:JSON},",
-            "  tableName: \"${4:string}\",",
+            "  magneticStoreWriteProperties: ${3:JSON},",
+            "  retentionProperties: ${4:JSON},",
+            "  tableName: \"${5:string}\",",
             "  tags: [],",
             "})"
         ],
