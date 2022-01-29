@@ -10,4 +10,6 @@ project = PythonProject(
     dev_deps=["requests"],
 )
 
+project.add_git_ignore("*.vsix")
+project.add_git_ignore(".mypy_cache")
 project.synth()
