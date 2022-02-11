@@ -1649,9 +1649,11 @@
             "    instanceRoleArn: \"${6:string}\",",
             "    memory: \"${7:string}\",",
             "  },",
-            "  serviceName: \"${6:string}\",",
+            "  networkConfiguration: {",
+            "  },",
+            "  serviceName: \"${7:string}\",",
             "  sourceConfiguration: {",
-            "    autoDeploymentsEnabled: ${8|false,true|},",
+            "    autoDeploymentsEnabled: ${9|false,true|},",
             "  },",
             "  tags: [],",
             "})"
@@ -1666,6 +1668,25 @@
             "  attrStatus"
         ],
         "prefix": "l1-apprunner-service",
+        "scope": "javascript,typescript"
+    },
+    "apprunner.CfnVpcConnector": {
+        "body": [
+            "new apprunner.CfnVpcConnector(this, \"${1:id}\", {",
+            "  securityGroups: [],",
+            "  subnets: [], // Required",
+            "  tags: [],",
+            "  vpcConnectorName: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: apprunner.CfnVpcConnector",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apprunner.CfnVpcConnector",
+            "Attributes: ",
+            "  attrVpcConnectorArn",
+            "  attrVpcConnectorRevision"
+        ],
+        "prefix": "l1-apprunner-vpcconnector",
         "scope": "javascript,typescript"
     },
     "appstream.CfnAppBlock": {
@@ -3025,6 +3046,66 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnCustomResource"
         ],
         "prefix": "l1-cloudformation-customresource",
+        "scope": "javascript,typescript"
+    },
+    "cloudformation.CfnHookDefaultVersion": {
+        "body": [
+            "new cloudformation.CfnHookDefaultVersion(this, \"${1:id}\", {",
+            "  typeName: \"${2:string}\",",
+            "  typeVersionArn: \"${3:string}\",",
+            "  versionId: \"${4:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: cloudformation.CfnHookDefaultVersion",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnHookDefaultVersion",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-cloudformation-hookdefaultversion",
+        "scope": "javascript,typescript"
+    },
+    "cloudformation.CfnHookTypeConfig": {
+        "body": [
+            "new cloudformation.CfnHookTypeConfig(this, \"${1:id}\", {",
+            "  configuration: \"${2:string}\", // Required",
+            "  configurationAlias: \"${3:string}\",",
+            "  typeArn: \"${4:string}\",",
+            "  typeName: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: cloudformation.CfnHookTypeConfig",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnHookTypeConfig",
+            "Attributes: ",
+            "  attrConfigurationArn"
+        ],
+        "prefix": "l1-cloudformation-hooktypeconfig",
+        "scope": "javascript,typescript"
+    },
+    "cloudformation.CfnHookVersion": {
+        "body": [
+            "new cloudformation.CfnHookVersion(this, \"${1:id}\", {",
+            "  executionRoleArn: \"${2:string}\",",
+            "  loggingConfig: {",
+            "    logGroupName: \"${3:string}\",",
+            "    logRoleArn: \"${4:string}\",",
+            "  },",
+            "  schemaHandlerPackage: \"${4:string}\", // Required",
+            "  typeName: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: cloudformation.CfnHookVersion",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnHookVersion",
+            "Attributes: ",
+            "  attrArn",
+            "  attrTypeArn",
+            "  attrIsDefaultVersion",
+            "  attrVersionId",
+            "  attrVisibility"
+        ],
+        "prefix": "l1-cloudformation-hookversion",
         "scope": "javascript,typescript"
     },
     "cloudformation.CfnMacro": {
@@ -4857,9 +4938,10 @@
             "    kmsArn: \"${5:string}\",",
             "    tasks: [],",
             "  },",
-            "  objectTypeName: \"${4:string}\", // Required",
+            "  objectTypeName: \"${4:string}\",",
+            "  objectTypeNames: [],",
             "  tags: [],",
-            "  uri: \"${6:string}\",",
+            "  uri: \"${7:string}\",",
             "})"
         ],
         "description": [
@@ -5789,20 +5871,21 @@
             "new docdb.CfnDBCluster(this, \"${1:id}\", {",
             "  availabilityZones: [],",
             "  backupRetentionPeriod: ${3:Number},",
-            "  dBClusterIdentifier: \"${4:string}\",",
-            "  dBClusterParameterGroupName: \"${5:string}\",",
-            "  dBSubnetGroupName: \"${6:string}\",",
-            "  deletionProtection: ${7|false,true|},",
+            "  copyTagsToSnapshot: ${4|false,true|},",
+            "  dBClusterIdentifier: \"${5:string}\",",
+            "  dBClusterParameterGroupName: \"${6:string}\",",
+            "  dBSubnetGroupName: \"${7:string}\",",
+            "  deletionProtection: ${8|false,true|},",
             "  enableCloudwatchLogsExports: [],",
-            "  engineVersion: \"${9:string}\",",
-            "  kmsKeyId: \"${10:string}\",",
-            "  masterUserPassword: \"${11:string}\", // Required",
-            "  masterUsername: \"${12:string}\", // Required",
-            "  port: ${13:Number},",
-            "  preferredBackupWindow: \"${14:string}\",",
-            "  preferredMaintenanceWindow: \"${15:string}\",",
-            "  snapshotIdentifier: \"${16:string}\",",
-            "  storageEncrypted: ${17|false,true|},",
+            "  engineVersion: \"${10:string}\",",
+            "  kmsKeyId: \"${11:string}\",",
+            "  masterUserPassword: \"${12:string}\", // Required",
+            "  masterUsername: \"${13:string}\", // Required",
+            "  port: ${14:Number},",
+            "  preferredBackupWindow: \"${15:string}\",",
+            "  preferredMaintenanceWindow: \"${16:string}\",",
+            "  snapshotIdentifier: \"${17:string}\",",
+            "  storageEncrypted: ${18|false,true|},",
             "  tags: [],",
             "  vpcSecurityGroupIds: [],",
             "})"
@@ -6971,12 +7054,20 @@
             "new ec2.CfnSubnet(this, \"${1:id}\", {",
             "  assignIpv6AddressOnCreation: ${2|false,true|},",
             "  availabilityZone: \"${3:string}\",",
-            "  cidrBlock: \"${4:string}\", // Required",
-            "  ipv6CidrBlock: \"${5:string}\",",
-            "  mapPublicIpOnLaunch: ${6|false,true|},",
-            "  outpostArn: \"${7:string}\",",
+            "  availabilityZoneId: \"${4:string}\",",
+            "  cidrBlock: \"${5:string}\", // Required",
+            "  enableDns64: ${6|false,true|},",
+            "  ipv6CidrBlock: \"${7:string}\",",
+            "  ipv6Native: ${8|false,true|},",
+            "  mapPublicIpOnLaunch: ${9|false,true|},",
+            "  outpostArn: \"${10:string}\",",
+            "  privateDnsNameOptionsOnLaunch: {",
+            "    enableResourceNameDnsAAAARecord: ${11|false,true|},",
+            "    enableResourceNameDnsARecord: ${12|false,true|},",
+            "    hostnameType: \"${13:string}\",",
+            "  },",
             "  tags: [],",
-            "  vpcId: \"${9:string}\", // Required",
+            "  vpcId: \"${13:string}\", // Required",
             "})"
         ],
         "description": [
@@ -7378,6 +7469,8 @@
             "  enableDnsHostnames: ${3|false,true|},",
             "  enableDnsSupport: ${4|false,true|},",
             "  instanceTenancy: \"${5:string}\",",
+            "  ipv4IpamPoolId: \"${6:string}\",",
+            "  ipv4NetmaskLength: ${7:Number},",
             "  tags: [],",
             "})"
         ],
@@ -7399,9 +7492,13 @@
             "new ec2.CfnVPCCidrBlock(this, \"${1:id}\", {",
             "  amazonProvidedIpv6CidrBlock: ${2|false,true|},",
             "  cidrBlock: \"${3:string}\",",
-            "  ipv6CidrBlock: \"${4:string}\",",
-            "  ipv6Pool: \"${5:string}\",",
-            "  vpcId: \"${6:string}\", // Required",
+            "  ipv4IpamPoolId: \"${4:string}\",",
+            "  ipv4NetmaskLength: ${5:Number},",
+            "  ipv6CidrBlock: \"${6:string}\",",
+            "  ipv6IpamPoolId: \"${7:string}\",",
+            "  ipv6NetmaskLength: ${8:Number},",
+            "  ipv6Pool: \"${9:string}\",",
+            "  vpcId: \"${10:string}\", // Required",
             "})"
         ],
         "description": [
@@ -8085,8 +8182,9 @@
             "Construct: eks.CfnNodegroup",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-eks.CfnNodegroup",
             "Attributes: ",
-            "  attrNodegroupName",
             "  attrClusterName",
+            "  attrNodegroupName",
+            "  attrId",
             "  attrArn"
         ],
         "prefix": "l1-eks-nodegroup",
@@ -19366,7 +19464,9 @@
         ],
         "description": [
             "Construct: ses.CfnTemplate",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnTemplate"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnTemplate",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ses-template",
         "scope": "javascript,typescript"
@@ -19491,6 +19591,7 @@
             "Construct: sqs.CfnQueue",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sqs.CfnQueue",
             "Attributes: ",
+            "  attrQueueUrl",
             "  attrArn",
             "  attrQueueName"
         ],
