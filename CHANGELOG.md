@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.29.0 (2022-02-18)
+-------------------
+- The following resource was updated: AWS::WAFv2::WebACL. [Github
+  Actions]
+- Chore: add buymeacoffee. [Danny Steenman]
+
+
 1.28.0 (2022-02-11)
 -------------------
 - The following resources were added:
