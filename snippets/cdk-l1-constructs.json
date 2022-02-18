@@ -2697,19 +2697,21 @@
             "    securityGroupIds: [],",
             "    spotIamFleetRole: \"${16:string}\",",
             "    subnets: [],",
-            "    tags: ${18:JSON},",
             "    type: \"${19:string}\",",
             "  },",
             "  serviceRole: \"${4:string}\",",
             "  state: \"${5:string}\",",
-            "  tags: ${6:JSON},",
+            "  tags: {",
+            "  },",
             "  type: \"${7:string}\", // Required",
             "  unmanagedvCpus: ${8:Number},",
             "})"
         ],
         "description": [
             "Construct: batch.CfnComputeEnvironment",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-batch.CfnComputeEnvironment"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-batch.CfnComputeEnvironment",
+            "Attributes: ",
+            "  attrComputeEnvironmentArn"
         ],
         "prefix": "l1-batch-computeenvironment",
         "scope": "javascript,typescript"
@@ -2771,12 +2773,15 @@
             "  priority: ${4:Number}, // Required",
             "  schedulingPolicyArn: \"${5:string}\",",
             "  state: \"${6:string}\",",
-            "  tags: ${7:JSON},",
+            "  tags: {",
+            "  },",
             "})"
         ],
         "description": [
             "Construct: batch.CfnJobQueue",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-batch.CfnJobQueue"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-batch.CfnJobQueue",
+            "Attributes: ",
+            "  attrJobQueueArn"
         ],
         "prefix": "l1-batch-jobqueue",
         "scope": "javascript,typescript"
@@ -5879,8 +5884,8 @@
             "  enableCloudwatchLogsExports: [],",
             "  engineVersion: \"${10:string}\",",
             "  kmsKeyId: \"${11:string}\",",
-            "  masterUserPassword: \"${12:string}\", // Required",
-            "  masterUsername: \"${13:string}\", // Required",
+            "  masterUserPassword: \"${12:string}\",",
+            "  masterUsername: \"${13:string}\",",
             "  port: ${14:Number},",
             "  preferredBackupWindow: \"${15:string}\",",
             "  preferredMaintenanceWindow: \"${16:string}\",",
@@ -6545,17 +6550,22 @@
             "  monitoring: ${26|false,true|},",
             "  networkInterfaces: [],",
             "  placementGroupName: \"${28:string}\",",
-            "  privateIpAddress: \"${29:string}\",",
-            "  propagateTagsToVolumeOnCreation: ${30|false,true|},",
-            "  ramdiskId: \"${31:string}\",",
+            "  privateDnsNameOptions: {",
+            "    enableResourceNameDnsAAAARecord: ${29|false,true|},",
+            "    enableResourceNameDnsARecord: ${30|false,true|},",
+            "    hostnameType: \"${31:string}\",",
+            "  },",
+            "  privateIpAddress: \"${30:string}\",",
+            "  propagateTagsToVolumeOnCreation: ${31|false,true|},",
+            "  ramdiskId: \"${32:string}\",",
             "  securityGroupIds: [],",
             "  securityGroups: [],",
-            "  sourceDestCheck: ${34|false,true|},",
+            "  sourceDestCheck: ${35|false,true|},",
             "  ssmAssociations: [],",
-            "  subnetId: \"${36:string}\",",
+            "  subnetId: \"${37:string}\",",
             "  tags: [],",
-            "  tenancy: \"${38:string}\",",
-            "  userData: \"${39:string}\",",
+            "  tenancy: \"${39:string}\",",
+            "  userData: \"${40:string}\",",
             "  volumes: [],",
             "})"
         ],
@@ -7746,6 +7756,20 @@
             "  attrArn"
         ],
         "prefix": "l1-ecr-publicrepository",
+        "scope": "javascript,typescript"
+    },
+    "ecr.CfnPullThroughCacheRule": {
+        "body": [
+            "new ecr.CfnPullThroughCacheRule(this, \"${1:id}\", {",
+            "  ecrRepositoryPrefix: \"${2:string}\",",
+            "  upstreamRegistryUrl: \"${3:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: ecr.CfnPullThroughCacheRule",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ecr.CfnPullThroughCacheRule"
+        ],
+        "prefix": "l1-ecr-pullthroughcacherule",
         "scope": "javascript,typescript"
     },
     "ecr.CfnRegistryPolicy": {
@@ -11364,10 +11388,11 @@
             "new iot.CfnAuthorizer(this, \"${1:id}\", {",
             "  authorizerFunctionArn: \"${2:string}\", // Required",
             "  authorizerName: \"${3:string}\",",
-            "  signingDisabled: ${4|false,true|},",
-            "  status: \"${5:string}\",",
+            "  enableCachingForHttp: ${4|false,true|},",
+            "  signingDisabled: ${5|false,true|},",
+            "  status: \"${6:string}\",",
             "  tags: [],",
-            "  tokenKeyName: \"${7:string}\",",
+            "  tokenKeyName: \"${8:string}\",",
             "  tokenSigningPublicKeys: {",
             "  },",
             "})"
@@ -12532,15 +12557,19 @@
     "kendra.CfnDataSource": {
         "body": [
             "new kendra.CfnDataSource(this, \"${1:id}\", {",
+            "  customDocumentEnrichmentConfiguration: {",
+            "    inlineConfigurations: [],",
+            "    roleArn: \"${5:string}\",",
+            "  },",
             "  dataSourceConfiguration: {",
             "  },",
-            "  description: \"${3:string}\",",
-            "  indexId: \"${4:string}\", // Required",
-            "  name: \"${5:string}\", // Required",
-            "  roleArn: \"${6:string}\",",
-            "  schedule: \"${7:string}\",",
+            "  description: \"${4:string}\",",
+            "  indexId: \"${5:string}\", // Required",
+            "  name: \"${6:string}\", // Required",
+            "  roleArn: \"${7:string}\",",
+            "  schedule: \"${8:string}\",",
             "  tags: [],",
-            "  type: \"${9:string}\", // Required",
+            "  type: \"${10:string}\", // Required",
             "})"
         ],
         "description": [
@@ -13062,7 +13091,9 @@
             "  },",
             "  enabled: ${5|false,true|},",
             "  eventSourceArn: \"${6:string}\",",
-            "  filterCriteria: ${7:JSON},",
+            "  filterCriteria: {",
+            "    filters: [],",
+            "  },",
             "  functionName: \"${8:string}\", // Required",
             "  functionResponseTypes: [],",
             "  maximumBatchingWindowInSeconds: ${10:Number},",
@@ -19380,7 +19411,9 @@
         ],
         "description": [
             "Construct: ses.CfnConfigurationSetEventDestination",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnConfigurationSetEventDestination"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnConfigurationSetEventDestination",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ses-configurationseteventdestination",
         "scope": "javascript,typescript"
