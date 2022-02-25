@@ -361,16 +361,18 @@
             "  children: [],",
             "  collectionProperties: {",
             "  },",
-            "  componentType: \"${5:string}\",",
-            "  name: \"${6:string}\",",
+            "  componentType: \"${5:string}\", // Required",
+            "  events: {",
+            "  },",
+            "  name: \"${7:string}\", // Required",
             "  overrides: {",
             "  },",
             "  properties: {",
             "  },",
-            "  sourceId: \"${9:string}\",",
+            "  sourceId: \"${10:string}\",",
             "  tags: {",
             "  },",
-            "  variants: [],",
+            "  variants: [], // Required",
             "})"
         ],
         "description": [
@@ -378,10 +380,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-amplifyuibuilder.CfnComponent",
             "Attributes: ",
             "  attrAppId",
-            "  attrCreatedAt",
             "  attrEnvironmentName",
-            "  attrId",
-            "  attrModifiedAt"
+            "  attrId"
         ],
         "prefix": "l1-amplifyuibuilder-component",
         "scope": "javascript,typescript"
@@ -5183,6 +5183,25 @@
         "prefix": "l1-datasync-locationefs",
         "scope": "javascript,typescript"
     },
+    "datasync.CfnLocationFSxLustre": {
+        "body": [
+            "new datasync.CfnLocationFSxLustre(this, \"${1:id}\", {",
+            "  fsxFilesystemArn: \"${2:string}\", // Required",
+            "  securityGroupArns: [], // Required",
+            "  subdirectory: \"${4:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datasync.CfnLocationFSxLustre",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datasync.CfnLocationFSxLustre",
+            "Attributes: ",
+            "  attrLocationArn",
+            "  attrLocationUri"
+        ],
+        "prefix": "l1-datasync-locationfsxlustre",
+        "scope": "javascript,typescript"
+    },
     "datasync.CfnLocationFSxWindows": {
         "body": [
             "new datasync.CfnLocationFSxWindows(this, \"${1:id}\", {",
@@ -9011,7 +9030,8 @@
     "events.CfnConnection": {
         "body": [
             "new events.CfnConnection(this, \"${1:id}\", {",
-            "  authParameters: ${2:JSON}, // Required",
+            "  authParameters: {",
+            "  },",
             "  authorizationType: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
             "  name: \"${5:string}\",",
@@ -20193,12 +20213,14 @@
             "  },",
             "  identityProviderType: \"${7:string}\",",
             "  loggingRole: \"${8:string}\",",
+            "  postAuthenticationLoginBanner: \"${9:string}\",",
+            "  preAuthenticationLoginBanner: \"${10:string}\",",
             "  protocolDetails: {",
-            "    passiveIp: \"${9:string}\",",
-            "    tlsSessionResumptionMode: \"${10:string}\",",
+            "    passiveIp: \"${11:string}\",",
+            "    tlsSessionResumptionMode: \"${12:string}\",",
             "  },",
             "  protocols: [],",
-            "  securityPolicyName: \"${11:string}\",",
+            "  securityPolicyName: \"${13:string}\",",
             "  tags: [],",
             "  workflowDetails: {",
             "    onUpload: [],",
