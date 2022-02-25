@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.30.0 (2022-02-25)
+-------------------
+- The following resource was updated: [Github Actions]
+
+
 1.29.0 (2022-02-18)
 -------------------
 - The following resource was updated: AWS::WAFv2::WebACL. [Github
