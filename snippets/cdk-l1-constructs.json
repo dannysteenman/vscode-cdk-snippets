@@ -369,7 +369,8 @@
             "  },",
             "  properties: {",
             "  },",
-            "  sourceId: \"${10:string}\",",
+            "  schemaVersion: \"${10:string}\",",
+            "  sourceId: \"${11:string}\",",
             "  tags: {",
             "  },",
             "  variants: [], // Required",
@@ -475,8 +476,9 @@
             "new apigateway.CfnBasePathMapping(this, \"${1:id}\", {",
             "  basePath: \"${2:string}\",",
             "  domainName: \"${3:string}\", // Required",
-            "  restApiId: \"${4:string}\",",
-            "  stage: \"${5:string}\",",
+            "  id: \"${4:string}\",",
+            "  restApiId: \"${5:string}\",",
+            "  stage: \"${6:string}\",",
             "})"
         ],
         "description": [
@@ -7476,10 +7478,10 @@
             "  addSubnetIds: [],",
             "  options: ${3:JSON},",
             "  removeSubnetIds: [],",
-            "  subnetIds: [],",
+            "  subnetIds: [], // Required",
             "  tags: [],",
-            "  transitGatewayId: \"${7:string}\",",
-            "  vpcId: \"${8:string}\",",
+            "  transitGatewayId: \"${7:string}\", // Required",
+            "  vpcId: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -8182,6 +8184,33 @@
             "  attrArn"
         ],
         "prefix": "l1-eks-fargateprofile",
+        "scope": "javascript,typescript"
+    },
+    "eks.CfnIdentityProviderConfig": {
+        "body": [
+            "new eks.CfnIdentityProviderConfig(this, \"${1:id}\", {",
+            "  clusterName: \"${2:string}\", // Required",
+            "  identityProviderConfigName: \"${3:string}\",",
+            "  oidc: {",
+            "    clientId: \"${4:string}\",",
+            "    groupsClaim: \"${5:string}\",",
+            "    groupsPrefix: \"${6:string}\",",
+            "    issuerUrl: \"${7:string}\",",
+            "    requiredClaims: [],",
+            "    usernameClaim: \"${9:string}\",",
+            "    usernamePrefix: \"${10:string}\",",
+            "  },",
+            "  tags: [],",
+            "  type: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: eks.CfnIdentityProviderConfig",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-eks.CfnIdentityProviderConfig",
+            "Attributes: ",
+            "  attrIdentityProviderConfigArn"
+        ],
+        "prefix": "l1-eks-identityproviderconfig",
         "scope": "javascript,typescript"
     },
     "eks.CfnNodegroup": {
@@ -11186,7 +11215,8 @@
             "Attributes: ",
             "  attrArn",
             "  attrName",
-            "  attrImageId"
+            "  attrImageId",
+            "  attrImageUri"
         ],
         "prefix": "l1-imagebuilder-image",
         "scope": "javascript,typescript"
@@ -14761,6 +14791,20 @@
         "prefix": "l1-memorydb-user",
         "scope": "javascript,typescript"
     },
+    "msk.CfnBatchScramSecret": {
+        "body": [
+            "new msk.CfnBatchScramSecret(this, \"${1:id}\", {",
+            "  clusterArn: \"${2:string}\", // Required",
+            "  secretArnList: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: msk.CfnBatchScramSecret",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnBatchScramSecret"
+        ],
+        "prefix": "l1-msk-batchscramsecret",
+        "scope": "javascript,typescript"
+    },
     "msk.CfnCluster": {
         "body": [
             "new msk.CfnCluster(this, \"${1:id}\", {",
@@ -14777,23 +14821,45 @@
             "    arn: \"${5:string}\",",
             "    revision: ${6:Number},",
             "  },",
+            "  currentVersion: \"${6:string}\",",
             "  encryptionInfo: {",
             "  },",
-            "  enhancedMonitoring: \"${7:string}\",",
-            "  kafkaVersion: \"${8:string}\", // Required",
+            "  enhancedMonitoring: \"${8:string}\",",
+            "  kafkaVersion: \"${9:string}\", // Required",
             "  loggingInfo: {",
             "  },",
-            "  numberOfBrokerNodes: ${10:Number}, // Required",
+            "  numberOfBrokerNodes: ${11:Number}, // Required",
             "  openMonitoring: {",
             "  },",
-            "  tags: ${12:JSON},",
+            "  tags: {",
+            "  },",
             "})"
         ],
         "description": [
             "Construct: msk.CfnCluster",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnCluster"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnCluster",
+            "Attributes: ",
+            "  attrArn"
         ],
         "prefix": "l1-msk-cluster",
+        "scope": "javascript,typescript"
+    },
+    "msk.CfnConfiguration": {
+        "body": [
+            "new msk.CfnConfiguration(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  kafkaVersionsList: [],",
+            "  name: \"${4:string}\",",
+            "  serverProperties: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: msk.CfnConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnConfiguration",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-msk-configuration",
         "scope": "javascript,typescript"
     },
     "mwaa.CfnEnvironment": {
