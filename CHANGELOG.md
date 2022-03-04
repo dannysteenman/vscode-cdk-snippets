@@ -2,6 +2,18 @@ Changelog
 =========
 
 
+1.31.0 (2022-03-04)
+-------------------
+- The following resources were updated: <a href="https://docs.aws.amazon
+  .com/AWSCloudFormation/latest/UserGuide/AWSCloudFormation/latest/UserG
+  uide/aws-resource-batch-computeenvironment.html" rel="noopener
+  noreferrer" target="_blank">AWS::Batch::ComputeEnvironment</a>, and <a
+  href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/A
+  WSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html"
+  rel="noopener noreferrer" target="_blank">AWS::Batch::JobQueue</a>
+  [Github Actions]
+
+
 1.30.0 (2022-02-25)
 -------------------
 - The following resource was updated: [Github Actions]
