@@ -7085,31 +7085,24 @@
             "new ec2.CfnSubnet(this, \"${1:id}\", {",
             "  assignIpv6AddressOnCreation: ${2|false,true|},",
             "  availabilityZone: \"${3:string}\",",
-            "  availabilityZoneId: \"${4:string}\",",
-            "  cidrBlock: \"${5:string}\", // Required",
-            "  enableDns64: ${6|false,true|},",
-            "  ipv6CidrBlock: \"${7:string}\",",
-            "  ipv6Native: ${8|false,true|},",
-            "  mapPublicIpOnLaunch: ${9|false,true|},",
-            "  outpostArn: \"${10:string}\",",
-            "  privateDnsNameOptionsOnLaunch: {",
-            "    enableResourceNameDnsAAAARecord: ${11|false,true|},",
-            "    enableResourceNameDnsARecord: ${12|false,true|},",
-            "    hostnameType: \"${13:string}\",",
-            "  },",
+            "  cidrBlock: \"${4:string}\", // Required",
+            "  ipv6CidrBlock: \"${5:string}\",",
+            "  mapPublicIpOnLaunch: ${6|false,true|},",
+            "  outpostArn: \"${7:string}\",",
             "  tags: [],",
-            "  vpcId: \"${13:string}\", // Required",
+            "  vpcId: \"${9:string}\", // Required",
             "})"
         ],
         "description": [
             "Construct: ec2.CfnSubnet",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnSubnet",
             "Attributes: ",
-            "  attrAvailabilityZone",
-            "  attrIpv6CidrBlocks",
+            "  attrVpcId",
             "  attrNetworkAclAssociationId",
             "  attrOutpostArn",
-            "  attrVpcId"
+            "  attrAvailabilityZone",
+            "  attrId",
+            "  attrIpv6CidrBlocks"
         ],
         "prefix": "l1-ec2-subnet",
         "scope": "javascript,typescript"
@@ -7393,14 +7386,11 @@
     "ec2.CfnTransitGatewayPeeringAttachment": {
         "body": [
             "new ec2.CfnTransitGatewayPeeringAttachment(this, \"${1:id}\", {",
-            "  options: {",
-            "    dynamicRouting: \"${2:string}\",",
-            "  },",
-            "  peerAccountId: \"${3:string}\", // Required",
-            "  peerRegion: \"${4:string}\", // Required",
-            "  peerTransitGatewayId: \"${5:string}\", // Required",
+            "  peerAccountId: \"${2:string}\", // Required",
+            "  peerRegion: \"${3:string}\", // Required",
+            "  peerTransitGatewayId: \"${4:string}\", // Required",
             "  tags: [],",
-            "  transitGatewayId: \"${7:string}\", // Required",
+            "  transitGatewayId: \"${6:string}\", // Required",
             "})"
         ],
         "description": [
@@ -9350,7 +9340,12 @@
             "  actions: {",
             "  },",
             "  description: \"${3:string}\", // Required",
-            "  roleArn: \"${4:string}\", // Required",
+            "  logConfiguration: {",
+            "    cloudWatchLogsConfiguration: ${4:JSON},",
+            "    logSchemaVersion: ${5:Number},",
+            "    s3Configuration: ${6:JSON},",
+            "  },",
+            "  roleArn: \"${5:string}\", // Required",
             "  stopConditions: [], // Required",
             "  tags: {",
             "  },",
@@ -15756,6 +15751,91 @@
             "  attrRegisteredTime"
         ],
         "prefix": "l1-panorama-packageversion",
+        "scope": "javascript,typescript"
+    },
+    "personalize.CfnDataset": {
+        "body": [
+            "new personalize.CfnDataset(this, \"${1:id}\", {",
+            "  datasetGroupArn: \"${2:string}\", // Required",
+            "  datasetImportJob: {",
+            "    dataSource: ${3:JSON},",
+            "    datasetArn: \"${4:string}\",",
+            "    datasetImportJobArn: \"${5:string}\",",
+            "    jobName: \"${6:string}\",",
+            "    roleArn: \"${7:string}\",",
+            "  },",
+            "  datasetType: \"${4:string}\", // Required",
+            "  name: \"${5:string}\", // Required",
+            "  schemaArn: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: personalize.CfnDataset",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-personalize.CfnDataset",
+            "Attributes: ",
+            "  attrDatasetArn"
+        ],
+        "prefix": "l1-personalize-dataset",
+        "scope": "javascript,typescript"
+    },
+    "personalize.CfnDatasetGroup": {
+        "body": [
+            "new personalize.CfnDatasetGroup(this, \"${1:id}\", {",
+            "  domain: \"${2:string}\",",
+            "  kmsKeyArn: \"${3:string}\",",
+            "  name: \"${4:string}\", // Required",
+            "  roleArn: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: personalize.CfnDatasetGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-personalize.CfnDatasetGroup",
+            "Attributes: ",
+            "  attrDatasetGroupArn"
+        ],
+        "prefix": "l1-personalize-datasetgroup",
+        "scope": "javascript,typescript"
+    },
+    "personalize.CfnSchema": {
+        "body": [
+            "new personalize.CfnSchema(this, \"${1:id}\", {",
+            "  domain: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  schema: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: personalize.CfnSchema",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-personalize.CfnSchema",
+            "Attributes: ",
+            "  attrSchemaArn"
+        ],
+        "prefix": "l1-personalize-schema",
+        "scope": "javascript,typescript"
+    },
+    "personalize.CfnSolution": {
+        "body": [
+            "new personalize.CfnSolution(this, \"${1:id}\", {",
+            "  datasetGroupArn: \"${2:string}\", // Required",
+            "  eventType: \"${3:string}\",",
+            "  name: \"${4:string}\", // Required",
+            "  performAutoML: ${5|false,true|},",
+            "  performHPO: ${6|false,true|},",
+            "  recipeArn: \"${7:string}\",",
+            "  solutionConfig: {",
+            "    autoMLConfig: ${9:JSON},",
+            "    eventValueThreshold: \"${10:string}\",",
+            "    hpoConfig: ${12:JSON},",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: personalize.CfnSolution",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-personalize.CfnSolution",
+            "Attributes: ",
+            "  attrSolutionArn"
+        ],
+        "prefix": "l1-personalize-solution",
         "scope": "javascript,typescript"
     },
     "pinpoint.CfnADMChannel": {
