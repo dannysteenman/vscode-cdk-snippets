@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.32.0 (2022-03-11)
+-------------------
+- The following resource was updated: AWS::AutoScaling::ScalingPolicy.
+  [Github Actions]
+
+
 1.31.0 (2022-03-04)
 -------------------
 - The following resources were updated: <a href="https://docs.aws.amazon
