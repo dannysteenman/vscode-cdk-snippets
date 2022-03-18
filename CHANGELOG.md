@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.33.0 (2022-03-18)
+-------------------
+- The following resources were updated: AWS::ACMPCA::Certificate and
+  AWS::ACMPCA::CertificateAuthority. [Github Actions]
+
+
 1.32.0 (2022-03-11)
 -------------------
 - The following resource was updated: AWS::AutoScaling::ScalingPolicy.
