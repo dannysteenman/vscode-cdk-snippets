@@ -3842,10 +3842,10 @@
             "Construct: cloudwatch.CfnMetricStream",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudwatch.CfnMetricStream",
             "Attributes: ",
-            "  attrArn",
             "  attrCreationDate",
-            "  attrLastUpdateDate",
-            "  attrState"
+            "  attrState",
+            "  attrArn",
+            "  attrLastUpdateDate"
         ],
         "prefix": "l1-cloudwatch-metricstream",
         "scope": "javascript,typescript"
@@ -5615,6 +5615,7 @@
         "body": [
             "new devopsguru.CfnResourceCollection(this, \"${1:id}\", {",
             "  resourceCollectionFilter: {",
+            "    tags: [],",
             "  },",
             "})"
         ],
@@ -6057,7 +6058,8 @@
             "  dBClusterIdentifier: \"${4:string}\", // Required",
             "  dBInstanceClass: \"${5:string}\", // Required",
             "  dBInstanceIdentifier: \"${6:string}\",",
-            "  preferredMaintenanceWindow: \"${7:string}\",",
+            "  enablePerformanceInsights: ${7|false,true|},",
+            "  preferredMaintenanceWindow: \"${8:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -9768,6 +9770,86 @@
         "prefix": "l1-fsx-filesystem",
         "scope": "javascript,typescript"
     },
+    "fsx.CfnSnapshot": {
+        "body": [
+            "new fsx.CfnSnapshot(this, \"${1:id}\", {",
+            "  name: \"${2:string}\", // Required",
+            "  tags: [],",
+            "  volumeId: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: fsx.CfnSnapshot",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-fsx.CfnSnapshot",
+            "Attributes: ",
+            "  attrResourceARN"
+        ],
+        "prefix": "l1-fsx-snapshot",
+        "scope": "javascript,typescript"
+    },
+    "fsx.CfnStorageVirtualMachine": {
+        "body": [
+            "new fsx.CfnStorageVirtualMachine(this, \"${1:id}\", {",
+            "  activeDirectoryConfiguration: {",
+            "    netBiosName: \"${2:string}\",",
+            "  },",
+            "  fileSystemId: \"${3:string}\", // Required",
+            "  name: \"${4:string}\", // Required",
+            "  rootVolumeSecurityStyle: \"${5:string}\",",
+            "  svmAdminPassword: \"${6:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: fsx.CfnStorageVirtualMachine",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-fsx.CfnStorageVirtualMachine",
+            "Attributes: ",
+            "  attrResourceARN",
+            "  attrStorageVirtualMachineId",
+            "  attrUUID"
+        ],
+        "prefix": "l1-fsx-storagevirtualmachine",
+        "scope": "javascript,typescript"
+    },
+    "fsx.CfnVolume": {
+        "body": [
+            "new fsx.CfnVolume(this, \"${1:id}\", {",
+            "  backupId: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  ontapConfiguration: {",
+            "    junctionPath: \"${4:string}\",",
+            "    securityStyle: \"${5:string}\",",
+            "    sizeInMegabytes: \"${6:string}\",",
+            "    storageEfficiencyEnabled: \"${7:string}\",",
+            "    storageVirtualMachineId: \"${8:string}\",",
+            "  },",
+            "  openZFSConfiguration: {",
+            "    copyTagsToSnapshots: ${5|false,true|},",
+            "    dataCompressionType: \"${6:string}\",",
+            "    nfsExports: [],",
+            "    options: [],",
+            "    parentVolumeId: \"${10:string}\",",
+            "    readOnly: ${11|false,true|},",
+            "    recordSizeKiB: ${12:Number},",
+            "    storageCapacityQuotaGiB: ${13:Number},",
+            "    storageCapacityReservationGiB: ${14:Number},",
+            "    userAndGroupQuotas: [],",
+            "  },",
+            "  tags: [],",
+            "  volumeType: \"${7:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: fsx.CfnVolume",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-fsx.CfnVolume",
+            "Attributes: ",
+            "  attrResourceARN",
+            "  attrVolumeId",
+            "  attrUUID"
+        ],
+        "prefix": "l1-fsx-volume",
+        "scope": "javascript,typescript"
+    },
     "gamelift.CfnAlias": {
         "body": [
             "new gamelift.CfnAlias(this, \"${1:id}\", {",
@@ -12093,6 +12175,31 @@
         "prefix": "l1-iotcoredeviceadvisor-suitedefinition",
         "scope": "javascript,typescript"
     },
+    "iotevents.CfnAlarmModel": {
+        "body": [
+            "new iotevents.CfnAlarmModel(this, \"${1:id}\", {",
+            "  alarmCapabilities: {",
+            "  },",
+            "  alarmEventActions: {",
+            "    alarmActions: [],",
+            "  },",
+            "  alarmModelDescription: \"${4:string}\",",
+            "  alarmModelName: \"${5:string}\",",
+            "  alarmRule: {",
+            "  },",
+            "  key: \"${7:string}\",",
+            "  roleArn: \"${8:string}\", // Required",
+            "  severity: ${9:Number},",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotevents.CfnAlarmModel",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotevents.CfnAlarmModel"
+        ],
+        "prefix": "l1-iotevents-alarmmodel",
+        "scope": "javascript,typescript"
+    },
     "iotevents.CfnDetectorModel": {
         "body": [
             "new iotevents.CfnDetectorModel(this, \"${1:id}\", {",
@@ -13291,25 +13398,28 @@
             "  description: \"${6:string}\",",
             "  environment: {",
             "  },",
+            "  ephemeralStorage: {",
+            "    size: ${8:Number},",
+            "  },",
             "  fileSystemConfigs: [],",
-            "  functionName: \"${9:string}\",",
-            "  handler: \"${10:string}\",",
+            "  functionName: \"${10:string}\",",
+            "  handler: \"${11:string}\",",
             "  imageConfig: {",
             "    command: [],",
             "    entryPoint: [],",
-            "    workingDirectory: \"${13:string}\",",
+            "    workingDirectory: \"${14:string}\",",
             "  },",
-            "  kmsKeyArn: \"${12:string}\",",
+            "  kmsKeyArn: \"${13:string}\",",
             "  layers: [],",
-            "  memorySize: ${14:Number},",
-            "  packageType: \"${15:string}\",",
-            "  reservedConcurrentExecutions: ${16:Number},",
-            "  role: \"${17:string}\", // Required",
-            "  runtime: \"${18:string}\",",
+            "  memorySize: ${15:Number},",
+            "  packageType: \"${16:string}\",",
+            "  reservedConcurrentExecutions: ${17:Number},",
+            "  role: \"${18:string}\", // Required",
+            "  runtime: \"${19:string}\",",
             "  tags: [],",
-            "  timeout: ${20:Number},",
+            "  timeout: ${21:Number},",
             "  tracingConfig: {",
-            "    mode: \"${21:string}\",",
+            "    mode: \"${22:string}\",",
             "  },",
             "  vpcConfig: {",
             "    securityGroupIds: [],",
@@ -13371,8 +13481,9 @@
             "  eventSourceToken: \"${3:string}\",",
             "  functionName: \"${4:string}\", // Required",
             "  principal: \"${5:string}\", // Required",
-            "  sourceAccount: \"${6:string}\",",
-            "  sourceArn: \"${7:string}\",",
+            "  principalOrgID: \"${6:string}\",",
+            "  sourceAccount: \"${7:string}\",",
+            "  sourceArn: \"${8:string}\",",
             "})"
         ],
         "description": [
@@ -13418,6 +13529,11 @@
             "  idleSessionTTLInSeconds: ${8:Number}, // Required",
             "  name: \"${9:string}\", // Required",
             "  roleArn: \"${10:string}\", // Required",
+            "  testBotAliasSettings: {",
+            "    botAliasLocaleSettings: [],",
+            "    description: \"${13:string}\",",
+            "    sentimentAnalysisSettings: ${14:JSON},",
+            "  },",
             "  testBotAliasTags: [],",
             "})"
         ],
