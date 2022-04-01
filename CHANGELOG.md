@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.35.0 (2022-04-01)
+-------------------
+- The following resource was updated: AWS::Lambda::Function. [Github
+  Actions]
+
+
 1.34.0 (2022-03-25)
 -------------------
 - The following resource was updated: AWS::Lambda::Function. [Github
