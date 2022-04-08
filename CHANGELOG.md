@@ -2,6 +2,15 @@ Changelog
 =========
 
 
+1.36.0 (2022-04-08)
+-------------------
+- The following resource was updated: <a href="https://docs.aws.amazon.c
+  om/AWSCloudFormation/latest/UserGuide/AWSCloudFormation/latest/UserGui
+  de/aws-resource-batch-computeenvironment.html" rel="noopener
+  noreferrer" target="_blank">AWS::Batch::ComputeEnvironment</a> [Github
+  Actions]
+
+
 1.35.0 (2022-04-01)
 -------------------
 - The following resource was updated: AWS::Lambda::Function. [Github
