@@ -5,6 +5,11 @@
 [![Rating](https://vsmarketplacebadge.apphb.com/rating-star/dsteenman.cdk-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
 
 This extension adds L1 construct snippets from CDK into Visual Studio Code.
+---
+
+## New
+
+- Added support for [Gitpod](https://github.com/dannysteenman/vscode-cloudformation-snippets/issues/14) by publishing this extension to the [Open VSX Registry](https://open-vsx.org/extension/dsteenman/cdk-snippets)
 
 ## Features
 
