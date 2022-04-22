@@ -1,8 +1,8 @@
 # CDK Construct Snippets for VS Code
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/dsteenman.cdk-snippets.svg 'Current Release')](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/dsteenman.cdk-snippets.svg 'Currently Installed')](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
-[![Rating](https://vsmarketplacebadge.apphb.com/rating-star/dsteenman.cdk-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
+[![Version](https://vsmarketplacebadge.apphb.com/version/dannysteenman.cdk-snippets.svg 'Current Release')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/dannysteenman.cdk-snippets.svg 'Currently Installed')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
+[![Rating](https://vsmarketplacebadge.apphb.com/rating-star/dannysteenman.cdk-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
 
 This extension adds L1 construct snippets from CDK into Visual Studio Code.
 ---
@@ -22,7 +22,7 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 
 ## Usage
 
-* **Step 1.** Install [this extension](https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets)
+* **Step 1.** Install [this extension](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
 * **Step 2.** Start working in your CDK project (TypeScript)
 * **Step 3.** Start adding L1 constructs in your code by using their prefix name e.g. ```l1-s3-bucket``` equals to L1 construct ```s3.CfnBucket```
 

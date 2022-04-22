@@ -4,7 +4,7 @@
   "description": "This extension adds L1 construct snippets from CDK into Visual Studio Code.",
   "author": "Danny Steenman",
   "version": "1.38.0",
-  "publisher": "dsteenman",
+  "publisher": "dannysteenman",
   "icon": "images/cdk-extension-icon.png",
   "homepage": "https://towardsthecloud.com",
   "license": "MIT",
@@ -31,18 +31,18 @@
   ],
   "badges": [
     {
-      "url": "https://vsmarketplacebadge.apphb.com/version/dsteenman.cdk-snippets.svg",
-      "href": "https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets",
+      "url": "https://vsmarketplacebadge.apphb.com/version/dannysteenman.cdk-snippets.svg",
+      "href": "https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets",
       "description": "Version"
     },
     {
-      "url": "https://vsmarketplacebadge.apphb.com/installs-short/dsteenman.cdk-snippets.svg",
-      "href": "https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets",
+      "url": "https://vsmarketplacebadge.apphb.com/installs-short/dannysteenman.cdk-snippets.svg",
+      "href": "https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets",
       "description": "Installs"
     },
     {
-      "url": "https://vsmarketplacebadge.apphb.com/rating-star/dsteenman.cdk-snippets.svg",
-      "href": "https://marketplace.visualstudio.com/items?itemName=dsteenman.cdk-snippets",
+      "url": "https://vsmarketplacebadge.apphb.com/rating-star/dannysteenman.cdk-snippets.svg",
+      "href": "https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets",
       "description": "Ratings"
     }
   ],
