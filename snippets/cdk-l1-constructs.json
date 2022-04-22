@@ -2722,13 +2722,19 @@
             "    spotIamFleetRole: \"${16:string}\",",
             "    subnets: [],",
             "    type: \"${19:string}\",",
+            "    updateToLatestImageVersion: ${20|false,true|},",
             "  },",
-            "  serviceRole: \"${4:string}\",",
-            "  state: \"${5:string}\",",
+            "  replaceComputeEnvironment: ${4|false,true|},",
+            "  serviceRole: \"${5:string}\",",
+            "  state: \"${6:string}\",",
             "  tags: {",
             "  },",
-            "  type: \"${7:string}\", // Required",
-            "  unmanagedvCpus: ${8:Number},",
+            "  type: \"${8:string}\", // Required",
+            "  unmanagedvCpus: ${9:Number},",
+            "  updatePolicy: {",
+            "    jobExecutionTimeoutMinutes: ${10:Number},",
+            "    terminateJobsOnUpdate: ${11|false,true|},",
+            "  },",
             "})"
         ],
         "description": [
@@ -2844,6 +2850,7 @@
             "  description: \"${4:string}\",",
             "  name: \"${5:string}\", // Required",
             "  primaryAccountId: \"${6:string}\", // Required",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -2873,6 +2880,7 @@
             "  },",
             "  description: \"${5:string}\",",
             "  name: \"${6:string}\", // Required",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -2895,6 +2903,7 @@
             "  description: \"${2:string}\",",
             "  name: \"${3:string}\", // Required",
             "  pricingRuleArns: [],",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -2917,7 +2926,8 @@
             "  name: \"${4:string}\", // Required",
             "  scope: \"${5:string}\", // Required",
             "  service: \"${6:string}\",",
-            "  type: \"${7:string}\", // Required",
+            "  tags: [],",
+            "  type: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -4946,6 +4956,27 @@
             "  attrHoursOfOperationArn"
         ],
         "prefix": "l1-connect-hoursofoperation",
+        "scope": "javascript,typescript"
+    },
+    "connect.CfnPhoneNumber": {
+        "body": [
+            "new connect.CfnPhoneNumber(this, \"${1:id}\", {",
+            "  countryCode: \"${2:string}\", // Required",
+            "  description: \"${3:string}\",",
+            "  prefix: \"${4:string}\",",
+            "  tags: [],",
+            "  targetArn: \"${6:string}\", // Required",
+            "  type: \"${7:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnPhoneNumber",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnPhoneNumber",
+            "Attributes: ",
+            "  attrPhoneNumberArn",
+            "  attrAddress"
+        ],
+        "prefix": "l1-connect-phonenumber",
         "scope": "javascript,typescript"
     },
     "connect.CfnQuickConnect": {
@@ -9489,7 +9520,13 @@
             "  },",
             "  project: \"${6:string}\", // Required",
             "  randomizationSalt: \"${7:string}\",",
-            "  samplingRate: ${8:Number},",
+            "  runningStatus: {",
+            "    analysisCompleteTime: \"${8:string}\",",
+            "    desiredState: \"${9:string}\",",
+            "    reason: \"${10:string}\",",
+            "    status: \"${11:string}\",",
+            "  },",
+            "  samplingRate: ${9:Number},",
             "  tags: [],",
             "  treatments: [], // Required",
             "})"
@@ -9529,11 +9566,16 @@
         "body": [
             "new evidently.CfnLaunch(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
+            "  executionStatus: {",
+            "    desiredState: \"${3:string}\",",
+            "    reason: \"${4:string}\",",
+            "    status: \"${5:string}\",",
+            "  },",
             "  groups: [], // Required",
             "  metricMonitors: [],",
-            "  name: \"${5:string}\", // Required",
-            "  project: \"${6:string}\", // Required",
-            "  randomizationSalt: \"${7:string}\",",
+            "  name: \"${6:string}\", // Required",
+            "  project: \"${7:string}\", // Required",
+            "  randomizationSalt: \"${8:string}\",",
             "  scheduledSplitsConfig: [], // Required",
             "  tags: [],",
             "})"
@@ -12588,6 +12630,106 @@
         "prefix": "l1-iotthingsgraph-flowtemplate",
         "scope": "javascript,typescript"
     },
+    "iottwinmaker.CfnComponentType": {
+        "body": [
+            "new iottwinmaker.CfnComponentType(this, \"${1:id}\", {",
+            "  componentTypeId: \"${2:string}\", // Required",
+            "  description: \"${3:string}\",",
+            "  extendsFrom: [],",
+            "  functions: {",
+            "  },",
+            "  isSingleton: ${6|false,true|},",
+            "  propertyDefinitions: {",
+            "  },",
+            "  tags: {",
+            "  },",
+            "  workspaceId: \"${9:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iottwinmaker.CfnComponentType",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iottwinmaker.CfnComponentType",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationDateTime",
+            "  attrUpdateDateTime",
+            "  attrIsAbstract",
+            "  attrIsSchemaInitialized"
+        ],
+        "prefix": "l1-iottwinmaker-componenttype",
+        "scope": "javascript,typescript"
+    },
+    "iottwinmaker.CfnEntity": {
+        "body": [
+            "new iottwinmaker.CfnEntity(this, \"${1:id}\", {",
+            "  components: {",
+            "  },",
+            "  description: \"${3:string}\",",
+            "  entityId: \"${4:string}\",",
+            "  entityName: \"${5:string}\", // Required",
+            "  parentEntityId: \"${6:string}\",",
+            "  tags: {",
+            "  },",
+            "  workspaceId: \"${8:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iottwinmaker.CfnEntity",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iottwinmaker.CfnEntity",
+            "Attributes: ",
+            "  attrHasChildEntities",
+            "  attrArn",
+            "  attrCreationDateTime",
+            "  attrUpdateDateTime"
+        ],
+        "prefix": "l1-iottwinmaker-entity",
+        "scope": "javascript,typescript"
+    },
+    "iottwinmaker.CfnScene": {
+        "body": [
+            "new iottwinmaker.CfnScene(this, \"${1:id}\", {",
+            "  capabilities: [],",
+            "  contentLocation: \"${3:string}\", // Required",
+            "  description: \"${4:string}\",",
+            "  sceneId: \"${5:string}\", // Required",
+            "  tags: {",
+            "  },",
+            "  workspaceId: \"${7:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iottwinmaker.CfnScene",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iottwinmaker.CfnScene",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationDateTime",
+            "  attrUpdateDateTime"
+        ],
+        "prefix": "l1-iottwinmaker-scene",
+        "scope": "javascript,typescript"
+    },
+    "iottwinmaker.CfnWorkspace": {
+        "body": [
+            "new iottwinmaker.CfnWorkspace(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  role: \"${3:string}\", // Required",
+            "  s3Location: \"${4:string}\", // Required",
+            "  tags: {",
+            "  },",
+            "  workspaceId: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iottwinmaker.CfnWorkspace",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iottwinmaker.CfnWorkspace",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationDateTime",
+            "  attrUpdateDateTime"
+        ],
+        "prefix": "l1-iottwinmaker-workspace",
+        "scope": "javascript,typescript"
+    },
     "iotwireless.CfnDestination": {
         "body": [
             "new iotwireless.CfnDestination(this, \"${1:id}\", {",
@@ -15301,7 +15443,7 @@
             "new msk.CfnConfiguration(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
             "  kafkaVersionsList: [],",
-            "  name: \"${4:string}\",",
+            "  name: \"${4:string}\", // Required",
             "  serverProperties: \"${5:string}\", // Required",
             "})"
         ],
