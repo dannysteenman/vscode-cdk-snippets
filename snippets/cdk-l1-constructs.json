@@ -6889,6 +6889,25 @@
         "prefix": "l1-ec2-internetgateway",
         "scope": "javascript,typescript"
     },
+    "ec2.CfnKeyPair": {
+        "body": [
+            "new ec2.CfnKeyPair(this, \"${1:id}\", {",
+            "  keyName: \"${2:string}\", // Required",
+            "  keyType: \"${3:string}\",",
+            "  publicKeyMaterial: \"${4:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnKeyPair",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnKeyPair",
+            "Attributes: ",
+            "  attrKeyFingerprint",
+            "  attrKeyPairId"
+        ],
+        "prefix": "l1-ec2-keypair",
+        "scope": "javascript,typescript"
+    },
     "ec2.CfnLaunchTemplate": {
         "body": [
             "new ec2.CfnLaunchTemplate(this, \"${1:id}\", {",
@@ -7544,7 +7563,9 @@
         ],
         "description": [
             "Construct: ec2.CfnTransitGatewayAttachment",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnTransitGatewayAttachment"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnTransitGatewayAttachment",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ec2-transitgatewayattachment",
         "scope": "javascript,typescript"
@@ -7761,7 +7782,7 @@
     "ec2.CfnVPC": {
         "body": [
             "new ec2.CfnVPC(this, \"${1:id}\", {",
-            "  cidrBlock: \"${2:string}\", // Required",
+            "  cidrBlock: \"${2:string}\",",
             "  enableDnsHostnames: ${3|false,true|},",
             "  enableDnsSupport: ${4|false,true|},",
             "  instanceTenancy: \"${5:string}\",",
@@ -7774,6 +7795,7 @@
             "Construct: ec2.CfnVPC",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPC",
             "Attributes: ",
+            "  attrVpcId",
             "  attrCidrBlock",
             "  attrCidrBlockAssociations",
             "  attrDefaultNetworkAcl",
@@ -17912,6 +17934,52 @@
         "prefix": "l1-rekognition-project",
         "scope": "javascript,typescript"
     },
+    "rekognition.CfnStreamProcessor": {
+        "body": [
+            "new rekognition.CfnStreamProcessor(this, \"${1:id}\", {",
+            "  boundingBoxRegionsOfInterest: [],",
+            "  connectedHomeSettings: {",
+            "    labels: [],",
+            "    minConfidence: ${4:Number},",
+            "  },",
+            "  dataSharingPreference: {",
+            "    optIn: ${4|false,true|},",
+            "  },",
+            "  faceSearchSettings: {",
+            "    collectionId: \"${5:string}\",",
+            "    faceMatchThreshold: ${6:Number},",
+            "  },",
+            "  kinesisDataStream: {",
+            "    arn: \"${6:string}\",",
+            "  },",
+            "  kinesisVideoStream: {",
+            "    arn: \"${7:string}\",",
+            "  },",
+            "  kmsKeyId: \"${8:string}\",",
+            "  name: \"${9:string}\",",
+            "  notificationChannel: {",
+            "    arn: \"${10:string}\",",
+            "  },",
+            "  polygonRegionsOfInterest: [],",
+            "  roleArn: \"${12:string}\", // Required",
+            "  s3Destination: {",
+            "    bucketName: \"${13:string}\",",
+            "    objectKeyPrefix: \"${14:string}\",",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: rekognition.CfnStreamProcessor",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rekognition.CfnStreamProcessor",
+            "Attributes: ",
+            "  attrArn",
+            "  attrStatus",
+            "  attrStatusMessage"
+        ],
+        "prefix": "l1-rekognition-streamprocessor",
+        "scope": "javascript,typescript"
+    },
     "resiliencehub.CfnApp": {
         "body": [
             "new resiliencehub.CfnApp(this, \"${1:id}\", {",
@@ -19587,15 +19655,16 @@
         "body": [
             "new secretsmanager.CfnRotationSchedule(this, \"${1:id}\", {",
             "  hostedRotationLambda: {",
-            "    kmsKeyArn: \"${2:string}\",",
-            "    masterSecretArn: \"${3:string}\",",
-            "    masterSecretKmsKeyArn: \"${4:string}\",",
-            "    rotationLambdaName: \"${5:string}\",",
-            "    rotationType: \"${6:string}\",",
-            "    superuserSecretArn: \"${7:string}\",",
-            "    superuserSecretKmsKeyArn: \"${8:string}\",",
-            "    vpcSecurityGroupIds: \"${9:string}\",",
-            "    vpcSubnetIds: \"${10:string}\",",
+            "    excludeCharacters: \"${2:string}\",",
+            "    kmsKeyArn: \"${3:string}\",",
+            "    masterSecretArn: \"${4:string}\",",
+            "    masterSecretKmsKeyArn: \"${5:string}\",",
+            "    rotationLambdaName: \"${6:string}\",",
+            "    rotationType: \"${7:string}\",",
+            "    superuserSecretArn: \"${8:string}\",",
+            "    superuserSecretKmsKeyArn: \"${9:string}\",",
+            "    vpcSecurityGroupIds: \"${10:string}\",",
+            "    vpcSubnetIds: \"${11:string}\",",
             "  },",
             "  rotateImmediatelyOnUpdate: ${3|false,true|},",
             "  rotationLambdaARN: \"${4:string}\",",
@@ -20386,8 +20455,9 @@
             "  receiveMessageWaitTimeSeconds: ${12:Number},",
             "  redriveAllowPolicy: ${13:JSON},",
             "  redrivePolicy: ${14:JSON},",
+            "  sqsManagedSseEnabled: ${15|false,true|},",
             "  tags: [],",
-            "  visibilityTimeout: ${16:Number},",
+            "  visibilityTimeout: ${17:Number},",
             "})"
         ],
         "description": [
@@ -20433,9 +20503,10 @@
             "  parameters: {",
             "  },",
             "  scheduleExpression: \"${14:string}\",",
-            "  syncCompliance: \"${15:string}\",",
+            "  scheduleOffset: ${15:Number},",
+            "  syncCompliance: \"${16:string}\",",
             "  targets: [],",
-            "  waitForSuccessTimeoutSeconds: ${17:Number},",
+            "  waitForSuccessTimeoutSeconds: ${18:Number},",
             "})"
         ],
         "description": [
@@ -21033,6 +21104,26 @@
             "  attrArn"
         ],
         "prefix": "l1-transfer-workflow",
+        "scope": "javascript,typescript"
+    },
+    "voiceid.CfnDomain": {
+        "body": [
+            "new voiceid.CfnDomain(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  serverSideEncryptionConfiguration: {",
+            "    kmsKeyId: \"${4:string}\",",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: voiceid.CfnDomain",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-voiceid.CfnDomain",
+            "Attributes: ",
+            "  attrDomainId"
+        ],
+        "prefix": "l1-voiceid-domain",
         "scope": "javascript,typescript"
     },
     "waf.CfnByteMatchSet": {
