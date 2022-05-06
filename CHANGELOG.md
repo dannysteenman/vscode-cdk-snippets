@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.40.0 (2022-05-06)
+-------------------
+- The following resources were updated: AWS::WAFv2::WebACL and
+  AWS::WAFv2::RuleGroup. [Github Actions]
+
+
 1.39.0 (2022-04-22)
 -------------------
 - New parameters were added to AWS::Evidently::Experiment and
