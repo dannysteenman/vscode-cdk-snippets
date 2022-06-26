@@ -32,6 +32,12 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 
 ---
 
+## AWS CDK examples
+
+If you'd like to learn more about AWS CDK, have a look at these [series of AWS CDK examples](https://towardsthecloud.com/category/infrastructure-as-code/aws-cdk) that I've pubished on my blog.
+
+---
+
 ## Support
 
 If you have a feature request or an issue, please let me know on [Github](https://github.com/dannysteenman/vscode-cdk-snippets/issues)
