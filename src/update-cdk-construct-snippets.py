@@ -50,23 +50,26 @@ def change_case(property):
 
 
 def parse_body(body, counter, resource_properties, resource_property, resource_type):
-    required = resource_properties[resource_property]["Required"]
-    item = types(resource_properties[resource_property])
+    try:
+        required = resource_properties[resource_property]["Required"]
+        item = types(resource_properties[resource_property])
 
-    if "Type" in resource_properties[resource_property]:
-        if resource_properties[resource_property]["Type"] == "List":
-            body.append(
-                " " * 2
-                + change_case(resource_property)
-                + ": [],"
-                + (" // Required" if required else "")
-            )
+        if "Type" in resource_properties[resource_property]:
+            if resource_properties[resource_property]["Type"] == "List":
+                body.append(
+                    " " * 2
+                    + change_case(resource_property)
+                    + ": [],"
+                    + (" // Required" if required else "")
+                )
+            else:
+                item = resource_properties[resource_property]["Type"]
+                body.append(" " * 2 + change_case(resource_property) + ": {")
+                get_item_type_prop(body, item, resource_type, counter)
         else:
-            item = resource_properties[resource_property]["Type"]
-            body.append(" " * 2 + change_case(resource_property) + ": {")
-            get_item_type_prop(body, item, resource_type, counter)
-    else:
-        set_value_type(body, resource_property, item, counter, required, indent=2)
+            set_value_type(body, resource_property, item, counter, required, indent=2)
+    except KeyError:
+        pass
 
     return body
 
