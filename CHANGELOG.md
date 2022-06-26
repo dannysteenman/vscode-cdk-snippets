@@ -2,6 +2,22 @@ Changelog
 =========
 
 
+1.42.0 (2022-06-26)
+-------------------
+
+Fix
+~~~
+- Add exception for KeyError in cloudformation resource property. [Danny
+  Steenman]
+- Pin python versions for gh actions. [Danny Steenman]
+
+Other
+~~~~~
+- The following resource was added: AWS::CloudTrail::EventDataStore.
+  [Github Actions]
+- Feat: update readme. [Danny Steenman]
+
+
 1.41.0 (2022-05-13)
 -------------------
 - The following resource was updated: AWS::Synthetics::Canary. [Github
