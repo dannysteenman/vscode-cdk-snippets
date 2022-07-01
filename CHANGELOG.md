@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.43.0 (2022-07-01)
+-------------------
+- The following resource was added: AWS::IoT::CACertificate. [Github
+  Actions]
+
+
 1.42.0 (2022-06-26)
 -------------------
 
