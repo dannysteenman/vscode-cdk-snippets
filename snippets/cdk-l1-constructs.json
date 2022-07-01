@@ -5448,6 +5448,28 @@
         "prefix": "l1-datasync-locationfsxlustre",
         "scope": "javascript,typescript"
     },
+    "datasync.CfnLocationFSxONTAP": {
+        "body": [
+            "new datasync.CfnLocationFSxONTAP(this, \"${1:id}\", {",
+            "  protocol: {",
+            "  },",
+            "  securityGroupArns: [], // Required",
+            "  storageVirtualMachineArn: \"${4:string}\", // Required",
+            "  subdirectory: \"${5:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datasync.CfnLocationFSxONTAP",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datasync.CfnLocationFSxONTAP",
+            "Attributes: ",
+            "  attrFsxFilesystemArn",
+            "  attrLocationArn",
+            "  attrLocationUri"
+        ],
+        "prefix": "l1-datasync-locationfsxontap",
+        "scope": "javascript,typescript"
+    },
     "datasync.CfnLocationFSxOpenZFS": {
         "body": [
             "new datasync.CfnLocationFSxOpenZFS(this, \"${1:id}\", {",
@@ -6447,9 +6469,10 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnCapacityReservation",
             "Attributes: ",
             "  attrTenancy",
-            "  attrAvailableInstanceCount",
             "  attrAvailabilityZone",
             "  attrTotalInstanceCount",
+            "  attrAvailableInstanceCount",
+            "  attrId",
             "  attrInstanceType"
         ],
         "prefix": "l1-ec2-capacityreservation",
@@ -13523,12 +13546,18 @@
         "body": [
             "new kinesisanalyticsv2.CfnApplication(this, \"${1:id}\", {",
             "  applicationConfiguration: {",
+            "    vpcConfigurations: [],",
             "  },",
             "  applicationDescription: \"${3:string}\",",
-            "  applicationMode: \"${4:string}\",",
-            "  applicationName: \"${5:string}\",",
-            "  runtimeEnvironment: \"${6:string}\", // Required",
-            "  serviceExecutionRole: \"${7:string}\", // Required",
+            "  applicationMaintenanceConfiguration: {",
+            "    applicationMaintenanceWindowStartTime: \"${4:string}\",",
+            "  },",
+            "  applicationMode: \"${5:string}\",",
+            "  applicationName: \"${6:string}\",",
+            "  runConfiguration: {",
+            "  },",
+            "  runtimeEnvironment: \"${8:string}\", // Required",
+            "  serviceExecutionRole: \"${9:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -13760,6 +13789,30 @@
         "prefix": "l1-kms-replicakey",
         "scope": "javascript,typescript"
     },
+    "lakeformation.CfnDataCellsFilter": {
+        "body": [
+            "new lakeformation.CfnDataCellsFilter(this, \"${1:id}\", {",
+            "  columnNames: [],",
+            "  columnWildcard: {",
+            "    excludedColumnNames: [],",
+            "  },",
+            "  databaseName: \"${4:string}\", // Required",
+            "  name: \"${5:string}\", // Required",
+            "  rowFilter: {",
+            "    allRowsWildcard: ${6:JSON},",
+            "    filterExpression: \"${7:string}\",",
+            "  },",
+            "  tableCatalogId: \"${7:string}\", // Required",
+            "  tableName: \"${8:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: lakeformation.CfnDataCellsFilter",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lakeformation.CfnDataCellsFilter"
+        ],
+        "prefix": "l1-lakeformation-datacellsfilter",
+        "scope": "javascript,typescript"
+    },
     "lakeformation.CfnDataLakeSettings": {
         "body": [
             "new lakeformation.CfnDataLakeSettings(this, \"${1:id}\", {",
@@ -13794,6 +13847,29 @@
         "prefix": "l1-lakeformation-permissions",
         "scope": "javascript,typescript"
     },
+    "lakeformation.CfnPrincipalPermissions": {
+        "body": [
+            "new lakeformation.CfnPrincipalPermissions(this, \"${1:id}\", {",
+            "  catalog: \"${2:string}\",",
+            "  permissions: [], // Required",
+            "  permissionsWithGrantOption: [], // Required",
+            "  principal: {",
+            "    dataLakePrincipalIdentifier: \"${5:string}\",",
+            "  },",
+            "  resource: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: lakeformation.CfnPrincipalPermissions",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lakeformation.CfnPrincipalPermissions",
+            "Attributes: ",
+            "  attrPrincipalIdentifier",
+            "  attrResourceIdentifier"
+        ],
+        "prefix": "l1-lakeformation-principalpermissions",
+        "scope": "javascript,typescript"
+    },
     "lakeformation.CfnResource": {
         "body": [
             "new lakeformation.CfnResource(this, \"${1:id}\", {",
@@ -13807,6 +13883,39 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lakeformation.CfnResource"
         ],
         "prefix": "l1-lakeformation-resource",
+        "scope": "javascript,typescript"
+    },
+    "lakeformation.CfnTag": {
+        "body": [
+            "new lakeformation.CfnTag(this, \"${1:id}\", {",
+            "  catalogId: \"${2:string}\",",
+            "  tagKey: \"${3:string}\", // Required",
+            "  tagValues: [], // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: lakeformation.CfnTag",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lakeformation.CfnTag"
+        ],
+        "prefix": "l1-lakeformation-tag",
+        "scope": "javascript,typescript"
+    },
+    "lakeformation.CfnTagAssociation": {
+        "body": [
+            "new lakeformation.CfnTagAssociation(this, \"${1:id}\", {",
+            "  lFTags: [], // Required",
+            "  resource: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: lakeformation.CfnTagAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lakeformation.CfnTagAssociation",
+            "Attributes: ",
+            "  attrResourceIdentifier",
+            "  attrTagsIdentifier"
+        ],
+        "prefix": "l1-lakeformation-tagassociation",
         "scope": "javascript,typescript"
     },
     "lambda.CfnAlias": {
@@ -17454,24 +17563,28 @@
             "  columnGroups: [],",
             "  columnLevelPermissionRules: [],",
             "  dataSetId: \"${5:string}\",",
+            "  dataSetUsageConfiguration: {",
+            "    disableUseAsDirectQuerySource: ${6|false,true|},",
+            "    disableUseAsImportedSource: ${7|false,true|},",
+            "  },",
             "  fieldFolders: {",
             "  },",
-            "  importMode: \"${7:string}\",",
+            "  importMode: \"${8:string}\",",
             "  ingestionWaitPolicy: {",
-            "    ingestionWaitTimeInHours: ${8:Number},",
-            "    waitForSpiceIngestion: ${9|false,true|},",
+            "    ingestionWaitTimeInHours: ${9:Number},",
+            "    waitForSpiceIngestion: ${10|false,true|},",
             "  },",
             "  logicalTableMap: {",
             "  },",
-            "  name: \"${10:string}\",",
+            "  name: \"${11:string}\",",
             "  permissions: [],",
             "  physicalTableMap: {",
             "  },",
             "  rowLevelPermissionDataSet: {",
-            "    arn: \"${13:string}\",",
-            "    formatVersion: \"${14:string}\",",
-            "    namespace: \"${15:string}\",",
-            "    permissionPolicy: \"${16:string}\",",
+            "    arn: \"${14:string}\",",
+            "    formatVersion: \"${15:string}\",",
+            "    namespace: \"${16:string}\",",
+            "    permissionPolicy: \"${17:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -17663,9 +17776,7 @@
         ],
         "description": [
             "Construct: rds.CfnDBClusterParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBClusterParameterGroup",
-            "Attributes: ",
-            "  attrDBClusterParameterGroupName"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBClusterParameterGroup"
         ],
         "prefix": "l1-rds-dbclusterparametergroup",
         "scope": "javascript,typescript"
@@ -18235,15 +18346,18 @@
         "body": [
             "new refactorspaces.CfnRoute(this, \"${1:id}\", {",
             "  applicationIdentifier: \"${2:string}\", // Required",
-            "  environmentIdentifier: \"${3:string}\", // Required",
-            "  routeType: \"${4:string}\",",
-            "  serviceIdentifier: \"${5:string}\", // Required",
+            "  defaultRoute: {",
+            "    activationState: \"${3:string}\",",
+            "  },",
+            "  environmentIdentifier: \"${4:string}\", // Required",
+            "  routeType: \"${5:string}\",",
+            "  serviceIdentifier: \"${6:string}\", // Required",
             "  tags: [],",
             "  uriPathRoute: {",
-            "    activationState: \"${7:string}\",",
-            "    includeChildPaths: ${8|false,true|},",
+            "    activationState: \"${8:string}\",",
+            "    includeChildPaths: ${9|false,true|},",
             "    methods: [],",
-            "    sourcePath: \"${10:string}\",",
+            "    sourcePath: \"${11:string}\",",
             "  },",
             "})"
         ],
@@ -20776,6 +20890,57 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnContactList"
         ],
         "prefix": "l1-ses-contactlist",
+        "scope": "javascript,typescript"
+    },
+    "ses.CfnDedicatedIpPool": {
+        "body": [
+            "new ses.CfnDedicatedIpPool(this, \"${1:id}\", {",
+            "  poolName: \"${2:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: ses.CfnDedicatedIpPool",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnDedicatedIpPool"
+        ],
+        "prefix": "l1-ses-dedicatedippool",
+        "scope": "javascript,typescript"
+    },
+    "ses.CfnEmailIdentity": {
+        "body": [
+            "new ses.CfnEmailIdentity(this, \"${1:id}\", {",
+            "  configurationSetAttributes: {",
+            "    configurationSetName: \"${2:string}\",",
+            "  },",
+            "  dkimAttributes: {",
+            "    signingEnabled: ${3|false,true|},",
+            "  },",
+            "  dkimSigningAttributes: {",
+            "    domainSigningPrivateKey: \"${4:string}\",",
+            "    domainSigningSelector: \"${5:string}\",",
+            "    nextSigningKeyLength: \"${6:string}\",",
+            "  },",
+            "  emailIdentity: \"${5:string}\", // Required",
+            "  feedbackAttributes: {",
+            "    emailForwardingEnabled: ${6|false,true|},",
+            "  },",
+            "  mailFromAttributes: {",
+            "    behaviorOnMxFailure: \"${7:string}\",",
+            "    mailFromDomain: \"${8:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: ses.CfnEmailIdentity",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnEmailIdentity",
+            "Attributes: ",
+            "  attrDkimDNSTokenName1",
+            "  attrDkimDNSTokenName2",
+            "  attrDkimDNSTokenName3",
+            "  attrDkimDNSTokenValue1",
+            "  attrDkimDNSTokenValue2",
+            "  attrDkimDNSTokenValue3"
+        ],
+        "prefix": "l1-ses-emailidentity",
         "scope": "javascript,typescript"
     },
     "ses.CfnReceiptFilter": {
