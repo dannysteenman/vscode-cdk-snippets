@@ -12037,11 +12037,12 @@
         "body": [
             "new iot.CfnCACertificate(this, \"${1:id}\", {",
             "  autoRegistrationStatus: \"${2:string}\",",
-            "  cACertificatePem: \"${3:string}\",",
-            "  registrationConfig: ${4:JSON},",
-            "  status: \"${5:string}\", // Required",
+            "  cACertificatePem: \"${3:string}\", // Required",
+            "  certificateMode: \"${4:string}\",",
+            "  registrationConfig: ${5:JSON},",
+            "  status: \"${6:string}\", // Required",
             "  tags: [],",
-            "  verificationCertificatePem: \"${7:string}\",",
+            "  verificationCertificatePem: \"${8:string}\",",
             "})"
         ],
         "description": [
@@ -14805,8 +14806,9 @@
     "logs.CfnMetricFilter": {
         "body": [
             "new logs.CfnMetricFilter(this, \"${1:id}\", {",
-            "  filterPattern: \"${2:string}\", // Required",
-            "  logGroupName: \"${3:string}\", // Required",
+            "  filterName: \"${2:string}\",",
+            "  filterPattern: \"${3:string}\", // Required",
+            "  logGroupName: \"${4:string}\", // Required",
             "  metricTransformations: [], // Required",
             "})"
         ],
@@ -18292,6 +18294,27 @@
         "prefix": "l1-redshiftserverless-namespace",
         "scope": "javascript,typescript"
     },
+    "redshiftserverless.CfnWorkgroup": {
+        "body": [
+            "new redshiftserverless.CfnWorkgroup(this, \"${1:id}\", {",
+            "  baseCapacity: ${2:Number},",
+            "  configParameters: [],",
+            "  enhancedVpcRouting: ${4|false,true|},",
+            "  namespaceName: \"${5:string}\",",
+            "  publiclyAccessible: ${6|false,true|},",
+            "  securityGroupIds: [],",
+            "  subnetIds: [],",
+            "  tags: [],",
+            "  workgroupName: \"${10:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: redshiftserverless.CfnWorkgroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshiftserverless.CfnWorkgroup"
+        ],
+        "prefix": "l1-redshiftserverless-workgroup",
+        "scope": "javascript,typescript"
+    },
     "refactorspaces.CfnApplication": {
         "body": [
             "new refactorspaces.CfnApplication(this, \"${1:id}\", {",
@@ -18671,6 +18694,48 @@
             "  attrArn"
         ],
         "prefix": "l1-robomaker-simulationapplicationversion",
+        "scope": "javascript,typescript"
+    },
+    "rolesanywhere.CfnProfile": {
+        "body": [
+            "new rolesanywhere.CfnProfile(this, \"${1:id}\", {",
+            "  durationSeconds: ${2:Number},",
+            "  enabled: ${3|false,true|},",
+            "  managedPolicyArns: [],",
+            "  name: \"${5:string}\",",
+            "  requireInstanceProperties: ${6|false,true|},",
+            "  roleArns: [],",
+            "  sessionPolicy: \"${8:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: rolesanywhere.CfnProfile",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rolesanywhere.CfnProfile",
+            "Attributes: ",
+            "  attrProfileArn",
+            "  attrProfileId"
+        ],
+        "prefix": "l1-rolesanywhere-profile",
+        "scope": "javascript,typescript"
+    },
+    "rolesanywhere.CfnTrustAnchor": {
+        "body": [
+            "new rolesanywhere.CfnTrustAnchor(this, \"${1:id}\", {",
+            "  enabled: ${2|false,true|},",
+            "  name: \"${3:string}\",",
+            "  source: {",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: rolesanywhere.CfnTrustAnchor",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rolesanywhere.CfnTrustAnchor",
+            "Attributes: ",
+            "  attrTrustAnchorId",
+            "  attrTrustAnchorArn"
+        ],
+        "prefix": "l1-rolesanywhere-trustanchor",
         "scope": "javascript,typescript"
     },
     "route53.CfnCidrCollection": {
@@ -21433,9 +21498,10 @@
             "  incidentTemplate: {",
             "    dedupeString: \"${6:string}\",",
             "    impact: ${7:Number},",
+            "    incidentTags: [],",
             "    notificationTargets: [],",
-            "    summary: \"${9:string}\",",
-            "    title: \"${10:string}\",",
+            "    summary: \"${10:string}\",",
+            "    title: \"${11:string}\",",
             "  },",
             "  name: \"${7:string}\", // Required",
             "  tags: [],",
