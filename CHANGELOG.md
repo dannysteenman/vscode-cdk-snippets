@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.45.0 (2022-07-15)
+-------------------
+- The following resource was updated: AWS::SageMaker::NotebookInstance.
+  [Github Actions]
+
+
 1.44.0 (2022-07-08)
 -------------------
 - The following resource was updated: AWS::CloudFormation::StackSet.
