@@ -2529,7 +2529,10 @@
         ],
         "description": [
             "Construct: autoscaling.CfnScalingPolicy",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-autoscaling.CfnScalingPolicy"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-autoscaling.CfnScalingPolicy",
+            "Attributes: ",
+            "  attrPolicyName",
+            "  attrArn"
         ],
         "prefix": "l1-autoscaling-scalingpolicy",
         "scope": "javascript,typescript"
@@ -4727,9 +4730,9 @@
             "    tagValue: \"${9:string}\",",
             "  },",
             "  source: {",
-            "    owner: \"${7:string}\",",
+            "    owner: \"${8:string}\",",
             "    sourceDetails: [],",
-            "    sourceIdentifier: \"${9:string}\",",
+            "    sourceIdentifier: \"${10:string}\",",
             "  },",
             "})"
         ],
@@ -7310,7 +7313,8 @@
     "ec2.CfnPlacementGroup": {
         "body": [
             "new ec2.CfnPlacementGroup(this, \"${1:id}\", {",
-            "  strategy: \"${2:string}\",",
+            "  spreadLevel: \"${2:string}\",",
+            "  strategy: \"${3:string}\",",
             "})"
         ],
         "description": [
@@ -18696,6 +18700,25 @@
         "prefix": "l1-robomaker-simulationapplicationversion",
         "scope": "javascript,typescript"
     },
+    "rolesanywhere.CfnCRL": {
+        "body": [
+            "new rolesanywhere.CfnCRL(this, \"${1:id}\", {",
+            "  crlData: \"${2:string}\",",
+            "  enabled: ${3|false,true|},",
+            "  name: \"${4:string}\",",
+            "  tags: [],",
+            "  trustAnchorArn: \"${6:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: rolesanywhere.CfnCRL",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rolesanywhere.CfnCRL",
+            "Attributes: ",
+            "  attrCrlId"
+        ],
+        "prefix": "l1-rolesanywhere-crl",
+        "scope": "javascript,typescript"
+    },
     "rolesanywhere.CfnProfile": {
         "body": [
             "new rolesanywhere.CfnProfile(this, \"${1:id}\", {",
@@ -20168,17 +20191,20 @@
             "  additionalCodeRepositories: [],",
             "  defaultCodeRepository: \"${4:string}\",",
             "  directInternetAccess: \"${5:string}\",",
-            "  instanceType: \"${6:string}\", // Required",
-            "  kmsKeyId: \"${7:string}\",",
-            "  lifecycleConfigName: \"${8:string}\",",
-            "  notebookInstanceName: \"${9:string}\",",
-            "  platformIdentifier: \"${10:string}\",",
-            "  roleArn: \"${11:string}\", // Required",
-            "  rootAccess: \"${12:string}\",",
+            "  instanceMetadataServiceConfiguration: {",
+            "    minimumInstanceMetadataServiceVersion: \"${6:string}\",",
+            "  },",
+            "  instanceType: \"${7:string}\", // Required",
+            "  kmsKeyId: \"${8:string}\",",
+            "  lifecycleConfigName: \"${9:string}\",",
+            "  notebookInstanceName: \"${10:string}\",",
+            "  platformIdentifier: \"${11:string}\",",
+            "  roleArn: \"${12:string}\", // Required",
+            "  rootAccess: \"${13:string}\",",
             "  securityGroupIds: [],",
-            "  subnetId: \"${14:string}\",",
+            "  subnetId: \"${15:string}\",",
             "  tags: [],",
-            "  volumeSizeInGB: ${16:Number},",
+            "  volumeSizeInGB: ${17:Number},",
             "})"
         ],
         "description": [
@@ -20279,7 +20305,8 @@
             "    notificationTopicArn: \"${4:string}\",",
             "  },",
             "  tags: [],",
-            "  workteamName: \"${6:string}\",",
+            "  workforceName: \"${6:string}\",",
+            "  workteamName: \"${7:string}\",",
             "})"
         ],
         "description": [
