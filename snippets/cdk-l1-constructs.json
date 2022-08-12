@@ -6419,8 +6419,7 @@
             "    enabled: ${4|false,true|},",
             "  },",
             "  globalSecondaryIndexes: [],",
-            "  keySchema: {",
-            "  },",
+            "  keySchema: [], // Required",
             "  kinesisStreamSpecification: {",
             "    streamArn: \"${7:string}\",",
             "  },",
@@ -6879,12 +6878,13 @@
             "  allocationMinNetmaskLength: ${5:Number},",
             "  allocationResourceTags: [],",
             "  autoImport: ${7|false,true|},",
-            "  description: \"${8:string}\",",
-            "  ipamScopeId: \"${9:string}\", // Required",
-            "  locale: \"${10:string}\",",
+            "  awsService: \"${8:string}\",",
+            "  description: \"${9:string}\",",
+            "  ipamScopeId: \"${10:string}\", // Required",
+            "  locale: \"${11:string}\",",
             "  provisionedCidrs: [],",
-            "  publiclyAdvertisable: ${12|false,true|},",
-            "  sourceIpamPoolId: \"${13:string}\",",
+            "  publiclyAdvertisable: ${13|false,true|},",
+            "  sourceIpamPoolId: \"${14:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -9932,7 +9932,10 @@
             "  resourceType: \"${9:string}\", // Required",
             "  resourceTypeList: [],",
             "  resourcesCleanUp: ${11|false,true|},",
-            "  securityServicePolicyData: ${12:JSON}, // Required",
+            "  securityServicePolicyData: {",
+            "    managedServiceData: \"${12:string}\",",
+            "    type: \"${14:string}\",",
+            "  },",
             "  tags: [],",
             "})"
         ],
@@ -15849,6 +15852,26 @@
         "prefix": "l1-msk-configuration",
         "scope": "javascript,typescript"
     },
+    "msk.CfnServerlessCluster": {
+        "body": [
+            "new msk.CfnServerlessCluster(this, \"${1:id}\", {",
+            "  clientAuthentication: {",
+            "  },",
+            "  clusterName: \"${3:string}\", // Required",
+            "  tags: {",
+            "  },",
+            "  vpcConfigs: [], // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: msk.CfnServerlessCluster",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnServerlessCluster",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-msk-serverlesscluster",
+        "scope": "javascript,typescript"
+    },
     "mwaa.CfnEnvironment": {
         "body": [
             "new mwaa.CfnEnvironment(this, \"${1:id}\", {",
@@ -17844,7 +17867,7 @@
             "  characterSetName: \"${9:string}\",",
             "  copyTagsToSnapshot: ${10|false,true|},",
             "  dBClusterIdentifier: \"${11:string}\",",
-            "  dBInstanceClass: \"${12:string}\", // Required",
+            "  dBInstanceClass: \"${12:string}\",",
             "  dBInstanceIdentifier: \"${13:string}\",",
             "  dBName: \"${14:string}\",",
             "  dBParameterGroupName: \"${15:string}\",",
@@ -17893,7 +17916,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBInstance",
             "Attributes: ",
             "  attrEndpoint.Address",
-            "  attrEndpoint.Port"
+            "  attrEndpoint.Port",
+            "  attrEndpoint.HostedZoneId"
         ],
         "prefix": "l1-rds-dbinstance",
         "scope": "javascript,typescript"
@@ -21750,6 +21774,23 @@
             "  attrState"
         ],
         "prefix": "l1-synthetics-canary",
+        "scope": "javascript,typescript"
+    },
+    "synthetics.CfnGroup": {
+        "body": [
+            "new synthetics.CfnGroup(this, \"${1:id}\", {",
+            "  name: \"${2:string}\", // Required",
+            "  resourceArns: [],",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: synthetics.CfnGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-synthetics.CfnGroup",
+            "Attributes: ",
+            "  attrId"
+        ],
+        "prefix": "l1-synthetics-group",
         "scope": "javascript,typescript"
     },
     "timestream.CfnDatabase": {
