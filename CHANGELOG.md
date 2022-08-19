@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.50.0 (2022-08-19)
+-------------------
+- The following resource was updated: AWS::Lambda::EventSourceMapping.
+  [Github Actions]
+
+
 1.49.0 (2022-08-12)
 -------------------
 - The following resources were updated: AWS::WAFv2::WebACL and
