@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.51.0 (2022-08-29)
+-------------------
+- The following resource was added: AWS::Connect::InstanceStorageConfig.
+  [Github Actions]
+
+
 1.50.0 (2022-08-19)
 -------------------
 - The following resource was updated: AWS::Lambda::EventSourceMapping.
