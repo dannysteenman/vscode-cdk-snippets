@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.52.0 (2022-09-09)
+-------------------
+- The following resource was added:
+  AWS::CloudFront::OriginAccessControl. [Github Actions]
+
+
 1.51.0 (2022-08-29)
 -------------------
 - The following resource was added: AWS::Connect::InstanceStorageConfig.
