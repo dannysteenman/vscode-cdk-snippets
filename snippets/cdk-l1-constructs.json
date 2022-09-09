@@ -2269,6 +2269,9 @@
             "new aps.CfnWorkspace(this, \"${1:id}\", {",
             "  alertManagerDefinition: \"${2:string}\",",
             "  alias: \"${3:string}\",",
+            "  loggingConfiguration: {",
+            "    logGroupArn: \"${4:string}\",",
+            "  },",
             "  tags: [],",
             "})"
         ],
@@ -3623,6 +3626,27 @@
             "  attrLastModifiedTime"
         ],
         "prefix": "l1-cloudfront-keygroup",
+        "scope": "javascript,typescript"
+    },
+    "cloudfront.CfnOriginAccessControl": {
+        "body": [
+            "new cloudfront.CfnOriginAccessControl(this, \"${1:id}\", {",
+            "  originAccessControlConfig: {",
+            "    description: \"${2:string}\",",
+            "    name: \"${3:string}\",",
+            "    originAccessControlOriginType: \"${4:string}\",",
+            "    signingBehavior: \"${5:string}\",",
+            "    signingProtocol: \"${6:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: cloudfront.CfnOriginAccessControl",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudfront.CfnOriginAccessControl",
+            "Attributes: ",
+            "  attrId"
+        ],
+        "prefix": "l1-cloudfront-originaccesscontrol",
         "scope": "javascript,typescript"
     },
     "cloudfront.CfnOriginRequestPolicy": {
@@ -5033,6 +5057,37 @@
         "prefix": "l1-connect-instance",
         "scope": "javascript,typescript"
     },
+    "connect.CfnInstanceStorageConfig": {
+        "body": [
+            "new connect.CfnInstanceStorageConfig(this, \"${1:id}\", {",
+            "  instanceArn: \"${2:string}\", // Required",
+            "  kinesisFirehoseConfig: {",
+            "    firehoseArn: \"${3:string}\",",
+            "  },",
+            "  kinesisStreamConfig: {",
+            "    streamArn: \"${4:string}\",",
+            "  },",
+            "  kinesisVideoStreamConfig: {",
+            "    prefix: \"${6:string}\",",
+            "    retentionPeriodHours: ${7:Number},",
+            "  },",
+            "  resourceType: \"${6:string}\", // Required",
+            "  s3Config: {",
+            "    bucketName: \"${7:string}\",",
+            "    bucketPrefix: \"${8:string}\",",
+            "  },",
+            "  storageType: \"${8:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnInstanceStorageConfig",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnInstanceStorageConfig",
+            "Attributes: ",
+            "  attrAssociationId"
+        ],
+        "prefix": "l1-connect-instancestorageconfig",
+        "scope": "javascript,typescript"
+    },
     "connect.CfnPhoneNumber": {
         "body": [
             "new connect.CfnPhoneNumber(this, \"${1:id}\", {",
@@ -5169,6 +5224,20 @@
             "  attrArn"
         ],
         "prefix": "l1-connectcampaigns-campaign",
+        "scope": "javascript,typescript"
+    },
+    "controltower.CfnEnabledControl": {
+        "body": [
+            "new controltower.CfnEnabledControl(this, \"${1:id}\", {",
+            "  controlIdentifier: \"${2:string}\", // Required",
+            "  targetIdentifier: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: controltower.CfnEnabledControl",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-controltower.CfnEnabledControl"
+        ],
+        "prefix": "l1-controltower-enabledcontrol",
         "scope": "javascript,typescript"
     },
     "cur.CfnReportDefinition": {
@@ -6662,7 +6731,9 @@
         ],
         "description": [
             "Construct: ec2.CfnCustomerGateway",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnCustomerGateway"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnCustomerGateway",
+            "Attributes: ",
+            "  attrCustomerGatewayId"
         ],
         "prefix": "l1-ec2-customergateway",
         "scope": "javascript,typescript"
@@ -10548,6 +10619,8 @@
             "Attributes: ",
             "  attrDnsName",
             "  attrIpv4Addresses",
+            "  attrIpv6Addresses",
+            "  attrDualStackDnsName",
             "  attrAcceleratorArn"
         ],
         "prefix": "l1-globalaccelerator-accelerator",
@@ -15037,6 +15110,57 @@
         "prefix": "l1-lookoutvision-project",
         "scope": "javascript,typescript"
     },
+    "m2.CfnEnvironment": {
+        "body": [
+            "new m2.CfnEnvironment(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  engineType: \"${3:string}\", // Required",
+            "  engineVersion: \"${4:string}\",",
+            "  highAvailabilityConfig: {",
+            "    desiredCapacity: ${5:Number},",
+            "  },",
+            "  instanceType: \"${6:string}\", // Required",
+            "  name: \"${7:string}\", // Required",
+            "  preferredMaintenanceWindow: \"${8:string}\",",
+            "  publiclyAccessible: ${9|false,true|},",
+            "  securityGroupIds: [],",
+            "  storageConfigurations: [],",
+            "  subnetIds: [],",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: m2.CfnEnvironment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-m2.CfnEnvironment",
+            "Attributes: ",
+            "  attrEnvironmentArn",
+            "  attrEnvironmentId"
+        ],
+        "prefix": "l1-m2-environment",
+        "scope": "javascript,typescript"
+    },
+    "macie.CfnAllowList": {
+        "body": [
+            "new macie.CfnAllowList(this, \"${1:id}\", {",
+            "  criteria: {",
+            "  },",
+            "  description: \"${3:string}\",",
+            "  name: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: macie.CfnAllowList",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-macie.CfnAllowList",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn",
+            "  attrStatus"
+        ],
+        "prefix": "l1-macie-allowlist",
+        "scope": "javascript,typescript"
+    },
     "macie.CfnCustomDataIdentifier": {
         "body": [
             "new macie.CfnCustomDataIdentifier(this, \"${1:id}\", {",
@@ -17830,54 +17954,43 @@
     "rds.CfnDBCluster": {
         "body": [
             "new rds.CfnDBCluster(this, \"${1:id}\", {",
-            "  allocatedStorage: ${2:Number},",
             "  associatedRoles: [],",
-            "  autoMinorVersionUpgrade: ${4|false,true|},",
             "  availabilityZones: [],",
-            "  backtrackWindow: ${6:Number},",
-            "  backupRetentionPeriod: ${7:Number},",
-            "  copyTagsToSnapshot: ${8|false,true|},",
-            "  dBClusterIdentifier: \"${9:string}\",",
-            "  dBClusterInstanceClass: \"${10:string}\",",
-            "  dBClusterParameterGroupName: \"${11:string}\",",
-            "  dBSubnetGroupName: \"${12:string}\",",
-            "  databaseName: \"${13:string}\",",
-            "  deletionProtection: ${14|false,true|},",
+            "  backtrackWindow: ${4:Number},",
+            "  backupRetentionPeriod: ${5:Number},",
+            "  copyTagsToSnapshot: ${6|false,true|},",
+            "  dBClusterIdentifier: \"${7:string}\",",
+            "  dBClusterParameterGroupName: \"${8:string}\",",
+            "  dBSubnetGroupName: \"${9:string}\",",
+            "  databaseName: \"${10:string}\",",
+            "  deletionProtection: ${11|false,true|},",
             "  enableCloudwatchLogsExports: [],",
-            "  enableHttpEndpoint: ${16|false,true|},",
-            "  enableIAMDatabaseAuthentication: ${17|false,true|},",
-            "  engine: \"${18:string}\",",
-            "  engineMode: \"${19:string}\",",
-            "  engineVersion: \"${20:string}\",",
-            "  globalClusterIdentifier: \"${21:string}\",",
-            "  iops: ${22:Number},",
-            "  kmsKeyId: \"${23:string}\",",
-            "  masterUserPassword: \"${24:string}\",",
-            "  masterUsername: \"${25:string}\",",
-            "  monitoringInterval: ${26:Number},",
-            "  monitoringRoleArn: \"${27:string}\",",
-            "  performanceInsightsEnabled: ${28|false,true|},",
-            "  performanceInsightsKmsKeyId: \"${29:string}\",",
-            "  performanceInsightsRetentionPeriod: ${30:Number},",
-            "  port: ${31:Number},",
-            "  preferredBackupWindow: \"${32:string}\",",
-            "  preferredMaintenanceWindow: \"${33:string}\",",
-            "  publiclyAccessible: ${34|false,true|},",
-            "  replicationSourceIdentifier: \"${35:string}\",",
-            "  restoreType: \"${36:string}\",",
+            "  enableHttpEndpoint: ${13|false,true|},",
+            "  enableIAMDatabaseAuthentication: ${14|false,true|},",
+            "  engine: \"${15:string}\", // Required",
+            "  engineMode: \"${16:string}\",",
+            "  engineVersion: \"${17:string}\",",
+            "  globalClusterIdentifier: \"${18:string}\",",
+            "  kmsKeyId: \"${19:string}\",",
+            "  masterUserPassword: \"${20:string}\",",
+            "  masterUsername: \"${21:string}\",",
+            "  port: ${22:Number},",
+            "  preferredBackupWindow: \"${23:string}\",",
+            "  preferredMaintenanceWindow: \"${24:string}\",",
+            "  replicationSourceIdentifier: \"${25:string}\",",
+            "  restoreType: \"${26:string}\",",
             "  scalingConfiguration: {",
-            "    autoPause: ${37|false,true|},",
-            "    maxCapacity: ${38:Number},",
-            "    minCapacity: ${39:Number},",
-            "    secondsUntilAutoPause: ${40:Number},",
+            "    autoPause: ${27|false,true|},",
+            "    maxCapacity: ${28:Number},",
+            "    minCapacity: ${29:Number},",
+            "    secondsUntilAutoPause: ${30:Number},",
             "  },",
-            "  snapshotIdentifier: \"${38:string}\",",
-            "  sourceDBClusterIdentifier: \"${39:string}\",",
-            "  sourceRegion: \"${40:string}\",",
-            "  storageEncrypted: ${41|false,true|},",
-            "  storageType: \"${42:string}\",",
+            "  snapshotIdentifier: \"${28:string}\",",
+            "  sourceDBClusterIdentifier: \"${29:string}\",",
+            "  sourceRegion: \"${30:string}\",",
+            "  storageEncrypted: ${31|false,true|},",
             "  tags: [],",
-            "  useLatestRestorableTime: ${44|false,true|},",
+            "  useLatestRestorableTime: ${33|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -17885,6 +17998,8 @@
             "Construct: rds.CfnDBCluster",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBCluster",
             "Attributes: ",
+            "  attrEndpoint.Address",
+            "  attrEndpoint.Port",
             "  attrReadEndpoint.Address"
         ],
         "prefix": "l1-rds-dbcluster",
@@ -18248,7 +18363,9 @@
         ],
         "description": [
             "Construct: redshift.CfnClusterParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnClusterParameterGroup"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnClusterParameterGroup",
+            "Attributes: ",
+            "  attrParameterGroupName"
         ],
         "prefix": "l1-redshift-clusterparametergroup",
         "scope": "javascript,typescript"
@@ -21292,12 +21409,13 @@
         "body": [
             "new sns.CfnTopic(this, \"${1:id}\", {",
             "  contentBasedDeduplication: ${2|false,true|},",
-            "  displayName: \"${3:string}\",",
-            "  fifoTopic: ${4|false,true|},",
-            "  kmsMasterKeyId: \"${5:string}\",",
+            "  dataProtectionPolicy: ${3:JSON},",
+            "  displayName: \"${4:string}\",",
+            "  fifoTopic: ${5|false,true|},",
+            "  kmsMasterKeyId: \"${6:string}\",",
             "  subscription: [],",
             "  tags: [],",
-            "  topicName: \"${8:string}\",",
+            "  topicName: \"${9:string}\",",
             "})"
         ],
         "description": [
