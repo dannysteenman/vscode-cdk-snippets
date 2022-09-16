@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.53.0 (2022-09-16)
+-------------------
+- The following resource was updated: AWS::Cognito::UserPoolClient.
+  [Github Actions]
+
+
 1.52.0 (2022-09-09)
 -------------------
 - The following resource was added:
