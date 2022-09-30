@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.55.0 (2022-09-30)
+-------------------
+- The following resource was updated: AWS::RDS::DBCluster. [Github
+  Actions]
+
+
 1.54.0 (2022-09-23)
 -------------------
 - The following resource was updated: AWS::Cognito::UserPoolClient.
