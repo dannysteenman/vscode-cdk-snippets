@@ -3628,6 +3628,21 @@
         "prefix": "l1-cloudfront-keygroup",
         "scope": "javascript,typescript"
     },
+    "cloudfront.CfnMonitoringSubscription": {
+        "body": [
+            "new cloudfront.CfnMonitoringSubscription(this, \"${1:id}\", {",
+            "  distributionId: \"${2:string}\", // Required",
+            "  monitoringSubscription: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: cloudfront.CfnMonitoringSubscription",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudfront.CfnMonitoringSubscription"
+        ],
+        "prefix": "l1-cloudfront-monitoringsubscription",
+        "scope": "javascript,typescript"
+    },
     "cloudfront.CfnOriginAccessControl": {
         "body": [
             "new cloudfront.CfnOriginAccessControl(this, \"${1:id}\", {",
@@ -5209,6 +5224,8 @@
         "body": [
             "new connectcampaigns.CfnCampaign(this, \"${1:id}\", {",
             "  connectInstanceArn: \"${2:string}\", // Required",
+            "  dialerConfig: {",
+            "  },",
             "  name: \"${4:string}\", // Required",
             "  outboundCallConfig: {",
             "    connectContactFlowArn: \"${5:string}\",",
@@ -6520,32 +6537,36 @@
             "    enabled: ${4|false,true|},",
             "  },",
             "  globalSecondaryIndexes: [],",
+            "  importSourceSpecification: {",
+            "    inputCompressionType: \"${6:string}\",",
+            "    inputFormat: \"${7:string}\",",
+            "  },",
             "  keySchema: [], // Required",
             "  kinesisStreamSpecification: {",
-            "    streamArn: \"${7:string}\",",
+            "    streamArn: \"${8:string}\",",
             "  },",
             "  localSecondaryIndexes: [],",
             "  pointInTimeRecoverySpecification: {",
-            "    pointInTimeRecoveryEnabled: ${9|false,true|},",
+            "    pointInTimeRecoveryEnabled: ${10|false,true|},",
             "  },",
             "  provisionedThroughput: {",
-            "    readCapacityUnits: ${10:Number},",
-            "    writeCapacityUnits: ${11:Number},",
+            "    readCapacityUnits: ${11:Number},",
+            "    writeCapacityUnits: ${12:Number},",
             "  },",
             "  sSESpecification: {",
-            "    kMSMasterKeyId: \"${11:string}\",",
-            "    sSEEnabled: ${12|false,true|},",
-            "    sSEType: \"${13:string}\",",
+            "    kMSMasterKeyId: \"${12:string}\",",
+            "    sSEEnabled: ${13|false,true|},",
+            "    sSEType: \"${14:string}\",",
             "  },",
             "  streamSpecification: {",
-            "    streamViewType: \"${12:string}\",",
+            "    streamViewType: \"${13:string}\",",
             "  },",
-            "  tableClass: \"${13:string}\",",
-            "  tableName: \"${14:string}\",",
+            "  tableClass: \"${14:string}\",",
+            "  tableName: \"${15:string}\",",
             "  tags: [],",
             "  timeToLiveSpecification: {",
-            "    attributeName: \"${16:string}\",",
-            "    enabled: ${17|false,true|},",
+            "    attributeName: \"${17:string}\",",
+            "    enabled: ${18|false,true|},",
             "  },",
             "})"
         ],
@@ -8822,6 +8843,7 @@
             "  snapshotRetentionLimit: ${20:Number},",
             "  snapshotWindow: \"${21:string}\",",
             "  tags: [],",
+            "  transitEncryptionEnabled: ${23|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -9050,7 +9072,9 @@
         ],
         "description": [
             "Construct: elasticbeanstalk.CfnApplicationVersion",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-elasticbeanstalk.CfnApplicationVersion"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-elasticbeanstalk.CfnApplicationVersion",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-elasticbeanstalk-applicationversion",
         "scope": "javascript,typescript"
@@ -10846,23 +10870,25 @@
             "  },",
             "  defaultArguments: ${5:JSON},",
             "  description: \"${6:string}\",",
+            "  executionClass: \"${7:string}\",",
             "  executionProperty: {",
-            "    maxConcurrentRuns: ${7:Number},",
+            "    maxConcurrentRuns: ${8:Number},",
             "  },",
-            "  glueVersion: \"${8:string}\",",
-            "  logUri: \"${9:string}\",",
-            "  maxCapacity: ${10:Number},",
-            "  maxRetries: ${11:Number},",
-            "  name: \"${12:string}\",",
+            "  glueVersion: \"${9:string}\",",
+            "  logUri: \"${10:string}\",",
+            "  maxCapacity: ${11:Number},",
+            "  maxRetries: ${12:Number},",
+            "  name: \"${13:string}\",",
+            "  nonOverridableArguments: ${14:JSON},",
             "  notificationProperty: {",
-            "    notifyDelayAfter: ${13:Number},",
+            "    notifyDelayAfter: ${15:Number},",
             "  },",
-            "  numberOfWorkers: ${14:Number},",
-            "  role: \"${15:string}\", // Required",
-            "  securityConfiguration: \"${16:string}\",",
-            "  tags: ${17:JSON},",
-            "  timeout: ${18:Number},",
-            "  workerType: \"${19:string}\",",
+            "  numberOfWorkers: ${16:Number},",
+            "  role: \"${17:string}\", // Required",
+            "  securityConfiguration: \"${18:string}\",",
+            "  tags: ${19:JSON},",
+            "  timeout: ${20:Number},",
+            "  workerType: \"${21:string}\",",
             "})"
         ],
         "description": [
@@ -11048,16 +11074,20 @@
             "new glue.CfnTrigger(this, \"${1:id}\", {",
             "  actions: [], // Required",
             "  description: \"${3:string}\",",
-            "  name: \"${4:string}\",",
+            "  eventBatchingCondition: {",
+            "    batchSize: ${4:Number},",
+            "    batchWindow: ${5:Number},",
+            "  },",
+            "  name: \"${5:string}\",",
             "  predicate: {",
             "    conditions: [],",
-            "    logical: \"${6:string}\",",
+            "    logical: \"${7:string}\",",
             "  },",
-            "  schedule: \"${6:string}\",",
-            "  startOnCreation: ${7|false,true|},",
-            "  tags: ${8:JSON},",
-            "  type: \"${9:string}\", // Required",
-            "  workflowName: \"${10:string}\",",
+            "  schedule: \"${7:string}\",",
+            "  startOnCreation: ${8|false,true|},",
+            "  tags: ${9:JSON},",
+            "  type: \"${10:string}\", // Required",
+            "  workflowName: \"${11:string}\",",
             "})"
         ],
         "description": [
@@ -11072,8 +11102,9 @@
             "new glue.CfnWorkflow(this, \"${1:id}\", {",
             "  defaultRunProperties: ${2:JSON},",
             "  description: \"${3:string}\",",
-            "  name: \"${4:string}\",",
-            "  tags: ${5:JSON},",
+            "  maxConcurrentRuns: ${4:Number},",
+            "  name: \"${5:string}\",",
+            "  tags: ${6:JSON},",
             "})"
         ],
         "description": [
@@ -11842,6 +11873,39 @@
             "  attrSerialNumber"
         ],
         "prefix": "l1-iam-virtualmfadevice",
+        "scope": "javascript,typescript"
+    },
+    "identitystore.CfnGroup": {
+        "body": [
+            "new identitystore.CfnGroup(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  displayName: \"${3:string}\",",
+            "  identityStoreId: \"${4:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: identitystore.CfnGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-identitystore.CfnGroup",
+            "Attributes: ",
+            "  attrGroupId"
+        ],
+        "prefix": "l1-identitystore-group",
+        "scope": "javascript,typescript"
+    },
+    "identitystore.CfnGroupMembership": {
+        "body": [
+            "new identitystore.CfnGroupMembership(this, \"${1:id}\", {",
+            "  groupId: \"${2:string}\",",
+            "  identityStoreId: \"${3:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: identitystore.CfnGroupMembership",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-identitystore.CfnGroupMembership",
+            "Attributes: ",
+            "  attrMembershipId"
+        ],
+        "prefix": "l1-identitystore-groupmembership",
         "scope": "javascript,typescript"
     },
     "imagebuilder.CfnComponent": {
@@ -12862,6 +12926,153 @@
         "prefix": "l1-iotfleethub-application",
         "scope": "javascript,typescript"
     },
+    "iotfleetwise.CfnCampaign": {
+        "body": [
+            "new iotfleetwise.CfnCampaign(this, \"${1:id}\", {",
+            "  action: \"${2:string}\", // Required",
+            "  collectionScheme: {",
+            "  },",
+            "  compression: \"${4:string}\",",
+            "  dataExtraDimensions: [],",
+            "  description: \"${6:string}\",",
+            "  diagnosticsMode: \"${7:string}\",",
+            "  expiryTime: \"${8:string}\",",
+            "  name: \"${9:string}\", // Required",
+            "  postTriggerCollectionDuration: ${10:Number},",
+            "  priority: ${11:Number},",
+            "  signalCatalogArn: \"${12:string}\", // Required",
+            "  signalsToCollect: [],",
+            "  spoolingMode: \"${14:string}\",",
+            "  startTime: \"${15:string}\",",
+            "  tags: [],",
+            "  targetArn: \"${17:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iotfleetwise.CfnCampaign",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotfleetwise.CfnCampaign",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrCreationTime",
+            "  attrLastModificationTime",
+            "  attrArn"
+        ],
+        "prefix": "l1-iotfleetwise-campaign",
+        "scope": "javascript,typescript"
+    },
+    "iotfleetwise.CfnDecoderManifest": {
+        "body": [
+            "new iotfleetwise.CfnDecoderManifest(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  modelManifestArn: \"${3:string}\", // Required",
+            "  name: \"${4:string}\", // Required",
+            "  networkInterfaces: [],",
+            "  signalDecoders: [],",
+            "  status: \"${7:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotfleetwise.CfnDecoderManifest",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotfleetwise.CfnDecoderManifest",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationTime",
+            "  attrLastModificationTime"
+        ],
+        "prefix": "l1-iotfleetwise-decodermanifest",
+        "scope": "javascript,typescript"
+    },
+    "iotfleetwise.CfnFleet": {
+        "body": [
+            "new iotfleetwise.CfnFleet(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  id: \"${3:string}\", // Required",
+            "  signalCatalogArn: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotfleetwise.CfnFleet",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotfleetwise.CfnFleet",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationTime",
+            "  attrLastModificationTime"
+        ],
+        "prefix": "l1-iotfleetwise-fleet",
+        "scope": "javascript,typescript"
+    },
+    "iotfleetwise.CfnModelManifest": {
+        "body": [
+            "new iotfleetwise.CfnModelManifest(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  nodes: [],",
+            "  signalCatalogArn: \"${5:string}\", // Required",
+            "  status: \"${6:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotfleetwise.CfnModelManifest",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotfleetwise.CfnModelManifest",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationTime",
+            "  attrLastModificationTime"
+        ],
+        "prefix": "l1-iotfleetwise-modelmanifest",
+        "scope": "javascript,typescript"
+    },
+    "iotfleetwise.CfnSignalCatalog": {
+        "body": [
+            "new iotfleetwise.CfnSignalCatalog(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\",",
+            "  nodes: [],",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotfleetwise.CfnSignalCatalog",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotfleetwise.CfnSignalCatalog",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationTime",
+            "  attrLastModificationTime",
+            "  attrNodeCounts.TotalNodes",
+            "  attrNodeCounts.TotalBranches",
+            "  attrNodeCounts.TotalSensors",
+            "  attrNodeCounts.TotalAttributes",
+            "  attrNodeCounts.TotalActuators"
+        ],
+        "prefix": "l1-iotfleetwise-signalcatalog",
+        "scope": "javascript,typescript"
+    },
+    "iotfleetwise.CfnVehicle": {
+        "body": [
+            "new iotfleetwise.CfnVehicle(this, \"${1:id}\", {",
+            "  associationBehavior: \"${2:string}\",",
+            "  attributes: {",
+            "  },",
+            "  decoderManifestArn: \"${4:string}\", // Required",
+            "  modelManifestArn: \"${5:string}\", // Required",
+            "  name: \"${6:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotfleetwise.CfnVehicle",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotfleetwise.CfnVehicle",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationTime",
+            "  attrLastModificationTime"
+        ],
+        "prefix": "l1-iotfleetwise-vehicle",
+        "scope": "javascript,typescript"
+    },
     "iotsitewise.CfnAccessPolicy": {
         "body": [
             "new iotsitewise.CfnAccessPolicy(this, \"${1:id}\", {",
@@ -13151,18 +13362,23 @@
             "  loRaWAN: {",
             "    classBTimeout: ${2:Number},",
             "    classCTimeout: ${3:Number},",
-            "    macVersion: \"${4:string}\",",
-            "    maxDutyCycle: ${5:Number},",
-            "    maxEirp: ${6:Number},",
-            "    pingSlotDr: ${7:Number},",
-            "    pingSlotFreq: ${8:Number},",
-            "    pingSlotPeriod: ${9:Number},",
-            "    regParamsRevision: \"${10:string}\",",
-            "    rfRegion: \"${11:string}\",",
-            "    supports32BitFCnt: ${12|false,true|},",
-            "    supportsClassB: ${13|false,true|},",
-            "    supportsClassC: ${14|false,true|},",
-            "    supportsJoin: ${15|false,true|},",
+            "    factoryPresetFreqsList: [],",
+            "    macVersion: \"${5:string}\",",
+            "    maxDutyCycle: ${6:Number},",
+            "    maxEirp: ${7:Number},",
+            "    pingSlotDr: ${8:Number},",
+            "    pingSlotFreq: ${9:Number},",
+            "    pingSlotPeriod: ${10:Number},",
+            "    regParamsRevision: \"${11:string}\",",
+            "    rfRegion: \"${12:string}\",",
+            "    rxDataRate2: ${13:Number},",
+            "    rxDelay1: ${14:Number},",
+            "    rxDrOffset1: ${15:Number},",
+            "    rxFreq2: ${16:Number},",
+            "    supports32BitFCnt: ${17|false,true|},",
+            "    supportsClassB: ${18|false,true|},",
+            "    supportsClassC: ${19|false,true|},",
+            "    supportsJoin: ${20|false,true|},",
             "  },",
             "  name: \"${3:string}\",",
             "  tags: [],",
@@ -15119,6 +15335,26 @@
         "prefix": "l1-lookoutvision-project",
         "scope": "javascript,typescript"
     },
+    "m2.CfnApplication": {
+        "body": [
+            "new m2.CfnApplication(this, \"${1:id}\", {",
+            "  description: \"${3:string}\",",
+            "  engineType: \"${4:string}\", // Required",
+            "  name: \"${5:string}\", // Required",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: m2.CfnApplication",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-m2.CfnApplication",
+            "Attributes: ",
+            "  attrApplicationArn",
+            "  attrApplicationId"
+        ],
+        "prefix": "l1-m2-application",
+        "scope": "javascript,typescript"
+    },
     "m2.CfnEnvironment": {
         "body": [
             "new m2.CfnEnvironment(this, \"${1:id}\", {",
@@ -15153,6 +15389,7 @@
         "body": [
             "new macie.CfnAllowList(this, \"${1:id}\", {",
             "  criteria: {",
+            "    regex: \"${2:string}\",",
             "  },",
             "  description: \"${3:string}\",",
             "  name: \"${4:string}\", // Required",
@@ -17963,43 +18200,59 @@
     "rds.CfnDBCluster": {
         "body": [
             "new rds.CfnDBCluster(this, \"${1:id}\", {",
+            "  allocatedStorage: ${2:Number},",
             "  associatedRoles: [],",
+            "  autoMinorVersionUpgrade: ${4|false,true|},",
             "  availabilityZones: [],",
-            "  backtrackWindow: ${4:Number},",
-            "  backupRetentionPeriod: ${5:Number},",
-            "  copyTagsToSnapshot: ${6|false,true|},",
-            "  dBClusterIdentifier: \"${7:string}\",",
-            "  dBClusterParameterGroupName: \"${8:string}\",",
-            "  dBSubnetGroupName: \"${9:string}\",",
-            "  databaseName: \"${10:string}\",",
-            "  deletionProtection: ${11|false,true|},",
+            "  backtrackWindow: ${6:Number},",
+            "  backupRetentionPeriod: ${7:Number},",
+            "  copyTagsToSnapshot: ${8|false,true|},",
+            "  dBClusterIdentifier: \"${9:string}\",",
+            "  dBClusterInstanceClass: \"${10:string}\",",
+            "  dBClusterParameterGroupName: \"${11:string}\",",
+            "  dBInstanceParameterGroupName: \"${12:string}\",",
+            "  dBSubnetGroupName: \"${13:string}\",",
+            "  databaseName: \"${14:string}\",",
+            "  deletionProtection: ${15|false,true|},",
             "  enableCloudwatchLogsExports: [],",
-            "  enableHttpEndpoint: ${13|false,true|},",
-            "  enableIAMDatabaseAuthentication: ${14|false,true|},",
-            "  engine: \"${15:string}\", // Required",
-            "  engineMode: \"${16:string}\",",
-            "  engineVersion: \"${17:string}\",",
-            "  globalClusterIdentifier: \"${18:string}\",",
-            "  kmsKeyId: \"${19:string}\",",
-            "  masterUserPassword: \"${20:string}\",",
-            "  masterUsername: \"${21:string}\",",
-            "  port: ${22:Number},",
-            "  preferredBackupWindow: \"${23:string}\",",
-            "  preferredMaintenanceWindow: \"${24:string}\",",
-            "  replicationSourceIdentifier: \"${25:string}\",",
-            "  restoreType: \"${26:string}\",",
+            "  enableHttpEndpoint: ${17|false,true|},",
+            "  enableIAMDatabaseAuthentication: ${18|false,true|},",
+            "  engine: \"${19:string}\", // Required",
+            "  engineMode: \"${20:string}\",",
+            "  engineVersion: \"${21:string}\",",
+            "  globalClusterIdentifier: \"${22:string}\",",
+            "  iops: ${23:Number},",
+            "  kmsKeyId: \"${24:string}\",",
+            "  masterUserPassword: \"${25:string}\",",
+            "  masterUsername: \"${26:string}\",",
+            "  monitoringInterval: ${27:Number},",
+            "  monitoringRoleArn: \"${28:string}\",",
+            "  performanceInsightsEnabled: ${29|false,true|},",
+            "  performanceInsightsKmsKeyId: \"${30:string}\",",
+            "  performanceInsightsRetentionPeriod: ${31:Number},",
+            "  port: ${32:Number},",
+            "  preferredBackupWindow: \"${33:string}\",",
+            "  preferredMaintenanceWindow: \"${34:string}\",",
+            "  publiclyAccessible: ${35|false,true|},",
+            "  replicationSourceIdentifier: \"${36:string}\",",
+            "  restoreType: \"${37:string}\",",
             "  scalingConfiguration: {",
-            "    autoPause: ${27|false,true|},",
-            "    maxCapacity: ${28:Number},",
-            "    minCapacity: ${29:Number},",
-            "    secondsUntilAutoPause: ${30:Number},",
+            "    autoPause: ${38|false,true|},",
+            "    maxCapacity: ${39:Number},",
+            "    minCapacity: ${40:Number},",
+            "    secondsUntilAutoPause: ${41:Number},",
             "  },",
-            "  snapshotIdentifier: \"${28:string}\",",
-            "  sourceDBClusterIdentifier: \"${29:string}\",",
-            "  sourceRegion: \"${30:string}\",",
-            "  storageEncrypted: ${31|false,true|},",
+            "  serverlessV2ScalingConfiguration: {",
+            "    maxCapacity: ${39:Number},",
+            "    minCapacity: ${40:Number},",
+            "  },",
+            "  snapshotIdentifier: \"${40:string}\",",
+            "  sourceDBClusterIdentifier: \"${41:string}\",",
+            "  sourceRegion: \"${42:string}\",",
+            "  storageEncrypted: ${43|false,true|},",
+            "  storageType: \"${44:string}\",",
             "  tags: [],",
-            "  useLatestRestorableTime: ${33|false,true|},",
+            "  useLatestRestorableTime: ${46|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -18007,9 +18260,9 @@
             "Construct: rds.CfnDBCluster",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBCluster",
             "Attributes: ",
+            "  attrReadEndpoint.Address",
             "  attrEndpoint.Address",
-            "  attrEndpoint.Port",
-            "  attrReadEndpoint.Address"
+            "  attrEndpoint.Port"
         ],
         "prefix": "l1-rds-dbcluster",
         "scope": "javascript,typescript"
@@ -18025,7 +18278,9 @@
         ],
         "description": [
             "Construct: rds.CfnDBClusterParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBClusterParameterGroup"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBClusterParameterGroup",
+            "Attributes: ",
+            "  attrDBClusterParameterGroupName"
         ],
         "prefix": "l1-rds-dbclusterparametergroup",
         "scope": "javascript,typescript"
@@ -18421,7 +18676,9 @@
         ],
         "description": [
             "Construct: redshift.CfnClusterSubnetGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnClusterSubnetGroup"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnClusterSubnetGroup",
+            "Attributes: ",
+            "  attrClusterSubnetGroupName"
         ],
         "prefix": "l1-redshift-clustersubnetgroup",
         "scope": "javascript,typescript"
@@ -18998,6 +19255,8 @@
             "  enabled: ${2|false,true|},",
             "  name: \"${3:string}\",",
             "  source: {",
+            "    sourceType: \"${5:string}\",",
+            "  },",
             "  tags: [],",
             "})"
         ],
@@ -20272,6 +20531,11 @@
             "  approvalDescription: \"${5:string}\",",
             "  certifyForMarketplace: ${6|false,true|},",
             "  clientToken: \"${7:string}\",",
+            "  createdBy: {",
+            "    domainId: \"${8:string}\",",
+            "    userProfileArn: \"${9:string}\",",
+            "    userProfileName: \"${10:string}\",",
+            "  },",
             "  customerMetadataProperties: {",
             "  },",
             "  domain: \"${10:string}\",",
@@ -20285,6 +20549,11 @@
             "    supportedRealtimeInferenceInstanceTypes: [],",
             "    supportedResponseMIMETypes: [],",
             "    supportedTransformInstanceTypes: [],",
+            "  },",
+            "  lastModifiedBy: {",
+            "    domainId: \"${14:string}\",",
+            "    userProfileArn: \"${15:string}\",",
+            "    userProfileName: \"${16:string}\",",
             "  },",
             "  lastModifiedTime: \"${15:string}\",",
             "  metadataProperties: {",
