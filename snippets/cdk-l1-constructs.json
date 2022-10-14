@@ -1074,7 +1074,9 @@
         ],
         "description": [
             "Construct: apigatewayv2.CfnModel",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnModel"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnModel",
+            "Attributes: ",
+            "  attrModelId"
         ],
         "prefix": "l1-apigatewayv2-model",
         "scope": "javascript,typescript"
@@ -2962,11 +2964,11 @@
         "body": [
             "new budgets.CfnBudget(this, \"${1:id}\", {",
             "  budget: {",
-            "    budgetName: \"${3:string}\",",
-            "    budgetType: \"${4:string}\",",
-            "    costFilters: ${5:JSON},",
-            "    plannedBudgetLimits: ${7:JSON},",
-            "    timeUnit: \"${9:string}\",",
+            "    budgetName: \"${4:string}\",",
+            "    budgetType: \"${5:string}\",",
+            "    costFilters: ${6:JSON},",
+            "    plannedBudgetLimits: ${8:JSON},",
+            "    timeUnit: \"${10:string}\",",
             "  },",
             "  notificationsWithSubscribers: [],",
             "})"
@@ -4615,7 +4617,9 @@
         ],
         "description": [
             "Construct: cognito.CfnUserPoolDomain",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnUserPoolDomain"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnUserPoolDomain",
+            "Attributes: ",
+            "  attrCloudFrontDistribution"
         ],
         "prefix": "l1-cognito-userpooldomain",
         "scope": "javascript,typescript"
@@ -6836,6 +6840,7 @@
             "Construct: ec2.CfnEIP",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnEIP",
             "Attributes: ",
+            "  attrPublicIp",
             "  attrAllocationId"
         ],
         "prefix": "l1-ec2-eip",
@@ -11444,6 +11449,31 @@
         "prefix": "l1-greengrassv2-componentversion",
         "scope": "javascript,typescript"
     },
+    "greengrassv2.CfnDeployment": {
+        "body": [
+            "new greengrassv2.CfnDeployment(this, \"${1:id}\", {",
+            "  components: {",
+            "  },",
+            "  deploymentName: \"${3:string}\",",
+            "  deploymentPolicies: {",
+            "    failureHandlingPolicy: \"${6:string}\",",
+            "  },",
+            "  iotJobConfiguration: {",
+            "  },",
+            "  tags: {",
+            "  },",
+            "  targetArn: \"${7:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: greengrassv2.CfnDeployment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-greengrassv2.CfnDeployment",
+            "Attributes: ",
+            "  attrDeploymentId"
+        ],
+        "prefix": "l1-greengrassv2-deployment",
+        "scope": "javascript,typescript"
+    },
     "groundstation.CfnConfig": {
         "body": [
             "new groundstation.CfnConfig(this, \"${1:id}\", {",
@@ -11879,8 +11909,8 @@
         "body": [
             "new identitystore.CfnGroup(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
-            "  displayName: \"${3:string}\",",
-            "  identityStoreId: \"${4:string}\",",
+            "  displayName: \"${3:string}\", // Required",
+            "  identityStoreId: \"${4:string}\", // Required",
             "})"
         ],
         "description": [
@@ -11895,8 +11925,8 @@
     "identitystore.CfnGroupMembership": {
         "body": [
             "new identitystore.CfnGroupMembership(this, \"${1:id}\", {",
-            "  groupId: \"${2:string}\",",
-            "  identityStoreId: \"${3:string}\",",
+            "  groupId: \"${2:string}\", // Required",
+            "  identityStoreId: \"${3:string}\", // Required",
             "})"
         ],
         "description": [
@@ -15338,6 +15368,8 @@
     "m2.CfnApplication": {
         "body": [
             "new m2.CfnApplication(this, \"${1:id}\", {",
+            "  definition: {",
+            "  },",
             "  description: \"${3:string}\",",
             "  engineType: \"${4:string}\", // Required",
             "  name: \"${5:string}\", // Required",
@@ -18214,45 +18246,48 @@
             "  dBSubnetGroupName: \"${13:string}\",",
             "  databaseName: \"${14:string}\",",
             "  deletionProtection: ${15|false,true|},",
+            "  domain: \"${16:string}\",",
+            "  domainIAMRoleName: \"${17:string}\",",
             "  enableCloudwatchLogsExports: [],",
-            "  enableHttpEndpoint: ${17|false,true|},",
-            "  enableIAMDatabaseAuthentication: ${18|false,true|},",
-            "  engine: \"${19:string}\", // Required",
-            "  engineMode: \"${20:string}\",",
-            "  engineVersion: \"${21:string}\",",
-            "  globalClusterIdentifier: \"${22:string}\",",
-            "  iops: ${23:Number},",
-            "  kmsKeyId: \"${24:string}\",",
-            "  masterUserPassword: \"${25:string}\",",
-            "  masterUsername: \"${26:string}\",",
-            "  monitoringInterval: ${27:Number},",
-            "  monitoringRoleArn: \"${28:string}\",",
-            "  performanceInsightsEnabled: ${29|false,true|},",
-            "  performanceInsightsKmsKeyId: \"${30:string}\",",
-            "  performanceInsightsRetentionPeriod: ${31:Number},",
-            "  port: ${32:Number},",
-            "  preferredBackupWindow: \"${33:string}\",",
-            "  preferredMaintenanceWindow: \"${34:string}\",",
-            "  publiclyAccessible: ${35|false,true|},",
-            "  replicationSourceIdentifier: \"${36:string}\",",
-            "  restoreType: \"${37:string}\",",
+            "  enableHttpEndpoint: ${19|false,true|},",
+            "  enableIAMDatabaseAuthentication: ${20|false,true|},",
+            "  engine: \"${21:string}\", // Required",
+            "  engineMode: \"${22:string}\",",
+            "  engineVersion: \"${23:string}\",",
+            "  globalClusterIdentifier: \"${24:string}\",",
+            "  iops: ${25:Number},",
+            "  kmsKeyId: \"${26:string}\",",
+            "  masterUserPassword: \"${27:string}\",",
+            "  masterUsername: \"${28:string}\",",
+            "  monitoringInterval: ${29:Number},",
+            "  monitoringRoleArn: \"${30:string}\",",
+            "  networkType: \"${31:string}\",",
+            "  performanceInsightsEnabled: ${32|false,true|},",
+            "  performanceInsightsKmsKeyId: \"${33:string}\",",
+            "  performanceInsightsRetentionPeriod: ${34:Number},",
+            "  port: ${35:Number},",
+            "  preferredBackupWindow: \"${36:string}\",",
+            "  preferredMaintenanceWindow: \"${37:string}\",",
+            "  publiclyAccessible: ${38|false,true|},",
+            "  replicationSourceIdentifier: \"${39:string}\",",
+            "  restoreType: \"${40:string}\",",
             "  scalingConfiguration: {",
-            "    autoPause: ${38|false,true|},",
-            "    maxCapacity: ${39:Number},",
-            "    minCapacity: ${40:Number},",
-            "    secondsUntilAutoPause: ${41:Number},",
+            "    autoPause: ${41|false,true|},",
+            "    maxCapacity: ${42:Number},",
+            "    minCapacity: ${43:Number},",
+            "    secondsUntilAutoPause: ${44:Number},",
             "  },",
             "  serverlessV2ScalingConfiguration: {",
-            "    maxCapacity: ${39:Number},",
-            "    minCapacity: ${40:Number},",
+            "    maxCapacity: ${42:Number},",
+            "    minCapacity: ${43:Number},",
             "  },",
-            "  snapshotIdentifier: \"${40:string}\",",
-            "  sourceDBClusterIdentifier: \"${41:string}\",",
-            "  sourceRegion: \"${42:string}\",",
-            "  storageEncrypted: ${43|false,true|},",
-            "  storageType: \"${44:string}\",",
+            "  snapshotIdentifier: \"${43:string}\",",
+            "  sourceDBClusterIdentifier: \"${44:string}\",",
+            "  sourceRegion: \"${45:string}\",",
+            "  storageEncrypted: ${46|false,true|},",
+            "  storageType: \"${47:string}\",",
             "  tags: [],",
-            "  useLatestRestorableTime: ${46|false,true|},",
+            "  useLatestRestorableTime: ${49|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -18325,22 +18360,23 @@
             "  monitoringRoleArn: \"${36:string}\",",
             "  multiAZ: ${37|false,true|},",
             "  ncharCharacterSetName: \"${38:string}\",",
-            "  optionGroupName: \"${39:string}\",",
-            "  performanceInsightsKMSKeyId: \"${40:string}\",",
-            "  performanceInsightsRetentionPeriod: ${41:Number},",
-            "  port: \"${42:string}\",",
-            "  preferredBackupWindow: \"${43:string}\",",
-            "  preferredMaintenanceWindow: \"${44:string}\",",
+            "  networkType: \"${39:string}\",",
+            "  optionGroupName: \"${40:string}\",",
+            "  performanceInsightsKMSKeyId: \"${41:string}\",",
+            "  performanceInsightsRetentionPeriod: ${42:Number},",
+            "  port: \"${43:string}\",",
+            "  preferredBackupWindow: \"${44:string}\",",
+            "  preferredMaintenanceWindow: \"${45:string}\",",
             "  processorFeatures: [],",
-            "  promotionTier: ${46:Number},",
-            "  publiclyAccessible: ${47|false,true|},",
-            "  sourceDBInstanceIdentifier: \"${48:string}\",",
-            "  sourceRegion: \"${49:string}\",",
-            "  storageEncrypted: ${50|false,true|},",
-            "  storageType: \"${51:string}\",",
+            "  promotionTier: ${47:Number},",
+            "  publiclyAccessible: ${48|false,true|},",
+            "  sourceDBInstanceIdentifier: \"${49:string}\",",
+            "  sourceRegion: \"${50:string}\",",
+            "  storageEncrypted: ${51|false,true|},",
+            "  storageType: \"${52:string}\",",
             "  tags: [],",
-            "  timezone: \"${53:string}\",",
-            "  useDefaultProcessorFeatures: ${54|false,true|},",
+            "  timezone: \"${54:string}\",",
+            "  useDefaultProcessorFeatures: ${55|false,true|},",
             "  vPCSecurityGroups: [],",
             "})"
         ],
@@ -18393,7 +18429,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBProxy",
             "Attributes: ",
             "  attrDBProxyArn",
-            "  attrEndpoint"
+            "  attrEndpoint",
+            "  attrVpcId"
         ],
         "prefix": "l1-rds-dbproxy",
         "scope": "javascript,typescript"
@@ -18690,7 +18727,9 @@
             "  endpointName: \"${3:string}\", // Required",
             "  resourceOwner: \"${4:string}\",",
             "  subnetGroupName: \"${5:string}\", // Required",
+            "  vpcEndpoint: ${6:JSON},",
             "  vpcSecurityGroupIds: [], // Required",
+            "  vpcSecurityGroups: [],",
             "})"
         ],
         "description": [
@@ -18698,7 +18737,6 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnEndpointAccess",
             "Attributes: ",
             "  attrAddress",
-            "  attrVpcSecurityGroups",
             "  attrEndpointStatus",
             "  attrEndpointCreateTime",
             "  attrPort"
@@ -19502,7 +19540,7 @@
     "route53recoveryreadiness.CfnCell": {
         "body": [
             "new route53recoveryreadiness.CfnCell(this, \"${1:id}\", {",
-            "  cellName: \"${2:string}\", // Required",
+            "  cellName: \"${2:string}\",",
             "  cells: [],",
             "  tags: [],",
             "})"
@@ -19520,7 +19558,7 @@
     "route53recoveryreadiness.CfnReadinessCheck": {
         "body": [
             "new route53recoveryreadiness.CfnReadinessCheck(this, \"${1:id}\", {",
-            "  readinessCheckName: \"${2:string}\", // Required",
+            "  readinessCheckName: \"${2:string}\",",
             "  resourceSetName: \"${3:string}\",",
             "  tags: [],",
             "})"
@@ -19538,7 +19576,7 @@
         "body": [
             "new route53recoveryreadiness.CfnRecoveryGroup(this, \"${1:id}\", {",
             "  cells: [],",
-            "  recoveryGroupName: \"${3:string}\", // Required",
+            "  recoveryGroupName: \"${3:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -19554,7 +19592,7 @@
     "route53recoveryreadiness.CfnResourceSet": {
         "body": [
             "new route53recoveryreadiness.CfnResourceSet(this, \"${1:id}\", {",
-            "  resourceSetName: \"${2:string}\", // Required",
+            "  resourceSetName: \"${2:string}\",",
             "  resourceSetType: \"${3:string}\", // Required",
             "  resources: [], // Required",
             "  tags: [],",
@@ -20324,7 +20362,9 @@
             "    kmsKeyId: \"${8:string}\",",
             "  },",
             "  endpointConfigName: \"${4:string}\",",
-            "  kmsKeyId: \"${5:string}\",",
+            "  explainerConfig: {",
+            "  },",
+            "  kmsKeyId: \"${6:string}\",",
             "  productionVariants: [], // Required",
             "  tags: [],",
             "})"
@@ -22351,6 +22391,96 @@
             "  attrName"
         ],
         "prefix": "l1-timestream-table",
+        "scope": "javascript,typescript"
+    },
+    "transfer.CfnAgreement": {
+        "body": [
+            "new transfer.CfnAgreement(this, \"${1:id}\", {",
+            "  accessRole: \"${2:string}\", // Required",
+            "  baseDirectory: \"${3:string}\", // Required",
+            "  description: \"${4:string}\",",
+            "  localProfileId: \"${5:string}\", // Required",
+            "  partnerProfileId: \"${6:string}\", // Required",
+            "  serverId: \"${7:string}\", // Required",
+            "  status: \"${8:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: transfer.CfnAgreement",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-transfer.CfnAgreement",
+            "Attributes: ",
+            "  attrAgreementId",
+            "  attrArn"
+        ],
+        "prefix": "l1-transfer-agreement",
+        "scope": "javascript,typescript"
+    },
+    "transfer.CfnCertificate": {
+        "body": [
+            "new transfer.CfnCertificate(this, \"${1:id}\", {",
+            "  activeDate: \"${2:string}\",",
+            "  certificate: \"${3:string}\", // Required",
+            "  certificateChain: \"${4:string}\",",
+            "  description: \"${5:string}\",",
+            "  inactiveDate: \"${6:string}\",",
+            "  privateKey: \"${7:string}\",",
+            "  tags: [],",
+            "  usage: \"${9:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: transfer.CfnCertificate",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-transfer.CfnCertificate",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCertificateId",
+            "  attrStatus",
+            "  attrType",
+            "  attrSerial",
+            "  attrNotBeforeDate",
+            "  attrNotAfterDate"
+        ],
+        "prefix": "l1-transfer-certificate",
+        "scope": "javascript,typescript"
+    },
+    "transfer.CfnConnector": {
+        "body": [
+            "new transfer.CfnConnector(this, \"${1:id}\", {",
+            "  accessRole: \"${2:string}\", // Required",
+            "  as2Config: ${3:JSON}, // Required",
+            "  loggingRole: \"${4:string}\",",
+            "  tags: [],",
+            "  url: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: transfer.CfnConnector",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-transfer.CfnConnector",
+            "Attributes: ",
+            "  attrArn",
+            "  attrConnectorId"
+        ],
+        "prefix": "l1-transfer-connector",
+        "scope": "javascript,typescript"
+    },
+    "transfer.CfnProfile": {
+        "body": [
+            "new transfer.CfnProfile(this, \"${1:id}\", {",
+            "  as2Id: \"${2:string}\", // Required",
+            "  certificateIds: [],",
+            "  profileType: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: transfer.CfnProfile",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-transfer.CfnProfile",
+            "Attributes: ",
+            "  attrArn",
+            "  attrProfileId"
+        ],
+        "prefix": "l1-transfer-profile",
         "scope": "javascript,typescript"
     },
     "transfer.CfnServer": {
