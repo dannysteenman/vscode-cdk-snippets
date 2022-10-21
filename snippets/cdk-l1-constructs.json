@@ -5183,6 +5183,8 @@
             "    email: \"${4:string}\",",
             "    firstName: \"${5:string}\",",
             "    lastName: \"${6:string}\",",
+            "    mobile: \"${7:string}\",",
+            "    secondaryEmail: \"${8:string}\",",
             "  },",
             "  instanceArn: \"${5:string}\", // Required",
             "  password: \"${6:string}\",",
@@ -5500,7 +5502,7 @@
             "  activate: ${2|false,true|},",
             "  description: \"${3:string}\",",
             "  name: \"${4:string}\", // Required",
-            "  parameterObjects: [], // Required",
+            "  parameterObjects: [],",
             "  parameterValues: [],",
             "  pipelineObjects: [],",
             "  pipelineTags: [],",
@@ -5508,7 +5510,9 @@
         ],
         "description": [
             "Construct: datapipeline.CfnPipeline",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datapipeline.CfnPipeline"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datapipeline.CfnPipeline",
+            "Attributes: ",
+            "  attrPipelineId"
         ],
         "prefix": "l1-datapipeline-pipeline",
         "scope": "javascript,typescript"
@@ -11927,6 +11931,9 @@
             "new identitystore.CfnGroupMembership(this, \"${1:id}\", {",
             "  groupId: \"${2:string}\", // Required",
             "  identityStoreId: \"${3:string}\", // Required",
+            "  memberId: {",
+            "    userId: \"${4:string}\",",
+            "  },",
             "})"
         ],
         "description": [
@@ -16265,6 +16272,7 @@
             "  numberOfBrokerNodes: ${11:Number}, // Required",
             "  openMonitoring: {",
             "  },",
+            "  storageMode: \"${13:string}\",",
             "  tags: {",
             "  },",
             "})"
@@ -21547,6 +21555,7 @@
         "body": [
             "new ses.CfnDedicatedIpPool(this, \"${1:id}\", {",
             "  poolName: \"${2:string}\",",
+            "  scalingMode: \"${3:string}\",",
             "})"
         ],
         "description": [
@@ -21733,9 +21742,10 @@
             "  displayName: \"${4:string}\",",
             "  fifoTopic: ${5|false,true|},",
             "  kmsMasterKeyId: \"${6:string}\",",
+            "  signatureVersion: \"${7:string}\",",
             "  subscription: [],",
             "  tags: [],",
-            "  topicName: \"${9:string}\",",
+            "  topicName: \"${10:string}\",",
             "})"
         ],
         "description": [
@@ -22516,6 +22526,7 @@
             "  securityPolicyName: \"${13:string}\",",
             "  tags: [],",
             "  workflowDetails: {",
+            "    onPartialUpload: [],",
             "    onUpload: [],",
             "  },",
             "})"
