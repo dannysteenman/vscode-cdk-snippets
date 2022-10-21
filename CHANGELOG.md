@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.57.0 (2022-10-21)
+-------------------
+- The following resource was updated: AWS::RDS::DBCluster. [Github
+  Actions]
+
+
 1.56.0 (2022-10-14)
 -------------------
 - The following resource was updated: AWS::RDS::DBCluster. [Github
