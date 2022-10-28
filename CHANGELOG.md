@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.58.0 (2022-10-28)
+-------------------
+- The following property was added to the AWS::SES::DedicatedIpPool
+  resource: [Github Actions]
+
+
 1.57.0 (2022-10-21)
 -------------------
 - The following resource was updated: AWS::RDS::DBCluster. [Github
