@@ -987,7 +987,9 @@
         ],
         "description": [
             "Construct: apigatewayv2.CfnDeployment",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnDeployment"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnDeployment",
+            "Attributes: ",
+            "  attrDeploymentId"
         ],
         "prefix": "l1-apigatewayv2-deployment",
         "scope": "javascript,typescript"
@@ -1703,10 +1705,10 @@
             "Construct: apprunner.CfnService",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apprunner.CfnService",
             "Attributes: ",
-            "  attrStatus",
-            "  attrServiceArn",
             "  attrServiceId",
-            "  attrServiceUrl"
+            "  attrServiceArn",
+            "  attrServiceUrl",
+            "  attrStatus"
         ],
         "prefix": "l1-apprunner-service",
         "scope": "javascript,typescript"
@@ -1728,6 +1730,29 @@
             "  attrVpcConnectorRevision"
         ],
         "prefix": "l1-apprunner-vpcconnector",
+        "scope": "javascript,typescript"
+    },
+    "apprunner.CfnVpcIngressConnection": {
+        "body": [
+            "new apprunner.CfnVpcIngressConnection(this, \"${1:id}\", {",
+            "  ingressVpcConfiguration: {",
+            "    vpcEndpointId: \"${2:string}\",",
+            "    vpcId: \"${3:string}\",",
+            "  },",
+            "  serviceArn: \"${3:string}\", // Required",
+            "  tags: [],",
+            "  vpcIngressConnectionName: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: apprunner.CfnVpcIngressConnection",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apprunner.CfnVpcIngressConnection",
+            "Attributes: ",
+            "  attrVpcIngressConnectionArn",
+            "  attrStatus",
+            "  attrDomainName"
+        ],
+        "prefix": "l1-apprunner-vpcingressconnection",
         "scope": "javascript,typescript"
     },
     "appstream.CfnAppBlock": {
@@ -2790,25 +2815,27 @@
             "    vcpus: ${20:Number},",
             "    volumes: [],",
             "  },",
-            "  jobDefinitionName: \"${3:string}\",",
-            "  nodeProperties: {",
-            "    mainNode: ${4:Number},",
-            "    nodeRangeProperties: [],",
-            "    numNodes: ${6:Number},",
+            "  eksProperties: {",
             "  },",
-            "  parameters: ${5:JSON},",
+            "  jobDefinitionName: \"${4:string}\",",
+            "  nodeProperties: {",
+            "    mainNode: ${5:Number},",
+            "    nodeRangeProperties: [],",
+            "    numNodes: ${7:Number},",
+            "  },",
+            "  parameters: ${6:JSON},",
             "  platformCapabilities: [],",
-            "  propagateTags: ${7|false,true|},",
+            "  propagateTags: ${8|false,true|},",
             "  retryStrategy: {",
-            "    attempts: ${8:Number},",
+            "    attempts: ${9:Number},",
             "    evaluateOnExit: [],",
             "  },",
-            "  schedulingPriority: ${9:Number},",
-            "  tags: ${10:JSON},",
+            "  schedulingPriority: ${10:Number},",
+            "  tags: ${11:JSON},",
             "  timeout: {",
-            "    attemptDurationSeconds: ${11:Number},",
+            "    attemptDurationSeconds: ${12:Number},",
             "  },",
-            "  type: \"${12:string}\", // Required",
+            "  type: \"${13:string}\", // Required",
             "})"
         ],
         "description": [
@@ -5508,7 +5535,7 @@
             "  activate: ${2|false,true|},",
             "  description: \"${3:string}\",",
             "  name: \"${4:string}\", // Required",
-            "  parameterObjects: [], // Required",
+            "  parameterObjects: [],",
             "  parameterValues: [],",
             "  pipelineObjects: [],",
             "  pipelineTags: [],",
@@ -5516,7 +5543,9 @@
         ],
         "description": [
             "Construct: datapipeline.CfnPipeline",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datapipeline.CfnPipeline"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datapipeline.CfnPipeline",
+            "Attributes: ",
+            "  attrPipelineId"
         ],
         "prefix": "l1-datapipeline-pipeline",
         "scope": "javascript,typescript"
@@ -6842,6 +6871,7 @@
             "  networkBorderGroup: \"${4:string}\",",
             "  publicIpv4Pool: \"${5:string}\",",
             "  tags: [],",
+            "  transferAddress: \"${7:string}\",",
             "})"
         ],
         "description": [
@@ -7621,12 +7651,13 @@
             "    replaceUnhealthyInstances: ${14|false,true|},",
             "    spotMaxTotalPrice: \"${16:string}\",",
             "    spotPrice: \"${17:string}\",",
-            "    targetCapacity: ${18:Number},",
-            "    targetCapacityUnitType: \"${19:string}\",",
-            "    terminateInstancesWithExpiration: ${20|false,true|},",
-            "    type: \"${21:string}\",",
-            "    validFrom: \"${22:string}\",",
-            "    validUntil: \"${23:string}\",",
+            "    tagSpecifications: [],",
+            "    targetCapacity: ${19:Number},",
+            "    targetCapacityUnitType: \"${20:string}\",",
+            "    terminateInstancesWithExpiration: ${21|false,true|},",
+            "    type: \"${22:string}\",",
+            "    validFrom: \"${23:string}\",",
+            "    validUntil: \"${24:string}\",",
             "  },",
             "})"
         ],
@@ -18164,6 +18195,7 @@
             "  awsAccountId: \"${3:string}\",",
             "  credentials: {",
             "    copySourceArn: \"${4:string}\",",
+            "    secretArn: \"${6:string}\",",
             "  },",
             "  dataSourceId: \"${5:string}\",",
             "  dataSourceParameters: {",
@@ -18313,6 +18345,7 @@
             "    maxCapacity: ${42:Number},",
             "    minCapacity: ${43:Number},",
             "    secondsUntilAutoPause: ${44:Number},",
+            "    timeoutAction: \"${45:string}\",",
             "  },",
             "  serverlessV2ScalingConfiguration: {",
             "    maxCapacity: ${42:Number},",
@@ -18333,6 +18366,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBCluster",
             "Attributes: ",
             "  attrReadEndpoint.Address",
+            "  attrDBClusterArn",
             "  attrEndpoint.Address",
             "  attrEndpoint.Port"
         ],
@@ -18342,17 +18376,16 @@
     "rds.CfnDBClusterParameterGroup": {
         "body": [
             "new rds.CfnDBClusterParameterGroup(this, \"${1:id}\", {",
-            "  description: \"${2:string}\", // Required",
-            "  family: \"${3:string}\", // Required",
-            "  parameters: ${4:JSON}, // Required",
+            "  dBClusterParameterGroupName: \"${2:string}\",",
+            "  description: \"${3:string}\", // Required",
+            "  family: \"${4:string}\", // Required",
+            "  parameters: ${5:JSON}, // Required",
             "  tags: [],",
             "})"
         ],
         "description": [
             "Construct: rds.CfnDBClusterParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBClusterParameterGroup",
-            "Attributes: ",
-            "  attrDBClusterParameterGroupName"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBClusterParameterGroup"
         ],
         "prefix": "l1-rds-dbclusterparametergroup",
         "scope": "javascript,typescript"
@@ -18407,13 +18440,14 @@
             "  processorFeatures: [],",
             "  promotionTier: ${47:Number},",
             "  publiclyAccessible: ${48|false,true|},",
-            "  sourceDBInstanceIdentifier: \"${49:string}\",",
-            "  sourceRegion: \"${50:string}\",",
-            "  storageEncrypted: ${51|false,true|},",
-            "  storageType: \"${52:string}\",",
+            "  replicaMode: \"${49:string}\",",
+            "  sourceDBInstanceIdentifier: \"${50:string}\",",
+            "  sourceRegion: \"${51:string}\",",
+            "  storageEncrypted: ${52|false,true|},",
+            "  storageType: \"${53:string}\",",
             "  tags: [],",
-            "  timezone: \"${54:string}\",",
-            "  useDefaultProcessorFeatures: ${55|false,true|},",
+            "  timezone: \"${55:string}\",",
+            "  useDefaultProcessorFeatures: ${56|false,true|},",
             "  vPCSecurityGroups: [],",
             "})"
         ],
@@ -18421,6 +18455,8 @@
             "Construct: rds.CfnDBInstance",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBInstance",
             "Attributes: ",
+            "  attrDBInstanceArn",
+            "  attrDbiResourceId",
             "  attrEndpoint.Address",
             "  attrEndpoint.Port",
             "  attrEndpoint.HostedZoneId"
@@ -18431,17 +18467,16 @@
     "rds.CfnDBParameterGroup": {
         "body": [
             "new rds.CfnDBParameterGroup(this, \"${1:id}\", {",
-            "  description: \"${2:string}\", // Required",
-            "  family: \"${3:string}\", // Required",
-            "  parameters: ${4:JSON},",
+            "  dBParameterGroupName: \"${2:string}\",",
+            "  description: \"${3:string}\", // Required",
+            "  family: \"${4:string}\", // Required",
+            "  parameters: ${5:JSON},",
             "  tags: [],",
             "})"
         ],
         "description": [
             "Construct: rds.CfnDBParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBParameterGroup",
-            "Attributes: ",
-            "  attrDBParameterGroupName"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBParameterGroup"
         ],
         "prefix": "l1-rds-dbparametergroup",
         "scope": "javascript,typescript"
@@ -18613,14 +18648,13 @@
             "  majorEngineVersion: \"${3:string}\", // Required",
             "  optionConfigurations: [],",
             "  optionGroupDescription: \"${5:string}\", // Required",
+            "  optionGroupName: \"${6:string}\",",
             "  tags: [],",
             "})"
         ],
         "description": [
             "Construct: rds.CfnOptionGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnOptionGroup",
-            "Attributes: ",
-            "  attrOptionGroupName"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnOptionGroup"
         ],
         "prefix": "l1-rds-optiongroup",
         "scope": "javascript,typescript"
@@ -22289,6 +22323,20 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-supportapp.CfnSlackChannelConfiguration"
         ],
         "prefix": "l1-supportapp-slackchannelconfiguration",
+        "scope": "javascript,typescript"
+    },
+    "supportapp.CfnSlackWorkspaceConfiguration": {
+        "body": [
+            "new supportapp.CfnSlackWorkspaceConfiguration(this, \"${1:id}\", {",
+            "  teamId: \"${2:string}\", // Required",
+            "  versionId: \"${3:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: supportapp.CfnSlackWorkspaceConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-supportapp.CfnSlackWorkspaceConfiguration"
+        ],
+        "prefix": "l1-supportapp-slackworkspaceconfiguration",
         "scope": "javascript,typescript"
     },
     "synthetics.CfnCanary": {
