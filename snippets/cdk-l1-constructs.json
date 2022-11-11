@@ -972,7 +972,9 @@
         ],
         "description": [
             "Construct: apigatewayv2.CfnAuthorizer",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnAuthorizer"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnAuthorizer",
+            "Attributes: ",
+            "  attrAuthorizerId"
         ],
         "prefix": "l1-apigatewayv2-authorizer",
         "scope": "javascript,typescript"
@@ -1845,11 +1847,15 @@
     "appstream.CfnDirectoryConfig": {
         "body": [
             "new appstream.CfnDirectoryConfig(this, \"${1:id}\", {",
-            "  directoryName: \"${2:string}\", // Required",
+            "  certificateBasedAuthProperties: {",
+            "    certificateAuthorityArn: \"${2:string}\",",
+            "    status: \"${3:string}\",",
+            "  },",
+            "  directoryName: \"${3:string}\", // Required",
             "  organizationalUnitDistinguishedNames: [], // Required",
             "  serviceAccountCredentials: {",
-            "    accountName: \"${4:string}\",",
-            "    accountPassword: \"${5:string}\",",
+            "    accountName: \"${5:string}\",",
+            "    accountPassword: \"${6:string}\",",
             "  },",
             "})"
         ],
@@ -2772,16 +2778,20 @@
             "    type: \"${19:string}\",",
             "    updateToLatestImageVersion: ${20|false,true|},",
             "  },",
-            "  replaceComputeEnvironment: ${4|false,true|},",
-            "  serviceRole: \"${5:string}\",",
-            "  state: \"${6:string}\",",
+            "  eksConfiguration: {",
+            "    eksClusterArn: \"${4:string}\",",
+            "    kubernetesNamespace: \"${5:string}\",",
+            "  },",
+            "  replaceComputeEnvironment: ${5|false,true|},",
+            "  serviceRole: \"${6:string}\",",
+            "  state: \"${7:string}\",",
             "  tags: {",
             "  },",
-            "  type: \"${8:string}\", // Required",
-            "  unmanagedvCpus: ${9:Number},",
+            "  type: \"${9:string}\", // Required",
+            "  unmanagedvCpus: ${10:Number},",
             "  updatePolicy: {",
-            "    jobExecutionTimeoutMinutes: ${10:Number},",
-            "    terminateJobsOnUpdate: ${11|false,true|},",
+            "    jobExecutionTimeoutMinutes: ${11:Number},",
+            "    terminateJobsOnUpdate: ${12|false,true|},",
             "  },",
             "})"
         ],
@@ -3800,12 +3810,13 @@
         "body": [
             "new cloudtrail.CfnEventDataStore(this, \"${1:id}\", {",
             "  advancedEventSelectors: [],",
-            "  multiRegionEnabled: ${3|false,true|},",
-            "  name: \"${4:string}\",",
-            "  organizationEnabled: ${5|false,true|},",
-            "  retentionPeriod: ${6:Number},",
+            "  kmsKeyId: \"${3:string}\",",
+            "  multiRegionEnabled: ${4|false,true|},",
+            "  name: \"${5:string}\",",
+            "  organizationEnabled: ${6|false,true|},",
+            "  retentionPeriod: ${7:Number},",
             "  tags: [],",
-            "  terminationProtectionEnabled: ${8|false,true|},",
+            "  terminationProtectionEnabled: ${9|false,true|},",
             "})"
         ],
         "description": [
@@ -3989,10 +4000,10 @@
             "Construct: cloudwatch.CfnMetricStream",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudwatch.CfnMetricStream",
             "Attributes: ",
-            "  attrArn",
             "  attrCreationDate",
-            "  attrLastUpdateDate",
-            "  attrState"
+            "  attrState",
+            "  attrArn",
+            "  attrLastUpdateDate"
         ],
         "prefix": "l1-cloudwatch-metricstream",
         "scope": "javascript,typescript"
@@ -7243,7 +7254,8 @@
             "new ec2.CfnLocalGatewayRoute(this, \"${1:id}\", {",
             "  destinationCidrBlock: \"${2:string}\", // Required",
             "  localGatewayRouteTableId: \"${3:string}\", // Required",
-            "  localGatewayVirtualInterfaceGroupId: \"${4:string}\", // Required",
+            "  localGatewayVirtualInterfaceGroupId: \"${4:string}\",",
+            "  networkInterfaceId: \"${5:string}\",",
             "})"
         ],
         "description": [
@@ -16011,12 +16023,13 @@
             "    adMarkers: \"${7:string}\",",
             "    adTriggers: [],",
             "    adsOnDeliveryRestrictions: \"${9:string}\",",
-            "    includeIframeOnlyStream: ${11|false,true|},",
-            "    playlistType: \"${12:string}\",",
-            "    playlistWindowSeconds: ${13:Number},",
-            "    programDateTimeIntervalSeconds: ${14:Number},",
-            "    segmentDurationSeconds: ${15:Number},",
-            "    useAudioRenditionGroup: ${17|false,true|},",
+            "    includeDvbSubtitles: ${11|false,true|},",
+            "    includeIframeOnlyStream: ${12|false,true|},",
+            "    playlistType: \"${13:string}\",",
+            "    playlistWindowSeconds: ${14:Number},",
+            "    programDateTimeIntervalSeconds: ${15:Number},",
+            "    segmentDurationSeconds: ${16:Number},",
+            "    useAudioRenditionGroup: ${18|false,true|},",
             "  },",
             "  id: \"${8:string}\", // Required",
             "  manifestName: \"${9:string}\",",
@@ -16058,8 +16071,9 @@
             "  },",
             "  hlsPackage: {",
             "    hlsManifests: [],",
-            "    segmentDurationSeconds: ${6:Number},",
-            "    useAudioRenditionGroup: ${7|false,true|},",
+            "    includeDvbSubtitles: ${6|false,true|},",
+            "    segmentDurationSeconds: ${7:Number},",
+            "    useAudioRenditionGroup: ${8|false,true|},",
             "  },",
             "  id: \"${5:string}\", // Required",
             "  mssPackage: {",
@@ -16201,25 +16215,26 @@
             "  aCLName: \"${2:string}\", // Required",
             "  autoMinorVersionUpgrade: ${3|false,true|},",
             "  clusterName: \"${4:string}\", // Required",
-            "  description: \"${5:string}\",",
-            "  engineVersion: \"${6:string}\",",
-            "  finalSnapshotName: \"${7:string}\",",
-            "  kmsKeyId: \"${8:string}\",",
-            "  maintenanceWindow: \"${9:string}\",",
-            "  nodeType: \"${10:string}\", // Required",
-            "  numReplicasPerShard: ${11:Number},",
-            "  numShards: ${12:Number},",
-            "  parameterGroupName: \"${13:string}\",",
-            "  port: ${14:Number},",
+            "  dataTiering: \"${5:string}\",",
+            "  description: \"${6:string}\",",
+            "  engineVersion: \"${7:string}\",",
+            "  finalSnapshotName: \"${8:string}\",",
+            "  kmsKeyId: \"${9:string}\",",
+            "  maintenanceWindow: \"${10:string}\",",
+            "  nodeType: \"${11:string}\", // Required",
+            "  numReplicasPerShard: ${12:Number},",
+            "  numShards: ${13:Number},",
+            "  parameterGroupName: \"${14:string}\",",
+            "  port: ${15:Number},",
             "  securityGroupIds: [],",
             "  snapshotArns: [],",
-            "  snapshotName: \"${17:string}\",",
-            "  snapshotRetentionLimit: ${18:Number},",
-            "  snapshotWindow: \"${19:string}\",",
-            "  snsTopicArn: \"${20:string}\",",
-            "  snsTopicStatus: \"${21:string}\",",
-            "  subnetGroupName: \"${22:string}\",",
-            "  tLSEnabled: ${23|false,true|},",
+            "  snapshotName: \"${18:string}\",",
+            "  snapshotRetentionLimit: ${19:Number},",
+            "  snapshotWindow: \"${20:string}\",",
+            "  snsTopicArn: \"${21:string}\",",
+            "  snsTopicStatus: \"${22:string}\",",
+            "  subnetGroupName: \"${23:string}\",",
+            "  tLSEnabled: ${24|false,true|},",
             "  tags: [],",
             "})"
         ],
@@ -17341,6 +17356,51 @@
         "prefix": "l1-opsworkscm-server",
         "scope": "javascript,typescript"
     },
+    "organizations.CfnAccount": {
+        "body": [
+            "new organizations.CfnAccount(this, \"${1:id}\", {",
+            "  accountName: \"${2:string}\", // Required",
+            "  email: \"${3:string}\", // Required",
+            "  parentIds: [],",
+            "  roleName: \"${5:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: organizations.CfnAccount",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-organizations.CfnAccount",
+            "Attributes: ",
+            "  attrAccountId",
+            "  attrArn",
+            "  attrJoinedMethod",
+            "  attrJoinedTimestamp",
+            "  attrStatus"
+        ],
+        "prefix": "l1-organizations-account",
+        "scope": "javascript,typescript"
+    },
+    "organizations.CfnPolicy": {
+        "body": [
+            "new organizations.CfnPolicy(this, \"${1:id}\", {",
+            "  content: \"${2:string}\", // Required",
+            "  description: \"${3:string}\",",
+            "  name: \"${4:string}\", // Required",
+            "  tags: [],",
+            "  targetIds: [],",
+            "  type: \"${7:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: organizations.CfnPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-organizations.CfnPolicy",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn",
+            "  attrAwsManaged"
+        ],
+        "prefix": "l1-organizations-policy",
+        "scope": "javascript,typescript"
+    },
     "panorama.CfnApplicationInstance": {
         "body": [
             "new panorama.CfnApplicationInstance(this, \"${1:id}\", {",
@@ -18444,10 +18504,11 @@
             "  sourceDBInstanceIdentifier: \"${50:string}\",",
             "  sourceRegion: \"${51:string}\",",
             "  storageEncrypted: ${52|false,true|},",
-            "  storageType: \"${53:string}\",",
+            "  storageThroughput: ${53:Number},",
+            "  storageType: \"${54:string}\",",
             "  tags: [],",
-            "  timezone: \"${55:string}\",",
-            "  useDefaultProcessorFeatures: ${56|false,true|},",
+            "  timezone: \"${56:string}\",",
+            "  useDefaultProcessorFeatures: ${57|false,true|},",
             "  vPCSecurityGroups: [],",
             "})"
         ],
@@ -19163,6 +19224,60 @@
             "  attrPolicyArn"
         ],
         "prefix": "l1-resiliencehub-resiliencypolicy",
+        "scope": "javascript,typescript"
+    },
+    "resourceexplorer2.CfnDefaultViewAssociation": {
+        "body": [
+            "new resourceexplorer2.CfnDefaultViewAssociation(this, \"${1:id}\", {",
+            "  viewArn: \"${2:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: resourceexplorer2.CfnDefaultViewAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-resourceexplorer2.CfnDefaultViewAssociation",
+            "Attributes: ",
+            "  attrAssociatedAwsPrincipal"
+        ],
+        "prefix": "l1-resourceexplorer2-defaultviewassociation",
+        "scope": "javascript,typescript"
+    },
+    "resourceexplorer2.CfnIndex": {
+        "body": [
+            "new resourceexplorer2.CfnIndex(this, \"${1:id}\", {",
+            "  tags: {",
+            "  },",
+            "  type: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: resourceexplorer2.CfnIndex",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-resourceexplorer2.CfnIndex",
+            "Attributes: ",
+            "  attrArn",
+            "  attrIndexState"
+        ],
+        "prefix": "l1-resourceexplorer2-index",
+        "scope": "javascript,typescript"
+    },
+    "resourceexplorer2.CfnView": {
+        "body": [
+            "new resourceexplorer2.CfnView(this, \"${1:id}\", {",
+            "  filters: {",
+            "    filterString: \"${2:string}\",",
+            "  },",
+            "  includedProperties: [],",
+            "  tags: {",
+            "  },",
+            "  viewName: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: resourceexplorer2.CfnView",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-resourceexplorer2.CfnView",
+            "Attributes: ",
+            "  attrViewArn"
+        ],
+        "prefix": "l1-resourceexplorer2-view",
         "scope": "javascript,typescript"
     },
     "resourcegroups.CfnGroup": {
@@ -20949,6 +21064,57 @@
         "prefix": "l1-sagemaker-workteam",
         "scope": "javascript,typescript"
     },
+    "scheduler.CfnSchedule": {
+        "body": [
+            "new scheduler.CfnSchedule(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  endDate: \"${3:string}\",",
+            "  flexibleTimeWindow: {",
+            "    maximumWindowInMinutes: ${4:Number},",
+            "    mode: \"${5:string}\",",
+            "  },",
+            "  groupName: \"${5:string}\",",
+            "  kmsKeyArn: \"${6:string}\",",
+            "  name: \"${7:string}\",",
+            "  scheduleExpression: \"${8:string}\", // Required",
+            "  scheduleExpressionTimezone: \"${9:string}\",",
+            "  startDate: \"${10:string}\",",
+            "  state: \"${11:string}\",",
+            "  target: {",
+            "    arn: \"${12:string}\",",
+            "    input: \"${16:string}\",",
+            "    roleArn: \"${19:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: scheduler.CfnSchedule",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-scheduler.CfnSchedule",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-scheduler-schedule",
+        "scope": "javascript,typescript"
+    },
+    "scheduler.CfnScheduleGroup": {
+        "body": [
+            "new scheduler.CfnScheduleGroup(this, \"${1:id}\", {",
+            "  name: \"${2:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: scheduler.CfnScheduleGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-scheduler.CfnScheduleGroup",
+            "Attributes: ",
+            "  attrArn",
+            "  attrCreationDate",
+            "  attrLastModificationDate",
+            "  attrState"
+        ],
+        "prefix": "l1-scheduler-schedulegroup",
+        "scope": "javascript,typescript"
+    },
     "sdb.CfnDomain": {
         "body": [
             "new sdb.CfnDomain(this, \"${1:id}\", {",
@@ -21570,6 +21736,8 @@
             "  trackingOptions: {",
             "    customRedirectDomain: \"${7:string}\",",
             "  },",
+            "  vdmOptions: {",
+            "  },",
             "})"
         ],
         "description": [
@@ -21735,6 +21903,26 @@
             "  attrId"
         ],
         "prefix": "l1-ses-template",
+        "scope": "javascript,typescript"
+    },
+    "ses.CfnVdmAttributes": {
+        "body": [
+            "new ses.CfnVdmAttributes(this, \"${1:id}\", {",
+            "  dashboardAttributes: {",
+            "    engagementMetrics: \"${2:string}\",",
+            "  },",
+            "  guardianAttributes: {",
+            "    optimizedSharedDelivery: \"${3:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: ses.CfnVdmAttributes",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ses.CfnVdmAttributes",
+            "Attributes: ",
+            "  attrVdmAttributesResourceId"
+        ],
+        "prefix": "l1-ses-vdmattributes",
         "scope": "javascript,typescript"
     },
     "signer.CfnProfilePermission": {
@@ -23224,6 +23412,21 @@
             "  attrGroupARN"
         ],
         "prefix": "l1-xray-group",
+        "scope": "javascript,typescript"
+    },
+    "xray.CfnResourcePolicy": {
+        "body": [
+            "new xray.CfnResourcePolicy(this, \"${1:id}\", {",
+            "  bypassPolicyLockoutCheck: ${2|false,true|},",
+            "  policyDocument: \"${3:string}\", // Required",
+            "  policyName: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: xray.CfnResourcePolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-xray.CfnResourcePolicy"
+        ],
+        "prefix": "l1-xray-resourcepolicy",
         "scope": "javascript,typescript"
     },
     "xray.CfnSamplingRule": {
