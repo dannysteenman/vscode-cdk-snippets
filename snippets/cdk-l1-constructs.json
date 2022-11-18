@@ -264,8 +264,9 @@
             "    enablePerformanceMode: ${8|false,true|},",
             "    enablePullRequestPreview: ${9|false,true|},",
             "    environmentVariables: [],",
-            "    pullRequestEnvironmentName: \"${11:string}\",",
-            "    stage: \"${12:string}\",",
+            "    framework: \"${11:string}\",",
+            "    pullRequestEnvironmentName: \"${12:string}\",",
+            "    stage: \"${13:string}\",",
             "  },",
             "  basicAuthConfig: {",
             "    enableBasicAuth: ${4|false,true|},",
@@ -281,7 +282,8 @@
             "  iAMServiceRole: \"${11:string}\",",
             "  name: \"${12:string}\", // Required",
             "  oauthToken: \"${13:string}\",",
-            "  repository: \"${14:string}\",",
+            "  platform: \"${14:string}\",",
+            "  repository: \"${15:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -313,8 +315,9 @@
             "  enablePerformanceMode: ${8|false,true|},",
             "  enablePullRequestPreview: ${9|false,true|},",
             "  environmentVariables: [],",
-            "  pullRequestEnvironmentName: \"${11:string}\",",
-            "  stage: \"${12:string}\",",
+            "  framework: \"${11:string}\",",
+            "  pullRequestEnvironmentName: \"${12:string}\",",
+            "  stage: \"${13:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -387,6 +390,39 @@
             "  attrId"
         ],
         "prefix": "l1-amplifyuibuilder-component",
+        "scope": "javascript,typescript"
+    },
+    "amplifyuibuilder.CfnForm": {
+        "body": [
+            "new amplifyuibuilder.CfnForm(this, \"${1:id}\", {",
+            "  appId: \"${2:string}\",",
+            "  cta: {",
+            "    position: \"${5:string}\",",
+            "  },",
+            "  dataType: {",
+            "    dataSourceType: \"${4:string}\",",
+            "    dataTypeName: \"${5:string}\",",
+            "  },",
+            "  environmentName: \"${5:string}\",",
+            "  fields: {",
+            "  },",
+            "  formActionType: \"${7:string}\", // Required",
+            "  name: \"${8:string}\", // Required",
+            "  schemaVersion: \"${9:string}\", // Required",
+            "  sectionalElements: {",
+            "  },",
+            "  style: {",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: amplifyuibuilder.CfnForm",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-amplifyuibuilder.CfnForm",
+            "Attributes: ",
+            "  attrId"
+        ],
+        "prefix": "l1-amplifyuibuilder-form",
         "scope": "javascript,typescript"
     },
     "amplifyuibuilder.CfnTheme": {
@@ -478,9 +514,8 @@
             "new apigateway.CfnBasePathMapping(this, \"${1:id}\", {",
             "  basePath: \"${2:string}\",",
             "  domainName: \"${3:string}\", // Required",
-            "  id: \"${4:string}\",",
-            "  restApiId: \"${5:string}\",",
-            "  stage: \"${6:string}\",",
+            "  restApiId: \"${4:string}\",",
+            "  stage: \"${5:string}\",",
             "})"
         ],
         "description": [
@@ -2160,18 +2195,24 @@
         "body": [
             "new appsync.CfnFunctionConfiguration(this, \"${1:id}\", {",
             "  apiId: \"${2:string}\", // Required",
-            "  dataSourceName: \"${3:string}\", // Required",
-            "  description: \"${4:string}\",",
-            "  functionVersion: \"${5:string}\", // Required",
-            "  maxBatchSize: ${6:Number},",
-            "  name: \"${7:string}\", // Required",
-            "  requestMappingTemplate: \"${8:string}\",",
-            "  requestMappingTemplateS3Location: \"${9:string}\",",
-            "  responseMappingTemplate: \"${10:string}\",",
-            "  responseMappingTemplateS3Location: \"${11:string}\",",
+            "  code: \"${3:string}\",",
+            "  codeS3Location: \"${4:string}\",",
+            "  dataSourceName: \"${5:string}\", // Required",
+            "  description: \"${6:string}\",",
+            "  functionVersion: \"${7:string}\",",
+            "  maxBatchSize: ${8:Number},",
+            "  name: \"${9:string}\", // Required",
+            "  requestMappingTemplate: \"${10:string}\",",
+            "  requestMappingTemplateS3Location: \"${11:string}\",",
+            "  responseMappingTemplate: \"${12:string}\",",
+            "  responseMappingTemplateS3Location: \"${13:string}\",",
+            "  runtime: {",
+            "    name: \"${14:string}\",",
+            "    runtimeVersion: \"${15:string}\",",
+            "  },",
             "  syncConfig: {",
-            "    conflictDetection: \"${12:string}\",",
-            "    conflictHandler: \"${13:string}\",",
+            "    conflictDetection: \"${15:string}\",",
+            "    conflictHandler: \"${16:string}\",",
             "  },",
             "})"
         ],
@@ -2253,22 +2294,28 @@
             "    cachingKeys: [],",
             "    ttl: ${4:Number},",
             "  },",
-            "  dataSourceName: \"${4:string}\",",
-            "  fieldName: \"${5:string}\", // Required",
-            "  kind: \"${6:string}\",",
-            "  maxBatchSize: ${7:Number},",
+            "  code: \"${4:string}\",",
+            "  codeS3Location: \"${5:string}\",",
+            "  dataSourceName: \"${6:string}\",",
+            "  fieldName: \"${7:string}\", // Required",
+            "  kind: \"${8:string}\",",
+            "  maxBatchSize: ${9:Number},",
             "  pipelineConfig: {",
             "    functions: [],",
             "  },",
-            "  requestMappingTemplate: \"${9:string}\",",
-            "  requestMappingTemplateS3Location: \"${10:string}\",",
-            "  responseMappingTemplate: \"${11:string}\",",
-            "  responseMappingTemplateS3Location: \"${12:string}\",",
-            "  syncConfig: {",
-            "    conflictDetection: \"${13:string}\",",
-            "    conflictHandler: \"${14:string}\",",
+            "  requestMappingTemplate: \"${11:string}\",",
+            "  requestMappingTemplateS3Location: \"${12:string}\",",
+            "  responseMappingTemplate: \"${13:string}\",",
+            "  responseMappingTemplateS3Location: \"${14:string}\",",
+            "  runtime: {",
+            "    name: \"${15:string}\",",
+            "    runtimeVersion: \"${16:string}\",",
             "  },",
-            "  typeName: \"${14:string}\", // Required",
+            "  syncConfig: {",
+            "    conflictDetection: \"${16:string}\",",
+            "    conflictHandler: \"${17:string}\",",
+            "  },",
+            "  typeName: \"${17:string}\", // Required",
             "})"
         ],
         "description": [
@@ -2981,13 +3028,14 @@
     "billingconductor.CfnPricingRule": {
         "body": [
             "new billingconductor.CfnPricingRule(this, \"${1:id}\", {",
-            "  description: \"${2:string}\",",
-            "  modifierPercentage: ${3:Number}, // Required",
-            "  name: \"${4:string}\", // Required",
-            "  scope: \"${5:string}\", // Required",
-            "  service: \"${6:string}\",",
+            "  billingEntity: \"${2:string}\",",
+            "  description: \"${3:string}\",",
+            "  modifierPercentage: ${4:Number}, // Required",
+            "  name: \"${5:string}\", // Required",
+            "  scope: \"${6:string}\", // Required",
+            "  service: \"${7:string}\",",
             "  tags: [],",
-            "  type: \"${8:string}\", // Required",
+            "  type: \"${9:string}\", // Required",
             "})"
         ],
         "description": [
@@ -3934,7 +3982,7 @@
             "  actionsSuppressorWaitPeriod: ${5:Number},",
             "  alarmActions: [],",
             "  alarmDescription: \"${7:string}\",",
-            "  alarmName: \"${8:string}\", // Required",
+            "  alarmName: \"${8:string}\",",
             "  alarmRule: \"${9:string}\", // Required",
             "  insufficientDataActions: [],",
             "  oKActions: [],",
@@ -7292,7 +7340,8 @@
             "new ec2.CfnNatGateway(this, \"${1:id}\", {",
             "  allocationId: \"${2:string}\",",
             "  connectivityType: \"${3:string}\",",
-            "  subnetId: \"${4:string}\", // Required",
+            "  privateIpAddress: \"${4:string}\",",
+            "  subnetId: \"${5:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -8492,6 +8541,9 @@
             "  configuration: {",
             "  },",
             "  defaultCapacityProviderStrategy: [],",
+            "  serviceConnectDefaults: {",
+            "    namespace: \"${7:string}\",",
+            "  },",
             "  tags: [],",
             "})"
         ],
@@ -8560,10 +8612,15 @@
             "  propagateTags: \"${16:string}\",",
             "  role: \"${17:string}\",",
             "  schedulingStrategy: \"${18:string}\",",
-            "  serviceName: \"${19:string}\",",
+            "  serviceConnectConfiguration: {",
+            "    enabled: ${19|false,true|},",
+            "    namespace: \"${21:string}\",",
+            "    services: [],",
+            "  },",
+            "  serviceName: \"${20:string}\",",
             "  serviceRegistries: [],",
             "  tags: [],",
-            "  taskDefinition: \"${22:string}\",",
+            "  taskDefinition: \"${23:string}\",",
             "})"
         ],
         "description": [
@@ -9065,11 +9122,12 @@
         "body": [
             "new elasticache.CfnUser(this, \"${1:id}\", {",
             "  accessString: \"${2:string}\",",
-            "  engine: \"${3:string}\", // Required",
-            "  noPasswordRequired: ${4|false,true|},",
+            "  authenticationMode: ${3:JSON},",
+            "  engine: \"${4:string}\", // Required",
+            "  noPasswordRequired: ${5|false,true|},",
             "  passwords: [],",
-            "  userId: \"${6:string}\", // Required",
-            "  userName: \"${7:string}\", // Required",
+            "  userId: \"${7:string}\", // Required",
+            "  userName: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -9472,14 +9530,15 @@
             "  managedScalingPolicy: {",
             "  },",
             "  name: \"${16:string}\", // Required",
-            "  releaseLabel: \"${17:string}\",",
-            "  scaleDownBehavior: \"${18:string}\",",
-            "  securityConfiguration: \"${19:string}\",",
-            "  serviceRole: \"${20:string}\", // Required",
-            "  stepConcurrencyLevel: ${21:Number},",
+            "  oSReleaseLabel: \"${17:string}\",",
+            "  releaseLabel: \"${18:string}\",",
+            "  scaleDownBehavior: \"${19:string}\",",
+            "  securityConfiguration: \"${20:string}\",",
+            "  serviceRole: \"${21:string}\", // Required",
+            "  stepConcurrencyLevel: ${22:Number},",
             "  steps: [],",
             "  tags: [],",
-            "  visibleToAllUsers: ${24|false,true|},",
+            "  visibleToAllUsers: ${25|false,true|},",
             "})"
         ],
         "description": [
@@ -13356,9 +13415,11 @@
             "  isSingleton: ${6|false,true|},",
             "  propertyDefinitions: {",
             "  },",
+            "  propertyGroups: {",
+            "  },",
             "  tags: {",
             "  },",
-            "  workspaceId: \"${9:string}\", // Required",
+            "  workspaceId: \"${10:string}\", // Required",
             "})"
         ],
         "description": [
@@ -13787,10 +13848,11 @@
             "  destinationConfiguration: {",
             "  },",
             "  name: \"${3:string}\",",
+            "  recordingReconnectWindowSeconds: ${4:Number},",
             "  tags: [],",
             "  thumbnailConfiguration: {",
-            "    recordingMode: \"${5:string}\",",
-            "    targetIntervalSeconds: ${6:Number},",
+            "    recordingMode: \"${6:string}\",",
+            "    targetIntervalSeconds: ${7:Number},",
             "  },",
             "})"
         ],
@@ -17379,6 +17441,24 @@
         "prefix": "l1-organizations-account",
         "scope": "javascript,typescript"
     },
+    "organizations.CfnOrganizationalUnit": {
+        "body": [
+            "new organizations.CfnOrganizationalUnit(this, \"${1:id}\", {",
+            "  name: \"${2:string}\", // Required",
+            "  parentId: \"${3:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: organizations.CfnOrganizationalUnit",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-organizations.CfnOrganizationalUnit",
+            "Attributes: ",
+            "  attrArn",
+            "  attrId"
+        ],
+        "prefix": "l1-organizations-organizationalunit",
+        "scope": "javascript,typescript"
+    },
     "organizations.CfnPolicy": {
         "body": [
             "new organizations.CfnPolicy(this, \"${1:id}\", {",
@@ -17449,6 +17529,11 @@
             "Attributes: ",
             "  attrPackageId",
             "  attrArn",
+            "  attrStorageLocation.Bucket",
+            "  attrStorageLocation.RepoPrefixLocation",
+            "  attrStorageLocation.GeneratedPrefixLocation",
+            "  attrStorageLocation.BinaryPrefixLocation",
+            "  attrStorageLocation.ManifestPrefixLocation",
             "  attrCreatedTime"
         ],
         "prefix": "l1-panorama-package",
@@ -18537,7 +18622,9 @@
         ],
         "description": [
             "Construct: rds.CfnDBParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBParameterGroup"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBParameterGroup",
+            "Attributes: ",
+            "  attrDBParameterGroupName"
         ],
         "prefix": "l1-rds-dbparametergroup",
         "scope": "javascript,typescript"
@@ -20809,13 +20896,11 @@
             "  sourceAlgorithmSpecification: {",
             "    sourceAlgorithms: [],",
             "  },",
-            "  tag: {",
-            "  },",
             "  tags: [],",
-            "  task: \"${29:string}\",",
+            "  task: \"${28:string}\",",
             "  validationSpecification: {",
             "    validationProfiles: [],",
-            "    validationRole: \"${31:string}\",",
+            "    validationRole: \"${30:string}\",",
             "  },",
             "})"
         ],
@@ -22281,6 +22366,23 @@
             "  attrSyncName"
         ],
         "prefix": "l1-ssm-resourcedatasync",
+        "scope": "javascript,typescript"
+    },
+    "ssm.CfnResourcePolicy": {
+        "body": [
+            "new ssm.CfnResourcePolicy(this, \"${1:id}\", {",
+            "  policy: ${2:JSON}, // Required",
+            "  resourceArn: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: ssm.CfnResourcePolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssm.CfnResourcePolicy",
+            "Attributes: ",
+            "  attrPolicyId",
+            "  attrPolicyHash"
+        ],
+        "prefix": "l1-ssm-resourcepolicy",
         "scope": "javascript,typescript"
     },
     "ssmcontacts.CfnContact": {
