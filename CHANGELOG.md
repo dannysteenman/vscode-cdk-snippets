@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.61.0 (2022-11-18)
+-------------------
+- The following resources were updated: <code
+  class="code">AWS::AppStream::DirectoryConfig</code> [Github Actions]
+
+
 1.60.0 (2022-11-11)
 -------------------
 - The following resources were updated: <code
