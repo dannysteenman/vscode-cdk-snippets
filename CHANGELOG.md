@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.64.0 (2022-12-16)
+-------------------
+- The following resource was added: AWS::SageMaker::Project. [Github
+  Actions]
+
+
 1.63.0 (2022-12-09)
 -------------------
 - The following resources were updated: AWS::WAFv2::WebACL and
