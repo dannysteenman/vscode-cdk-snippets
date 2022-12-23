@@ -795,8 +795,7 @@
             "Construct: apigateway.CfnRestApi",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnRestApi",
             "Attributes: ",
-            "  attrRootResourceId",
-            "  attrRestApiId"
+            "  attrRootResourceId"
         ],
         "prefix": "l1-apigateway-restapi",
         "scope": "javascript,typescript"
@@ -3738,7 +3737,7 @@
         "body": [
             "new cloudfront.CfnFunction(this, \"${1:id}\", {",
             "  autoPublish: ${2|false,true|},",
-            "  functionCode: \"${3:string}\",",
+            "  functionCode: \"${3:string}\", // Required",
             "  functionConfig: {",
             "    comment: \"${4:string}\",",
             "    runtime: \"${5:string}\",",
@@ -5738,7 +5737,7 @@
             "    securityGroupArns: [],",
             "    subnetArn: \"${4:string}\",",
             "  },",
-            "  efsFilesystemArn: \"${4:string}\", // Required",
+            "  efsFilesystemArn: \"${4:string}\",",
             "  fileSystemAccessRoleArn: \"${5:string}\",",
             "  inTransitEncryption: \"${6:string}\",",
             "  subdirectory: \"${7:string}\",",
@@ -6170,7 +6169,7 @@
             "  description: \"${3:string}\",",
             "  enableSso: ${4|false,true|},",
             "  name: \"${5:string}\", // Required",
-            "  password: \"${6:string}\", // Required",
+            "  password: \"${6:string}\",",
             "  shortName: \"${7:string}\",",
             "  size: \"${8:string}\", // Required",
             "  vpcSettings: {",
@@ -6183,6 +6182,7 @@
             "Construct: directoryservice.CfnSimpleAD",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-directoryservice.CfnSimpleAD",
             "Attributes: ",
+            "  attrDirectoryId",
             "  attrAlias",
             "  attrDnsIpAddresses"
         ],
@@ -8566,7 +8566,9 @@
         ],
         "description": [
             "Construct: ec2.CfnVolume",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVolume"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVolume",
+            "Attributes: ",
+            "  attrVolumeId"
         ],
         "prefix": "l1-ec2-volume",
         "scope": "javascript,typescript"
@@ -9067,7 +9069,8 @@
             "  diskSize: ${5:Number},",
             "  forceUpdateEnabled: ${6|false,true|},",
             "  instanceTypes: [],",
-            "  labels: ${8:JSON},",
+            "  labels: {",
+            "  },",
             "  launchTemplate: {",
             "    id: \"${9:string}\",",
             "    name: \"${10:string}\",",
@@ -9086,7 +9089,8 @@
             "    minSize: ${16:Number},",
             "  },",
             "  subnets: [], // Required",
-            "  tags: ${16:JSON},",
+            "  tags: {",
+            "  },",
             "  taints: [],",
             "  updateConfig: {",
             "    maxUnavailable: ${18:Number},",
@@ -10657,6 +10661,7 @@
             "Construct: fsx.CfnFileSystem",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-fsx.CfnFileSystem",
             "Attributes: ",
+            "  attrResourceARN",
             "  attrRootVolumeId",
             "  attrDNSName",
             "  attrLustreMountName"
@@ -10711,11 +10716,14 @@
             "  backupId: \"${2:string}\",",
             "  name: \"${3:string}\", // Required",
             "  ontapConfiguration: {",
-            "    junctionPath: \"${4:string}\",",
-            "    securityStyle: \"${5:string}\",",
-            "    sizeInMegabytes: \"${6:string}\",",
-            "    storageEfficiencyEnabled: \"${7:string}\",",
-            "    storageVirtualMachineId: \"${8:string}\",",
+            "    copyTagsToBackups: \"${4:string}\",",
+            "    junctionPath: \"${5:string}\",",
+            "    ontapVolumeType: \"${6:string}\",",
+            "    securityStyle: \"${7:string}\",",
+            "    sizeInMegabytes: \"${8:string}\",",
+            "    snapshotPolicy: \"${9:string}\",",
+            "    storageEfficiencyEnabled: \"${10:string}\",",
+            "    storageVirtualMachineId: \"${11:string}\",",
             "  },",
             "  openZFSConfiguration: {",
             "    copyTagsToSnapshots: ${5|false,true|},",
@@ -10781,7 +10789,9 @@
         ],
         "description": [
             "Construct: gamelift.CfnBuild",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-gamelift.CfnBuild"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-gamelift.CfnBuild",
+            "Attributes: ",
+            "  attrBuildId"
         ],
         "prefix": "l1-gamelift-build",
         "scope": "javascript,typescript"
@@ -11480,6 +11490,10 @@
             "    loginValidityDuration: ${16:Number},",
             "  },",
             "  stackSetName: \"${14:string}\",",
+            "  vpcConfiguration: {",
+            "    securityGroupIds: [],",
+            "    subnetIds: [],",
+            "  },",
             "})"
         ],
         "description": [
@@ -13022,7 +13036,10 @@
         ],
         "description": [
             "Construct: iot.CfnThing",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnThing"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnThing",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn"
         ],
         "prefix": "l1-iot-thing",
         "scope": "javascript,typescript"
@@ -15757,16 +15774,16 @@
         "body": [
             "new logs.CfnSubscriptionFilter(this, \"${1:id}\", {",
             "  destinationArn: \"${2:string}\", // Required",
-            "  filterPattern: \"${3:string}\", // Required",
-            "  logGroupName: \"${4:string}\", // Required",
-            "  roleArn: \"${5:string}\",",
+            "  distribution: \"${3:string}\",",
+            "  filterName: \"${4:string}\",",
+            "  filterPattern: \"${5:string}\", // Required",
+            "  logGroupName: \"${6:string}\", // Required",
+            "  roleArn: \"${7:string}\",",
             "})"
         ],
         "description": [
             "Construct: logs.CfnSubscriptionFilter",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnSubscriptionFilter",
-            "Attributes: ",
-            "  attrFilterName"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnSubscriptionFilter"
         ],
         "prefix": "l1-logs-subscriptionfilter",
         "scope": "javascript,typescript"
@@ -17343,7 +17360,8 @@
             "new networkmanager.CfnVpcAttachment(this, \"${1:id}\", {",
             "  coreNetworkId: \"${2:string}\", // Required",
             "  options: {",
-            "    ipv6Support: ${3|false,true|},",
+            "    applianceModeSupport: ${3|false,true|},",
+            "    ipv6Support: ${4|false,true|},",
             "  },",
             "  subnetArns: [], // Required",
             "  tags: [],",
@@ -19220,6 +19238,7 @@
             "Construct: rds.CfnDBInstance",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnDBInstance",
             "Attributes: ",
+            "  attrDBSystemId",
             "  attrEndpoint.Address",
             "  attrDBInstanceArn",
             "  attrEndpoint.Port",
@@ -19680,7 +19699,20 @@
             "  iamRoles: [],",
             "  kmsKeyId: \"${9:string}\",",
             "  logExports: [],",
-            "  namespaceName: \"${11:string}\", // Required",
+            "  namespace: {",
+            "    adminUsername: \"${11:string}\",",
+            "    creationDate: \"${12:string}\",",
+            "    dbName: \"${13:string}\",",
+            "    defaultIamRoleArn: \"${14:string}\",",
+            "    iamRoles: [],",
+            "    kmsKeyId: \"${16:string}\",",
+            "    logExports: [],",
+            "    namespaceArn: \"${18:string}\",",
+            "    namespaceId: \"${19:string}\",",
+            "    namespaceName: \"${20:string}\",",
+            "    status: \"${21:string}\",",
+            "  },",
+            "  namespaceName: \"${12:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -19698,8 +19730,7 @@
             "  attrNamespace.IamRoles",
             "  attrNamespace.NamespaceArn",
             "  attrNamespace.NamespaceId",
-            "  attrNamespace.DefaultIamRoleArn",
-            "  attrNamespace"
+            "  attrNamespace.DefaultIamRoleArn"
         ],
         "prefix": "l1-redshiftserverless-namespace",
         "scope": "javascript,typescript"
@@ -19715,28 +19746,38 @@
             "  securityGroupIds: [],",
             "  subnetIds: [],",
             "  tags: [],",
-            "  workgroupName: \"${10:string}\", // Required",
+            "  workgroup: {",
+            "    baseCapacity: ${10:Number},",
+            "    configParameters: [],",
+            "    creationDate: \"${12:string}\",",
+            "    enhancedVpcRouting: ${14|false,true|},",
+            "    namespaceName: \"${15:string}\",",
+            "    publiclyAccessible: ${16|false,true|},",
+            "    securityGroupIds: [],",
+            "    status: \"${18:string}\",",
+            "    subnetIds: [],",
+            "    workgroupArn: \"${20:string}\",",
+            "    workgroupId: \"${21:string}\",",
+            "    workgroupName: \"${22:string}\",",
+            "  },",
+            "  workgroupName: \"${11:string}\", // Required",
             "})"
         ],
         "description": [
             "Construct: redshiftserverless.CfnWorkgroup",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshiftserverless.CfnWorkgroup",
             "Attributes: ",
-            "  attrWorkgroup.Endpoint",
             "  attrWorkgroup.Endpoint.Port",
             "  attrWorkgroup.SecurityGroupIds",
             "  attrWorkgroup.CreationDate",
             "  attrWorkgroup.PubliclyAccessible",
-            "  attrWorkgroup",
             "  attrWorkgroup.WorkgroupArn",
             "  attrWorkgroup.WorkgroupName",
-            "  attrWorkgroup.ConfigParameters",
             "  attrWorkgroup.Status",
             "  attrWorkgroup.BaseCapacity",
             "  attrWorkgroup.EnhancedVpcRouting",
             "  attrWorkgroup.WorkgroupId",
             "  attrWorkgroup.NamespaceName",
-            "  attrWorkgroup.Endpoint.VpcEndpoints",
             "  attrWorkgroup.Endpoint.Address",
             "  attrWorkgroup.SubnetIds"
         ],
@@ -20402,7 +20443,8 @@
     "route53recoverycontrol.CfnCluster": {
         "body": [
             "new route53recoverycontrol.CfnCluster(this, \"${1:id}\", {",
-            "  name: \"${2:string}\",",
+            "  clusterEndpoints: [],",
+            "  name: \"${3:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -20411,8 +20453,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-route53recoverycontrol.CfnCluster",
             "Attributes: ",
             "  attrClusterArn",
-            "  attrStatus",
-            "  attrClusterEndpoints"
+            "  attrStatus"
         ],
         "prefix": "l1-route53recoverycontrol-cluster",
         "scope": "javascript,typescript"
