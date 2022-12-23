@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.65.0 (2022-12-23)
+-------------------
+- The following resources were updated:
+  AWS::NetworkFirewall::FirewallPolicy and
+  AWS::NetworkFirewall::RuleGroup. [Github Actions]
+
+
 1.64.0 (2022-12-16)
 -------------------
 - The following resource was added: AWS::SageMaker::Project. [Github
