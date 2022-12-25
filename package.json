@@ -31,19 +31,19 @@
   ],
   "badges": [
     {
-      "url": "https://vsmarketplacebadge.apphb.com/version/dannysteenman.cdk-snippets.svg",
+      "url": "https://img.shields.io/visual-studio-marketplace/v/dannysteenman.cdk-snippets",
       "href": "https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets",
       "description": "Version"
     },
     {
-      "url": "https://vsmarketplacebadge.apphb.com/installs-short/dannysteenman.cdk-snippets.svg",
+      "url": "https://img.shields.io/visual-studio-marketplace/i/dannysteenman.cdk-snippets",
       "href": "https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets",
       "description": "Installs"
     },
     {
-      "url": "https://vsmarketplacebadge.apphb.com/rating-star/dannysteenman.cdk-snippets.svg",
+      "url": "https://img.shields.io/visual-studio-marketplace/stars/dannysteenman.cdk-snippets",
       "href": "https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets",
-      "description": "Ratings"
+      "description": "Rating"
     }
   ],
   "contributes": {
