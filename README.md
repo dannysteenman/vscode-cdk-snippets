@@ -1,8 +1,8 @@
 # CDK Construct Snippets for VS Code
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/dannysteenman.cdk-snippets.svg 'Current Release')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/dannysteenman.cdk-snippets.svg 'Currently Installed')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
-[![Rating](https://vsmarketplacebadge.apphb.com/rating-star/dannysteenman.cdk-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/dannysteenman.cdk-snippets 'Current Release')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/dannysteenman.cdk-snippets 'Currently Installed')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
+[![Rating](https://img.shields.io/visual-studio-marketplace/stars/dannysteenman.cdk-snippets)](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
 
 This extension adds L1 construct snippets from CDK into Visual Studio Code.
 ---
