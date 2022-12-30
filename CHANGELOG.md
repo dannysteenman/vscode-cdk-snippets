@@ -2,6 +2,22 @@ Changelog
 =========
 
 
+1.66.0 (2022-12-30)
+-------------------
+
+Fix
+~~~
+- Update badge url for readme. [Danny Steenman]
+- Update badge url. [Danny Steenman]
+
+Other
+~~~~~
+- The following resources were updated:
+  AWS::NetworkFirewall::FirewallPolicy and
+  AWS::NetworkFirewall::RuleGroup. [Github Actions]
+- Merge branch 'fix/vscode-badges' [Danny Steenman]
+
+
 1.65.0 (2022-12-23)
 -------------------
 - The following resources were updated:
