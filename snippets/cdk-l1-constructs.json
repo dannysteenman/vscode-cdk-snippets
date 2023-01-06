@@ -13973,11 +13973,15 @@
         "body": [
             "new iotwireless.CfnPartnerAccount(this, \"${1:id}\", {",
             "  accountLinked: ${2|false,true|},",
-            "  fingerprint: \"${3:string}\",",
-            "  partnerAccountId: \"${4:string}\",",
-            "  partnerType: \"${5:string}\",",
+            "  partnerAccountId: \"${3:string}\",",
+            "  partnerType: \"${4:string}\",",
             "  sidewalk: {",
-            "    appServerPrivateKey: \"${6:string}\",",
+            "    appServerPrivateKey: \"${5:string}\",",
+            "  },",
+            "  sidewalkResponse: {",
+            "    amazonId: \"${6:string}\",",
+            "    arn: \"${7:string}\",",
+            "    fingerprint: \"${8:string}\",",
             "  },",
             "  sidewalkUpdate: {",
             "    appServerPrivateKey: \"${7:string}\",",
@@ -13989,11 +13993,8 @@
             "Construct: iotwireless.CfnPartnerAccount",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotwireless.CfnPartnerAccount",
             "Attributes: ",
-            "  attrSidewalkResponse",
-            "  attrSidewalkResponse.Arn",
-            "  attrArn",
-            "  attrSidewalkResponse.Fingerprint",
-            "  attrSidewalkResponse.AmazonId"
+            "  attrFingerprint",
+            "  attrArn"
         ],
         "prefix": "l1-iotwireless-partneraccount",
         "scope": "javascript,typescript"
