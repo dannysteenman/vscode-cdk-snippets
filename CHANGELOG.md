@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.68.0 (2023-01-20)
+-------------------
+- The following resource was updated: AWS::CloudWatch::MetricStream.
+  [Github Actions]
+
+
 1.67.0 (2023-01-06)
 -------------------
 - The following resource was updated: AWS::FSx::Filesystem. [Github
