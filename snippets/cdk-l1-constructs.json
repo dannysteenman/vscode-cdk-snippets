@@ -5151,6 +5151,20 @@
         "prefix": "l1-config-storedquery",
         "scope": "javascript,typescript"
     },
+    "connect.CfnApprovedOrigin": {
+        "body": [
+            "new connect.CfnApprovedOrigin(this, \"${1:id}\", {",
+            "  instanceId: \"${2:string}\", // Required",
+            "  origin: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnApprovedOrigin",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnApprovedOrigin"
+        ],
+        "prefix": "l1-connect-approvedorigin",
+        "scope": "javascript,typescript"
+    },
     "connect.CfnContactFlow": {
         "body": [
             "new connect.CfnContactFlow(this, \"${1:id}\", {",
@@ -5274,6 +5288,23 @@
         "prefix": "l1-connect-instancestorageconfig",
         "scope": "javascript,typescript"
     },
+    "connect.CfnIntegrationAssociation": {
+        "body": [
+            "new connect.CfnIntegrationAssociation(this, \"${1:id}\", {",
+            "  instanceId: \"${2:string}\", // Required",
+            "  integrationArn: \"${3:string}\", // Required",
+            "  integrationType: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnIntegrationAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnIntegrationAssociation",
+            "Attributes: ",
+            "  attrIntegrationAssociationId"
+        ],
+        "prefix": "l1-connect-integrationassociation",
+        "scope": "javascript,typescript"
+    },
     "connect.CfnPhoneNumber": {
         "body": [
             "new connect.CfnPhoneNumber(this, \"${1:id}\", {",
@@ -5343,6 +5374,22 @@
             "  attrRuleArn"
         ],
         "prefix": "l1-connect-rule",
+        "scope": "javascript,typescript"
+    },
+    "connect.CfnSecurityKey": {
+        "body": [
+            "new connect.CfnSecurityKey(this, \"${1:id}\", {",
+            "  instanceId: \"${2:string}\", // Required",
+            "  key: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnSecurityKey",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnSecurityKey",
+            "Attributes: ",
+            "  attrAssociationId"
+        ],
+        "prefix": "l1-connect-securitykey",
         "scope": "javascript,typescript"
     },
     "connect.CfnTaskTemplate": {
@@ -6973,9 +7020,10 @@
         "body": [
             "new ec2.CfnCustomerGateway(this, \"${1:id}\", {",
             "  bgpAsn: ${2:Number}, // Required",
-            "  ipAddress: \"${3:string}\", // Required",
+            "  deviceName: \"${3:string}\",",
+            "  ipAddress: \"${4:string}\", // Required",
             "  tags: [],",
-            "  type: \"${5:string}\", // Required",
+            "  type: \"${6:string}\", // Required",
             "})"
         ],
         "description": [
@@ -7475,8 +7523,12 @@
             "new ec2.CfnNatGateway(this, \"${1:id}\", {",
             "  allocationId: \"${2:string}\",",
             "  connectivityType: \"${3:string}\",",
-            "  privateIpAddress: \"${4:string}\",",
-            "  subnetId: \"${5:string}\", // Required",
+            "  maxDrainDurationSeconds: ${4:Number},",
+            "  privateIpAddress: \"${5:string}\",",
+            "  secondaryAllocationIds: [],",
+            "  secondaryPrivateIpAddressCount: ${7:Number},",
+            "  secondaryPrivateIpAddresses: [],",
+            "  subnetId: \"${9:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -9906,20 +9958,25 @@
             "    enabled: ${4|false,true|},",
             "    idleTimeoutMinutes: ${5:Number},",
             "  },",
+            "  imageConfiguration: {",
+            "    imageUri: \"${5:string}\",",
+            "  },",
             "  initialCapacity: [],",
             "  maximumCapacity: {",
-            "    cpu: \"${6:string}\",",
-            "    disk: \"${7:string}\",",
-            "    memory: \"${8:string}\",",
+            "    cpu: \"${7:string}\",",
+            "    disk: \"${8:string}\",",
+            "    memory: \"${9:string}\",",
             "  },",
-            "  name: \"${7:string}\",",
+            "  name: \"${8:string}\",",
             "  networkConfiguration: {",
             "    securityGroupIds: [],",
             "    subnetIds: [],",
             "  },",
-            "  releaseLabel: \"${9:string}\", // Required",
+            "  releaseLabel: \"${10:string}\", // Required",
             "  tags: [],",
-            "  type: \"${11:string}\", // Required",
+            "  type: \"${12:string}\", // Required",
+            "  workerTypeSpecifications: {",
+            "  },",
             "})"
         ],
         "description": [
@@ -11901,6 +11958,8 @@
     "groundstation.CfnDataflowEndpointGroup": {
         "body": [
             "new groundstation.CfnDataflowEndpointGroup(this, \"${1:id}\", {",
+            "  contactPostPassDurationSeconds: ${2:Number},",
+            "  contactPrePassDurationSeconds: ${3:Number},",
             "  endpointDetails: [], // Required",
             "  tags: [],",
             "})"
@@ -12440,11 +12499,14 @@
             "  distributionConfigurationArn: \"${3:string}\",",
             "  enhancedImageMetadataEnabled: ${4|false,true|},",
             "  imageRecipeArn: \"${5:string}\",",
-            "  imageTestsConfiguration: {",
-            "    imageTestsEnabled: ${6|false,true|},",
-            "    timeoutMinutes: ${7:Number},",
+            "  imageScanningConfiguration: {",
+            "    imageScanningEnabled: ${7|false,true|},",
             "  },",
-            "  infrastructureConfigurationArn: \"${7:string}\", // Required",
+            "  imageTestsConfiguration: {",
+            "    imageTestsEnabled: ${7|false,true|},",
+            "    timeoutMinutes: ${8:Number},",
+            "  },",
+            "  infrastructureConfigurationArn: \"${8:string}\", // Required",
             "  tags: {",
             "  },",
             "})"
@@ -12454,8 +12516,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-imagebuilder.CfnImage",
             "Attributes: ",
             "  attrImageId",
-            "  attrArn",
             "  attrImageUri",
+            "  attrArn",
             "  attrName"
         ],
         "prefix": "l1-imagebuilder-image",
@@ -12469,17 +12531,20 @@
             "  distributionConfigurationArn: \"${4:string}\",",
             "  enhancedImageMetadataEnabled: ${5|false,true|},",
             "  imageRecipeArn: \"${6:string}\",",
+            "  imageScanningConfiguration: {",
+            "    imageScanningEnabled: ${8|false,true|},",
+            "  },",
             "  imageTestsConfiguration: {",
-            "    imageTestsEnabled: ${7|false,true|},",
-            "    timeoutMinutes: ${8:Number},",
+            "    imageTestsEnabled: ${8|false,true|},",
+            "    timeoutMinutes: ${9:Number},",
             "  },",
-            "  infrastructureConfigurationArn: \"${8:string}\", // Required",
-            "  name: \"${9:string}\", // Required",
+            "  infrastructureConfigurationArn: \"${9:string}\", // Required",
+            "  name: \"${10:string}\", // Required",
             "  schedule: {",
-            "    pipelineExecutionStartCondition: \"${10:string}\",",
-            "    scheduleExpression: \"${11:string}\",",
+            "    pipelineExecutionStartCondition: \"${11:string}\",",
+            "    scheduleExpression: \"${12:string}\",",
             "  },",
-            "  status: \"${11:string}\",",
+            "  status: \"${12:string}\",",
             "  tags: {",
             "  },",
             "})"
@@ -14990,13 +15055,17 @@
             "  reservedConcurrentExecutions: ${17:Number},",
             "  role: \"${18:string}\", // Required",
             "  runtime: \"${19:string}\",",
+            "  runtimeManagementConfig: {",
+            "    runtimeVersionArn: \"${20:string}\",",
+            "    updateRuntimeOn: \"${21:string}\",",
+            "  },",
             "  snapStart: {",
-            "    applyOn: \"${20:string}\",",
+            "    applyOn: \"${21:string}\",",
             "  },",
             "  tags: [],",
-            "  timeout: ${22:Number},",
+            "  timeout: ${23:Number},",
             "  tracingConfig: {",
-            "    mode: \"${23:string}\",",
+            "    mode: \"${24:string}\",",
             "  },",
             "  vpcConfig: {",
             "    securityGroupIds: [],",
@@ -15586,8 +15655,6 @@
             "  collectionName: \"${2:string}\", // Required",
             "  description: \"${3:string}\",",
             "  kmsKeyId: \"${4:string}\",",
-            "  pricingPlan: \"${5:string}\",",
-            "  pricingPlanDataSource: \"${6:string}\",",
             "})"
         ],
         "description": [
@@ -15754,7 +15821,9 @@
         ],
         "description": [
             "Construct: logs.CfnLogStream",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnLogStream"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnLogStream",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-logs-logstream",
         "scope": "javascript,typescript"
@@ -17678,8 +17747,10 @@
             "  advancedOptions: {",
             "  },",
             "  advancedSecurityOptions: {",
-            "    enabled: ${4|false,true|},",
-            "    internalUserDatabaseEnabled: ${5|false,true|},",
+            "    anonymousAuthDisableDate: \"${4:string}\",",
+            "    anonymousAuthEnabled: ${5|false,true|},",
+            "    enabled: ${6|false,true|},",
+            "    internalUserDatabaseEnabled: ${7|false,true|},",
             "  },",
             "  clusterConfig: {",
             "    dedicatedMasterCount: ${5:Number},",
@@ -17747,6 +17818,7 @@
             "  attrServiceSoftwareOptions.UpdateAvailable",
             "  attrDomainEndpoint",
             "  attrServiceSoftwareOptions",
+            "  attrAdvancedSecurityOptions.AnonymousAuthDisableDate",
             "  attrServiceSoftwareOptions.NewVersion",
             "  attrId",
             "  attrArn",
@@ -20779,6 +20851,7 @@
             "  name: \"${4:string}\",",
             "  outpostArn: \"${5:string}\",",
             "  preferredInstanceType: \"${6:string}\",",
+            "  resolverEndpointType: \"${7:string}\",",
             "  securityGroupIds: [], // Required",
             "  tags: [],",
             "})"
@@ -20791,6 +20864,7 @@
             "  attrIpAddressCount",
             "  attrOutpostArn",
             "  attrPreferredInstanceType",
+            "  attrResolverEndpointType",
             "  attrArn",
             "  attrDirection",
             "  attrHostVPCId",
@@ -20902,9 +20976,12 @@
             "    sessionSampleRate: ${10:Number},",
             "    telemetries: [],",
             "  },",
-            "  cwLogEnabled: ${3|false,true|},",
-            "  domain: \"${4:string}\", // Required",
-            "  name: \"${5:string}\", // Required",
+            "  customEvents: {",
+            "    status: \"${3:string}\",",
+            "  },",
+            "  cwLogEnabled: ${4|false,true|},",
+            "  domain: \"${5:string}\", // Required",
+            "  name: \"${6:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -21367,18 +21444,22 @@
             "  appNetworkAccessType: \"${2:string}\",",
             "  appSecurityGroupManagement: \"${3:string}\",",
             "  authMode: \"${4:string}\", // Required",
-            "  defaultUserSettings: {",
+            "  defaultSpaceSettings: {",
             "    executionRole: \"${5:string}\",",
             "    securityGroups: [],",
             "  },",
-            "  domainName: \"${6:string}\", // Required",
+            "  defaultUserSettings: {",
+            "    executionRole: \"${6:string}\",",
+            "    securityGroups: [],",
+            "  },",
+            "  domainName: \"${7:string}\", // Required",
             "  domainSettings: {",
             "    securityGroupIds: [],",
             "  },",
-            "  kmsKeyId: \"${8:string}\",",
+            "  kmsKeyId: \"${9:string}\",",
             "  subnetIds: [], // Required",
             "  tags: [],",
-            "  vpcId: \"${11:string}\", // Required",
+            "  vpcId: \"${12:string}\", // Required",
             "})"
         ],
         "description": [
@@ -22097,9 +22178,7 @@
         ],
         "description": [
             "Construct: secretsmanager.CfnSecret",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.CfnSecret",
-            "Attributes: ",
-            "  attrId"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.CfnSecret"
         ],
         "prefix": "l1-secretsmanager-secret",
         "scope": "javascript,typescript"
