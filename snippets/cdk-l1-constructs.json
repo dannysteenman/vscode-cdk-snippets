@@ -361,20 +361,22 @@
     "amplifyuibuilder.CfnComponent": {
         "body": [
             "new amplifyuibuilder.CfnComponent(this, \"${1:id}\", {",
+            "  appId: \"${2:string}\",",
             "  bindingProperties: {",
             "  },",
             "  children: [],",
             "  collectionProperties: {",
             "  },",
-            "  componentType: \"${5:string}\", // Required",
+            "  componentType: \"${6:string}\", // Required",
+            "  environmentName: \"${7:string}\",",
             "  events: {",
             "  },",
-            "  name: \"${7:string}\", // Required",
-            "  overrides: ${8:JSON}, // Required",
+            "  name: \"${9:string}\", // Required",
+            "  overrides: ${10:JSON}, // Required",
             "  properties: {",
             "  },",
-            "  schemaVersion: \"${10:string}\",",
-            "  sourceId: \"${11:string}\",",
+            "  schemaVersion: \"${12:string}\",",
+            "  sourceId: \"${13:string}\",",
             "  tags: {",
             "  },",
             "  variants: [], // Required",
@@ -384,8 +386,6 @@
             "Construct: amplifyuibuilder.CfnComponent",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-amplifyuibuilder.CfnComponent",
             "Attributes: ",
-            "  attrAppId",
-            "  attrEnvironmentName",
             "  attrId"
         ],
         "prefix": "l1-amplifyuibuilder-component",
@@ -428,7 +428,9 @@
     "amplifyuibuilder.CfnTheme": {
         "body": [
             "new amplifyuibuilder.CfnTheme(this, \"${1:id}\", {",
-            "  name: \"${2:string}\", // Required",
+            "  appId: \"${2:string}\",",
+            "  environmentName: \"${3:string}\",",
+            "  name: \"${4:string}\", // Required",
             "  overrides: [],",
             "  tags: {",
             "  },",
@@ -439,10 +441,6 @@
             "Construct: amplifyuibuilder.CfnTheme",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-amplifyuibuilder.CfnTheme",
             "Attributes: ",
-            "  attrModifiedAt",
-            "  attrAppId",
-            "  attrEnvironmentName",
-            "  attrCreatedAt",
             "  attrId"
         ],
         "prefix": "l1-amplifyuibuilder-theme",
@@ -1263,6 +1261,7 @@
             "  deploymentStrategyId: \"${5:string}\", // Required",
             "  description: \"${6:string}\",",
             "  environmentId: \"${7:string}\", // Required",
+            "  kmsKeyIdentifier: \"${8:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -3920,6 +3919,24 @@
         "prefix": "l1-cloudfront-streamingdistribution",
         "scope": "javascript,typescript"
     },
+    "cloudtrail.CfnChannel": {
+        "body": [
+            "new cloudtrail.CfnChannel(this, \"${1:id}\", {",
+            "  destinations: [],",
+            "  name: \"${3:string}\",",
+            "  source: \"${4:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: cloudtrail.CfnChannel",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudtrail.CfnChannel",
+            "Attributes: ",
+            "  attrChannelArn"
+        ],
+        "prefix": "l1-cloudtrail-channel",
+        "scope": "javascript,typescript"
+    },
     "cloudtrail.CfnEventDataStore": {
         "body": [
             "new cloudtrail.CfnEventDataStore(this, \"${1:id}\", {",
@@ -3943,6 +3960,20 @@
             "  attrCreatedTimestamp"
         ],
         "prefix": "l1-cloudtrail-eventdatastore",
+        "scope": "javascript,typescript"
+    },
+    "cloudtrail.CfnResourcePolicy": {
+        "body": [
+            "new cloudtrail.CfnResourcePolicy(this, \"${1:id}\", {",
+            "  resourceArn: \"${2:string}\", // Required",
+            "  resourcePolicy: ${3:JSON}, // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: cloudtrail.CfnResourcePolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudtrail.CfnResourcePolicy"
+        ],
+        "prefix": "l1-cloudtrail-resourcepolicy",
         "scope": "javascript,typescript"
     },
     "cloudtrail.CfnTrail": {
@@ -5480,9 +5511,9 @@
             "  },",
             "  name: \"${4:string}\", // Required",
             "  outboundCallConfig: {",
-            "    connectContactFlowArn: \"${5:string}\",",
-            "    connectQueueArn: \"${6:string}\",",
-            "    connectSourcePhoneNumber: \"${7:string}\",",
+            "    connectContactFlowArn: \"${6:string}\",",
+            "    connectQueueArn: \"${7:string}\",",
+            "    connectSourcePhoneNumber: \"${8:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -7240,8 +7271,11 @@
     "ec2.CfnIPAM": {
         "body": [
             "new ec2.CfnIPAM(this, \"${1:id}\", {",
-            "  description: \"${2:string}\",",
+            "  defaultResourceDiscoveryAssociationId: \"${2:string}\",",
+            "  defaultResourceDiscoveryId: \"${3:string}\",",
+            "  description: \"${4:string}\",",
             "  operatingRegions: [],",
+            "  resourceDiscoveryAssociationCount: ${6:Number},",
             "  tags: [],",
             "})"
         ],
@@ -7290,8 +7324,9 @@
             "  ipamScopeId: \"${10:string}\", // Required",
             "  locale: \"${11:string}\",",
             "  provisionedCidrs: [],",
-            "  publiclyAdvertisable: ${13|false,true|},",
-            "  sourceIpamPoolId: \"${14:string}\",",
+            "  publicIpSource: \"${13:string}\",",
+            "  publiclyAdvertisable: ${14|false,true|},",
+            "  sourceIpamPoolId: \"${15:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -7309,6 +7344,70 @@
             "  attrStateMessage"
         ],
         "prefix": "l1-ec2-ipampool",
+        "scope": "javascript,typescript"
+    },
+    "ec2.CfnIPAMPoolCidr": {
+        "body": [
+            "new ec2.CfnIPAMPoolCidr(this, \"${1:id}\", {",
+            "  cidr: \"${2:string}\",",
+            "  ipamPoolId: \"${3:string}\", // Required",
+            "  netmaskLength: ${4:Number},",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnIPAMPoolCidr",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnIPAMPoolCidr",
+            "Attributes: ",
+            "  attrIpamPoolCidrId",
+            "  attrState"
+        ],
+        "prefix": "l1-ec2-ipampoolcidr",
+        "scope": "javascript,typescript"
+    },
+    "ec2.CfnIPAMResourceDiscovery": {
+        "body": [
+            "new ec2.CfnIPAMResourceDiscovery(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  operatingRegions: [],",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnIPAMResourceDiscovery",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnIPAMResourceDiscovery",
+            "Attributes: ",
+            "  attrIsDefault",
+            "  attrOwnerId",
+            "  attrState",
+            "  attrIpamResourceDiscoveryRegion",
+            "  attrIpamResourceDiscoveryArn",
+            "  attrIpamResourceDiscoveryId"
+        ],
+        "prefix": "l1-ec2-ipamresourcediscovery",
+        "scope": "javascript,typescript"
+    },
+    "ec2.CfnIPAMResourceDiscoveryAssociation": {
+        "body": [
+            "new ec2.CfnIPAMResourceDiscoveryAssociation(this, \"${1:id}\", {",
+            "  ipamId: \"${2:string}\", // Required",
+            "  ipamResourceDiscoveryId: \"${3:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnIPAMResourceDiscoveryAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnIPAMResourceDiscoveryAssociation",
+            "Attributes: ",
+            "  attrIsDefault",
+            "  attrResourceDiscoveryStatus",
+            "  attrOwnerId",
+            "  attrIpamArn",
+            "  attrIpamResourceDiscoveryAssociationId",
+            "  attrIpamResourceDiscoveryAssociationArn",
+            "  attrState",
+            "  attrIpamRegion"
+        ],
+        "prefix": "l1-ec2-ipamresourcediscoveryassociation",
         "scope": "javascript,typescript"
     },
     "ec2.CfnIPAMScope": {
@@ -17243,10 +17342,10 @@
             "  bgpOptions: {",
             "    peerAsn: ${2:Number},",
             "  },",
-            "  connectAttachmentId: \"${3:string}\",",
+            "  connectAttachmentId: \"${3:string}\", // Required",
             "  coreNetworkAddress: \"${4:string}\",",
-            "  insideCidrBlocks: [],",
-            "  peerAddress: \"${6:string}\",",
+            "  insideCidrBlocks: [], // Required",
+            "  peerAddress: \"${6:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -17420,9 +17519,9 @@
     "networkmanager.CfnSiteToSiteVpnAttachment": {
         "body": [
             "new networkmanager.CfnSiteToSiteVpnAttachment(this, \"${1:id}\", {",
-            "  coreNetworkId: \"${2:string}\",",
+            "  coreNetworkId: \"${2:string}\", // Required",
             "  tags: [],",
-            "  vpnConnectionArn: \"${4:string}\",",
+            "  vpnConnectionArn: \"${4:string}\", // Required",
             "})"
         ],
         "description": [
@@ -17511,7 +17610,7 @@
             "    ec2InstanceTypes: [],",
             "    maxSessionLengthInMinutes: ${9:Number},",
             "    maxStoppedSessionLengthInMinutes: ${10:Number},",
-            "    sessionPersistenceMode: \"${11:string}\",",
+            "    sessionPersistenceMode: \"${12:string}\",",
             "    streamingImageIds: [],",
             "  },",
             "  studioComponentIds: [], // Required",
@@ -17644,6 +17743,169 @@
             "  attrArn"
         ],
         "prefix": "l1-oam-sink",
+        "scope": "javascript,typescript"
+    },
+    "omics.CfnAnnotationStore": {
+        "body": [
+            "new omics.CfnAnnotationStore(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  reference: {",
+            "    referenceArn: \"${4:string}\",",
+            "  },",
+            "  sseConfig: {",
+            "    keyArn: \"${5:string}\",",
+            "    type: \"${6:string}\",",
+            "  },",
+            "  storeFormat: \"${6:string}\", // Required",
+            "  storeOptions: {",
+            "  },",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: omics.CfnAnnotationStore",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-omics.CfnAnnotationStore",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrCreationTime",
+            "  attrUpdateTime",
+            "  attrId",
+            "  attrStoreSizeBytes",
+            "  attrStatusMessage",
+            "  attrStoreArn"
+        ],
+        "prefix": "l1-omics-annotationstore",
+        "scope": "javascript,typescript"
+    },
+    "omics.CfnReferenceStore": {
+        "body": [
+            "new omics.CfnReferenceStore(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  sseConfig: {",
+            "    keyArn: \"${4:string}\",",
+            "    type: \"${5:string}\",",
+            "  },",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: omics.CfnReferenceStore",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-omics.CfnReferenceStore",
+            "Attributes: ",
+            "  attrReferenceStoreId",
+            "  attrCreationTime",
+            "  attrArn"
+        ],
+        "prefix": "l1-omics-referencestore",
+        "scope": "javascript,typescript"
+    },
+    "omics.CfnRunGroup": {
+        "body": [
+            "new omics.CfnRunGroup(this, \"${1:id}\", {",
+            "  maxCpus: ${2:Number},",
+            "  maxDuration: ${3:Number},",
+            "  maxRuns: ${4:Number},",
+            "  name: \"${5:string}\",",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: omics.CfnRunGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-omics.CfnRunGroup",
+            "Attributes: ",
+            "  attrCreationTime",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-omics-rungroup",
+        "scope": "javascript,typescript"
+    },
+    "omics.CfnSequenceStore": {
+        "body": [
+            "new omics.CfnSequenceStore(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  sseConfig: {",
+            "    keyArn: \"${4:string}\",",
+            "    type: \"${5:string}\",",
+            "  },",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: omics.CfnSequenceStore",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-omics.CfnSequenceStore",
+            "Attributes: ",
+            "  attrSequenceStoreId",
+            "  attrCreationTime",
+            "  attrArn"
+        ],
+        "prefix": "l1-omics-sequencestore",
+        "scope": "javascript,typescript"
+    },
+    "omics.CfnVariantStore": {
+        "body": [
+            "new omics.CfnVariantStore(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  reference: {",
+            "    referenceArn: \"${4:string}\",",
+            "  },",
+            "  sseConfig: {",
+            "    keyArn: \"${5:string}\",",
+            "    type: \"${6:string}\",",
+            "  },",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: omics.CfnVariantStore",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-omics.CfnVariantStore",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrCreationTime",
+            "  attrUpdateTime",
+            "  attrId",
+            "  attrStoreSizeBytes",
+            "  attrStatusMessage",
+            "  attrStoreArn"
+        ],
+        "prefix": "l1-omics-variantstore",
+        "scope": "javascript,typescript"
+    },
+    "omics.CfnWorkflow": {
+        "body": [
+            "new omics.CfnWorkflow(this, \"${1:id}\", {",
+            "  definitionUri: \"${2:string}\",",
+            "  description: \"${3:string}\",",
+            "  engine: \"${4:string}\",",
+            "  main: \"${5:string}\",",
+            "  name: \"${6:string}\",",
+            "  parameterTemplate: {",
+            "  },",
+            "  storageCapacity: ${8:Number},",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: omics.CfnWorkflow",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-omics.CfnWorkflow",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrType",
+            "  attrCreationTime",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-omics-workflow",
         "scope": "javascript,typescript"
     },
     "opensearchserverless.CfnAccessPolicy": {
@@ -18063,8 +18325,7 @@
             "  preferredBackupWindow: \"${16:string}\",",
             "  preferredMaintenanceWindow: \"${17:string}\",",
             "  securityGroupIds: [],",
-            "  serverName: \"${19:string}\",",
-            "  serviceRoleArn: \"${20:string}\", // Required",
+            "  serviceRoleArn: \"${19:string}\", // Required",
             "  subnetIds: [],",
             "  tags: [],",
             "})"
@@ -18074,7 +18335,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-opsworkscm.CfnServer",
             "Attributes: ",
             "  attrEndpoint",
-            "  attrId",
+            "  attrServerName",
             "  attrArn"
         ],
         "prefix": "l1-opsworkscm-server",
@@ -19430,7 +19691,6 @@
             "  dBProxyEndpointName: \"${2:string}\", // Required",
             "  dBProxyName: \"${3:string}\", // Required",
             "  tags: [],",
-            "  targetRole: \"${5:string}\",",
             "  vpcSecurityGroupIds: [],",
             "  vpcSubnetIds: [], // Required",
             "})"
@@ -19442,7 +19702,8 @@
             "  attrDBProxyEndpointArn",
             "  attrIsDefault",
             "  attrVpcId",
-            "  attrEndpoint"
+            "  attrEndpoint",
+            "  attrTargetRole"
         ],
         "prefix": "l1-rds-dbproxyendpoint",
         "scope": "javascript,typescript"
@@ -20353,9 +20614,9 @@
     "rolesanywhere.CfnCRL": {
         "body": [
             "new rolesanywhere.CfnCRL(this, \"${1:id}\", {",
-            "  crlData: \"${2:string}\",",
+            "  crlData: \"${2:string}\", // Required",
             "  enabled: ${3|false,true|},",
-            "  name: \"${4:string}\",",
+            "  name: \"${4:string}\", // Required",
             "  tags: [],",
             "  trustAnchorArn: \"${6:string}\",",
             "})"
@@ -20375,9 +20636,9 @@
             "  durationSeconds: ${2:Number},",
             "  enabled: ${3|false,true|},",
             "  managedPolicyArns: [],",
-            "  name: \"${5:string}\",",
+            "  name: \"${5:string}\", // Required",
             "  requireInstanceProperties: ${6|false,true|},",
-            "  roleArns: [],",
+            "  roleArns: [], // Required",
             "  sessionPolicy: \"${8:string}\",",
             "  tags: [],",
             "})"
@@ -20396,7 +20657,7 @@
         "body": [
             "new rolesanywhere.CfnTrustAnchor(this, \"${1:id}\", {",
             "  enabled: ${2|false,true|},",
-            "  name: \"${3:string}\",",
+            "  name: \"${3:string}\", // Required",
             "  source: {",
             "    sourceType: \"${5:string}\",",
             "  },",
@@ -21666,6 +21927,49 @@
             "  attrCreationTime"
         ],
         "prefix": "l1-sagemaker-modelbiasjobdefinition",
+        "scope": "javascript,typescript"
+    },
+    "sagemaker.CfnModelCard": {
+        "body": [
+            "new sagemaker.CfnModelCard(this, \"${1:id}\", {",
+            "  content: {",
+            "    evaluationDetails: [],",
+            "  },",
+            "  createdBy: {",
+            "    domainId: \"${3:string}\",",
+            "    userProfileArn: \"${4:string}\",",
+            "    userProfileName: \"${5:string}\",",
+            "  },",
+            "  lastModifiedBy: {",
+            "    domainId: \"${4:string}\",",
+            "    userProfileArn: \"${5:string}\",",
+            "    userProfileName: \"${6:string}\",",
+            "  },",
+            "  modelCardName: \"${5:string}\", // Required",
+            "  modelCardStatus: \"${6:string}\", // Required",
+            "  securityConfig: {",
+            "    kmsKeyId: \"${7:string}\",",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: sagemaker.CfnModelCard",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sagemaker.CfnModelCard",
+            "Attributes: ",
+            "  attrLastModifiedBy.UserProfileArn",
+            "  attrCreatedBy.DomainId",
+            "  attrModelCardArn",
+            "  attrCreatedBy.UserProfileName",
+            "  attrCreationTime",
+            "  attrLastModifiedTime",
+            "  attrLastModifiedBy.DomainId",
+            "  attrModelCardVersion",
+            "  attrModelCardProcessingStatus",
+            "  attrLastModifiedBy.UserProfileName",
+            "  attrCreatedBy.UserProfileArn"
+        ],
+        "prefix": "l1-sagemaker-modelcard",
         "scope": "javascript,typescript"
     },
     "sagemaker.CfnModelExplainabilityJobDefinition": {
@@ -22944,6 +23248,26 @@
         "prefix": "l1-signer-signingprofile",
         "scope": "javascript,typescript"
     },
+    "simspaceweaver.CfnSimulation": {
+        "body": [
+            "new simspaceweaver.CfnSimulation(this, \"${1:id}\", {",
+            "  name: \"${2:string}\",",
+            "  roleArn: \"${3:string}\",",
+            "  schemaS3Location: {",
+            "    bucketName: \"${4:string}\",",
+            "    objectKey: \"${5:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: simspaceweaver.CfnSimulation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-simspaceweaver.CfnSimulation",
+            "Attributes: ",
+            "  attrDescribePayload"
+        ],
+        "prefix": "l1-simspaceweaver-simulation",
+        "scope": "javascript,typescript"
+    },
     "sns.CfnSubscription": {
         "body": [
             "new sns.CfnSubscription(this, \"${1:id}\", {",
@@ -22978,6 +23302,7 @@
             "  subscription: [],",
             "  tags: [],",
             "  topicName: \"${10:string}\",",
+            "  tracingConfig: \"${11:string}\",",
             "})"
         ],
         "description": [
