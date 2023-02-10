@@ -5078,13 +5078,13 @@
             "new config.CfnOrganizationConfigRule(this, \"${1:id}\", {",
             "  excludedAccounts: [],",
             "  organizationConfigRuleName: \"${3:string}\", // Required",
-            "  organizationCustomCodeRuleMetadata: {",
-            "    codeText: \"${4:string}\",",
+            "  organizationCustomPolicyRuleMetadata: {",
             "    debugLogDeliveryAccounts: [],",
-            "    description: \"${6:string}\",",
-            "    inputParameters: \"${7:string}\",",
-            "    maximumExecutionFrequency: \"${8:string}\",",
+            "    description: \"${5:string}\",",
+            "    inputParameters: \"${6:string}\",",
+            "    maximumExecutionFrequency: \"${7:string}\",",
             "    organizationConfigRuleTriggerTypes: [],",
+            "    policyText: \"${9:string}\",",
             "    resourceIdScope: \"${10:string}\",",
             "    resourceTypesScope: [],",
             "    runtime: \"${12:string}\",",
@@ -5797,7 +5797,7 @@
     "datasync.CfnAgent": {
         "body": [
             "new datasync.CfnAgent(this, \"${1:id}\", {",
-            "  activationKey: \"${2:string}\", // Required",
+            "  activationKey: \"${2:string}\",",
             "  agentName: \"${3:string}\",",
             "  securityGroupArns: [],",
             "  subnetArns: [],",
@@ -5884,7 +5884,7 @@
     "datasync.CfnLocationFSxOpenZFS": {
         "body": [
             "new datasync.CfnLocationFSxOpenZFS(this, \"${1:id}\", {",
-            "  fsxFilesystemArn: \"${2:string}\", // Required",
+            "  fsxFilesystemArn: \"${2:string}\",",
             "  protocol: {",
             "  },",
             "  securityGroupArns: [], // Required",
@@ -5986,10 +5986,11 @@
             "  agentArns: [], // Required",
             "  bucketName: \"${4:string}\",",
             "  secretKey: \"${5:string}\",",
-            "  serverHostname: \"${6:string}\",",
-            "  serverPort: ${7:Number},",
-            "  serverProtocol: \"${8:string}\",",
-            "  subdirectory: \"${9:string}\",",
+            "  serverCertificate: \"${6:string}\",",
+            "  serverHostname: \"${7:string}\",",
+            "  serverPort: ${8:Number},",
+            "  serverProtocol: \"${9:string}\",",
+            "  subdirectory: \"${10:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -6006,7 +6007,7 @@
     "datasync.CfnLocationS3": {
         "body": [
             "new datasync.CfnLocationS3(this, \"${1:id}\", {",
-            "  s3BucketArn: \"${2:string}\", // Required",
+            "  s3BucketArn: \"${2:string}\",",
             "  s3Config: {",
             "    bucketAccessRoleArn: \"${3:string}\",",
             "  },",
@@ -7759,7 +7760,7 @@
     "ec2.CfnNetworkInsightsPath": {
         "body": [
             "new ec2.CfnNetworkInsightsPath(this, \"${1:id}\", {",
-            "  destination: \"${2:string}\", // Required",
+            "  destination: \"${2:string}\",",
             "  destinationIp: \"${3:string}\",",
             "  destinationPort: ${4:Number},",
             "  protocol: \"${5:string}\", // Required",
@@ -9393,6 +9394,7 @@
             "  snapshottingClusterId: \"${35:string}\",",
             "  tags: [],",
             "  transitEncryptionEnabled: ${37|false,true|},",
+            "  transitEncryptionMode: \"${38:string}\",",
             "  userGroupIds: [],",
             "})"
         ],
@@ -17547,6 +17549,31 @@
         "prefix": "l1-networkmanager-sitetositevpnattachment",
         "scope": "javascript,typescript"
     },
+    "networkmanager.CfnTransitGatewayPeering": {
+        "body": [
+            "new networkmanager.CfnTransitGatewayPeering(this, \"${1:id}\", {",
+            "  coreNetworkId: \"${2:string}\", // Required",
+            "  tags: [],",
+            "  transitGatewayArn: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: networkmanager.CfnTransitGatewayPeering",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-networkmanager.CfnTransitGatewayPeering",
+            "Attributes: ",
+            "  attrResourceArn",
+            "  attrPeeringType",
+            "  attrState",
+            "  attrCreatedAt",
+            "  attrPeeringId",
+            "  attrTransitGatewayPeeringAttachmentId",
+            "  attrOwnerAccountId",
+            "  attrCoreNetworkArn",
+            "  attrEdgeLocation"
+        ],
+        "prefix": "l1-networkmanager-transitgatewaypeering",
+        "scope": "javascript,typescript"
+    },
     "networkmanager.CfnTransitGatewayRegistration": {
         "body": [
             "new networkmanager.CfnTransitGatewayRegistration(this, \"${1:id}\", {",
@@ -17710,7 +17737,7 @@
     "oam.CfnLink": {
         "body": [
             "new oam.CfnLink(this, \"${1:id}\", {",
-            "  labelTemplate: \"${2:string}\", // Required",
+            "  labelTemplate: \"${2:string}\",",
             "  resourceTypes: [], // Required",
             "  sinkIdentifier: \"${4:string}\", // Required",
             "  tags: {",
@@ -19980,13 +20007,7 @@
             "  endpointName: \"${3:string}\", // Required",
             "  resourceOwner: \"${4:string}\",",
             "  subnetGroupName: \"${5:string}\", // Required",
-            "  vpcEndpoint: {",
-            "    networkInterfaces: [],",
-            "    vpcEndpointId: \"${7:string}\",",
-            "    vpcId: \"${8:string}\",",
-            "  },",
             "  vpcSecurityGroupIds: [], // Required",
-            "  vpcSecurityGroups: [],",
             "})"
         ],
         "description": [
@@ -19994,10 +20015,13 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnEndpointAccess",
             "Attributes: ",
             "  attrEndpointStatus",
+            "  attrVpcEndpoint",
             "  attrAddress",
             "  attrPort",
             "  attrEndpointCreateTime",
             "  attrVpcEndpoint.VpcId",
+            "  attrVpcEndpoint.NetworkInterfaces",
+            "  attrVpcSecurityGroups",
             "  attrVpcEndpoint.VpcEndpointId"
         ],
         "prefix": "l1-redshift-endpointaccess",
@@ -20091,20 +20115,7 @@
             "  iamRoles: [],",
             "  kmsKeyId: \"${9:string}\",",
             "  logExports: [],",
-            "  namespace: {",
-            "    adminUsername: \"${11:string}\",",
-            "    creationDate: \"${12:string}\",",
-            "    dbName: \"${13:string}\",",
-            "    defaultIamRoleArn: \"${14:string}\",",
-            "    iamRoles: [],",
-            "    kmsKeyId: \"${16:string}\",",
-            "    logExports: [],",
-            "    namespaceArn: \"${18:string}\",",
-            "    namespaceId: \"${19:string}\",",
-            "    namespaceName: \"${20:string}\",",
-            "    status: \"${21:string}\",",
-            "  },",
-            "  namespaceName: \"${12:string}\", // Required",
+            "  namespaceName: \"${11:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -20122,7 +20133,8 @@
             "  attrNamespace.IamRoles",
             "  attrNamespace.NamespaceArn",
             "  attrNamespace.NamespaceId",
-            "  attrNamespace.DefaultIamRoleArn"
+            "  attrNamespace.DefaultIamRoleArn",
+            "  attrNamespace"
         ],
         "prefix": "l1-redshiftserverless-namespace",
         "scope": "javascript,typescript"
@@ -20134,24 +20146,11 @@
             "  configParameters: [],",
             "  enhancedVpcRouting: ${4|false,true|},",
             "  namespaceName: \"${5:string}\",",
-            "  publiclyAccessible: ${6|false,true|},",
+            "  port: ${6:Number},",
+            "  publiclyAccessible: ${7|false,true|},",
             "  securityGroupIds: [],",
             "  subnetIds: [],",
             "  tags: [],",
-            "  workgroup: {",
-            "    baseCapacity: ${10:Number},",
-            "    configParameters: [],",
-            "    creationDate: \"${12:string}\",",
-            "    enhancedVpcRouting: ${14|false,true|},",
-            "    namespaceName: \"${15:string}\",",
-            "    publiclyAccessible: ${16|false,true|},",
-            "    securityGroupIds: [],",
-            "    status: \"${18:string}\",",
-            "    subnetIds: [],",
-            "    workgroupArn: \"${20:string}\",",
-            "    workgroupId: \"${21:string}\",",
-            "    workgroupName: \"${22:string}\",",
-            "  },",
             "  workgroupName: \"${11:string}\", // Required",
             "})"
         ],
@@ -20159,17 +20158,21 @@
             "Construct: redshiftserverless.CfnWorkgroup",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshiftserverless.CfnWorkgroup",
             "Attributes: ",
+            "  attrWorkgroup.Endpoint",
             "  attrWorkgroup.Endpoint.Port",
             "  attrWorkgroup.SecurityGroupIds",
             "  attrWorkgroup.CreationDate",
             "  attrWorkgroup.PubliclyAccessible",
+            "  attrWorkgroup",
             "  attrWorkgroup.WorkgroupArn",
             "  attrWorkgroup.WorkgroupName",
+            "  attrWorkgroup.ConfigParameters",
             "  attrWorkgroup.Status",
             "  attrWorkgroup.BaseCapacity",
             "  attrWorkgroup.EnhancedVpcRouting",
             "  attrWorkgroup.WorkgroupId",
             "  attrWorkgroup.NamespaceName",
+            "  attrWorkgroup.Endpoint.VpcEndpoints",
             "  attrWorkgroup.Endpoint.Address",
             "  attrWorkgroup.SubnetIds"
         ],
@@ -22299,6 +22302,25 @@
             "  attrServiceCatalogProvisionedProductDetails"
         ],
         "prefix": "l1-sagemaker-project",
+        "scope": "javascript,typescript"
+    },
+    "sagemaker.CfnSpace": {
+        "body": [
+            "new sagemaker.CfnSpace(this, \"${1:id}\", {",
+            "  domainId: \"${2:string}\", // Required",
+            "  spaceName: \"${3:string}\", // Required",
+            "  spaceSettings: {",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: sagemaker.CfnSpace",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sagemaker.CfnSpace",
+            "Attributes: ",
+            "  attrSpaceArn"
+        ],
+        "prefix": "l1-sagemaker-space",
         "scope": "javascript,typescript"
     },
     "sagemaker.CfnUserProfile": {
