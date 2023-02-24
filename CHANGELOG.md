@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.73.0 (2023-02-24)
+-------------------
+- The following resource was updated: AWS::FMS::Policy. [Github Actions]
+
+
 1.72.0 (2023-02-17)
 -------------------
 - The following resource was updated:
