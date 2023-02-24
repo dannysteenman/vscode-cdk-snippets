@@ -888,7 +888,9 @@
         ],
         "description": [
             "Construct: apigateway.CfnVpcLink",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnVpcLink"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnVpcLink",
+            "Attributes: ",
+            "  attrVpcLinkId"
         ],
         "prefix": "l1-apigateway-vpclink",
         "scope": "javascript,typescript"
@@ -1160,9 +1162,7 @@
         ],
         "description": [
             "Construct: apigatewayv2.CfnRouteResponse",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnRouteResponse",
-            "Attributes: ",
-            "  attrRouteResponseId"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnRouteResponse"
         ],
         "prefix": "l1-apigatewayv2-routeresponse",
         "scope": "javascript,typescript"
@@ -1320,6 +1320,7 @@
             "  contentType: \"${5:string}\", // Required",
             "  description: \"${6:string}\",",
             "  latestVersionNumber: ${7:Number},",
+            "  versionLabel: \"${8:string}\",",
             "})"
         ],
         "description": [
@@ -8629,7 +8630,9 @@
         ],
         "description": [
             "Construct: ec2.CfnVPCEndpointService",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCEndpointService"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCEndpointService",
+            "Attributes: ",
+            "  attrServiceId"
         ],
         "prefix": "l1-ec2-vpcendpointservice",
         "scope": "javascript,typescript"
@@ -10198,7 +10201,7 @@
             "new events.CfnEndpoint(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
             "  eventBuses: [], // Required",
-            "  name: \"${4:string}\", // Required",
+            "  name: \"${4:string}\",",
             "  replicationConfig: {",
             "    state: \"${5:string}\",",
             "  },",
@@ -12881,6 +12884,30 @@
             "  attrArn"
         ],
         "prefix": "l1-inspectorv2-filter",
+        "scope": "javascript,typescript"
+    },
+    "internetmonitor.CfnMonitor": {
+        "body": [
+            "new internetmonitor.CfnMonitor(this, \"${1:id}\", {",
+            "  monitorName: \"${2:string}\",",
+            "  resources: [],",
+            "  resourcesToAdd: [],",
+            "  resourcesToRemove: [],",
+            "  status: \"${6:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: internetmonitor.CfnMonitor",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-internetmonitor.CfnMonitor",
+            "Attributes: ",
+            "  attrModifiedAt",
+            "  attrMonitorArn",
+            "  attrCreatedAt",
+            "  attrProcessingStatusInfo",
+            "  attrProcessingStatus"
+        ],
+        "prefix": "l1-internetmonitor-monitor",
         "scope": "javascript,typescript"
     },
     "iot.CfnAccountAuditConfiguration": {
@@ -17650,6 +17677,39 @@
         "prefix": "l1-networkmanager-transitgatewayregistration",
         "scope": "javascript,typescript"
     },
+    "networkmanager.CfnTransitGatewayRouteTableAttachment": {
+        "body": [
+            "new networkmanager.CfnTransitGatewayRouteTableAttachment(this, \"${1:id}\", {",
+            "  peeringId: \"${2:string}\", // Required",
+            "  proposedSegmentChange: {",
+            "    attachmentPolicyRuleNumber: ${3:Number},",
+            "    segmentName: \"${4:string}\",",
+            "    tags: [],",
+            "  },",
+            "  tags: [],",
+            "  transitGatewayRouteTableArn: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: networkmanager.CfnTransitGatewayRouteTableAttachment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-networkmanager.CfnTransitGatewayRouteTableAttachment",
+            "Attributes: ",
+            "  attrResourceArn",
+            "  attrCoreNetworkId",
+            "  attrAttachmentType",
+            "  attrSegmentName",
+            "  attrState",
+            "  attrCreatedAt",
+            "  attrOwnerAccountId",
+            "  attrUpdatedAt",
+            "  attrAttachmentId",
+            "  attrCoreNetworkArn",
+            "  attrEdgeLocation",
+            "  attrAttachmentPolicyRuleNumber"
+        ],
+        "prefix": "l1-networkmanager-transitgatewayroutetableattachment",
+        "scope": "javascript,typescript"
+    },
     "networkmanager.CfnVpcAttachment": {
         "body": [
             "new networkmanager.CfnVpcAttachment(this, \"${1:id}\", {",
@@ -18078,7 +18138,7 @@
             "new opensearchserverless.CfnVpcEndpoint(this, \"${1:id}\", {",
             "  name: \"${2:string}\", // Required",
             "  securityGroupIds: [],",
-            "  subnetIds: [],",
+            "  subnetIds: [], // Required",
             "  vpcId: \"${5:string}\", // Required",
             "})"
         ],
@@ -20019,15 +20079,14 @@
             "new redshift.CfnClusterParameterGroup(this, \"${1:id}\", {",
             "  description: \"${2:string}\", // Required",
             "  parameterGroupFamily: \"${3:string}\", // Required",
+            "  parameterGroupName: \"${4:string}\",",
             "  parameters: [],",
             "  tags: [],",
             "})"
         ],
         "description": [
             "Construct: redshift.CfnClusterParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnClusterParameterGroup",
-            "Attributes: ",
-            "  attrParameterGroupName"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-redshift.CfnClusterParameterGroup"
         ],
         "prefix": "l1-redshift-clusterparametergroup",
         "scope": "javascript,typescript"
@@ -20917,8 +20976,7 @@
     "route53recoverycontrol.CfnCluster": {
         "body": [
             "new route53recoverycontrol.CfnCluster(this, \"${1:id}\", {",
-            "  clusterEndpoints: [],",
-            "  name: \"${3:string}\",",
+            "  name: \"${2:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -20927,7 +20985,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-route53recoverycontrol.CfnCluster",
             "Attributes: ",
             "  attrClusterArn",
-            "  attrStatus"
+            "  attrStatus",
+            "  attrClusterEndpoints"
         ],
         "prefix": "l1-route53recoverycontrol-cluster",
         "scope": "javascript,typescript"
@@ -22536,10 +22595,11 @@
             "    masterSecretKmsKeyArn: \"${5:string}\",",
             "    rotationLambdaName: \"${6:string}\",",
             "    rotationType: \"${7:string}\",",
-            "    superuserSecretArn: \"${8:string}\",",
-            "    superuserSecretKmsKeyArn: \"${9:string}\",",
-            "    vpcSecurityGroupIds: \"${10:string}\",",
-            "    vpcSubnetIds: \"${11:string}\",",
+            "    runtime: \"${8:string}\",",
+            "    superuserSecretArn: \"${9:string}\",",
+            "    superuserSecretKmsKeyArn: \"${10:string}\",",
+            "    vpcSecurityGroupIds: \"${11:string}\",",
+            "    vpcSubnetIds: \"${12:string}\",",
             "  },",
             "  rotateImmediatelyOnUpdate: ${3|false,true|},",
             "  rotationLambdaARN: \"${4:string}\",",
