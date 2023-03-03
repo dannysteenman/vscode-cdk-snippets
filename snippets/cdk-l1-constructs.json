@@ -4610,7 +4610,8 @@
             "  name: \"${6:string}\", // Required",
             "  resource: \"${7:string}\", // Required",
             "  status: \"${8:string}\",",
-            "  tags: ${9:JSON},",
+            "  tags: {",
+            "  },",
             "  targetAddress: \"${10:string}\",",
             "  targets: [], // Required",
             "})"
@@ -6800,7 +6801,8 @@
             "Construct: docdbelastic.CfnCluster",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-docdbelastic.CfnCluster",
             "Attributes: ",
-            "  attrClusterArn"
+            "  attrClusterArn",
+            "  attrClusterEndpoint"
         ],
         "prefix": "l1-docdbelastic-cluster",
         "scope": "javascript,typescript"
@@ -6849,37 +6851,38 @@
             "  contributorInsightsSpecification: {",
             "    enabled: ${4|false,true|},",
             "  },",
+            "  deletionProtectionEnabled: ${5|false,true|},",
             "  globalSecondaryIndexes: [],",
             "  importSourceSpecification: {",
-            "    inputCompressionType: \"${6:string}\",",
-            "    inputFormat: \"${7:string}\",",
+            "    inputCompressionType: \"${7:string}\",",
+            "    inputFormat: \"${8:string}\",",
             "  },",
             "  keySchema: [], // Required",
             "  kinesisStreamSpecification: {",
-            "    streamArn: \"${8:string}\",",
+            "    streamArn: \"${9:string}\",",
             "  },",
             "  localSecondaryIndexes: [],",
             "  pointInTimeRecoverySpecification: {",
-            "    pointInTimeRecoveryEnabled: ${10|false,true|},",
+            "    pointInTimeRecoveryEnabled: ${11|false,true|},",
             "  },",
             "  provisionedThroughput: {",
-            "    readCapacityUnits: ${11:Number},",
-            "    writeCapacityUnits: ${12:Number},",
+            "    readCapacityUnits: ${12:Number},",
+            "    writeCapacityUnits: ${13:Number},",
             "  },",
             "  sSESpecification: {",
-            "    kMSMasterKeyId: \"${12:string}\",",
-            "    sSEEnabled: ${13|false,true|},",
-            "    sSEType: \"${14:string}\",",
+            "    kMSMasterKeyId: \"${13:string}\",",
+            "    sSEEnabled: ${14|false,true|},",
+            "    sSEType: \"${15:string}\",",
             "  },",
             "  streamSpecification: {",
-            "    streamViewType: \"${13:string}\",",
+            "    streamViewType: \"${14:string}\",",
             "  },",
-            "  tableClass: \"${14:string}\",",
-            "  tableName: \"${15:string}\",",
+            "  tableClass: \"${15:string}\",",
+            "  tableName: \"${16:string}\",",
             "  tags: [],",
             "  timeToLiveSpecification: {",
-            "    attributeName: \"${17:string}\",",
-            "    enabled: ${18|false,true|},",
+            "    attributeName: \"${18:string}\",",
+            "    enabled: ${19|false,true|},",
             "  },",
             "})"
         ],
@@ -9519,8 +9522,9 @@
             "  engine: \"${4:string}\", // Required",
             "  noPasswordRequired: ${5|false,true|},",
             "  passwords: [],",
-            "  userId: \"${7:string}\", // Required",
-            "  userName: \"${8:string}\", // Required",
+            "  tags: [],",
+            "  userId: \"${8:string}\", // Required",
+            "  userName: \"${9:string}\", // Required",
             "})"
         ],
         "description": [
@@ -9537,8 +9541,9 @@
         "body": [
             "new elasticache.CfnUserGroup(this, \"${1:id}\", {",
             "  engine: \"${2:string}\", // Required",
-            "  userGroupId: \"${3:string}\", // Required",
-            "  userIds: [],",
+            "  tags: [],",
+            "  userGroupId: \"${4:string}\", // Required",
+            "  userIds: [], // Required",
             "})"
         ],
         "description": [
@@ -12087,9 +12092,10 @@
             "  },",
             "  iotJobConfiguration: {",
             "  },",
+            "  parentTargetArn: \"${6:string}\",",
             "  tags: {",
             "  },",
-            "  targetArn: \"${7:string}\", // Required",
+            "  targetArn: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -12889,11 +12895,12 @@
     "internetmonitor.CfnMonitor": {
         "body": [
             "new internetmonitor.CfnMonitor(this, \"${1:id}\", {",
-            "  monitorName: \"${2:string}\",",
+            "  maxCityNetworksToMonitor: ${2:Number},",
+            "  monitorName: \"${3:string}\",",
             "  resources: [],",
             "  resourcesToAdd: [],",
             "  resourcesToRemove: [],",
-            "  status: \"${6:string}\",",
+            "  status: \"${7:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -14483,6 +14490,50 @@
         "prefix": "l1-ivs-streamkey",
         "scope": "javascript,typescript"
     },
+    "ivschat.CfnLoggingConfiguration": {
+        "body": [
+            "new ivschat.CfnLoggingConfiguration(this, \"${1:id}\", {",
+            "  destinationConfiguration: {",
+            "  },",
+            "  name: \"${3:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ivschat.CfnLoggingConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ivschat.CfnLoggingConfiguration",
+            "Attributes: ",
+            "  attrState",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-ivschat-loggingconfiguration",
+        "scope": "javascript,typescript"
+    },
+    "ivschat.CfnRoom": {
+        "body": [
+            "new ivschat.CfnRoom(this, \"${1:id}\", {",
+            "  loggingConfigurationIdentifiers: [],",
+            "  maximumMessageLength: ${3:Number},",
+            "  maximumMessageRatePerSecond: ${4:Number},",
+            "  messageReviewHandler: {",
+            "    fallbackResult: \"${5:string}\",",
+            "    uri: \"${6:string}\",",
+            "  },",
+            "  name: \"${6:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ivschat.CfnRoom",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ivschat.CfnRoom",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-ivschat-room",
+        "scope": "javascript,typescript"
+    },
     "kafkaconnect.CfnConnector": {
         "body": [
             "new kafkaconnect.CfnConnector(this, \"${1:id}\", {",
@@ -15173,31 +15224,36 @@
             "  bisectBatchOnFunctionError: ${4|false,true|},",
             "  destinationConfig: {",
             "  },",
-            "  enabled: ${6|false,true|},",
-            "  eventSourceArn: \"${7:string}\",",
+            "  documentDBEventSourceConfig: {",
+            "    collectionName: \"${6:string}\",",
+            "    databaseName: \"${7:string}\",",
+            "    fullDocument: \"${8:string}\",",
+            "  },",
+            "  enabled: ${7|false,true|},",
+            "  eventSourceArn: \"${8:string}\",",
             "  filterCriteria: {",
             "    filters: [],",
             "  },",
-            "  functionName: \"${9:string}\", // Required",
+            "  functionName: \"${10:string}\", // Required",
             "  functionResponseTypes: [],",
-            "  maximumBatchingWindowInSeconds: ${11:Number},",
-            "  maximumRecordAgeInSeconds: ${12:Number},",
-            "  maximumRetryAttempts: ${13:Number},",
-            "  parallelizationFactor: ${14:Number},",
+            "  maximumBatchingWindowInSeconds: ${12:Number},",
+            "  maximumRecordAgeInSeconds: ${13:Number},",
+            "  maximumRetryAttempts: ${14:Number},",
+            "  parallelizationFactor: ${15:Number},",
             "  queues: [],",
             "  scalingConfig: {",
-            "    maximumConcurrency: ${16:Number},",
+            "    maximumConcurrency: ${17:Number},",
             "  },",
             "  selfManagedEventSource: {",
             "  },",
             "  selfManagedKafkaEventSourceConfig: {",
-            "    consumerGroupId: \"${18:string}\",",
+            "    consumerGroupId: \"${19:string}\",",
             "  },",
             "  sourceAccessConfigurations: [],",
-            "  startingPosition: \"${20:string}\",",
-            "  startingPositionTimestamp: ${21:Number},",
+            "  startingPosition: \"${21:string}\",",
+            "  startingPositionTimestamp: ${22:Number},",
             "  topics: [],",
-            "  tumblingWindowInSeconds: ${23:Number},",
+            "  tumblingWindowInSeconds: ${24:Number},",
             "})"
         ],
         "description": [
@@ -16304,6 +16360,26 @@
         "prefix": "l1-macie-session",
         "scope": "javascript,typescript"
     },
+    "managedblockchain.CfnAccessor": {
+        "body": [
+            "new managedblockchain.CfnAccessor(this, \"${1:id}\", {",
+            "  accessorType: \"${2:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: managedblockchain.CfnAccessor",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-managedblockchain.CfnAccessor",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrCreationDate",
+            "  attrBillingToken",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-managedblockchain-accessor",
+        "scope": "javascript,typescript"
+    },
     "managedblockchain.CfnMember": {
         "body": [
             "new managedblockchain.CfnMember(this, \"${1:id}\", {",
@@ -16678,11 +16754,12 @@
     "mediapackage.CfnAsset": {
         "body": [
             "new mediapackage.CfnAsset(this, \"${1:id}\", {",
-            "  id: \"${2:string}\", // Required",
-            "  packagingGroupId: \"${3:string}\", // Required",
-            "  resourceId: \"${4:string}\",",
-            "  sourceArn: \"${5:string}\", // Required",
-            "  sourceRoleArn: \"${6:string}\", // Required",
+            "  egressEndpoints: [],",
+            "  id: \"${3:string}\", // Required",
+            "  packagingGroupId: \"${4:string}\", // Required",
+            "  resourceId: \"${5:string}\",",
+            "  sourceArn: \"${6:string}\", // Required",
+            "  sourceRoleArn: \"${7:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -16691,8 +16768,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediapackage.CfnAsset",
             "Attributes: ",
             "  attrCreatedAt",
-            "  attrArn",
-            "  attrEgressEndpoints"
+            "  attrArn"
         ],
         "prefix": "l1-mediapackage-asset",
         "scope": "javascript,typescript"
@@ -19857,6 +19933,7 @@
             "  dBProxyEndpointName: \"${2:string}\", // Required",
             "  dBProxyName: \"${3:string}\", // Required",
             "  tags: [],",
+            "  targetRole: \"${5:string}\",",
             "  vpcSecurityGroupIds: [],",
             "  vpcSubnetIds: [], // Required",
             "})"
@@ -19868,8 +19945,7 @@
             "  attrDBProxyEndpointArn",
             "  attrIsDefault",
             "  attrVpcId",
-            "  attrEndpoint",
-            "  attrTargetRole"
+            "  attrEndpoint"
         ],
         "prefix": "l1-rds-dbproxyendpoint",
         "scope": "javascript,typescript"
@@ -21389,7 +21465,9 @@
         ],
         "description": [
             "Construct: rum.CfnAppMonitor",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rum.CfnAppMonitor"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rum.CfnAppMonitor",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-rum-appmonitor",
         "scope": "javascript,typescript"
