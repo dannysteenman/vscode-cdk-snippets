@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.75.0 (2023-03-10)
+-------------------
+- The following resource was updated:
+  AWS::ServiceCatalog::CloudFormationProduct. [Github Actions]
+
+
 1.74.0 (2023-03-03)
 -------------------
 - The following resources were added: AWS::IVSChat::Room and
