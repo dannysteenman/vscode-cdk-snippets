@@ -1388,7 +1388,8 @@
             "  tags: [],",
             "  tasks: [], // Required",
             "  triggerConfig: {",
-            "    triggerType: \"${11:string}\",",
+            "    activateFlowOnCreate: ${10|false,true|},",
+            "    triggerType: \"${12:string}\",",
             "  },",
             "})"
         ],
@@ -1442,8 +1443,7 @@
             "Construct: appintegrations.CfnEventIntegration",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appintegrations.CfnEventIntegration",
             "Attributes: ",
-            "  attrEventIntegrationArn",
-            "  attrAssociations"
+            "  attrEventIntegrationArn"
         ],
         "prefix": "l1-appintegrations-eventintegration",
         "scope": "javascript,typescript"
@@ -13115,13 +13115,14 @@
             "    maximumPerMinute: ${9:Number},",
             "  },",
             "  jobTemplateId: \"${9:string}\", // Required",
+            "  maintenanceWindows: [],",
             "  presignedUrlConfig: {",
-            "    expiresInSec: ${10:Number},",
-            "    roleArn: \"${11:string}\",",
+            "    expiresInSec: ${11:Number},",
+            "    roleArn: \"${12:string}\",",
             "  },",
             "  tags: [],",
             "  timeoutConfig: {",
-            "    inProgressTimeoutInMinutes: ${12:Number},",
+            "    inProgressTimeoutInMinutes: ${13:Number},",
             "  },",
             "})"
         ],
@@ -18610,7 +18611,7 @@
     "organizations.CfnPolicy": {
         "body": [
             "new organizations.CfnPolicy(this, \"${1:id}\", {",
-            "  content: \"${2:string}\", // Required",
+            "  content: ${2:JSON}, // Required",
             "  description: \"${3:string}\",",
             "  name: \"${4:string}\", // Required",
             "  tags: [],",
@@ -22776,11 +22777,14 @@
             "  distributor: \"${4:string}\",",
             "  name: \"${5:string}\", // Required",
             "  owner: \"${6:string}\", // Required",
-            "  provisioningArtifactParameters: [], // Required",
+            "  provisioningArtifactParameters: [],",
             "  replaceProvisioningArtifacts: ${8|false,true|},",
-            "  supportDescription: \"${9:string}\",",
-            "  supportEmail: \"${10:string}\",",
-            "  supportUrl: \"${11:string}\",",
+            "  sourceConnection: {",
+            "    type: \"${10:string}\",",
+            "  },",
+            "  supportDescription: \"${10:string}\",",
+            "  supportEmail: \"${11:string}\",",
+            "  supportUrl: \"${12:string}\",",
             "  tags: [],",
             "})"
         ],
