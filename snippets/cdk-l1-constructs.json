@@ -2459,10 +2459,12 @@
             "  state: \"${5:string}\",",
             "  tags: [],",
             "  workGroupConfiguration: {",
-            "    bytesScannedCutoffPerQuery: ${7:Number},",
-            "    enforceWorkGroupConfiguration: ${8|false,true|},",
-            "    publishCloudWatchMetricsEnabled: ${10|false,true|},",
-            "    requesterPaysEnabled: ${11|false,true|},",
+            "    additionalConfiguration: \"${7:string}\",",
+            "    bytesScannedCutoffPerQuery: ${8:Number},",
+            "    enforceWorkGroupConfiguration: ${10|false,true|},",
+            "    executionRole: \"${12:string}\",",
+            "    publishCloudWatchMetricsEnabled: ${13|false,true|},",
+            "    requesterPaysEnabled: ${14|false,true|},",
             "  },",
             "})"
         ],
@@ -3157,17 +3159,18 @@
             "  billingMode: {",
             "    mode: \"${2:string}\",",
             "  },",
+            "  clientSideTimestampsEnabled: ${3|false,true|},",
             "  clusteringKeyColumns: [],",
-            "  defaultTimeToLive: ${4:Number},",
+            "  defaultTimeToLive: ${5:Number},",
             "  encryptionSpecification: {",
-            "    encryptionType: \"${5:string}\",",
-            "    kmsKeyIdentifier: \"${6:string}\",",
+            "    encryptionType: \"${6:string}\",",
+            "    kmsKeyIdentifier: \"${7:string}\",",
             "  },",
-            "  keyspaceName: \"${6:string}\", // Required",
+            "  keyspaceName: \"${7:string}\", // Required",
             "  partitionKeyColumns: [], // Required",
-            "  pointInTimeRecoveryEnabled: ${8|false,true|},",
+            "  pointInTimeRecoveryEnabled: ${9|false,true|},",
             "  regularColumns: [],",
-            "  tableName: \"${10:string}\",",
+            "  tableName: \"${11:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -3277,6 +3280,29 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-certificatemanager.CfnCertificate"
         ],
         "prefix": "l1-certificatemanager-certificate",
+        "scope": "javascript,typescript"
+    },
+    "chatbot.CfnMicrosoftTeamsChannelConfiguration": {
+        "body": [
+            "new chatbot.CfnMicrosoftTeamsChannelConfiguration(this, \"${1:id}\", {",
+            "  configurationName: \"${2:string}\", // Required",
+            "  guardrailPolicies: [],",
+            "  iamRoleArn: \"${4:string}\", // Required",
+            "  loggingLevel: \"${5:string}\",",
+            "  snsTopicArns: [],",
+            "  teamId: \"${7:string}\", // Required",
+            "  teamsChannelId: \"${8:string}\", // Required",
+            "  teamsTenantId: \"${9:string}\", // Required",
+            "  userRoleRequired: ${10|false,true|},",
+            "})"
+        ],
+        "description": [
+            "Construct: chatbot.CfnMicrosoftTeamsChannelConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-chatbot.CfnMicrosoftTeamsChannelConfiguration",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-chatbot-microsoftteamschannelconfiguration",
         "scope": "javascript,typescript"
     },
     "chatbot.CfnSlackChannelConfiguration": {
@@ -4944,6 +4970,34 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnUserPoolUserToGroupAttachment"
         ],
         "prefix": "l1-cognito-userpoolusertogroupattachment",
+        "scope": "javascript,typescript"
+    },
+    "comprehend.CfnFlywheel": {
+        "body": [
+            "new comprehend.CfnFlywheel(this, \"${1:id}\", {",
+            "  activeModelArn: \"${2:string}\",",
+            "  dataAccessRoleArn: \"${3:string}\", // Required",
+            "  dataLakeS3Uri: \"${4:string}\", // Required",
+            "  dataSecurityConfig: {",
+            "    dataLakeKmsKeyId: \"${5:string}\",",
+            "    modelKmsKeyId: \"${6:string}\",",
+            "    volumeKmsKeyId: \"${7:string}\",",
+            "  },",
+            "  flywheelName: \"${6:string}\", // Required",
+            "  modelType: \"${7:string}\",",
+            "  tags: [],",
+            "  taskConfig: {",
+            "    languageCode: \"${11:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: comprehend.CfnFlywheel",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-comprehend.CfnFlywheel",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-comprehend-flywheel",
         "scope": "javascript,typescript"
     },
     "config.CfnAggregationAuthorization": {
@@ -8574,9 +8628,7 @@
         ],
         "description": [
             "Construct: ec2.CfnVPCDHCPOptionsAssociation",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCDHCPOptionsAssociation",
-            "Attributes: ",
-            "  attrId"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCDHCPOptionsAssociation"
         ],
         "prefix": "l1-ec2-vpcdhcpoptionsassociation",
         "scope": "javascript,typescript"
@@ -8599,8 +8651,9 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCEndpoint",
             "Attributes: ",
             "  attrCreationTimestamp",
-            "  attrDnsEntries",
-            "  attrNetworkInterfaceIds"
+            "  attrNetworkInterfaceIds",
+            "  attrId",
+            "  attrDnsEntries"
         ],
         "prefix": "l1-ec2-vpcendpoint",
         "scope": "javascript,typescript"
@@ -9737,7 +9790,7 @@
             "new elasticloadbalancingv2.CfnListenerRule(this, \"${1:id}\", {",
             "  actions: [], // Required",
             "  conditions: [], // Required",
-            "  listenerArn: \"${4:string}\", // Required",
+            "  listenerArn: \"${4:string}\",",
             "  priority: ${5:Number}, // Required",
             "})"
         ],
@@ -22073,6 +22126,49 @@
         "prefix": "l1-sagemaker-imageversion",
         "scope": "javascript,typescript"
     },
+    "sagemaker.CfnInferenceExperiment": {
+        "body": [
+            "new sagemaker.CfnInferenceExperiment(this, \"${1:id}\", {",
+            "  dataStorageConfig: {",
+            "    destination: \"${3:string}\",",
+            "    kmsKey: \"${4:string}\",",
+            "  },",
+            "  description: \"${3:string}\",",
+            "  desiredState: \"${4:string}\",",
+            "  endpointName: \"${5:string}\", // Required",
+            "  kmsKey: \"${6:string}\",",
+            "  modelVariants: [], // Required",
+            "  name: \"${8:string}\", // Required",
+            "  roleArn: \"${9:string}\", // Required",
+            "  schedule: {",
+            "    endTime: \"${10:string}\",",
+            "    startTime: \"${11:string}\",",
+            "  },",
+            "  shadowModeConfig: {",
+            "    shadowModelVariants: [],",
+            "    sourceModelVariantName: \"${12:string}\",",
+            "  },",
+            "  statusReason: \"${12:string}\",",
+            "  tags: [],",
+            "  type: \"${14:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: sagemaker.CfnInferenceExperiment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sagemaker.CfnInferenceExperiment",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrEndpointMetadata.EndpointConfigName",
+            "  attrCreationTime",
+            "  attrLastModifiedTime",
+            "  attrEndpointMetadata.EndpointName",
+            "  attrArn",
+            "  attrEndpointMetadata.EndpointStatus",
+            "  attrEndpointMetadata"
+        ],
+        "prefix": "l1-sagemaker-inferenceexperiment",
+        "scope": "javascript,typescript"
+    },
     "sagemaker.CfnModel": {
         "body": [
             "new sagemaker.CfnModel(this, \"${1:id}\", {",
@@ -23852,7 +23948,7 @@
             "new ssmcontacts.CfnContact(this, \"${1:id}\", {",
             "  alias: \"${2:string}\", // Required",
             "  displayName: \"${3:string}\", // Required",
-            "  plan: [], // Required",
+            "  plan: [],",
             "  type: \"${5:string}\", // Required",
             "})"
         ],
@@ -24474,6 +24570,238 @@
             "  attrDomainId"
         ],
         "prefix": "l1-voiceid-domain",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnAccessLogSubscription": {
+        "body": [
+            "new vpclattice.CfnAccessLogSubscription(this, \"${1:id}\", {",
+            "  destinationArn: \"${2:string}\", // Required",
+            "  resourceIdentifier: \"${3:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnAccessLogSubscription",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnAccessLogSubscription",
+            "Attributes: ",
+            "  attrResourceArn",
+            "  attrResourceId",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-vpclattice-accesslogsubscription",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnAuthPolicy": {
+        "body": [
+            "new vpclattice.CfnAuthPolicy(this, \"${1:id}\", {",
+            "  policy: ${2:JSON}, // Required",
+            "  resourceIdentifier: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnAuthPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnAuthPolicy",
+            "Attributes: ",
+            "  attrState"
+        ],
+        "prefix": "l1-vpclattice-authpolicy",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnListener": {
+        "body": [
+            "new vpclattice.CfnListener(this, \"${1:id}\", {",
+            "  defaultAction: {",
+            "  },",
+            "  name: \"${3:string}\",",
+            "  port: ${4:Number},",
+            "  protocol: \"${5:string}\", // Required",
+            "  serviceIdentifier: \"${6:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnListener",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnListener",
+            "Attributes: ",
+            "  attrId",
+            "  attrServiceArn",
+            "  attrArn",
+            "  attrServiceId"
+        ],
+        "prefix": "l1-vpclattice-listener",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnResourcePolicy": {
+        "body": [
+            "new vpclattice.CfnResourcePolicy(this, \"${1:id}\", {",
+            "  policy: ${2:JSON}, // Required",
+            "  resourceArn: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnResourcePolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnResourcePolicy"
+        ],
+        "prefix": "l1-vpclattice-resourcepolicy",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnRule": {
+        "body": [
+            "new vpclattice.CfnRule(this, \"${1:id}\", {",
+            "  action: {",
+            "  },",
+            "  listenerIdentifier: \"${3:string}\",",
+            "  match: {",
+            "  },",
+            "  name: \"${5:string}\",",
+            "  priority: ${6:Number}, // Required",
+            "  serviceIdentifier: \"${7:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnRule",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnRule",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-vpclattice-rule",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnService": {
+        "body": [
+            "new vpclattice.CfnService(this, \"${1:id}\", {",
+            "  authType: \"${2:string}\",",
+            "  certificateArn: \"${3:string}\",",
+            "  customDomainName: \"${4:string}\",",
+            "  dnsEntry: {",
+            "    domainName: \"${5:string}\",",
+            "    hostedZoneId: \"${6:string}\",",
+            "  },",
+            "  name: \"${6:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnService",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnService",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrLastUpdatedAt",
+            "  attrCreatedAt",
+            "  attrDnsEntry.HostedZoneId",
+            "  attrId",
+            "  attrArn",
+            "  attrDnsEntry.DomainName"
+        ],
+        "prefix": "l1-vpclattice-service",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnServiceNetwork": {
+        "body": [
+            "new vpclattice.CfnServiceNetwork(this, \"${1:id}\", {",
+            "  authType: \"${2:string}\",",
+            "  name: \"${3:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnServiceNetwork",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnServiceNetwork",
+            "Attributes: ",
+            "  attrLastUpdatedAt",
+            "  attrCreatedAt",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-vpclattice-servicenetwork",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnServiceNetworkServiceAssociation": {
+        "body": [
+            "new vpclattice.CfnServiceNetworkServiceAssociation(this, \"${1:id}\", {",
+            "  dnsEntry: {",
+            "    domainName: \"${2:string}\",",
+            "    hostedZoneId: \"${3:string}\",",
+            "  },",
+            "  serviceIdentifier: \"${3:string}\",",
+            "  serviceNetworkIdentifier: \"${4:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnServiceNetworkServiceAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnServiceNetworkServiceAssociation",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrServiceNetworkId",
+            "  attrServiceName",
+            "  attrCreatedAt",
+            "  attrDnsEntry.HostedZoneId",
+            "  attrServiceNetworkName",
+            "  attrServiceArn",
+            "  attrId",
+            "  attrArn",
+            "  attrDnsEntry.DomainName",
+            "  attrServiceNetworkArn",
+            "  attrServiceId"
+        ],
+        "prefix": "l1-vpclattice-servicenetworkserviceassociation",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnServiceNetworkVpcAssociation": {
+        "body": [
+            "new vpclattice.CfnServiceNetworkVpcAssociation(this, \"${1:id}\", {",
+            "  securityGroupIds: [],",
+            "  serviceNetworkIdentifier: \"${3:string}\",",
+            "  tags: [],",
+            "  vpcIdentifier: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnServiceNetworkVpcAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnServiceNetworkVpcAssociation",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrVpcId",
+            "  attrServiceNetworkId",
+            "  attrCreatedAt",
+            "  attrServiceNetworkName",
+            "  attrId",
+            "  attrArn",
+            "  attrServiceNetworkArn"
+        ],
+        "prefix": "l1-vpclattice-servicenetworkvpcassociation",
+        "scope": "javascript,typescript"
+    },
+    "vpclattice.CfnTargetGroup": {
+        "body": [
+            "new vpclattice.CfnTargetGroup(this, \"${1:id}\", {",
+            "  config: {",
+            "    port: ${3:Number},",
+            "    protocol: \"${4:string}\",",
+            "    protocolVersion: \"${5:string}\",",
+            "    vpcIdentifier: \"${6:string}\",",
+            "  },",
+            "  name: \"${3:string}\",",
+            "  tags: [],",
+            "  targets: [],",
+            "  type: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: vpclattice.CfnTargetGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-vpclattice.CfnTargetGroup",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrLastUpdatedAt",
+            "  attrCreatedAt",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-vpclattice-targetgroup",
         "scope": "javascript,typescript"
     },
     "waf.CfnByteMatchSet": {
