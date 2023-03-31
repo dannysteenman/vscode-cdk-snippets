@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+1.78.0 (2023-03-31)
+-------------------
+- The following resources were updated:
+  AWS::RefactorSpaces::Application, AWS::RefactorSpaces::Environment,
+  AWS::RefactorSpaces::Route, AWS::RefactorSpaces::Service. [Github
+  Actions]
+
+
 1.77.0 (2023-03-24)
 -------------------
 - The following resource was updated: <code
