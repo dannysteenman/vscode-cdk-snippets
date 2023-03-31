@@ -1144,7 +1144,9 @@
         ],
         "description": [
             "Construct: apigatewayv2.CfnRoute",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnRoute"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnRoute",
+            "Attributes: ",
+            "  attrRouteId"
         ],
         "prefix": "l1-apigatewayv2-route",
         "scope": "javascript,typescript"
@@ -2896,19 +2898,19 @@
             "  containerProperties: {",
             "    command: [],",
             "    environment: [],",
-            "    executionRoleArn: \"${4:string}\",",
-            "    image: \"${6:string}\",",
-            "    instanceType: \"${7:string}\",",
-            "    jobRoleArn: \"${8:string}\",",
-            "    memory: ${11:Number},",
+            "    executionRoleArn: \"${5:string}\",",
+            "    image: \"${7:string}\",",
+            "    instanceType: \"${8:string}\",",
+            "    jobRoleArn: \"${9:string}\",",
+            "    memory: ${12:Number},",
             "    mountPoints: [],",
-            "    privileged: ${14|false,true|},",
-            "    readonlyRootFilesystem: ${15|false,true|},",
+            "    privileged: ${15|false,true|},",
+            "    readonlyRootFilesystem: ${16|false,true|},",
             "    resourceRequirements: [],",
             "    secrets: [],",
             "    ulimits: [],",
-            "    user: \"${19:string}\",",
-            "    vcpus: ${20:Number},",
+            "    user: \"${20:string}\",",
+            "    vcpus: ${21:Number},",
             "    volumes: [],",
             "  },",
             "  eksProperties: {",
@@ -6245,6 +6247,19 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-detective.CfnMemberInvitation"
         ],
         "prefix": "l1-detective-memberinvitation",
+        "scope": "javascript,typescript"
+    },
+    "devopsguru.CfnLogAnomalyDetectionIntegration": {
+        "body": [
+            "})"
+        ],
+        "description": [
+            "Construct: devopsguru.CfnLogAnomalyDetectionIntegration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-devopsguru.CfnLogAnomalyDetectionIntegration",
+            "Attributes: ",
+            "  attrAccountId"
+        ],
+        "prefix": "l1-devopsguru-loganomalydetectionintegration",
         "scope": "javascript,typescript"
     },
     "devopsguru.CfnNotificationChannel": {
@@ -16045,9 +16060,7 @@
             "  description: \"${2:string}\",",
             "  kmsKeyId: \"${3:string}\",",
             "  positionFiltering: \"${4:string}\",",
-            "  pricingPlan: \"${5:string}\",",
-            "  pricingPlanDataSource: \"${6:string}\",",
-            "  trackerName: \"${7:string}\", // Required",
+            "  trackerName: \"${5:string}\", // Required",
             "})"
         ],
         "description": [
@@ -18192,9 +18205,9 @@
         "body": [
             "new opensearchserverless.CfnAccessPolicy(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
-            "  name: \"${3:string}\",",
-            "  policy: \"${4:string}\",",
-            "  type: \"${5:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  policy: \"${4:string}\", // Required",
+            "  type: \"${5:string}\", // Required",
             "})"
         ],
         "description": [
@@ -18252,9 +18265,9 @@
         "body": [
             "new opensearchserverless.CfnSecurityPolicy(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
-            "  name: \"${3:string}\",",
+            "  name: \"${3:string}\", // Required",
             "  policy: \"${4:string}\", // Required",
-            "  type: \"${5:string}\",",
+            "  type: \"${5:string}\", // Required",
             "})"
         ],
         "description": [
@@ -24815,10 +24828,11 @@
         "body": [
             "new vpclattice.CfnTargetGroup(this, \"${1:id}\", {",
             "  config: {",
-            "    port: ${3:Number},",
-            "    protocol: \"${4:string}\",",
-            "    protocolVersion: \"${5:string}\",",
-            "    vpcIdentifier: \"${6:string}\",",
+            "    ipAddressType: \"${3:string}\",",
+            "    port: ${4:Number},",
+            "    protocol: \"${5:string}\",",
+            "    protocolVersion: \"${6:string}\",",
+            "    vpcIdentifier: \"${7:string}\",",
             "  },",
             "  name: \"${3:string}\",",
             "  tags: [],",
