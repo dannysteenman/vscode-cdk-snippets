@@ -7329,10 +7329,11 @@
             "new ec2.CfnHost(this, \"${1:id}\", {",
             "  autoPlacement: \"${2:string}\",",
             "  availabilityZone: \"${3:string}\", // Required",
-            "  hostRecovery: \"${4:string}\",",
-            "  instanceFamily: \"${5:string}\",",
-            "  instanceType: \"${6:string}\",",
-            "  outpostArn: \"${7:string}\",",
+            "  hostMaintenance: \"${4:string}\",",
+            "  hostRecovery: \"${5:string}\",",
+            "  instanceFamily: \"${6:string}\",",
+            "  instanceType: \"${7:string}\",",
+            "  outpostArn: \"${8:string}\",",
             "})"
         ],
         "description": [
@@ -11781,8 +11782,8 @@
     "grafana.CfnWorkspace": {
         "body": [
             "new grafana.CfnWorkspace(this, \"${1:id}\", {",
-            "  accountAccessType: \"${2:string}\",",
-            "  authenticationProviders: [],",
+            "  accountAccessType: \"${2:string}\", // Required",
+            "  authenticationProviders: [], // Required",
             "  clientToken: \"${4:string}\",",
             "  dataSources: [],",
             "  description: \"${6:string}\",",
@@ -11790,7 +11791,7 @@
             "  notificationDestinations: [],",
             "  organizationRoleName: \"${9:string}\",",
             "  organizationalUnits: [],",
-            "  permissionType: \"${11:string}\",",
+            "  permissionType: \"${11:string}\", // Required",
             "  roleArn: \"${12:string}\",",
             "  samlConfiguration: {",
             "    allowedOrganizations: [],",
@@ -12222,8 +12223,13 @@
             "  dataflowEdges: [], // Required",
             "  minimumViableContactDurationSeconds: ${5:Number}, // Required",
             "  name: \"${6:string}\", // Required",
+            "  streamsKmsKey: {",
+            "    kmsAliasArn: \"${7:string}\",",
+            "    kmsKeyArn: \"${8:string}\",",
+            "  },",
+            "  streamsKmsRole: \"${8:string}\",",
             "  tags: [],",
-            "  trackingConfigArn: \"${8:string}\", // Required",
+            "  trackingConfigArn: \"${10:string}\", // Required",
             "})"
         ],
         "description": [
@@ -14454,6 +14460,37 @@
         "prefix": "l1-iotwireless-wirelessdevice",
         "scope": "javascript,typescript"
     },
+    "iotwireless.CfnWirelessDeviceImportTask": {
+        "body": [
+            "new iotwireless.CfnWirelessDeviceImportTask(this, \"${1:id}\", {",
+            "  destinationName: \"${2:string}\", // Required",
+            "  sidewalk: {",
+            "    deviceCreationFile: \"${3:string}\",",
+            "    deviceCreationFileList: [],",
+            "    role: \"${5:string}\",",
+            "    sidewalkManufacturingSn: \"${6:string}\",",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iotwireless.CfnWirelessDeviceImportTask",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iotwireless.CfnWirelessDeviceImportTask",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrCreationDate",
+            "  attrSidewalk.DeviceCreationFileList",
+            "  attrInitializedImportedDevicesCount",
+            "  attrStatusReason",
+            "  attrOnboardedImportedDevicesCount",
+            "  attrFailedImportedDevicesCount",
+            "  attrId",
+            "  attrPendingImportedDevicesCount",
+            "  attrArn"
+        ],
+        "prefix": "l1-iotwireless-wirelessdeviceimporttask",
+        "scope": "javascript,typescript"
+    },
     "iotwireless.CfnWirelessGateway": {
         "body": [
             "new iotwireless.CfnWirelessGateway(this, \"${1:id}\", {",
@@ -16405,8 +16442,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-macie.CfnFindingsFilter",
             "Attributes: ",
             "  attrId",
-            "  attrArn",
-            "  attrFindingsFilterListItems"
+            "  attrArn"
         ],
         "prefix": "l1-macie-findingsfilter",
         "scope": "javascript,typescript"
@@ -17346,16 +17382,15 @@
             "  engineVersion: \"${10:string}\",",
             "  iamAuthEnabled: ${11|false,true|},",
             "  kmsKeyId: \"${12:string}\",",
-            "  port: ${13:Number},",
-            "  preferredBackupWindow: \"${14:string}\",",
-            "  preferredMaintenanceWindow: \"${15:string}\",",
-            "  restoreToTime: \"${16:string}\",",
-            "  restoreType: \"${17:string}\",",
-            "  snapshotIdentifier: \"${18:string}\",",
-            "  sourceDBClusterIdentifier: \"${19:string}\",",
-            "  storageEncrypted: ${20|false,true|},",
+            "  preferredBackupWindow: \"${13:string}\",",
+            "  preferredMaintenanceWindow: \"${14:string}\",",
+            "  restoreToTime: \"${15:string}\",",
+            "  restoreType: \"${16:string}\",",
+            "  snapshotIdentifier: \"${17:string}\",",
+            "  sourceDBClusterIdentifier: \"${18:string}\",",
+            "  storageEncrypted: ${19|false,true|},",
             "  tags: [],",
-            "  useLatestRestorableTime: ${22|false,true|},",
+            "  useLatestRestorableTime: ${21|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -19826,26 +19861,27 @@
             "  preferredMaintenanceWindow: \"${40:string}\",",
             "  publiclyAccessible: ${41|false,true|},",
             "  replicationSourceIdentifier: \"${42:string}\",",
-            "  restoreType: \"${43:string}\",",
+            "  restoreToTime: \"${43:string}\",",
+            "  restoreType: \"${44:string}\",",
             "  scalingConfiguration: {",
-            "    autoPause: ${44|false,true|},",
-            "    maxCapacity: ${45:Number},",
-            "    minCapacity: ${46:Number},",
-            "    secondsBeforeTimeout: ${47:Number},",
-            "    secondsUntilAutoPause: ${48:Number},",
-            "    timeoutAction: \"${49:string}\",",
+            "    autoPause: ${45|false,true|},",
+            "    maxCapacity: ${46:Number},",
+            "    minCapacity: ${47:Number},",
+            "    secondsBeforeTimeout: ${48:Number},",
+            "    secondsUntilAutoPause: ${49:Number},",
+            "    timeoutAction: \"${50:string}\",",
             "  },",
             "  serverlessV2ScalingConfiguration: {",
-            "    maxCapacity: ${45:Number},",
-            "    minCapacity: ${46:Number},",
+            "    maxCapacity: ${46:Number},",
+            "    minCapacity: ${47:Number},",
             "  },",
-            "  snapshotIdentifier: \"${46:string}\",",
-            "  sourceDBClusterIdentifier: \"${47:string}\",",
-            "  sourceRegion: \"${48:string}\",",
-            "  storageEncrypted: ${49|false,true|},",
-            "  storageType: \"${50:string}\",",
+            "  snapshotIdentifier: \"${47:string}\",",
+            "  sourceDBClusterIdentifier: \"${48:string}\",",
+            "  sourceRegion: \"${49:string}\",",
+            "  storageEncrypted: ${50|false,true|},",
+            "  storageType: \"${51:string}\",",
             "  tags: [],",
-            "  useLatestRestorableTime: ${52|false,true|},",
+            "  useLatestRestorableTime: ${53|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -24026,6 +24062,50 @@
             "  attrArn"
         ],
         "prefix": "l1-ssmcontacts-contactchannel",
+        "scope": "javascript,typescript"
+    },
+    "ssmcontacts.CfnPlan": {
+        "body": [
+            "new ssmcontacts.CfnPlan(this, \"${1:id}\", {",
+            "  contactId: \"${2:string}\", // Required",
+            "  rotationIds: [],",
+            "  stages: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ssmcontacts.CfnPlan",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssmcontacts.CfnPlan",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-ssmcontacts-plan",
+        "scope": "javascript,typescript"
+    },
+    "ssmcontacts.CfnRotation": {
+        "body": [
+            "new ssmcontacts.CfnRotation(this, \"${1:id}\", {",
+            "  contactIds: [], // Required",
+            "  name: \"${3:string}\", // Required",
+            "  recurrence: {",
+            "    dailySettings: [],",
+            "    monthlySettings: [],",
+            "    numberOfOnCalls: ${6:Number},",
+            "    recurrenceMultiplier: ${7:Number},",
+            "    shiftCoverages: [],",
+            "    weeklySettings: [],",
+            "  },",
+            "  startTime: \"${5:string}\", // Required",
+            "  tags: [],",
+            "  timeZoneId: \"${7:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: ssmcontacts.CfnRotation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssmcontacts.CfnRotation",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-ssmcontacts-rotation",
         "scope": "javascript,typescript"
     },
     "ssmincidents.CfnReplicationSet": {
