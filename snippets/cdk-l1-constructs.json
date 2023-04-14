@@ -1313,6 +1313,52 @@
         "prefix": "l1-appconfig-environment",
         "scope": "javascript,typescript"
     },
+    "appconfig.CfnExtension": {
+        "body": [
+            "new appconfig.CfnExtension(this, \"${1:id}\", {",
+            "  actions: ${2:JSON}, // Required",
+            "  description: \"${3:string}\",",
+            "  latestVersionNumber: ${4:Number},",
+            "  name: \"${5:string}\", // Required",
+            "  parameters: {",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: appconfig.CfnExtension",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appconfig.CfnExtension",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn",
+            "  attrVersionNumber"
+        ],
+        "prefix": "l1-appconfig-extension",
+        "scope": "javascript,typescript"
+    },
+    "appconfig.CfnExtensionAssociation": {
+        "body": [
+            "new appconfig.CfnExtensionAssociation(this, \"${1:id}\", {",
+            "  extensionIdentifier: \"${2:string}\",",
+            "  extensionVersionNumber: ${3:Number},",
+            "  parameters: {",
+            "  },",
+            "  resourceIdentifier: \"${5:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: appconfig.CfnExtensionAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appconfig.CfnExtensionAssociation",
+            "Attributes: ",
+            "  attrResourceArn",
+            "  attrExtensionArn",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-appconfig-extensionassociation",
+        "scope": "javascript,typescript"
+    },
     "appconfig.CfnHostedConfigurationVersion": {
         "body": [
             "new appconfig.CfnHostedConfigurationVersion(this, \"${1:id}\", {",
@@ -11445,6 +11491,7 @@
             "  tags: ${13:JSON},",
             "  targets: {",
             "    catalogTargets: [],",
+            "    deltaTargets: [],",
             "    dynamoDBTargets: [],",
             "    jdbcTargets: [],",
             "    mongoDBTargets: [],",
@@ -11481,9 +11528,9 @@
             "  databaseInput: {",
             "    createTableDefaultPermissions: [],",
             "    description: \"${4:string}\",",
-            "    locationUri: \"${5:string}\",",
-            "    name: \"${6:string}\",",
-            "    parameters: ${7:JSON},",
+            "    locationUri: \"${6:string}\",",
+            "    name: \"${7:string}\",",
+            "    parameters: ${8:JSON},",
             "  },",
             "})"
         ],
@@ -12970,12 +13017,14 @@
     "internetmonitor.CfnMonitor": {
         "body": [
             "new internetmonitor.CfnMonitor(this, \"${1:id}\", {",
-            "  maxCityNetworksToMonitor: ${2:Number},",
-            "  monitorName: \"${3:string}\", // Required",
+            "  internetMeasurementsLogDelivery: {",
+            "  },",
+            "  maxCityNetworksToMonitor: ${3:Number},",
+            "  monitorName: \"${4:string}\", // Required",
             "  resources: [],",
             "  resourcesToAdd: [],",
             "  resourcesToRemove: [],",
-            "  status: \"${7:string}\",",
+            "  status: \"${8:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -15157,6 +15206,15 @@
             "new lakeformation.CfnDataLakeSettings(this, \"${1:id}\", {",
             "  admins: {",
             "  },",
+            "  allowExternalDataFiltering: ${3|false,true|},",
+            "  authorizedSessionTagValueList: [],",
+            "  createDatabaseDefaultPermissions: {",
+            "  },",
+            "  createTableDefaultPermissions: {",
+            "  },",
+            "  externalDataFilteringAllowList: {",
+            "  },",
+            "  parameters: ${8:JSON},",
             "  trustedResourceOwners: [],",
             "})"
         ],
@@ -17348,9 +17406,11 @@
             "  requirementsS3Path: \"${16:string}\",",
             "  schedulers: ${17:Number},",
             "  sourceBucketArn: \"${18:string}\",",
-            "  tags: ${19:JSON},",
-            "  webserverAccessMode: \"${20:string}\",",
-            "  weeklyMaintenanceWindowStart: \"${21:string}\",",
+            "  startupScriptS3ObjectVersion: \"${19:string}\",",
+            "  startupScriptS3Path: \"${20:string}\",",
+            "  tags: ${21:JSON},",
+            "  webserverAccessMode: \"${22:string}\",",
+            "  weeklyMaintenanceWindowStart: \"${23:string}\",",
             "})"
         ],
         "description": [
@@ -19713,6 +19773,27 @@
         "prefix": "l1-quicksight-datasource",
         "scope": "javascript,typescript"
     },
+    "quicksight.CfnRefreshSchedule": {
+        "body": [
+            "new quicksight.CfnRefreshSchedule(this, \"${1:id}\", {",
+            "  awsAccountId: \"${2:string}\",",
+            "  dataSetId: \"${3:string}\",",
+            "  schedule: {",
+            "    refreshType: \"${4:string}\",",
+            "    scheduleId: \"${6:string}\",",
+            "    startAfterDateTime: \"${7:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: quicksight.CfnRefreshSchedule",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-quicksight.CfnRefreshSchedule",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-quicksight-refreshschedule",
+        "scope": "javascript,typescript"
+    },
     "quicksight.CfnTemplate": {
         "body": [
             "new quicksight.CfnTemplate(this, \"${1:id}\", {",
@@ -19985,17 +20066,18 @@
             "  publiclyAccessible: ${54|false,true|},",
             "  replicaMode: \"${55:string}\",",
             "  restoreTime: \"${56:string}\",",
-            "  sourceDBInstanceAutomatedBackupsArn: \"${57:string}\",",
-            "  sourceDBInstanceIdentifier: \"${58:string}\",",
-            "  sourceDbiResourceId: \"${59:string}\",",
-            "  sourceRegion: \"${60:string}\",",
-            "  storageEncrypted: ${61|false,true|},",
-            "  storageThroughput: ${62:Number},",
-            "  storageType: \"${63:string}\",",
+            "  sourceDBClusterIdentifier: \"${57:string}\",",
+            "  sourceDBInstanceAutomatedBackupsArn: \"${58:string}\",",
+            "  sourceDBInstanceIdentifier: \"${59:string}\",",
+            "  sourceDbiResourceId: \"${60:string}\",",
+            "  sourceRegion: \"${61:string}\",",
+            "  storageEncrypted: ${62|false,true|},",
+            "  storageThroughput: ${63:Number},",
+            "  storageType: \"${64:string}\",",
             "  tags: [],",
-            "  timezone: \"${65:string}\",",
-            "  useDefaultProcessorFeatures: ${66|false,true|},",
-            "  useLatestRestorableTime: ${67|false,true|},",
+            "  timezone: \"${66:string}\",",
+            "  useDefaultProcessorFeatures: ${67|false,true|},",
+            "  useLatestRestorableTime: ${68|false,true|},",
             "  vPCSecurityGroups: [],",
             "})"
         ],
