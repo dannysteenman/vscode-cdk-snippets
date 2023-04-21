@@ -6608,11 +6608,12 @@
             "    heartbeatEnable: ${28|false,true|},",
             "    heartbeatFrequency: ${29:Number},",
             "    heartbeatSchema: \"${30:string}\",",
-            "    maxFileSize: ${31:Number},",
-            "    pluginName: \"${32:string}\",",
-            "    secretsManagerAccessRoleArn: \"${33:string}\",",
-            "    secretsManagerSecretId: \"${34:string}\",",
-            "    slotName: \"${35:string}\",",
+            "    mapBooleanAsBoolean: ${31|false,true|},",
+            "    maxFileSize: ${32:Number},",
+            "    pluginName: \"${33:string}\",",
+            "    secretsManagerAccessRoleArn: \"${34:string}\",",
+            "    secretsManagerSecretId: \"${35:string}\",",
+            "    slotName: \"${36:string}\",",
             "  },",
             "  redisSettings: {",
             "    authPassword: \"${24:string}\",",
@@ -6637,18 +6638,19 @@
             "    explicitIds: ${35|false,true|},",
             "    fileTransferUploadStreams: ${36:Number},",
             "    loadTimeout: ${37:Number},",
-            "    maxFileSize: ${38:Number},",
-            "    removeQuotes: ${39|false,true|},",
-            "    replaceChars: \"${40:string}\",",
-            "    replaceInvalidChars: \"${41:string}\",",
-            "    secretsManagerAccessRoleArn: \"${42:string}\",",
-            "    secretsManagerSecretId: \"${43:string}\",",
-            "    serverSideEncryptionKmsKeyId: \"${44:string}\",",
-            "    serviceAccessRoleArn: \"${45:string}\",",
-            "    timeFormat: \"${46:string}\",",
-            "    trimBlanks: ${47|false,true|},",
-            "    truncateColumns: ${48|false,true|},",
-            "    writeBufferSize: ${49:Number},",
+            "    mapBooleanAsBoolean: ${38|false,true|},",
+            "    maxFileSize: ${39:Number},",
+            "    removeQuotes: ${40|false,true|},",
+            "    replaceChars: \"${41:string}\",",
+            "    replaceInvalidChars: \"${42:string}\",",
+            "    secretsManagerAccessRoleArn: \"${43:string}\",",
+            "    secretsManagerSecretId: \"${44:string}\",",
+            "    serverSideEncryptionKmsKeyId: \"${45:string}\",",
+            "    serviceAccessRoleArn: \"${46:string}\",",
+            "    timeFormat: \"${47:string}\",",
+            "    trimBlanks: ${48|false,true|},",
+            "    truncateColumns: ${49|false,true|},",
+            "    writeBufferSize: ${50:Number},",
             "  },",
             "  resourceIdentifier: \"${26:string}\",",
             "  s3Settings: {",
@@ -10886,6 +10888,27 @@
         "prefix": "l1-frauddetector-label",
         "scope": "javascript,typescript"
     },
+    "frauddetector.CfnList": {
+        "body": [
+            "new frauddetector.CfnList(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  elements: [],",
+            "  name: \"${4:string}\", // Required",
+            "  tags: [],",
+            "  variableType: \"${6:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: frauddetector.CfnList",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-frauddetector.CfnList",
+            "Attributes: ",
+            "  attrCreatedTime",
+            "  attrLastUpdatedTime",
+            "  attrArn"
+        ],
+        "prefix": "l1-frauddetector-list",
+        "scope": "javascript,typescript"
+    },
     "frauddetector.CfnOutcome": {
         "body": [
             "new frauddetector.CfnOutcome(this, \"${1:id}\", {",
@@ -11835,16 +11858,20 @@
             "  dataSources: [],",
             "  description: \"${6:string}\",",
             "  name: \"${7:string}\",",
+            "  networkAccessControl: {",
+            "    prefixListIds: [],",
+            "    vpceIds: [],",
+            "  },",
             "  notificationDestinations: [],",
-            "  organizationRoleName: \"${9:string}\",",
+            "  organizationRoleName: \"${10:string}\",",
             "  organizationalUnits: [],",
-            "  permissionType: \"${11:string}\", // Required",
-            "  roleArn: \"${12:string}\",",
+            "  permissionType: \"${12:string}\", // Required",
+            "  roleArn: \"${13:string}\",",
             "  samlConfiguration: {",
             "    allowedOrganizations: [],",
-            "    loginValidityDuration: ${16:Number},",
+            "    loginValidityDuration: ${17:Number},",
             "  },",
-            "  stackSetName: \"${14:string}\",",
+            "  stackSetName: \"${15:string}\",",
             "  vpcConfiguration: {",
             "    securityGroupIds: [],",
             "    subnetIds: [],",
@@ -13026,6 +13053,7 @@
             "  resourcesToRemove: [],",
             "  status: \"${8:string}\",",
             "  tags: [],",
+            "  trafficPercentageToMonitor: ${10:Number},",
             "})"
         ],
         "description": [
@@ -14170,9 +14198,11 @@
             "  contentLocation: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
             "  sceneId: \"${5:string}\", // Required",
+            "  sceneMetadata: {",
+            "  },",
             "  tags: {",
             "  },",
-            "  workspaceId: \"${7:string}\", // Required",
+            "  workspaceId: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -14181,7 +14211,8 @@
             "Attributes: ",
             "  attrCreationDateTime",
             "  attrUpdateDateTime",
-            "  attrArn"
+            "  attrArn",
+            "  attrGeneratedSceneMetadata"
         ],
         "prefix": "l1-iottwinmaker-scene",
         "scope": "javascript,typescript"
@@ -14569,11 +14600,12 @@
         "body": [
             "new ivs.CfnChannel(this, \"${1:id}\", {",
             "  authorized: ${2|false,true|},",
-            "  latencyMode: \"${3:string}\",",
-            "  name: \"${4:string}\",",
-            "  recordingConfigurationArn: \"${5:string}\",",
+            "  insecureIngest: ${3|false,true|},",
+            "  latencyMode: \"${4:string}\",",
+            "  name: \"${5:string}\",",
+            "  recordingConfigurationArn: \"${6:string}\",",
             "  tags: [],",
-            "  type: \"${7:string}\",",
+            "  type: \"${8:string}\",",
             "})"
         ],
         "description": [
@@ -17271,7 +17303,7 @@
     "memorydb.CfnUser": {
         "body": [
             "new memorydb.CfnUser(this, \"${1:id}\", {",
-            "  accessString: \"${2:string}\", // Required",
+            "  accessString: \"${2:string}\",",
             "  authenticationMode: {",
             "    passwords: [],",
             "    type: \"${4:string}\",",
@@ -19873,6 +19905,27 @@
             "  attrVersion.Configuration.Sheet"
         ],
         "prefix": "l1-quicksight-theme",
+        "scope": "javascript,typescript"
+    },
+    "ram.CfnPermission": {
+        "body": [
+            "new ram.CfnPermission(this, \"${1:id}\", {",
+            "  name: \"${2:string}\", // Required",
+            "  policyTemplate: ${3:JSON}, // Required",
+            "  resourceType: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ram.CfnPermission",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ram.CfnPermission",
+            "Attributes: ",
+            "  attrVersion",
+            "  attrPermissionType",
+            "  attrArn",
+            "  attrIsResourceTypeDefault"
+        ],
+        "prefix": "l1-ram-permission",
         "scope": "javascript,typescript"
     },
     "ram.CfnResourceShare": {
@@ -25591,23 +25644,6 @@
             "    serviceType: \"${13:string}\",",
             "    uRLPath: \"${14:string}\",",
             "    version: ${15:Number},",
-            "  },",
-            "  samplingRuleRecord: {",
-            "    createdAt: \"${4:string}\",",
-            "    modifiedAt: \"${5:string}\",",
-            "  },",
-            "  samplingRuleUpdate: {",
-            "    fixedRate: ${6:Number},",
-            "    hTTPMethod: \"${7:string}\",",
-            "    host: \"${8:string}\",",
-            "    priority: ${9:Number},",
-            "    reservoirSize: ${10:Number},",
-            "    resourceARN: \"${11:string}\",",
-            "    ruleARN: \"${12:string}\",",
-            "    ruleName: \"${13:string}\",",
-            "    serviceName: \"${14:string}\",",
-            "    serviceType: \"${15:string}\",",
-            "    uRLPath: \"${16:string}\",",
             "  },",
             "  tags: [],",
             "})"
