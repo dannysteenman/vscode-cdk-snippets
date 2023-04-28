@@ -1101,7 +1101,9 @@
         ],
         "description": [
             "Construct: apigatewayv2.CfnIntegrationResponse",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnIntegrationResponse"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnIntegrationResponse",
+            "Attributes: ",
+            "  attrIntegrationResponseId"
         ],
         "prefix": "l1-apigatewayv2-integrationresponse",
         "scope": "javascript,typescript"
@@ -6155,6 +6157,35 @@
             "  attrLocationArn"
         ],
         "prefix": "l1-datasync-locationsmb",
+        "scope": "javascript,typescript"
+    },
+    "datasync.CfnStorageSystem": {
+        "body": [
+            "new datasync.CfnStorageSystem(this, \"${1:id}\", {",
+            "  agentArns: [], // Required",
+            "  cloudWatchLogGroupArn: \"${3:string}\",",
+            "  name: \"${4:string}\",",
+            "  serverConfiguration: {",
+            "    serverHostname: \"${5:string}\",",
+            "    serverPort: ${6:Number},",
+            "  },",
+            "  serverCredentials: {",
+            "    password: \"${6:string}\",",
+            "    username: \"${7:string}\",",
+            "  },",
+            "  systemType: \"${7:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datasync.CfnStorageSystem",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datasync.CfnStorageSystem",
+            "Attributes: ",
+            "  attrConnectivityStatus",
+            "  attrStorageSystemArn",
+            "  attrSecretsManagerArn"
+        ],
+        "prefix": "l1-datasync-storagesystem",
         "scope": "javascript,typescript"
     },
     "datasync.CfnTask": {
@@ -13206,7 +13237,10 @@
             "  serverCertificateArns: [],",
             "  serviceType: \"${7:string}\",",
             "  tags: [],",
-            "  validationCertificateArn: \"${9:string}\",",
+            "  tlsConfig: {",
+            "    securityPolicy: \"${9:string}\",",
+            "  },",
+            "  validationCertificateArn: \"${10:string}\",",
             "})"
         ],
         "description": [
@@ -16880,9 +16914,13 @@
             "    resolution: \"${9:string}\",",
             "  },",
             "  logLevel: \"${8:string}\",",
-            "  name: \"${9:string}\",",
-            "  roleArn: \"${10:string}\",",
-            "  tags: ${11:JSON},",
+            "  maintenance: {",
+            "    maintenanceDay: \"${9:string}\",",
+            "    maintenanceStartTime: \"${10:string}\",",
+            "  },",
+            "  name: \"${10:string}\",",
+            "  roleArn: \"${11:string}\",",
+            "  tags: ${12:JSON},",
             "  vpc: {",
             "    publicAddressAllocationIds: [],",
             "    securityGroupIds: [],",
@@ -17376,6 +17414,22 @@
         "prefix": "l1-msk-cluster",
         "scope": "javascript,typescript"
     },
+    "msk.CfnClusterPolicy": {
+        "body": [
+            "new msk.CfnClusterPolicy(this, \"${1:id}\", {",
+            "  clusterArn: \"${2:string}\", // Required",
+            "  policy: ${3:JSON}, // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: msk.CfnClusterPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnClusterPolicy",
+            "Attributes: ",
+            "  attrCurrentVersion"
+        ],
+        "prefix": "l1-msk-clusterpolicy",
+        "scope": "javascript,typescript"
+    },
     "msk.CfnConfiguration": {
         "body": [
             "new msk.CfnConfiguration(this, \"${1:id}\", {",
@@ -17412,6 +17466,27 @@
             "  attrArn"
         ],
         "prefix": "l1-msk-serverlesscluster",
+        "scope": "javascript,typescript"
+    },
+    "msk.CfnVpcConnection": {
+        "body": [
+            "new msk.CfnVpcConnection(this, \"${1:id}\", {",
+            "  authentication: \"${2:string}\", // Required",
+            "  clientSubnets: [], // Required",
+            "  securityGroups: [], // Required",
+            "  tags: {",
+            "  },",
+            "  targetClusterArn: \"${6:string}\", // Required",
+            "  vpcId: \"${7:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: msk.CfnVpcConnection",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnVpcConnection",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-msk-vpcconnection",
         "scope": "javascript,typescript"
     },
     "mwaa.CfnEnvironment": {
@@ -24396,6 +24471,7 @@
             "Construct: stepfunctions.CfnStateMachine",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-stepfunctions.CfnStateMachine",
             "Attributes: ",
+            "  attrStateMachineRevisionId",
             "  attrArn",
             "  attrName"
         ],
