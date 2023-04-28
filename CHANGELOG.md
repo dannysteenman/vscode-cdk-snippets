@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.82.0 (2023-04-28)
+-------------------
+- The following resource was added: AWS::Connect::EvaluationForm.
+  [Github Actions]
+
+
 1.81.0 (2023-04-21)
 -------------------
 - The following resource was updated: AWS::MWAA::Environment. [Github
