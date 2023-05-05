@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.83.0 (2023-05-05)
+-------------------
+- The following resources were updated: AWS::DeviceFarm::Project.
+  [Github Actions]
+
+
 1.82.0 (2023-04-28)
 -------------------
 - The following resource was added: AWS::Connect::EvaluationForm.
