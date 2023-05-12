@@ -8969,6 +8969,71 @@
         "prefix": "l1-ec2-vpngatewayroutepropagation",
         "scope": "javascript,typescript"
     },
+    "ec2.CfnVerifiedAccessEndpoint": {
+        "body": [
+            "new ec2.CfnVerifiedAccessEndpoint(this, \"${1:id}\", {",
+            "  applicationDomain: \"${2:string}\", // Required",
+            "  attachmentType: \"${3:string}\", // Required",
+            "  description: \"${4:string}\",",
+            "  domainCertificateArn: \"${5:string}\", // Required",
+            "  endpointDomainPrefix: \"${6:string}\", // Required",
+            "  endpointType: \"${7:string}\", // Required",
+            "  loadBalancerOptions: {",
+            "    loadBalancerArn: \"${8:string}\",",
+            "    port: ${9:Number},",
+            "    protocol: \"${10:string}\",",
+            "    subnetIds: [],",
+            "  },",
+            "  networkInterfaceOptions: {",
+            "    networkInterfaceId: \"${9:string}\",",
+            "    port: ${10:Number},",
+            "    protocol: \"${11:string}\",",
+            "  },",
+            "  policyDocument: \"${10:string}\",",
+            "  policyEnabled: ${11|false,true|},",
+            "  securityGroupIds: [],",
+            "  tags: [],",
+            "  verifiedAccessGroupId: \"${14:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnVerifiedAccessEndpoint",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVerifiedAccessEndpoint",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrEndpointDomain",
+            "  attrCreationTime",
+            "  attrLastUpdatedTime",
+            "  attrDeviceValidationDomain",
+            "  attrVerifiedAccessInstanceId",
+            "  attrVerifiedAccessEndpointId"
+        ],
+        "prefix": "l1-ec2-verifiedaccessendpoint",
+        "scope": "javascript,typescript"
+    },
+    "ec2.CfnVerifiedAccessGroup": {
+        "body": [
+            "new ec2.CfnVerifiedAccessGroup(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  policyDocument: \"${3:string}\",",
+            "  policyEnabled: ${4|false,true|},",
+            "  tags: [],",
+            "  verifiedAccessInstanceId: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnVerifiedAccessGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVerifiedAccessGroup",
+            "Attributes: ",
+            "  attrOwner",
+            "  attrCreationTime",
+            "  attrLastUpdatedTime",
+            "  attrVerifiedAccessGroupId",
+            "  attrVerifiedAccessGroupArn"
+        ],
+        "prefix": "l1-ec2-verifiedaccessgroup",
+        "scope": "javascript,typescript"
+    },
     "ec2.CfnVerifiedAccessInstance": {
         "body": [
             "new ec2.CfnVerifiedAccessInstance(this, \"${1:id}\", {",
@@ -8989,6 +9054,40 @@
             "  attrVerifiedAccessInstanceId"
         ],
         "prefix": "l1-ec2-verifiedaccessinstance",
+        "scope": "javascript,typescript"
+    },
+    "ec2.CfnVerifiedAccessTrustProvider": {
+        "body": [
+            "new ec2.CfnVerifiedAccessTrustProvider(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  deviceOptions: {",
+            "    tenantId: \"${3:string}\",",
+            "  },",
+            "  deviceTrustProviderType: \"${4:string}\",",
+            "  oidcOptions: {",
+            "    authorizationEndpoint: \"${5:string}\",",
+            "    clientId: \"${6:string}\",",
+            "    clientSecret: \"${7:string}\",",
+            "    issuer: \"${8:string}\",",
+            "    scope: \"${9:string}\",",
+            "    tokenEndpoint: \"${10:string}\",",
+            "    userInfoEndpoint: \"${11:string}\",",
+            "  },",
+            "  policyReferenceName: \"${6:string}\", // Required",
+            "  tags: [],",
+            "  trustProviderType: \"${8:string}\", // Required",
+            "  userTrustProviderType: \"${9:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnVerifiedAccessTrustProvider",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVerifiedAccessTrustProvider",
+            "Attributes: ",
+            "  attrVerifiedAccessTrustProviderId",
+            "  attrCreationTime",
+            "  attrLastUpdatedTime"
+        ],
+        "prefix": "l1-ec2-verifiedaccesstrustprovider",
         "scope": "javascript,typescript"
     },
     "ec2.CfnVolume": {
@@ -9650,35 +9749,36 @@
             "  cacheParameterGroupName: \"${7:string}\",",
             "  cacheSecurityGroupNames: [],",
             "  cacheSubnetGroupName: \"${9:string}\",",
-            "  dataTieringEnabled: ${10|false,true|},",
-            "  engine: \"${11:string}\",",
-            "  engineVersion: \"${12:string}\",",
-            "  globalReplicationGroupId: \"${13:string}\",",
-            "  ipDiscovery: \"${14:string}\",",
-            "  kmsKeyId: \"${15:string}\",",
+            "  clusterMode: \"${10:string}\",",
+            "  dataTieringEnabled: ${11|false,true|},",
+            "  engine: \"${12:string}\",",
+            "  engineVersion: \"${13:string}\",",
+            "  globalReplicationGroupId: \"${14:string}\",",
+            "  ipDiscovery: \"${15:string}\",",
+            "  kmsKeyId: \"${16:string}\",",
             "  logDeliveryConfigurations: [],",
-            "  multiAZEnabled: ${17|false,true|},",
-            "  networkType: \"${18:string}\",",
+            "  multiAZEnabled: ${18|false,true|},",
+            "  networkType: \"${19:string}\",",
             "  nodeGroupConfiguration: [],",
-            "  notificationTopicArn: \"${20:string}\",",
-            "  numCacheClusters: ${21:Number},",
-            "  numNodeGroups: ${22:Number},",
-            "  port: ${23:Number},",
+            "  notificationTopicArn: \"${21:string}\",",
+            "  numCacheClusters: ${22:Number},",
+            "  numNodeGroups: ${23:Number},",
+            "  port: ${24:Number},",
             "  preferredCacheClusterAZs: [],",
-            "  preferredMaintenanceWindow: \"${25:string}\",",
-            "  primaryClusterId: \"${26:string}\",",
-            "  replicasPerNodeGroup: ${27:Number},",
-            "  replicationGroupDescription: \"${28:string}\", // Required",
-            "  replicationGroupId: \"${29:string}\",",
+            "  preferredMaintenanceWindow: \"${26:string}\",",
+            "  primaryClusterId: \"${27:string}\",",
+            "  replicasPerNodeGroup: ${28:Number},",
+            "  replicationGroupDescription: \"${29:string}\", // Required",
+            "  replicationGroupId: \"${30:string}\",",
             "  securityGroupIds: [],",
             "  snapshotArns: [],",
-            "  snapshotName: \"${32:string}\",",
-            "  snapshotRetentionLimit: ${33:Number},",
-            "  snapshotWindow: \"${34:string}\",",
-            "  snapshottingClusterId: \"${35:string}\",",
+            "  snapshotName: \"${33:string}\",",
+            "  snapshotRetentionLimit: ${34:Number},",
+            "  snapshotWindow: \"${35:string}\",",
+            "  snapshottingClusterId: \"${36:string}\",",
             "  tags: [],",
-            "  transitEncryptionEnabled: ${37|false,true|},",
-            "  transitEncryptionMode: \"${38:string}\",",
+            "  transitEncryptionEnabled: ${38|false,true|},",
+            "  transitEncryptionMode: \"${39:string}\",",
             "  userGroupIds: [],",
             "})"
         ],
@@ -13228,6 +13328,26 @@
         "prefix": "l1-iot-authorizer",
         "scope": "javascript,typescript"
     },
+    "iot.CfnBillingGroup": {
+        "body": [
+            "new iot.CfnBillingGroup(this, \"${1:id}\", {",
+            "  billingGroupName: \"${2:string}\",",
+            "  billingGroupProperties: {",
+            "    billingGroupDescription: \"${3:string}\",",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iot.CfnBillingGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnBillingGroup",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-iot-billinggroup",
+        "scope": "javascript,typescript"
+    },
     "iot.CfnCACertificate": {
         "body": [
             "new iot.CfnCACertificate(this, \"${1:id}\", {",
@@ -13594,6 +13714,28 @@
         "prefix": "l1-iot-thing",
         "scope": "javascript,typescript"
     },
+    "iot.CfnThingGroup": {
+        "body": [
+            "new iot.CfnThingGroup(this, \"${1:id}\", {",
+            "  parentGroupName: \"${2:string}\",",
+            "  queryString: \"${3:string}\",",
+            "  tags: [],",
+            "  thingGroupName: \"${5:string}\",",
+            "  thingGroupProperties: {",
+            "    thingGroupDescription: \"${7:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: iot.CfnThingGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnThingGroup",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-iot-thinggroup",
+        "scope": "javascript,typescript"
+    },
     "iot.CfnThingPrincipalAttachment": {
         "body": [
             "new iot.CfnThingPrincipalAttachment(this, \"${1:id}\", {",
@@ -13606,6 +13748,28 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnThingPrincipalAttachment"
         ],
         "prefix": "l1-iot-thingprincipalattachment",
+        "scope": "javascript,typescript"
+    },
+    "iot.CfnThingType": {
+        "body": [
+            "new iot.CfnThingType(this, \"${1:id}\", {",
+            "  deprecateThingType: ${2|false,true|},",
+            "  tags: [],",
+            "  thingTypeName: \"${4:string}\",",
+            "  thingTypeProperties: {",
+            "    searchableAttributes: [],",
+            "    thingTypeDescription: \"${6:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: iot.CfnThingType",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnThingType",
+            "Attributes: ",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-iot-thingtype",
         "scope": "javascript,typescript"
     },
     "iot.CfnTopicRule": {
@@ -16387,9 +16551,7 @@
         ],
         "description": [
             "Construct: logs.CfnLogStream",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnLogStream",
-            "Attributes: ",
-            "  attrId"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnLogStream"
         ],
         "prefix": "l1-logs-logstream",
         "scope": "javascript,typescript"
@@ -16880,11 +17042,16 @@
             "  ingestPort: ${6:Number},",
             "  maxBitrate: ${7:Number},",
             "  maxLatency: ${8:Number},",
-            "  name: \"${9:string}\", // Required",
-            "  protocol: \"${10:string}\",",
-            "  streamId: \"${11:string}\",",
-            "  vpcInterfaceName: \"${12:string}\",",
-            "  whitelistCidr: \"${13:string}\",",
+            "  minLatency: ${9:Number},",
+            "  name: \"${10:string}\", // Required",
+            "  protocol: \"${11:string}\",",
+            "  senderControlPort: ${12:Number},",
+            "  senderIpAddress: \"${13:string}\",",
+            "  sourceListenerAddress: \"${14:string}\",",
+            "  sourceListenerPort: ${15:Number},",
+            "  streamId: \"${16:string}\",",
+            "  vpcInterfaceName: \"${17:string}\",",
+            "  whitelistCidr: \"${18:string}\",",
             "})"
         ],
         "description": [
@@ -19011,6 +19178,34 @@
             "  attrArn"
         ],
         "prefix": "l1-organizations-resourcepolicy",
+        "scope": "javascript,typescript"
+    },
+    "osis.CfnPipeline": {
+        "body": [
+            "new osis.CfnPipeline(this, \"${1:id}\", {",
+            "  logPublishingOptions: {",
+            "    isLoggingEnabled: ${3|false,true|},",
+            "  },",
+            "  maxUnits: ${3:Number}, // Required",
+            "  minUnits: ${4:Number}, // Required",
+            "  pipelineConfigurationBody: \"${5:string}\", // Required",
+            "  pipelineName: \"${6:string}\", // Required",
+            "  tags: [],",
+            "  vpcOptions: {",
+            "    securityGroupIds: [],",
+            "    subnetIds: [],",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: osis.CfnPipeline",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-osis.CfnPipeline",
+            "Attributes: ",
+            "  attrPipelineArn",
+            "  attrVpcEndpoints",
+            "  attrIngestEndpointUrls"
+        ],
+        "prefix": "l1-osis-pipeline",
         "scope": "javascript,typescript"
     },
     "panorama.CfnApplicationInstance": {
@@ -23290,7 +23485,9 @@
         ],
         "description": [
             "Construct: secretsmanager.CfnSecret",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.CfnSecret"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-secretsmanager.CfnSecret",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-secretsmanager-secret",
         "scope": "javascript,typescript"
@@ -24063,11 +24260,16 @@
     "simspaceweaver.CfnSimulation": {
         "body": [
             "new simspaceweaver.CfnSimulation(this, \"${1:id}\", {",
-            "  name: \"${2:string}\",",
-            "  roleArn: \"${3:string}\",",
+            "  maximumDuration: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  roleArn: \"${4:string}\", // Required",
             "  schemaS3Location: {",
-            "    bucketName: \"${4:string}\",",
-            "    objectKey: \"${5:string}\",",
+            "    bucketName: \"${5:string}\",",
+            "    objectKey: \"${6:string}\",",
+            "  },",
+            "  snapshotS3Location: {",
+            "    bucketName: \"${6:string}\",",
+            "    objectKey: \"${7:string}\",",
             "  },",
             "})"
         ],
@@ -24718,31 +24920,31 @@
             "    s3Key: \"${6:string}\",",
             "    s3ObjectVersion: \"${7:string}\",",
             "    script: \"${8:string}\",",
+            "    sourceLocationArn: \"${9:string}\",",
             "  },",
-            "  deleteLambdaResourcesOnCanaryDeletion: ${5|false,true|},",
-            "  executionRoleArn: \"${6:string}\", // Required",
-            "  failureRetentionPeriod: ${7:Number},",
-            "  name: \"${8:string}\", // Required",
+            "  executionRoleArn: \"${5:string}\", // Required",
+            "  failureRetentionPeriod: ${6:Number},",
+            "  name: \"${7:string}\", // Required",
             "  runConfig: {",
-            "    activeTracing: ${9|false,true|},",
-            "    memoryInMB: ${11:Number},",
-            "    timeoutInSeconds: ${12:Number},",
+            "    activeTracing: ${8|false,true|},",
+            "    memoryInMB: ${10:Number},",
+            "    timeoutInSeconds: ${11:Number},",
             "  },",
-            "  runtimeVersion: \"${10:string}\", // Required",
+            "  runtimeVersion: \"${9:string}\", // Required",
             "  schedule: {",
-            "    durationInSeconds: \"${11:string}\",",
-            "    expression: \"${12:string}\",",
+            "    durationInSeconds: \"${10:string}\",",
+            "    expression: \"${11:string}\",",
             "  },",
-            "  startCanaryAfterCreation: ${12|false,true|}, // Required",
-            "  successRetentionPeriod: ${13:Number},",
+            "  startCanaryAfterCreation: ${11|false,true|},",
+            "  successRetentionPeriod: ${12:Number},",
             "  tags: [],",
             "  vPCConfig: {",
             "    securityGroupIds: [],",
             "    subnetIds: [],",
-            "    vpcId: \"${17:string}\",",
+            "    vpcId: \"${16:string}\",",
             "  },",
             "  visualReference: {",
-            "    baseCanaryRunId: \"${16:string}\",",
+            "    baseCanaryRunId: \"${15:string}\",",
             "    baseScreenshots: [],",
             "  },",
             "})"
@@ -24751,6 +24953,7 @@
             "Construct: synthetics.CfnCanary",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-synthetics.CfnCanary",
             "Attributes: ",
+            "  attrCode.SourceLocationArn",
             "  attrState",
             "  attrId"
         ],
@@ -25850,7 +26053,7 @@
         "body": [
             "new xray.CfnGroup(this, \"${1:id}\", {",
             "  filterExpression: \"${2:string}\",",
-            "  groupName: \"${3:string}\",",
+            "  groupName: \"${3:string}\", // Required",
             "  insightsConfiguration: {",
             "    insightsEnabled: ${4|false,true|},",
             "    notificationsEnabled: ${5|false,true|},",
@@ -25885,20 +26088,19 @@
     "xray.CfnSamplingRule": {
         "body": [
             "new xray.CfnSamplingRule(this, \"${1:id}\", {",
-            "  ruleName: \"${2:string}\",",
             "  samplingRule: {",
-            "    fixedRate: ${4:Number},",
-            "    hTTPMethod: \"${5:string}\",",
-            "    host: \"${6:string}\",",
-            "    priority: ${7:Number},",
-            "    reservoirSize: ${8:Number},",
-            "    resourceARN: \"${9:string}\",",
-            "    ruleARN: \"${10:string}\",",
-            "    ruleName: \"${11:string}\",",
-            "    serviceName: \"${12:string}\",",
-            "    serviceType: \"${13:string}\",",
-            "    uRLPath: \"${14:string}\",",
-            "    version: ${15:Number},",
+            "    fixedRate: ${3:Number},",
+            "    hTTPMethod: \"${4:string}\",",
+            "    host: \"${5:string}\",",
+            "    priority: ${6:Number},",
+            "    reservoirSize: ${7:Number},",
+            "    resourceARN: \"${8:string}\",",
+            "    ruleARN: \"${9:string}\",",
+            "    ruleName: \"${10:string}\",",
+            "    serviceName: \"${11:string}\",",
+            "    serviceType: \"${12:string}\",",
+            "    uRLPath: \"${13:string}\",",
+            "    version: ${14:Number},",
             "  },",
             "  tags: [],",
             "})"
