@@ -1428,18 +1428,18 @@
             "  description: \"${2:string}\",",
             "  destinationFlowConfigList: [], // Required",
             "  flowName: \"${4:string}\", // Required",
-            "  kMSArn: \"${5:string}\",",
+            "  flowStatus: \"${5:string}\",",
+            "  kMSArn: \"${6:string}\",",
             "  metadataCatalogConfig: {",
             "  },",
             "  sourceFlowConfig: {",
-            "    apiVersion: \"${7:string}\",",
-            "    connectorProfileName: \"${8:string}\",",
-            "    connectorType: \"${9:string}\",",
+            "    apiVersion: \"${8:string}\",",
+            "    connectorProfileName: \"${9:string}\",",
+            "    connectorType: \"${10:string}\",",
             "  },",
             "  tags: [],",
             "  tasks: [], // Required",
             "  triggerConfig: {",
-            "    activateFlowOnCreate: ${10|false,true|},",
             "    triggerType: \"${12:string}\",",
             "  },",
             "})"
@@ -5520,6 +5520,25 @@
         "prefix": "l1-connect-phonenumber",
         "scope": "javascript,typescript"
     },
+    "connect.CfnPrompt": {
+        "body": [
+            "new connect.CfnPrompt(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  instanceArn: \"${3:string}\", // Required",
+            "  name: \"${4:string}\", // Required",
+            "  s3Uri: \"${5:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnPrompt",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnPrompt",
+            "Attributes: ",
+            "  attrPromptArn"
+        ],
+        "prefix": "l1-connect-prompt",
+        "scope": "javascript,typescript"
+    },
     "connect.CfnQuickConnect": {
         "body": [
             "new connect.CfnQuickConnect(this, \"${1:id}\", {",
@@ -7487,7 +7506,6 @@
             "  defaultResourceDiscoveryId: \"${3:string}\",",
             "  description: \"${4:string}\",",
             "  operatingRegions: [],",
-            "  resourceDiscoveryAssociationCount: ${6:Number},",
             "  tags: [],",
             "})"
         ],
@@ -7496,6 +7514,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnIPAM",
             "Attributes: ",
             "  attrIpamId",
+            "  attrResourceDiscoveryAssociationCount",
             "  attrScopeCount",
             "  attrArn",
             "  attrPrivateDefaultScopeId",
@@ -8345,7 +8364,9 @@
         ],
         "description": [
             "Construct: ec2.CfnSubnetCidrBlock",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnSubnetCidrBlock"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnSubnetCidrBlock",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ec2-subnetcidrblock",
         "scope": "javascript,typescript"
@@ -17799,23 +17820,29 @@
             "  associatedRoles: [],",
             "  availabilityZones: [],",
             "  backupRetentionPeriod: ${4:Number},",
-            "  dBClusterIdentifier: \"${5:string}\",",
-            "  dBClusterParameterGroupName: \"${6:string}\",",
-            "  dBSubnetGroupName: \"${7:string}\",",
-            "  deletionProtection: ${8|false,true|},",
+            "  copyTagsToSnapshot: ${5|false,true|},",
+            "  dBClusterIdentifier: \"${6:string}\",",
+            "  dBClusterParameterGroupName: \"${7:string}\",",
+            "  dBInstanceParameterGroupName: \"${8:string}\",",
+            "  dBSubnetGroupName: \"${9:string}\",",
+            "  deletionProtection: ${10|false,true|},",
             "  enableCloudwatchLogsExports: [],",
-            "  engineVersion: \"${10:string}\",",
-            "  iamAuthEnabled: ${11|false,true|},",
-            "  kmsKeyId: \"${12:string}\",",
-            "  preferredBackupWindow: \"${13:string}\",",
-            "  preferredMaintenanceWindow: \"${14:string}\",",
-            "  restoreToTime: \"${15:string}\",",
-            "  restoreType: \"${16:string}\",",
-            "  snapshotIdentifier: \"${17:string}\",",
-            "  sourceDBClusterIdentifier: \"${18:string}\",",
-            "  storageEncrypted: ${19|false,true|},",
+            "  engineVersion: \"${12:string}\",",
+            "  iamAuthEnabled: ${13|false,true|},",
+            "  kmsKeyId: \"${14:string}\",",
+            "  preferredBackupWindow: \"${15:string}\",",
+            "  preferredMaintenanceWindow: \"${16:string}\",",
+            "  restoreToTime: \"${17:string}\",",
+            "  restoreType: \"${18:string}\",",
+            "  serverlessScalingConfiguration: {",
+            "    maxCapacity: ${19:Number},",
+            "    minCapacity: ${20:Number},",
+            "  },",
+            "  snapshotIdentifier: \"${20:string}\",",
+            "  sourceDBClusterIdentifier: \"${21:string}\",",
+            "  storageEncrypted: ${22|false,true|},",
             "  tags: [],",
-            "  useLatestRestorableTime: ${21|false,true|},",
+            "  useLatestRestorableTime: ${24|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -20329,6 +20356,25 @@
             "  attrVersion.Configuration.Sheet"
         ],
         "prefix": "l1-quicksight-theme",
+        "scope": "javascript,typescript"
+    },
+    "quicksight.CfnTopic": {
+        "body": [
+            "new quicksight.CfnTopic(this, \"${1:id}\", {",
+            "  awsAccountId: \"${2:string}\",",
+            "  dataSets: [],",
+            "  description: \"${4:string}\",",
+            "  name: \"${5:string}\",",
+            "  topicId: \"${6:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: quicksight.CfnTopic",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-quicksight.CfnTopic",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-quicksight-topic",
         "scope": "javascript,typescript"
     },
     "quicksight.CfnVPCConnection": {
@@ -24217,6 +24263,80 @@
         "prefix": "l1-ses-vdmattributes",
         "scope": "javascript,typescript"
     },
+    "shield.CfnDRTAccess": {
+        "body": [
+            "new shield.CfnDRTAccess(this, \"${1:id}\", {",
+            "  logBucketList: [],",
+            "  roleArn: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: shield.CfnDRTAccess",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-shield.CfnDRTAccess",
+            "Attributes: ",
+            "  attrAccountId"
+        ],
+        "prefix": "l1-shield-drtaccess",
+        "scope": "javascript,typescript"
+    },
+    "shield.CfnProactiveEngagement": {
+        "body": [
+            "new shield.CfnProactiveEngagement(this, \"${1:id}\", {",
+            "  emergencyContactList: [], // Required",
+            "  proactiveEngagementStatus: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: shield.CfnProactiveEngagement",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-shield.CfnProactiveEngagement",
+            "Attributes: ",
+            "  attrAccountId"
+        ],
+        "prefix": "l1-shield-proactiveengagement",
+        "scope": "javascript,typescript"
+    },
+    "shield.CfnProtection": {
+        "body": [
+            "new shield.CfnProtection(this, \"${1:id}\", {",
+            "  applicationLayerAutomaticResponseConfiguration: {",
+            "    status: \"${3:string}\",",
+            "  },",
+            "  healthCheckArns: [],",
+            "  name: \"${4:string}\", // Required",
+            "  resourceArn: \"${5:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: shield.CfnProtection",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-shield.CfnProtection",
+            "Attributes: ",
+            "  attrProtectionArn",
+            "  attrProtectionId"
+        ],
+        "prefix": "l1-shield-protection",
+        "scope": "javascript,typescript"
+    },
+    "shield.CfnProtectionGroup": {
+        "body": [
+            "new shield.CfnProtectionGroup(this, \"${1:id}\", {",
+            "  aggregation: \"${2:string}\", // Required",
+            "  members: [],",
+            "  pattern: \"${4:string}\", // Required",
+            "  protectionGroupId: \"${5:string}\", // Required",
+            "  resourceType: \"${6:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: shield.CfnProtectionGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-shield.CfnProtectionGroup",
+            "Attributes: ",
+            "  attrProtectionGroupArn"
+        ],
+        "prefix": "l1-shield-protectiongroup",
+        "scope": "javascript,typescript"
+    },
     "signer.CfnProfilePermission": {
         "body": [
             "new signer.CfnProfilePermission(this, \"${1:id}\", {",
@@ -25193,7 +25313,8 @@
             "    directoryId: \"${6:string}\",",
             "    function: \"${7:string}\",",
             "    invocationRole: \"${8:string}\",",
-            "    url: \"${9:string}\",",
+            "    sftpAuthenticationMethods: \"${9:string}\",",
+            "    url: \"${10:string}\",",
             "  },",
             "  identityProviderType: \"${7:string}\",",
             "  loggingRole: \"${8:string}\",",
