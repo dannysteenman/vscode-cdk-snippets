@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.86.0 (2023-05-26)
+-------------------
+- The following resource was updated:
+  AWS::NetworkFirewall::FirewallPolicy. [Github Actions]
+
+
 1.85.0 (2023-05-19)
 -------------------
 - The following resource was updated: AWS::Transfer::Server. [Github
