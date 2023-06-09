@@ -1513,7 +1513,7 @@
             "  maxCapacity: ${2:Number}, // Required",
             "  minCapacity: ${3:Number}, // Required",
             "  resourceId: \"${4:string}\", // Required",
-            "  roleARN: \"${5:string}\", // Required",
+            "  roleARN: \"${5:string}\",",
             "  scalableDimension: \"${6:string}\", // Required",
             "  scheduledActions: [],",
             "  serviceNamespace: \"${8:string}\", // Required",
@@ -1526,7 +1526,9 @@
         ],
         "description": [
             "Construct: applicationautoscaling.CfnScalableTarget",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-applicationautoscaling.CfnScalableTarget"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-applicationautoscaling.CfnScalableTarget",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-applicationautoscaling-scalabletarget",
         "scope": "javascript,typescript"
@@ -2489,6 +2491,30 @@
             "  attrArn"
         ],
         "prefix": "l1-aps-workspace",
+        "scope": "javascript,typescript"
+    },
+    "athena.CfnCapacityReservation": {
+        "body": [
+            "new athena.CfnCapacityReservation(this, \"${1:id}\", {",
+            "  capacityAssignmentConfiguration: {",
+            "    capacityAssignments: [],",
+            "  },",
+            "  name: \"${3:string}\", // Required",
+            "  tags: [],",
+            "  targetDpus: ${5:Number}, // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: athena.CfnCapacityReservation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-athena.CfnCapacityReservation",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrAllocatedDpus",
+            "  attrCreationTime",
+            "  attrLastSuccessfulAllocationTime",
+            "  attrArn"
+        ],
+        "prefix": "l1-athena-capacityreservation",
         "scope": "javascript,typescript"
     },
     "athena.CfnDataCatalog": {
@@ -5797,6 +5823,34 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cur.CfnReportDefinition"
         ],
         "prefix": "l1-cur-reportdefinition",
+        "scope": "javascript,typescript"
+    },
+    "customerprofiles.CfnCalculatedAttributeDefinition": {
+        "body": [
+            "new customerprofiles.CfnCalculatedAttributeDefinition(this, \"${1:id}\", {",
+            "  attributeDetails: {",
+            "    attributes: [],",
+            "    expression: \"${3:string}\",",
+            "  },",
+            "  calculatedAttributeName: \"${3:string}\", // Required",
+            "  conditions: {",
+            "    objectCount: ${4:Number},",
+            "  },",
+            "  description: \"${5:string}\",",
+            "  displayName: \"${6:string}\",",
+            "  domainName: \"${7:string}\", // Required",
+            "  statistic: \"${8:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: customerprofiles.CfnCalculatedAttributeDefinition",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-customerprofiles.CfnCalculatedAttributeDefinition",
+            "Attributes: ",
+            "  attrLastUpdatedAt",
+            "  attrCreatedAt"
+        ],
+        "prefix": "l1-customerprofiles-calculatedattributedefinition",
         "scope": "javascript,typescript"
     },
     "customerprofiles.CfnDomain": {
@@ -15922,7 +15976,9 @@
         ],
         "description": [
             "Construct: lambda.CfnLayerVersion",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.CfnLayerVersion"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.CfnLayerVersion",
+            "Attributes: ",
+            "  attrLayerVersionArn"
         ],
         "prefix": "l1-lambda-layerversion",
         "scope": "javascript,typescript"
@@ -18683,10 +18739,11 @@
         "body": [
             "new omics.CfnSequenceStore(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
-            "  name: \"${3:string}\", // Required",
+            "  fallbackLocation: \"${3:string}\",",
+            "  name: \"${4:string}\", // Required",
             "  sseConfig: {",
-            "    keyArn: \"${4:string}\",",
-            "    type: \"${5:string}\",",
+            "    keyArn: \"${5:string}\",",
+            "    type: \"${6:string}\",",
             "  },",
             "  tags: {",
             "  },",
