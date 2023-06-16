@@ -3468,6 +3468,98 @@
         "prefix": "l1-chatbot-slackchannelconfiguration",
         "scope": "javascript,typescript"
     },
+    "cleanrooms.CfnCollaboration": {
+        "body": [
+            "new cleanrooms.CfnCollaboration(this, \"${1:id}\", {",
+            "  creatorDisplayName: \"${2:string}\", // Required",
+            "  creatorMemberAbilities: [], // Required",
+            "  dataEncryptionMetadata: {",
+            "    allowCleartext: ${4|false,true|},",
+            "    allowDuplicates: ${5|false,true|},",
+            "    allowJoinsOnColumnsWithDifferentNames: ${6|false,true|},",
+            "    preserveNulls: ${7|false,true|},",
+            "  },",
+            "  description: \"${5:string}\", // Required",
+            "  members: [], // Required",
+            "  name: \"${7:string}\", // Required",
+            "  queryLogStatus: \"${8:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: cleanrooms.CfnCollaboration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cleanrooms.CfnCollaboration",
+            "Attributes: ",
+            "  attrCollaborationIdentifier",
+            "  attrArn"
+        ],
+        "prefix": "l1-cleanrooms-collaboration",
+        "scope": "javascript,typescript"
+    },
+    "cleanrooms.CfnConfiguredTable": {
+        "body": [
+            "new cleanrooms.CfnConfiguredTable(this, \"${1:id}\", {",
+            "  allowedColumns: [], // Required",
+            "  analysisMethod: \"${3:string}\", // Required",
+            "  analysisRules: [],",
+            "  description: \"${5:string}\",",
+            "  name: \"${6:string}\", // Required",
+            "  tableReference: {",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: cleanrooms.CfnConfiguredTable",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cleanrooms.CfnConfiguredTable",
+            "Attributes: ",
+            "  attrConfiguredTableIdentifier",
+            "  attrArn"
+        ],
+        "prefix": "l1-cleanrooms-configuredtable",
+        "scope": "javascript,typescript"
+    },
+    "cleanrooms.CfnConfiguredTableAssociation": {
+        "body": [
+            "new cleanrooms.CfnConfiguredTableAssociation(this, \"${1:id}\", {",
+            "  configuredTableIdentifier: \"${2:string}\", // Required",
+            "  description: \"${3:string}\",",
+            "  membershipIdentifier: \"${4:string}\", // Required",
+            "  name: \"${5:string}\", // Required",
+            "  roleArn: \"${6:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: cleanrooms.CfnConfiguredTableAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cleanrooms.CfnConfiguredTableAssociation",
+            "Attributes: ",
+            "  attrConfiguredTableAssociationIdentifier",
+            "  attrArn"
+        ],
+        "prefix": "l1-cleanrooms-configuredtableassociation",
+        "scope": "javascript,typescript"
+    },
+    "cleanrooms.CfnMembership": {
+        "body": [
+            "new cleanrooms.CfnMembership(this, \"${1:id}\", {",
+            "  collaborationIdentifier: \"${2:string}\", // Required",
+            "  queryLogStatus: \"${3:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: cleanrooms.CfnMembership",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cleanrooms.CfnMembership",
+            "Attributes: ",
+            "  attrMembershipIdentifier",
+            "  attrArn",
+            "  attrCollaborationCreatorAccountId",
+            "  attrCollaborationArn"
+        ],
+        "prefix": "l1-cleanrooms-membership",
+        "scope": "javascript,typescript"
+    },
     "cloud9.CfnEnvironmentEC2": {
         "body": [
             "new cloud9.CfnEnvironmentEC2(this, \"${1:id}\", {",
@@ -5871,6 +5963,29 @@
             "  attrCreatedAt"
         ],
         "prefix": "l1-customerprofiles-domain",
+        "scope": "javascript,typescript"
+    },
+    "customerprofiles.CfnEventStream": {
+        "body": [
+            "new customerprofiles.CfnEventStream(this, \"${1:id}\", {",
+            "  domainName: \"${2:string}\", // Required",
+            "  eventStreamName: \"${3:string}\", // Required",
+            "  tags: [],",
+            "  uri: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: customerprofiles.CfnEventStream",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-customerprofiles.CfnEventStream",
+            "Attributes: ",
+            "  attrDestinationDetails.Status",
+            "  attrEventStreamArn",
+            "  attrState",
+            "  attrCreatedAt",
+            "  attrDestinationDetails.Uri",
+            "  attrDestinationDetails"
+        ],
+        "prefix": "l1-customerprofiles-eventstream",
         "scope": "javascript,typescript"
     },
     "customerprofiles.CfnIntegration": {
@@ -15033,9 +15148,10 @@
             "  insecureIngest: ${3|false,true|},",
             "  latencyMode: \"${4:string}\",",
             "  name: \"${5:string}\",",
-            "  recordingConfigurationArn: \"${6:string}\",",
+            "  preset: \"${6:string}\",",
+            "  recordingConfigurationArn: \"${7:string}\",",
             "  tags: [],",
-            "  type: \"${8:string}\",",
+            "  type: \"${9:string}\",",
             "})"
         ],
         "description": [
@@ -17059,6 +17175,80 @@
         "prefix": "l1-managedblockchain-node",
         "scope": "javascript,typescript"
     },
+    "mediaconnect.CfnBridge": {
+        "body": [
+            "new mediaconnect.CfnBridge(this, \"${1:id}\", {",
+            "  egressGatewayBridge: {",
+            "    maxBitrate: ${2:Number},",
+            "  },",
+            "  ingressGatewayBridge: {",
+            "    maxBitrate: ${3:Number},",
+            "    maxOutputs: ${4:Number},",
+            "  },",
+            "  name: \"${4:string}\", // Required",
+            "  outputs: [],",
+            "  placementArn: \"${6:string}\", // Required",
+            "  sourceFailoverConfig: {",
+            "    failoverMode: \"${7:string}\",",
+            "    state: \"${9:string}\",",
+            "  },",
+            "  sources: [], // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: mediaconnect.CfnBridge",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediaconnect.CfnBridge",
+            "Attributes: ",
+            "  attrBridgeArn",
+            "  attrBridgeState"
+        ],
+        "prefix": "l1-mediaconnect-bridge",
+        "scope": "javascript,typescript"
+    },
+    "mediaconnect.CfnBridgeOutput": {
+        "body": [
+            "new mediaconnect.CfnBridgeOutput(this, \"${1:id}\", {",
+            "  bridgeArn: \"${2:string}\", // Required",
+            "  name: \"${3:string}\", // Required",
+            "  networkOutput: {",
+            "    ipAddress: \"${4:string}\",",
+            "    networkName: \"${5:string}\",",
+            "    port: ${6:Number},",
+            "    protocol: \"${7:string}\",",
+            "    ttl: ${8:Number},",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: mediaconnect.CfnBridgeOutput",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediaconnect.CfnBridgeOutput"
+        ],
+        "prefix": "l1-mediaconnect-bridgeoutput",
+        "scope": "javascript,typescript"
+    },
+    "mediaconnect.CfnBridgeSource": {
+        "body": [
+            "new mediaconnect.CfnBridgeSource(this, \"${1:id}\", {",
+            "  bridgeArn: \"${2:string}\", // Required",
+            "  flowSource: {",
+            "    flowArn: \"${3:string}\",",
+            "  },",
+            "  name: \"${4:string}\", // Required",
+            "  networkSource: {",
+            "    multicastIp: \"${5:string}\",",
+            "    networkName: \"${6:string}\",",
+            "    port: ${7:Number},",
+            "    protocol: \"${8:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: mediaconnect.CfnBridgeSource",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediaconnect.CfnBridgeSource"
+        ],
+        "prefix": "l1-mediaconnect-bridgesource",
+        "scope": "javascript,typescript"
+    },
     "mediaconnect.CfnFlow": {
         "body": [
             "new mediaconnect.CfnFlow(this, \"${1:id}\", {",
@@ -17230,6 +17420,24 @@
             "  attrNetworkInterfaceIds"
         ],
         "prefix": "l1-mediaconnect-flowvpcinterface",
+        "scope": "javascript,typescript"
+    },
+    "mediaconnect.CfnGateway": {
+        "body": [
+            "new mediaconnect.CfnGateway(this, \"${1:id}\", {",
+            "  egressCidrBlocks: [], // Required",
+            "  name: \"${3:string}\", // Required",
+            "  networks: [], // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: mediaconnect.CfnGateway",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediaconnect.CfnGateway",
+            "Attributes: ",
+            "  attrGatewayArn",
+            "  attrGatewayState"
+        ],
+        "prefix": "l1-mediaconnect-gateway",
         "scope": "javascript,typescript"
     },
     "mediaconvert.CfnJobTemplate": {
@@ -20587,6 +20795,29 @@
         "prefix": "l1-ram-resourceshare",
         "scope": "javascript,typescript"
     },
+    "rds.CfnCustomDBEngineVersion": {
+        "body": [
+            "new rds.CfnCustomDBEngineVersion(this, \"${1:id}\", {",
+            "  databaseInstallationFilesS3BucketName: \"${2:string}\", // Required",
+            "  databaseInstallationFilesS3Prefix: \"${3:string}\",",
+            "  description: \"${4:string}\",",
+            "  engine: \"${5:string}\", // Required",
+            "  engineVersion: \"${6:string}\", // Required",
+            "  kMSKeyId: \"${7:string}\",",
+            "  manifest: \"${8:string}\",",
+            "  status: \"${9:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: rds.CfnCustomDBEngineVersion",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnCustomDBEngineVersion",
+            "Attributes: ",
+            "  attrDBEngineVersionArn"
+        ],
+        "prefix": "l1-rds-customdbengineversion",
+        "scope": "javascript,typescript"
+    },
     "rds.CfnDBCluster": {
         "body": [
             "new rds.CfnDBCluster(this, \"${1:id}\", {",
@@ -23696,6 +23927,68 @@
         "prefix": "l1-secretsmanager-secrettargetattachment",
         "scope": "javascript,typescript"
     },
+    "securityhub.CfnAutomationRule": {
+        "body": [
+            "new securityhub.CfnAutomationRule(this, \"${1:id}\", {",
+            "  actions: [],",
+            "  criteria: {",
+            "    awsAccountId: [],",
+            "    companyName: [],",
+            "    complianceAssociatedStandardsId: [],",
+            "    complianceSecurityControlId: [],",
+            "    complianceStatus: [],",
+            "    confidence: [],",
+            "    createdAt: [],",
+            "    criticality: [],",
+            "    description: [],",
+            "    firstObservedAt: [],",
+            "    generatorId: [],",
+            "    id: [],",
+            "    lastObservedAt: [],",
+            "    noteText: [],",
+            "    noteUpdatedAt: [],",
+            "    noteUpdatedBy: [],",
+            "    productArn: [],",
+            "    productName: [],",
+            "    recordState: [],",
+            "    relatedFindingsId: [],",
+            "    relatedFindingsProductArn: [],",
+            "    resourceDetailsOther: [],",
+            "    resourceId: [],",
+            "    resourcePartition: [],",
+            "    resourceRegion: [],",
+            "    resourceTags: [],",
+            "    resourceType: [],",
+            "    severityLabel: [],",
+            "    sourceUrl: [],",
+            "    title: [],",
+            "    type: [],",
+            "    updatedAt: [],",
+            "    userDefinedFields: [],",
+            "    verificationState: [],",
+            "    workflowStatus: [],",
+            "  },",
+            "  description: \"${4:string}\",",
+            "  isTerminal: ${5|false,true|},",
+            "  ruleName: \"${6:string}\",",
+            "  ruleOrder: ${7:Number},",
+            "  ruleStatus: \"${8:string}\",",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: securityhub.CfnAutomationRule",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnAutomationRule",
+            "Attributes: ",
+            "  attrCreatedBy",
+            "  attrRuleArn",
+            "  attrCreatedAt",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-securityhub-automationrule",
+        "scope": "javascript,typescript"
+    },
     "securityhub.CfnHub": {
         "body": [
             "new securityhub.CfnHub(this, \"${1:id}\", {",
@@ -23707,6 +24000,22 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnHub"
         ],
         "prefix": "l1-securityhub-hub",
+        "scope": "javascript,typescript"
+    },
+    "securityhub.CfnStandard": {
+        "body": [
+            "new securityhub.CfnStandard(this, \"${1:id}\", {",
+            "  disabledStandardsControls: [],",
+            "  standardsArn: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: securityhub.CfnStandard",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnStandard",
+            "Attributes: ",
+            "  attrStandardsSubscriptionArn"
+        ],
+        "prefix": "l1-securityhub-standard",
         "scope": "javascript,typescript"
     },
     "servicecatalog.CfnAcceptedPortfolioShare": {
