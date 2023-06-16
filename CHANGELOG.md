@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.89.0 (2023-06-16)
+-------------------
+- The following resource was updated: AWS::IVS::Channel. [Github
+  Actions]
+
+
 1.88.0 (2023-06-09)
 -------------------
 - The following resource was updated: AWS::CloudTrail::EventDataStore.
