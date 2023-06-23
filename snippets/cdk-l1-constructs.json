@@ -662,9 +662,7 @@
         ],
         "description": [
             "Construct: apigateway.CfnGatewayResponse",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnGatewayResponse",
-            "Attributes: ",
-            "  attrId"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnGatewayResponse"
         ],
         "prefix": "l1-apigateway-gatewayresponse",
         "scope": "javascript,typescript"
@@ -3284,6 +3282,10 @@
         "body": [
             "new cassandra.CfnKeyspace(this, \"${1:id}\", {",
             "  keyspaceName: \"${2:string}\",",
+            "  replicationSpecification: {",
+            "    regionList: [],",
+            "    replicationStrategy: \"${4:string}\",",
+            "  },",
             "  tags: [],",
             "})"
         ],
@@ -8187,9 +8189,7 @@
         ],
         "description": [
             "Construct: ec2.CfnNetworkAclEntry",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnNetworkAclEntry",
-            "Attributes: ",
-            "  attrId"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnNetworkAclEntry"
         ],
         "prefix": "l1-ec2-networkaclentry",
         "scope": "javascript,typescript"
@@ -9219,9 +9219,7 @@
         ],
         "description": [
             "Construct: ec2.CfnVPNGatewayRoutePropagation",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPNGatewayRoutePropagation",
-            "Attributes: ",
-            "  attrId"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPNGatewayRoutePropagation"
         ],
         "prefix": "l1-ec2-vpngatewayroutepropagation",
         "scope": "javascript,typescript"
@@ -9376,7 +9374,7 @@
     "ec2.CfnVolumeAttachment": {
         "body": [
             "new ec2.CfnVolumeAttachment(this, \"${1:id}\", {",
-            "  device: \"${2:string}\", // Required",
+            "  device: \"${2:string}\",",
             "  instanceId: \"${3:string}\", // Required",
             "  volumeId: \"${4:string}\", // Required",
             "})"
@@ -12017,6 +12015,27 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-glue.CfnDataCatalogEncryptionSettings"
         ],
         "prefix": "l1-glue-datacatalogencryptionsettings",
+        "scope": "javascript,typescript"
+    },
+    "glue.CfnDataQualityRuleset": {
+        "body": [
+            "new glue.CfnDataQualityRuleset(this, \"${1:id}\", {",
+            "  clientToken: \"${2:string}\",",
+            "  description: \"${3:string}\",",
+            "  name: \"${4:string}\",",
+            "  ruleset: \"${5:string}\",",
+            "  tags: ${6:JSON},",
+            "  targetTable: {",
+            "    databaseName: \"${7:string}\",",
+            "    tableName: \"${8:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: glue.CfnDataQualityRuleset",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-glue.CfnDataQualityRuleset"
+        ],
+        "prefix": "l1-glue-dataqualityruleset",
         "scope": "javascript,typescript"
     },
     "glue.CfnDatabase": {
@@ -17257,22 +17276,22 @@
             "  source: {",
             "    description: \"${5:string}\",",
             "    entitlementArn: \"${6:string}\",",
-            "    ingestIp: \"${7:string}\",",
-            "    ingestPort: ${8:Number},",
-            "    maxBitrate: ${9:Number},",
-            "    maxLatency: ${10:Number},",
-            "    minLatency: ${11:Number},",
-            "    name: \"${12:string}\",",
-            "    protocol: \"${13:string}\",",
-            "    senderControlPort: ${14:Number},",
-            "    senderIpAddress: \"${15:string}\",",
-            "    sourceArn: \"${16:string}\",",
-            "    sourceIngestPort: \"${17:string}\",",
-            "    sourceListenerAddress: \"${18:string}\",",
-            "    sourceListenerPort: ${19:Number},",
-            "    streamId: \"${20:string}\",",
-            "    vpcInterfaceName: \"${21:string}\",",
-            "    whitelistCidr: \"${22:string}\",",
+            "    ingestIp: \"${8:string}\",",
+            "    ingestPort: ${9:Number},",
+            "    maxBitrate: ${10:Number},",
+            "    maxLatency: ${11:Number},",
+            "    minLatency: ${12:Number},",
+            "    name: \"${13:string}\",",
+            "    protocol: \"${14:string}\",",
+            "    senderControlPort: ${15:Number},",
+            "    senderIpAddress: \"${16:string}\",",
+            "    sourceArn: \"${17:string}\",",
+            "    sourceIngestPort: \"${18:string}\",",
+            "    sourceListenerAddress: \"${19:string}\",",
+            "    sourceListenerPort: ${20:Number},",
+            "    streamId: \"${21:string}\",",
+            "    vpcInterfaceName: \"${22:string}\",",
+            "    whitelistCidr: \"${23:string}\",",
             "  },",
             "  sourceFailoverConfig: {",
             "    failoverMode: \"${5:string}\",",
@@ -17377,19 +17396,22 @@
             "  description: \"${3:string}\", // Required",
             "  entitlementArn: \"${4:string}\",",
             "  flowArn: \"${5:string}\",",
-            "  ingestPort: ${6:Number},",
-            "  maxBitrate: ${7:Number},",
-            "  maxLatency: ${8:Number},",
-            "  minLatency: ${9:Number},",
-            "  name: \"${10:string}\", // Required",
-            "  protocol: \"${11:string}\",",
-            "  senderControlPort: ${12:Number},",
-            "  senderIpAddress: \"${13:string}\",",
-            "  sourceListenerAddress: \"${14:string}\",",
-            "  sourceListenerPort: ${15:Number},",
-            "  streamId: \"${16:string}\",",
-            "  vpcInterfaceName: \"${17:string}\",",
-            "  whitelistCidr: \"${18:string}\",",
+            "  gatewayBridgeSource: {",
+            "    bridgeArn: \"${6:string}\",",
+            "  },",
+            "  ingestPort: ${7:Number},",
+            "  maxBitrate: ${8:Number},",
+            "  maxLatency: ${9:Number},",
+            "  minLatency: ${10:Number},",
+            "  name: \"${11:string}\", // Required",
+            "  protocol: \"${12:string}\",",
+            "  senderControlPort: ${13:Number},",
+            "  senderIpAddress: \"${14:string}\",",
+            "  sourceListenerAddress: \"${15:string}\",",
+            "  sourceListenerPort: ${16:Number},",
+            "  streamId: \"${17:string}\",",
+            "  vpcInterfaceName: \"${18:string}\",",
+            "  whitelistCidr: \"${19:string}\",",
             "})"
         ],
         "description": [
@@ -19488,6 +19510,26 @@
             "  attrArn"
         ],
         "prefix": "l1-organizations-account",
+        "scope": "javascript,typescript"
+    },
+    "organizations.CfnOrganization": {
+        "body": [
+            "new organizations.CfnOrganization(this, \"${1:id}\", {",
+            "  featureSet: \"${2:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: organizations.CfnOrganization",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-organizations.CfnOrganization",
+            "Attributes: ",
+            "  attrRootId",
+            "  attrId",
+            "  attrArn",
+            "  attrManagementAccountArn",
+            "  attrManagementAccountId",
+            "  attrManagementAccountEmail"
+        ],
+        "prefix": "l1-organizations-organization",
         "scope": "javascript,typescript"
     },
     "organizations.CfnOrganizationalUnit": {
@@ -23992,7 +24034,10 @@
     "securityhub.CfnHub": {
         "body": [
             "new securityhub.CfnHub(this, \"${1:id}\", {",
-            "  tags: ${2:JSON},",
+            "  autoEnableControls: ${2|false,true|},",
+            "  controlFindingGenerator: \"${3:string}\",",
+            "  enableDefaultStandards: ${4|false,true|},",
+            "  tags: ${5:JSON},",
             "})"
         ],
         "description": [
@@ -25431,6 +25476,47 @@
         "prefix": "l1-stepfunctions-statemachine",
         "scope": "javascript,typescript"
     },
+    "stepfunctions.CfnStateMachineAlias": {
+        "body": [
+            "new stepfunctions.CfnStateMachineAlias(this, \"${1:id}\", {",
+            "  deploymentPreference: {",
+            "    alarms: [],",
+            "    interval: ${3:Number},",
+            "    percentage: ${4:Number},",
+            "    stateMachineVersionArn: \"${5:string}\",",
+            "    type: \"${6:string}\",",
+            "  },",
+            "  description: \"${3:string}\",",
+            "  name: \"${4:string}\",",
+            "  routingConfiguration: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: stepfunctions.CfnStateMachineAlias",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-stepfunctions.CfnStateMachineAlias",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-stepfunctions-statemachinealias",
+        "scope": "javascript,typescript"
+    },
+    "stepfunctions.CfnStateMachineVersion": {
+        "body": [
+            "new stepfunctions.CfnStateMachineVersion(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  stateMachineArn: \"${3:string}\", // Required",
+            "  stateMachineRevisionId: \"${4:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: stepfunctions.CfnStateMachineVersion",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-stepfunctions.CfnStateMachineVersion",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-stepfunctions-statemachineversion",
+        "scope": "javascript,typescript"
+    },
     "supportapp.CfnAccountAlias": {
         "body": [
             "new supportapp.CfnAccountAlias(this, \"${1:id}\", {",
@@ -25780,6 +25866,7 @@
             "  },",
             "  protocols: [],",
             "  securityPolicyName: \"${13:string}\",",
+            "  structuredLogDestinations: [],",
             "  tags: [],",
             "  workflowDetails: {",
             "    onPartialUpload: [],",
