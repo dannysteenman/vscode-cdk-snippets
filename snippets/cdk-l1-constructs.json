@@ -1768,6 +1768,27 @@
         "prefix": "l1-appmesh-virtualservice",
         "scope": "javascript,typescript"
     },
+    "apprunner.CfnAutoScalingConfiguration": {
+        "body": [
+            "new apprunner.CfnAutoScalingConfiguration(this, \"${1:id}\", {",
+            "  autoScalingConfigurationName: \"${2:string}\",",
+            "  maxConcurrency: ${3:Number},",
+            "  maxSize: ${4:Number},",
+            "  minSize: ${5:Number},",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: apprunner.CfnAutoScalingConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apprunner.CfnAutoScalingConfiguration",
+            "Attributes: ",
+            "  attrAutoScalingConfigurationRevision",
+            "  attrAutoScalingConfigurationArn",
+            "  attrLatest"
+        ],
+        "prefix": "l1-apprunner-autoscalingconfiguration",
+        "scope": "javascript,typescript"
+    },
     "apprunner.CfnObservabilityConfiguration": {
         "body": [
             "new apprunner.CfnObservabilityConfiguration(this, \"${1:id}\", {",
@@ -1882,14 +1903,20 @@
             "  description: \"${2:string}\",",
             "  displayName: \"${3:string}\",",
             "  name: \"${4:string}\", // Required",
+            "  packagingType: \"${5:string}\",",
+            "  postSetupScriptDetails: {",
+            "    executableParameters: \"${6:string}\",",
+            "    executablePath: \"${7:string}\",",
+            "    timeoutInSeconds: ${9:Number},",
+            "  },",
             "  setupScriptDetails: {",
-            "    executableParameters: \"${5:string}\",",
-            "    executablePath: \"${6:string}\",",
-            "    timeoutInSeconds: ${8:Number},",
+            "    executableParameters: \"${7:string}\",",
+            "    executablePath: \"${8:string}\",",
+            "    timeoutInSeconds: ${10:Number},",
             "  },",
             "  sourceS3Location: {",
-            "    s3Bucket: \"${6:string}\",",
-            "    s3Key: \"${7:string}\",",
+            "    s3Bucket: \"${8:string}\",",
+            "    s3Key: \"${9:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -1902,6 +1929,35 @@
             "  attrArn"
         ],
         "prefix": "l1-appstream-appblock",
+        "scope": "javascript,typescript"
+    },
+    "appstream.CfnAppBlockBuilder": {
+        "body": [
+            "new appstream.CfnAppBlockBuilder(this, \"${1:id}\", {",
+            "  accessEndpoints: [],",
+            "  appBlockArns: [],",
+            "  description: \"${4:string}\",",
+            "  displayName: \"${5:string}\",",
+            "  enableDefaultInternetAccess: ${6|false,true|},",
+            "  iamRoleArn: \"${7:string}\",",
+            "  instanceType: \"${8:string}\", // Required",
+            "  name: \"${9:string}\", // Required",
+            "  platform: \"${10:string}\", // Required",
+            "  tags: [],",
+            "  vpcConfig: {",
+            "    securityGroupIds: [],",
+            "    subnetIds: [],",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: appstream.CfnAppBlockBuilder",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appstream.CfnAppBlockBuilder",
+            "Attributes: ",
+            "  attrCreatedTime",
+            "  attrArn"
+        ],
+        "prefix": "l1-appstream-appblockbuilder",
         "scope": "javascript,typescript"
     },
     "appstream.CfnApplication": {
@@ -5225,6 +5281,45 @@
         "prefix": "l1-cognito-userpoolusertogroupattachment",
         "scope": "javascript,typescript"
     },
+    "comprehend.CfnDocumentClassifier": {
+        "body": [
+            "new comprehend.CfnDocumentClassifier(this, \"${1:id}\", {",
+            "  dataAccessRoleArn: \"${2:string}\", // Required",
+            "  documentClassifierName: \"${3:string}\", // Required",
+            "  inputDataConfig: {",
+            "    augmentedManifests: [],",
+            "    dataFormat: \"${5:string}\",",
+            "    documentType: \"${7:string}\",",
+            "    labelDelimiter: \"${9:string}\",",
+            "    s3Uri: \"${10:string}\",",
+            "    testS3Uri: \"${11:string}\",",
+            "  },",
+            "  languageCode: \"${5:string}\", // Required",
+            "  mode: \"${6:string}\",",
+            "  modelKmsKeyId: \"${7:string}\",",
+            "  modelPolicy: \"${8:string}\",",
+            "  outputDataConfig: {",
+            "    kmsKeyId: \"${9:string}\",",
+            "    s3Uri: \"${10:string}\",",
+            "  },",
+            "  tags: [],",
+            "  versionName: \"${11:string}\",",
+            "  volumeKmsKeyId: \"${12:string}\",",
+            "  vpcConfig: {",
+            "    securityGroupIds: [],",
+            "    subnets: [],",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: comprehend.CfnDocumentClassifier",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-comprehend.CfnDocumentClassifier",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-comprehend-documentclassifier",
+        "scope": "javascript,typescript"
+    },
     "comprehend.CfnFlywheel": {
         "body": [
             "new comprehend.CfnFlywheel(this, \"${1:id}\", {",
@@ -7994,9 +8089,10 @@
     "ec2.CfnKeyPair": {
         "body": [
             "new ec2.CfnKeyPair(this, \"${1:id}\", {",
-            "  keyName: \"${2:string}\", // Required",
-            "  keyType: \"${3:string}\",",
-            "  publicKeyMaterial: \"${4:string}\",",
+            "  keyFormat: \"${2:string}\",",
+            "  keyName: \"${3:string}\", // Required",
+            "  keyType: \"${4:string}\",",
+            "  publicKeyMaterial: \"${5:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -8043,6 +8139,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnLaunchTemplate",
             "Attributes: ",
             "  attrLatestVersionNumber",
+            "  attrLaunchTemplateId",
             "  attrDefaultVersionNumber"
         ],
         "prefix": "l1-ec2-launchtemplate",
@@ -8583,8 +8680,10 @@
             "Attributes: ",
             "  attrVpcId",
             "  attrNetworkAclAssociationId",
+            "  attrAvailabilityZoneId",
             "  attrOutpostArn",
             "  attrAvailabilityZone",
+            "  attrCidrBlock",
             "  attrSubnetId",
             "  attrIpv6CidrBlocks"
         ],
@@ -9294,6 +9393,8 @@
             "new ec2.CfnVerifiedAccessInstance(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
             "  loggingConfigurations: {",
+            "    includeTrustContext: ${4|false,true|},",
+            "    logVersion: \"${6:string}\",",
             "  },",
             "  tags: [],",
             "  verifiedAccessTrustProviderIds: [],",
@@ -13119,14 +13220,16 @@
     "iam.CfnServiceLinkedRole": {
         "body": [
             "new iam.CfnServiceLinkedRole(this, \"${1:id}\", {",
-            "  aWSServiceName: \"${2:string}\", // Required",
+            "  aWSServiceName: \"${2:string}\",",
             "  customSuffix: \"${3:string}\",",
             "  description: \"${4:string}\",",
             "})"
         ],
         "description": [
             "Construct: iam.CfnServiceLinkedRole",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnServiceLinkedRole"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnServiceLinkedRole",
+            "Attributes: ",
+            "  attrRoleName"
         ],
         "prefix": "l1-iam-servicelinkedrole",
         "scope": "javascript,typescript"
@@ -18424,7 +18527,7 @@
             "  },",
             "  connectAttachmentId: \"${3:string}\", // Required",
             "  coreNetworkAddress: \"${4:string}\",",
-            "  insideCidrBlocks: [], // Required",
+            "  insideCidrBlocks: [],",
             "  peerAddress: \"${6:string}\", // Required",
             "  tags: [],",
             "})"
@@ -18491,19 +18594,23 @@
     "networkmanager.CfnDevice": {
         "body": [
             "new networkmanager.CfnDevice(this, \"${1:id}\", {",
-            "  description: \"${2:string}\",",
-            "  globalNetworkId: \"${3:string}\", // Required",
-            "  location: {",
-            "    address: \"${4:string}\",",
-            "    latitude: \"${5:string}\",",
-            "    longitude: \"${6:string}\",",
+            "  aWSLocation: {",
+            "    subnetArn: \"${2:string}\",",
+            "    zone: \"${3:string}\",",
             "  },",
-            "  model: \"${5:string}\",",
-            "  serialNumber: \"${6:string}\",",
-            "  siteId: \"${7:string}\",",
+            "  description: \"${3:string}\",",
+            "  globalNetworkId: \"${4:string}\", // Required",
+            "  location: {",
+            "    address: \"${5:string}\",",
+            "    latitude: \"${6:string}\",",
+            "    longitude: \"${7:string}\",",
+            "  },",
+            "  model: \"${6:string}\",",
+            "  serialNumber: \"${7:string}\",",
+            "  siteId: \"${8:string}\",",
             "  tags: [],",
-            "  type: \"${9:string}\",",
-            "  vendor: \"${10:string}\",",
+            "  type: \"${10:string}\",",
+            "  vendor: \"${11:string}\",",
             "})"
         ],
         "description": [
@@ -18511,7 +18618,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-networkmanager.CfnDevice",
             "Attributes: ",
             "  attrDeviceArn",
-            "  attrDeviceId"
+            "  attrDeviceId",
+            "  attrCreatedAt"
         ],
         "prefix": "l1-networkmanager-device",
         "scope": "javascript,typescript"
@@ -19623,16 +19731,14 @@
             "  applicationInstanceIdToReplace: \"${2:string}\",",
             "  defaultRuntimeContextDevice: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
-            "  deviceId: \"${5:string}\",",
             "  manifestOverridesPayload: {",
-            "    payloadData: \"${6:string}\",",
+            "    payloadData: \"${5:string}\",",
             "  },",
             "  manifestPayload: {",
-            "    payloadData: \"${7:string}\",",
+            "    payloadData: \"${6:string}\",",
             "  },",
-            "  name: \"${8:string}\",",
-            "  runtimeRoleArn: \"${9:string}\",",
-            "  statusFilter: \"${10:string}\",",
+            "  name: \"${7:string}\",",
+            "  runtimeRoleArn: \"${8:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -20714,10 +20820,10 @@
         "body": [
             "new quicksight.CfnTheme(this, \"${1:id}\", {",
             "  awsAccountId: \"${2:string}\", // Required",
-            "  baseThemeId: \"${3:string}\",",
+            "  baseThemeId: \"${3:string}\", // Required",
             "  configuration: {",
             "  },",
-            "  name: \"${5:string}\",",
+            "  name: \"${5:string}\", // Required",
             "  permissions: [],",
             "  tags: [],",
             "  themeId: \"${8:string}\", // Required",
@@ -23460,31 +23566,15 @@
     "sagemaker.CfnModelPackage": {
         "body": [
             "new sagemaker.CfnModelPackage(this, \"${1:id}\", {",
-            "  additionalInferenceSpecificationDefinition: {",
-            "    containers: [],",
-            "    description: \"${3:string}\",",
-            "    name: \"${4:string}\",",
-            "    supportedContentTypes: [],",
-            "    supportedRealtimeInferenceInstanceTypes: [],",
-            "    supportedResponseMIMETypes: [],",
-            "    supportedTransformInstanceTypes: [],",
-            "  },",
             "  additionalInferenceSpecifications: [],",
             "  additionalInferenceSpecificationsToAdd: [],",
-            "  approvalDescription: \"${5:string}\",",
-            "  certifyForMarketplace: ${6|false,true|},",
-            "  clientToken: \"${7:string}\",",
-            "  createdBy: {",
-            "    domainId: \"${8:string}\",",
-            "    userProfileArn: \"${9:string}\",",
-            "    userProfileName: \"${10:string}\",",
-            "  },",
+            "  approvalDescription: \"${4:string}\",",
+            "  certifyForMarketplace: ${5|false,true|},",
+            "  clientToken: \"${6:string}\",",
             "  customerMetadataProperties: {",
             "  },",
-            "  domain: \"${10:string}\",",
+            "  domain: \"${8:string}\",",
             "  driftCheckBaselines: {",
-            "  },",
-            "  environment: {",
             "  },",
             "  inferenceSpecification: {",
             "    containers: [],",
@@ -23493,43 +23583,32 @@
             "    supportedResponseMIMETypes: [],",
             "    supportedTransformInstanceTypes: [],",
             "  },",
-            "  lastModifiedBy: {",
-            "    domainId: \"${14:string}\",",
-            "    userProfileArn: \"${15:string}\",",
-            "    userProfileName: \"${16:string}\",",
-            "  },",
-            "  lastModifiedTime: \"${15:string}\",",
+            "  lastModifiedTime: \"${11:string}\",",
             "  metadataProperties: {",
-            "    commitId: \"${16:string}\",",
-            "    generatedBy: \"${17:string}\",",
-            "    projectId: \"${18:string}\",",
-            "    repository: \"${19:string}\",",
+            "    commitId: \"${12:string}\",",
+            "    generatedBy: \"${13:string}\",",
+            "    projectId: \"${14:string}\",",
+            "    repository: \"${15:string}\",",
             "  },",
-            "  modelApprovalStatus: \"${17:string}\",",
+            "  modelApprovalStatus: \"${13:string}\",",
             "  modelMetrics: {",
             "  },",
-            "  modelPackageDescription: \"${19:string}\",",
-            "  modelPackageGroupName: \"${20:string}\",",
-            "  modelPackageName: \"${21:string}\",",
+            "  modelPackageDescription: \"${15:string}\",",
+            "  modelPackageGroupName: \"${16:string}\",",
+            "  modelPackageName: \"${17:string}\",",
             "  modelPackageStatusDetails: {",
-            "    imageScanStatuses: [],",
             "    validationStatuses: [],",
             "  },",
-            "  modelPackageStatusItem: {",
-            "    failureReason: \"${23:string}\",",
-            "    name: \"${24:string}\",",
-            "    status: \"${25:string}\",",
-            "  },",
-            "  modelPackageVersion: ${24:Number},",
-            "  samplePayloadUrl: \"${25:string}\",",
+            "  modelPackageVersion: ${19:Number},",
+            "  samplePayloadUrl: \"${20:string}\",",
             "  sourceAlgorithmSpecification: {",
             "    sourceAlgorithms: [],",
             "  },",
             "  tags: [],",
-            "  task: \"${28:string}\",",
+            "  task: \"${23:string}\",",
             "  validationSpecification: {",
             "    validationProfiles: [],",
-            "    validationRole: \"${30:string}\",",
+            "    validationRole: \"${25:string}\",",
             "  },",
             "})"
         ],
@@ -25933,6 +26012,85 @@
         "prefix": "l1-transfer-workflow",
         "scope": "javascript,typescript"
     },
+    "verifiedpermissions.CfnIdentitySource": {
+        "body": [
+            "new verifiedpermissions.CfnIdentitySource(this, \"${1:id}\", {",
+            "  configuration: {",
+            "  },",
+            "  policyStoreId: \"${3:string}\",",
+            "  principalEntityType: \"${4:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: verifiedpermissions.CfnIdentitySource",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-verifiedpermissions.CfnIdentitySource",
+            "Attributes: ",
+            "  attrDetails.DiscoveryUrl",
+            "  attrDetails",
+            "  attrDetails.ClientIds",
+            "  attrDetails.UserPoolArn",
+            "  attrDetails.OpenIdIssuer",
+            "  attrIdentitySourceId"
+        ],
+        "prefix": "l1-verifiedpermissions-identitysource",
+        "scope": "javascript,typescript"
+    },
+    "verifiedpermissions.CfnPolicy": {
+        "body": [
+            "new verifiedpermissions.CfnPolicy(this, \"${1:id}\", {",
+            "  definition: {",
+            "  },",
+            "  policyStoreId: \"${3:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: verifiedpermissions.CfnPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-verifiedpermissions.CfnPolicy",
+            "Attributes: ",
+            "  attrPolicyType",
+            "  attrPolicyId"
+        ],
+        "prefix": "l1-verifiedpermissions-policy",
+        "scope": "javascript,typescript"
+    },
+    "verifiedpermissions.CfnPolicyStore": {
+        "body": [
+            "new verifiedpermissions.CfnPolicyStore(this, \"${1:id}\", {",
+            "  schema: {",
+            "    cedarJson: \"${2:string}\",",
+            "  },",
+            "  validationSettings: {",
+            "    mode: \"${3:string}\",",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: verifiedpermissions.CfnPolicyStore",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-verifiedpermissions.CfnPolicyStore",
+            "Attributes: ",
+            "  attrPolicyStoreId",
+            "  attrArn"
+        ],
+        "prefix": "l1-verifiedpermissions-policystore",
+        "scope": "javascript,typescript"
+    },
+    "verifiedpermissions.CfnPolicyTemplate": {
+        "body": [
+            "new verifiedpermissions.CfnPolicyTemplate(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  policyStoreId: \"${3:string}\",",
+            "  statement: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: verifiedpermissions.CfnPolicyTemplate",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-verifiedpermissions.CfnPolicyTemplate",
+            "Attributes: ",
+            "  attrPolicyTemplateId"
+        ],
+        "prefix": "l1-verifiedpermissions-policytemplate",
+        "scope": "javascript,typescript"
+    },
     "voiceid.CfnDomain": {
         "body": [
             "new voiceid.CfnDomain(this, \"${1:id}\", {",
@@ -26547,6 +26705,8 @@
     "wafv2.CfnWebACL": {
         "body": [
             "new wafv2.CfnWebACL(this, \"${1:id}\", {",
+            "  associationConfig: {",
+            "  },",
             "  captchaConfig: {",
             "  },",
             "  challengeConfig: {",
@@ -26555,16 +26715,16 @@
             "  },",
             "  defaultAction: {",
             "  },",
-            "  description: \"${6:string}\",",
-            "  name: \"${7:string}\",",
+            "  description: \"${7:string}\",",
+            "  name: \"${8:string}\",",
             "  rules: [],",
-            "  scope: \"${9:string}\", // Required",
+            "  scope: \"${10:string}\", // Required",
             "  tags: [],",
             "  tokenDomains: [],",
             "  visibilityConfig: {",
-            "    cloudWatchMetricsEnabled: ${12|false,true|},",
-            "    metricName: \"${13:string}\",",
-            "    sampledRequestsEnabled: ${14|false,true|},",
+            "    cloudWatchMetricsEnabled: ${13|false,true|},",
+            "    metricName: \"${14:string}\",",
+            "    sampledRequestsEnabled: ${15|false,true|},",
             "  },",
             "})"
         ],
