@@ -982,7 +982,9 @@
         ],
         "description": [
             "Construct: apigatewayv2.CfnApiMapping",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnApiMapping"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigatewayv2.CfnApiMapping",
+            "Attributes: ",
+            "  attrApiMappingId"
         ],
         "prefix": "l1-apigatewayv2-apimapping",
         "scope": "javascript,typescript"
@@ -13643,16 +13645,20 @@
     "internetmonitor.CfnMonitor": {
         "body": [
             "new internetmonitor.CfnMonitor(this, \"${1:id}\", {",
+            "  healthEventsConfig: {",
+            "    availabilityScoreThreshold: ${2:Number},",
+            "    performanceScoreThreshold: ${3:Number},",
+            "  },",
             "  internetMeasurementsLogDelivery: {",
             "  },",
-            "  maxCityNetworksToMonitor: ${3:Number},",
-            "  monitorName: \"${4:string}\", // Required",
+            "  maxCityNetworksToMonitor: ${4:Number},",
+            "  monitorName: \"${5:string}\", // Required",
             "  resources: [],",
             "  resourcesToAdd: [],",
             "  resourcesToRemove: [],",
-            "  status: \"${8:string}\",",
+            "  status: \"${9:string}\",",
             "  tags: [],",
-            "  trafficPercentageToMonitor: ${10:Number},",
+            "  trafficPercentageToMonitor: ${11:Number},",
             "})"
         ],
         "description": [
@@ -25034,7 +25040,9 @@
         ],
         "description": [
             "Construct: sns.CfnTopicPolicy",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sns.CfnTopicPolicy"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sns.CfnTopicPolicy",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-sns-topicpolicy",
         "scope": "javascript,typescript"
