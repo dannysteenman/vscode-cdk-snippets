@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.94.0 (2023-07-21)
+-------------------
+- The following resource was updated: AWS::FSx::Volume. [Github Actions]
+
+
 1.93.0 (2023-07-14)
 -------------------
 - The following resource was updated: AWS::IoT::JobTemplate. [Github
