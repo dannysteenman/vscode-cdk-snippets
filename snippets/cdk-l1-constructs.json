@@ -157,39 +157,41 @@
             "    id: \"${5:string}\",",
             "    revision: ${6:Number},",
             "  },",
-            "  deploymentMode: \"${6:string}\", // Required",
+            "  dataReplicationMode: \"${6:string}\",",
+            "  dataReplicationPrimaryBrokerArn: \"${7:string}\",",
+            "  deploymentMode: \"${8:string}\", // Required",
             "  encryptionOptions: {",
-            "    kmsKeyId: \"${7:string}\",",
-            "    useAwsOwnedKey: ${8|false,true|},",
+            "    kmsKeyId: \"${9:string}\",",
+            "    useAwsOwnedKey: ${10|false,true|},",
             "  },",
-            "  engineType: \"${8:string}\", // Required",
-            "  engineVersion: \"${9:string}\", // Required",
-            "  hostInstanceType: \"${10:string}\", // Required",
+            "  engineType: \"${10:string}\", // Required",
+            "  engineVersion: \"${11:string}\", // Required",
+            "  hostInstanceType: \"${12:string}\", // Required",
             "  ldapServerMetadata: {",
             "    hosts: [],",
-            "    roleBase: \"${12:string}\",",
-            "    roleName: \"${13:string}\",",
-            "    roleSearchMatching: \"${14:string}\",",
-            "    roleSearchSubtree: ${15|false,true|},",
-            "    serviceAccountPassword: \"${16:string}\",",
-            "    serviceAccountUsername: \"${17:string}\",",
-            "    userBase: \"${18:string}\",",
-            "    userRoleName: \"${19:string}\",",
-            "    userSearchMatching: \"${20:string}\",",
-            "    userSearchSubtree: ${21|false,true|},",
+            "    roleBase: \"${14:string}\",",
+            "    roleName: \"${15:string}\",",
+            "    roleSearchMatching: \"${16:string}\",",
+            "    roleSearchSubtree: ${17|false,true|},",
+            "    serviceAccountPassword: \"${18:string}\",",
+            "    serviceAccountUsername: \"${19:string}\",",
+            "    userBase: \"${20:string}\",",
+            "    userRoleName: \"${21:string}\",",
+            "    userSearchMatching: \"${22:string}\",",
+            "    userSearchSubtree: ${23|false,true|},",
             "  },",
             "  logs: {",
-            "    audit: ${12|false,true|},",
-            "    general: ${13|false,true|},",
+            "    audit: ${14|false,true|},",
+            "    general: ${15|false,true|},",
             "  },",
             "  maintenanceWindowStartTime: {",
-            "    dayOfWeek: \"${13:string}\",",
-            "    timeOfDay: \"${14:string}\",",
-            "    timeZone: \"${15:string}\",",
+            "    dayOfWeek: \"${15:string}\",",
+            "    timeOfDay: \"${16:string}\",",
+            "    timeZone: \"${17:string}\",",
             "  },",
-            "  publiclyAccessible: ${14|false,true|}, // Required",
+            "  publiclyAccessible: ${16|false,true|}, // Required",
             "  securityGroups: [],",
-            "  storageType: \"${16:string}\",",
+            "  storageType: \"${18:string}\",",
             "  subnetIds: [],",
             "  tags: [],",
             "  users: [], // Required",
@@ -3104,8 +3106,8 @@
             "    resourceRequirements: [],",
             "    secrets: [],",
             "    ulimits: [],",
-            "    user: \"${20:string}\",",
-            "    vcpus: ${21:Number},",
+            "    user: \"${21:string}\",",
+            "    vcpus: ${22:Number},",
             "    volumes: [],",
             "  },",
             "  eksProperties: {",
@@ -5808,6 +5810,34 @@
         "prefix": "l1-connect-prompt",
         "scope": "javascript,typescript"
     },
+    "connect.CfnQueue": {
+        "body": [
+            "new connect.CfnQueue(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  hoursOfOperationArn: \"${3:string}\", // Required",
+            "  instanceArn: \"${4:string}\", // Required",
+            "  maxContacts: ${5:Number},",
+            "  name: \"${6:string}\", // Required",
+            "  outboundCallerConfig: {",
+            "    outboundCallerIdName: \"${7:string}\",",
+            "    outboundCallerIdNumberArn: \"${8:string}\",",
+            "    outboundFlowArn: \"${9:string}\",",
+            "  },",
+            "  quickConnectArns: [],",
+            "  status: \"${9:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnQueue",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnQueue",
+            "Attributes: ",
+            "  attrType",
+            "  attrQueueArn"
+        ],
+        "prefix": "l1-connect-queue",
+        "scope": "javascript,typescript"
+    },
     "connect.CfnQuickConnect": {
         "body": [
             "new connect.CfnQuickConnect(this, \"${1:id}\", {",
@@ -5827,6 +5857,27 @@
             "  attrQuickConnectArn"
         ],
         "prefix": "l1-connect-quickconnect",
+        "scope": "javascript,typescript"
+    },
+    "connect.CfnRoutingProfile": {
+        "body": [
+            "new connect.CfnRoutingProfile(this, \"${1:id}\", {",
+            "  defaultOutboundQueueArn: \"${2:string}\", // Required",
+            "  description: \"${3:string}\", // Required",
+            "  instanceArn: \"${4:string}\", // Required",
+            "  mediaConcurrencies: [], // Required",
+            "  name: \"${6:string}\", // Required",
+            "  queueConfigs: [],",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnRoutingProfile",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnRoutingProfile",
+            "Attributes: ",
+            "  attrRoutingProfileArn"
+        ],
+        "prefix": "l1-connect-routingprofile",
         "scope": "javascript,typescript"
     },
     "connect.CfnRule": {
@@ -11673,9 +11724,9 @@
             "    ontapVolumeType: \"${6:string}\",",
             "    securityStyle: \"${7:string}\",",
             "    sizeInMegabytes: \"${8:string}\",",
-            "    snapshotPolicy: \"${9:string}\",",
-            "    storageEfficiencyEnabled: \"${10:string}\",",
-            "    storageVirtualMachineId: \"${11:string}\",",
+            "    snapshotPolicy: \"${10:string}\",",
+            "    storageEfficiencyEnabled: \"${11:string}\",",
+            "    storageVirtualMachineId: \"${12:string}\",",
             "  },",
             "  openZFSConfiguration: {",
             "    copyTagsToSnapshots: ${5|false,true|},",
@@ -13093,6 +13144,21 @@
         "prefix": "l1-iam-group",
         "scope": "javascript,typescript"
     },
+    "iam.CfnGroupPolicy": {
+        "body": [
+            "new iam.CfnGroupPolicy(this, \"${1:id}\", {",
+            "  groupName: \"${2:string}\", // Required",
+            "  policyDocument: ${3:JSON},",
+            "  policyName: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iam.CfnGroupPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnGroupPolicy"
+        ],
+        "prefix": "l1-iam-grouppolicy",
+        "scope": "javascript,typescript"
+    },
     "iam.CfnInstanceProfile": {
         "body": [
             "new iam.CfnInstanceProfile(this, \"${1:id}\", {",
@@ -13188,6 +13254,21 @@
         "prefix": "l1-iam-role",
         "scope": "javascript,typescript"
     },
+    "iam.CfnRolePolicy": {
+        "body": [
+            "new iam.CfnRolePolicy(this, \"${1:id}\", {",
+            "  policyDocument: ${2:JSON},",
+            "  policyName: \"${3:string}\", // Required",
+            "  roleName: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iam.CfnRolePolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnRolePolicy"
+        ],
+        "prefix": "l1-iam-rolepolicy",
+        "scope": "javascript,typescript"
+    },
     "iam.CfnSAMLProvider": {
         "body": [
             "new iam.CfnSAMLProvider(this, \"${1:id}\", {",
@@ -13265,6 +13346,21 @@
             "  attrArn"
         ],
         "prefix": "l1-iam-user",
+        "scope": "javascript,typescript"
+    },
+    "iam.CfnUserPolicy": {
+        "body": [
+            "new iam.CfnUserPolicy(this, \"${1:id}\", {",
+            "  policyDocument: ${2:JSON},",
+            "  policyName: \"${3:string}\", // Required",
+            "  userName: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: iam.CfnUserPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnUserPolicy"
+        ],
+        "prefix": "l1-iam-userpolicy",
         "scope": "javascript,typescript"
     },
     "iam.CfnUserToGroupAddition": {
@@ -16900,6 +16996,24 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-location.CfnTrackerConsumer"
         ],
         "prefix": "l1-location-trackerconsumer",
+        "scope": "javascript,typescript"
+    },
+    "logs.CfnAccountPolicy": {
+        "body": [
+            "new logs.CfnAccountPolicy(this, \"${1:id}\", {",
+            "  policyDocument: \"${2:string}\", // Required",
+            "  policyName: \"${3:string}\", // Required",
+            "  policyType: \"${4:string}\", // Required",
+            "  scope: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: logs.CfnAccountPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-logs.CfnAccountPolicy",
+            "Attributes: ",
+            "  attrAccountId"
+        ],
+        "prefix": "l1-logs-accountpolicy",
         "scope": "javascript,typescript"
     },
     "logs.CfnDestination": {
@@ -25039,6 +25153,20 @@
             "  attrTopicName"
         ],
         "prefix": "l1-sns-topic",
+        "scope": "javascript,typescript"
+    },
+    "sns.CfnTopicInlinePolicy": {
+        "body": [
+            "new sns.CfnTopicInlinePolicy(this, \"${1:id}\", {",
+            "  policyDocument: ${2:JSON}, // Required",
+            "  topicArn: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: sns.CfnTopicInlinePolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sns.CfnTopicInlinePolicy"
+        ],
+        "prefix": "l1-sns-topicinlinepolicy",
         "scope": "javascript,typescript"
     },
     "sns.CfnTopicPolicy": {
