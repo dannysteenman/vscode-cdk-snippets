@@ -4948,6 +4948,43 @@
         "prefix": "l1-codestarnotifications-notificationrule",
         "scope": "javascript,typescript"
     },
+    "codetest.CfnPersistentConfiguration": {
+        "body": [
+            "new codetest.CfnPersistentConfiguration(this, \"${1:id}\", {",
+            "  name: \"${2:string}\",",
+            "  resultsRoleArn: \"${3:string}\", // Required",
+            "  version: \"${4:string}\",",
+            "  vpcConfig: {",
+            "    securityGroupIds: [],",
+            "    subnets: [],",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: codetest.CfnPersistentConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-codetest.CfnPersistentConfiguration",
+            "Attributes: ",
+            "  attrName"
+        ],
+        "prefix": "l1-codetest-persistentconfiguration",
+        "scope": "javascript,typescript"
+    },
+    "codetest.CfnSeries": {
+        "body": [
+            "new codetest.CfnSeries(this, \"${1:id}\", {",
+            "  name: \"${2:string}\",",
+            "  persistentConfigurationId: \"${3:string}\", // Required",
+            "  runDefinition: ${4:JSON}, // Required",
+            "  state: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: codetest.CfnSeries",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-codetest.CfnSeries"
+        ],
+        "prefix": "l1-codetest-series",
+        "scope": "javascript,typescript"
+    },
     "cognito.CfnIdentityPool": {
         "body": [
             "new cognito.CfnIdentityPool(this, \"${1:id}\", {",
@@ -7867,13 +7904,14 @@
     "ec2.CfnHost": {
         "body": [
             "new ec2.CfnHost(this, \"${1:id}\", {",
-            "  autoPlacement: \"${2:string}\",",
-            "  availabilityZone: \"${3:string}\", // Required",
-            "  hostMaintenance: \"${4:string}\",",
-            "  hostRecovery: \"${5:string}\",",
-            "  instanceFamily: \"${6:string}\",",
-            "  instanceType: \"${7:string}\",",
-            "  outpostArn: \"${8:string}\",",
+            "  assetId: \"${2:string}\",",
+            "  autoPlacement: \"${3:string}\",",
+            "  availabilityZone: \"${4:string}\", // Required",
+            "  hostMaintenance: \"${5:string}\",",
+            "  hostRecovery: \"${6:string}\",",
+            "  instanceFamily: \"${7:string}\",",
+            "  instanceType: \"${8:string}\",",
+            "  outpostArn: \"${9:string}\",",
             "})"
         ],
         "description": [
@@ -13190,7 +13228,16 @@
         ],
         "description": [
             "Construct: iam.CfnManagedPolicy",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnManagedPolicy"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnManagedPolicy",
+            "Attributes: ",
+            "  attrIsAttachable",
+            "  attrUpdateDate",
+            "  attrPermissionsBoundaryUsageCount",
+            "  attrAttachmentCount",
+            "  attrPolicyArn",
+            "  attrDefaultVersionId",
+            "  attrCreateDate",
+            "  attrPolicyId"
         ],
         "prefix": "l1-iam-managedpolicy",
         "scope": "javascript,typescript"
@@ -15950,7 +15997,8 @@
             "  keySpec: \"${6:string}\",",
             "  keyUsage: \"${7:string}\",",
             "  multiRegion: ${8|false,true|},",
-            "  pendingWindowInDays: ${9:Number},",
+            "  origin: \"${9:string}\",",
+            "  pendingWindowInDays: ${10:Number},",
             "  tags: [],",
             "})"
         ],
@@ -16360,7 +16408,9 @@
         ],
         "description": [
             "Construct: lambda.CfnPermission",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.CfnPermission"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.CfnPermission",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-lambda-permission",
         "scope": "javascript,typescript"
@@ -23474,8 +23524,17 @@
     "sagemaker.CfnImageVersion": {
         "body": [
             "new sagemaker.CfnImageVersion(this, \"${1:id}\", {",
-            "  baseImage: \"${2:string}\", // Required",
-            "  imageName: \"${3:string}\", // Required",
+            "  alias: \"${2:string}\",",
+            "  aliases: [],",
+            "  baseImage: \"${4:string}\", // Required",
+            "  horovod: ${5|false,true|},",
+            "  imageName: \"${6:string}\", // Required",
+            "  jobType: \"${7:string}\",",
+            "  mLFramework: \"${8:string}\",",
+            "  processor: \"${9:string}\",",
+            "  programmingLang: \"${10:string}\",",
+            "  releaseNotes: \"${11:string}\",",
+            "  vendorGuidance: \"${12:string}\",",
             "})"
         ],
         "description": [
@@ -25226,7 +25285,9 @@
         ],
         "description": [
             "Construct: sqs.CfnQueuePolicy",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sqs.CfnQueuePolicy"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sqs.CfnQueuePolicy",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-sqs-queuepolicy",
         "scope": "javascript,typescript"
@@ -25946,7 +26007,10 @@
             "    magneticStoreRetentionPeriodInDays: \"${4:string}\",",
             "    memoryStoreRetentionPeriodInHours: \"${5:string}\",",
             "  },",
-            "  tableName: \"${5:string}\",",
+            "  schema: {",
+            "    compositePartitionKey: [],",
+            "  },",
+            "  tableName: \"${6:string}\",",
             "  tags: [],",
             "})"
         ],
