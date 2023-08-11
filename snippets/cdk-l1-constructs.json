@@ -3474,9 +3474,10 @@
             "  certificateTransparencyLoggingPreference: \"${3:string}\",",
             "  domainName: \"${4:string}\", // Required",
             "  domainValidationOptions: [],",
+            "  keyAlgorithm: \"${6:string}\",",
             "  subjectAlternativeNames: [],",
             "  tags: [],",
-            "  validationMethod: \"${8:string}\",",
+            "  validationMethod: \"${9:string}\",",
             "})"
         ],
         "description": [
@@ -5433,7 +5434,7 @@
             "  name: \"${2:string}\",",
             "  recordingGroup: {",
             "    allSupported: ${3|false,true|},",
-            "    includeGlobalResourceTypes: ${4|false,true|},",
+            "    includeGlobalResourceTypes: ${5|false,true|},",
             "    resourceTypes: [],",
             "  },",
             "  roleARN: \"${4:string}\", // Required",
@@ -5958,6 +5959,26 @@
         "prefix": "l1-connect-tasktemplate",
         "scope": "javascript,typescript"
     },
+    "connect.CfnTrafficDistributionGroup": {
+        "body": [
+            "new connect.CfnTrafficDistributionGroup(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  instanceArn: \"${3:string}\", // Required",
+            "  name: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnTrafficDistributionGroup",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnTrafficDistributionGroup",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrIsDefault",
+            "  attrTrafficDistributionGroupArn"
+        ],
+        "prefix": "l1-connect-trafficdistributiongroup",
+        "scope": "javascript,typescript"
+    },
     "connect.CfnUser": {
         "body": [
             "new connect.CfnUser(this, \"${1:id}\", {",
@@ -6371,6 +6392,31 @@
             "  attrEndpointType"
         ],
         "prefix": "l1-datasync-agent",
+        "scope": "javascript,typescript"
+    },
+    "datasync.CfnLocationAzureBlob": {
+        "body": [
+            "new datasync.CfnLocationAzureBlob(this, \"${1:id}\", {",
+            "  agentArns: [], // Required",
+            "  azureAccessTier: \"${3:string}\",",
+            "  azureBlobAuthenticationType: \"${4:string}\", // Required",
+            "  azureBlobContainerUrl: \"${5:string}\",",
+            "  azureBlobSasConfiguration: {",
+            "    azureBlobSasToken: \"${6:string}\",",
+            "  },",
+            "  azureBlobType: \"${7:string}\",",
+            "  subdirectory: \"${8:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datasync.CfnLocationAzureBlob",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datasync.CfnLocationAzureBlob",
+            "Attributes: ",
+            "  attrLocationUri",
+            "  attrLocationArn"
+        ],
+        "prefix": "l1-datasync-locationazureblob",
         "scope": "javascript,typescript"
     },
     "datasync.CfnLocationEFS": {
@@ -8493,13 +8539,17 @@
             "  description: \"${2:string}\",",
             "  groupSet: [],",
             "  interfaceType: \"${4:string}\",",
-            "  ipv6AddressCount: ${5:Number},",
+            "  ipv4PrefixCount: ${5:Number},",
+            "  ipv4Prefixes: [],",
+            "  ipv6AddressCount: ${7:Number},",
             "  ipv6Addresses: [],",
-            "  privateIpAddress: \"${7:string}\",",
+            "  ipv6PrefixCount: ${9:Number},",
+            "  ipv6Prefixes: [],",
+            "  privateIpAddress: \"${11:string}\",",
             "  privateIpAddresses: [],",
-            "  secondaryPrivateIpAddressCount: ${9:Number},",
-            "  sourceDestCheck: ${10|false,true|},",
-            "  subnetId: \"${11:string}\", // Required",
+            "  secondaryPrivateIpAddressCount: ${13:Number},",
+            "  sourceDestCheck: ${14|false,true|},",
+            "  subnetId: \"${15:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -8525,7 +8575,9 @@
         ],
         "description": [
             "Construct: ec2.CfnNetworkInterfaceAttachment",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnNetworkInterfaceAttachment"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnNetworkInterfaceAttachment",
+            "Attributes: ",
+            "  attrAttachmentId"
         ],
         "prefix": "l1-ec2-networkinterfaceattachment",
         "scope": "javascript,typescript"
@@ -13796,8 +13848,8 @@
         "body": [
             "new internetmonitor.CfnMonitor(this, \"${1:id}\", {",
             "  healthEventsConfig: {",
-            "    availabilityScoreThreshold: ${2:Number},",
-            "    performanceScoreThreshold: ${3:Number},",
+            "    availabilityScoreThreshold: ${3:Number},",
+            "    performanceScoreThreshold: ${5:Number},",
             "  },",
             "  internetMeasurementsLogDelivery: {",
             "  },",
@@ -15468,10 +15520,16 @@
             "  },",
             "  name: \"${3:string}\",",
             "  recordingReconnectWindowSeconds: ${4:Number},",
+            "  renditionConfiguration: {",
+            "    renditionSelection: \"${5:string}\",",
+            "    renditions: [],",
+            "  },",
             "  tags: [],",
             "  thumbnailConfiguration: {",
-            "    recordingMode: \"${6:string}\",",
-            "    targetIntervalSeconds: ${7:Number},",
+            "    recordingMode: \"${7:string}\",",
+            "    resolution: \"${8:string}\",",
+            "    storage: [],",
+            "    targetIntervalSeconds: ${10:Number},",
             "  },",
             "})"
         ],
@@ -15991,15 +16049,16 @@
     "kms.CfnKey": {
         "body": [
             "new kms.CfnKey(this, \"${1:id}\", {",
-            "  description: \"${2:string}\",",
-            "  enableKeyRotation: ${3|false,true|},",
-            "  enabled: ${4|false,true|},",
-            "  keyPolicy: ${5:JSON}, // Required",
-            "  keySpec: \"${6:string}\",",
-            "  keyUsage: \"${7:string}\",",
-            "  multiRegion: ${8|false,true|},",
-            "  origin: \"${9:string}\",",
-            "  pendingWindowInDays: ${10:Number},",
+            "  bypassPolicyLockoutSafetyCheck: ${2|false,true|},",
+            "  description: \"${3:string}\",",
+            "  enableKeyRotation: ${4|false,true|},",
+            "  enabled: ${5|false,true|},",
+            "  keyPolicy: ${6:JSON},",
+            "  keySpec: \"${7:string}\",",
+            "  keyUsage: \"${8:string}\",",
+            "  multiRegion: ${9|false,true|},",
+            "  origin: \"${10:string}\",",
+            "  pendingWindowInDays: ${11:Number},",
             "  tags: [],",
             "})"
         ],
@@ -18102,6 +18161,64 @@
         "prefix": "l1-mediastore-container",
         "scope": "javascript,typescript"
     },
+    "mediatailor.CfnChannel": {
+        "body": [
+            "new mediatailor.CfnChannel(this, \"${1:id}\", {",
+            "  channelName: \"${2:string}\", // Required",
+            "  fillerSlate: {",
+            "    sourceLocationName: \"${3:string}\",",
+            "    vodSourceName: \"${4:string}\",",
+            "  },",
+            "  logConfiguration: {",
+            "    logTypes: [],",
+            "  },",
+            "  outputs: [], // Required",
+            "  playbackMode: \"${6:string}\", // Required",
+            "  tags: [],",
+            "  tier: \"${8:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: mediatailor.CfnChannel",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediatailor.CfnChannel",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-mediatailor-channel",
+        "scope": "javascript,typescript"
+    },
+    "mediatailor.CfnChannelPolicy": {
+        "body": [
+            "new mediatailor.CfnChannelPolicy(this, \"${1:id}\", {",
+            "  channelName: \"${2:string}\", // Required",
+            "  policy: ${3:JSON}, // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: mediatailor.CfnChannelPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediatailor.CfnChannelPolicy"
+        ],
+        "prefix": "l1-mediatailor-channelpolicy",
+        "scope": "javascript,typescript"
+    },
+    "mediatailor.CfnLiveSource": {
+        "body": [
+            "new mediatailor.CfnLiveSource(this, \"${1:id}\", {",
+            "  httpPackageConfigurations: [], // Required",
+            "  liveSourceName: \"${3:string}\", // Required",
+            "  sourceLocationName: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: mediatailor.CfnLiveSource",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediatailor.CfnLiveSource",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-mediatailor-livesource",
+        "scope": "javascript,typescript"
+    },
     "mediatailor.CfnPlaybackConfiguration": {
         "body": [
             "new mediatailor.CfnPlaybackConfiguration(this, \"${1:id}\", {",
@@ -18153,6 +18270,24 @@
             "  attrPlaybackEndpointPrefix"
         ],
         "prefix": "l1-mediatailor-playbackconfiguration",
+        "scope": "javascript,typescript"
+    },
+    "mediatailor.CfnVodSource": {
+        "body": [
+            "new mediatailor.CfnVodSource(this, \"${1:id}\", {",
+            "  httpPackageConfigurations: [], // Required",
+            "  sourceLocationName: \"${3:string}\", // Required",
+            "  tags: [],",
+            "  vodSourceName: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: mediatailor.CfnVodSource",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediatailor.CfnVodSource",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-mediatailor-vodsource",
         "scope": "javascript,typescript"
     },
     "memorydb.CfnACL": {
@@ -23503,7 +23638,10 @@
         ],
         "description": [
             "Construct: sagemaker.CfnFeatureGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sagemaker.CfnFeatureGroup"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sagemaker.CfnFeatureGroup",
+            "Attributes: ",
+            "  attrFeatureGroupStatus",
+            "  attrCreationTime"
         ],
         "prefix": "l1-sagemaker-featuregroup",
         "scope": "javascript,typescript"
