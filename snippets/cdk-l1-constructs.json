@@ -8209,6 +8209,25 @@
         "prefix": "l1-ec2-instance",
         "scope": "javascript,typescript"
     },
+    "ec2.CfnInstanceConnectEndpoint": {
+        "body": [
+            "new ec2.CfnInstanceConnectEndpoint(this, \"${1:id}\", {",
+            "  clientToken: \"${2:string}\",",
+            "  preserveClientIp: ${3|false,true|},",
+            "  securityGroupIds: [],",
+            "  subnetId: \"${5:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ec2.CfnInstanceConnectEndpoint",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnInstanceConnectEndpoint",
+            "Attributes: ",
+            "  attrId"
+        ],
+        "prefix": "l1-ec2-instanceconnectendpoint",
+        "scope": "javascript,typescript"
+    },
     "ec2.CfnInternetGateway": {
         "body": [
             "new ec2.CfnInternetGateway(this, \"${1:id}\", {",
@@ -9706,20 +9725,21 @@
     "ecr.CfnRepository": {
         "body": [
             "new ecr.CfnRepository(this, \"${1:id}\", {",
+            "  emptyOnDelete: ${2|false,true|},",
             "  encryptionConfiguration: {",
-            "    encryptionType: \"${2:string}\",",
-            "    kmsKey: \"${3:string}\",",
+            "    encryptionType: \"${3:string}\",",
+            "    kmsKey: \"${4:string}\",",
             "  },",
             "  imageScanningConfiguration: {",
-            "    scanOnPush: ${3|false,true|},",
+            "    scanOnPush: ${4|false,true|},",
             "  },",
-            "  imageTagMutability: \"${4:string}\",",
+            "  imageTagMutability: \"${5:string}\",",
             "  lifecyclePolicy: {",
-            "    lifecyclePolicyText: \"${5:string}\",",
-            "    registryId: \"${6:string}\",",
+            "    lifecyclePolicyText: \"${6:string}\",",
+            "    registryId: \"${7:string}\",",
             "  },",
-            "  repositoryName: \"${6:string}\",",
-            "  repositoryPolicyText: ${7:JSON},",
+            "  repositoryName: \"${7:string}\",",
+            "  repositoryPolicyText: ${8:JSON},",
             "  tags: [],",
             "})"
         ],
@@ -11022,7 +11042,7 @@
             "new events.CfnConnection(this, \"${1:id}\", {",
             "  authParameters: {",
             "  },",
-            "  authorizationType: \"${3:string}\", // Required",
+            "  authorizationType: \"${3:string}\",",
             "  description: \"${4:string}\",",
             "  name: \"${5:string}\",",
             "})"
@@ -11731,9 +11751,12 @@
             "    copyTagsToVolumes: ${10|false,true|},",
             "    dailyAutomaticBackupStartTime: \"${11:string}\",",
             "    deploymentType: \"${12:string}\",",
+            "    endpointIpAddressRange: \"${14:string}\",",
             "    options: [],",
-            "    throughputCapacity: ${16:Number},",
-            "    weeklyMaintenanceStartTime: \"${17:string}\",",
+            "    preferredSubnetId: \"${16:string}\",",
+            "    routeTableIds: [],",
+            "    throughputCapacity: ${19:Number},",
+            "    weeklyMaintenanceStartTime: \"${20:string}\",",
             "  },",
             "  securityGroupIds: [],",
             "  storageCapacity: ${10:Number},",
@@ -11747,9 +11770,9 @@
             "    copyTagsToBackups: ${18|false,true|},",
             "    dailyAutomaticBackupStartTime: \"${19:string}\",",
             "    deploymentType: \"${20:string}\",",
-            "    preferredSubnetId: \"${21:string}\",",
-            "    throughputCapacity: ${23:Number},",
-            "    weeklyMaintenanceStartTime: \"${24:string}\",",
+            "    preferredSubnetId: \"${22:string}\",",
+            "    throughputCapacity: ${24:Number},",
+            "    weeklyMaintenanceStartTime: \"${25:string}\",",
             "  },",
             "})"
         ],
@@ -18272,6 +18295,32 @@
         "prefix": "l1-mediatailor-playbackconfiguration",
         "scope": "javascript,typescript"
     },
+    "mediatailor.CfnSourceLocation": {
+        "body": [
+            "new mediatailor.CfnSourceLocation(this, \"${1:id}\", {",
+            "  accessConfiguration: {",
+            "    accessType: \"${2:string}\",",
+            "  },",
+            "  defaultSegmentDeliveryConfiguration: {",
+            "    baseUrl: \"${3:string}\",",
+            "  },",
+            "  httpConfiguration: {",
+            "    baseUrl: \"${4:string}\",",
+            "  },",
+            "  segmentDeliveryConfigurations: [],",
+            "  sourceLocationName: \"${6:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: mediatailor.CfnSourceLocation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-mediatailor.CfnSourceLocation",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-mediatailor-sourcelocation",
+        "scope": "javascript,typescript"
+    },
     "mediatailor.CfnVodSource": {
         "body": [
             "new mediatailor.CfnVodSource(this, \"${1:id}\", {",
@@ -22889,6 +22938,31 @@
             "  attrStatusMessage"
         ],
         "prefix": "l1-route53resolver-firewallrulegroupassociation",
+        "scope": "javascript,typescript"
+    },
+    "route53resolver.CfnOutpostResolver": {
+        "body": [
+            "new route53resolver.CfnOutpostResolver(this, \"${1:id}\", {",
+            "  instanceCount: ${2:Number},",
+            "  name: \"${3:string}\", // Required",
+            "  outpostArn: \"${4:string}\", // Required",
+            "  preferredInstanceType: \"${5:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: route53resolver.CfnOutpostResolver",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-route53resolver.CfnOutpostResolver",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrCreationTime",
+            "  attrModificationTime",
+            "  attrId",
+            "  attrArn",
+            "  attrCreatorRequestId",
+            "  attrStatusMessage"
+        ],
+        "prefix": "l1-route53resolver-outpostresolver",
         "scope": "javascript,typescript"
     },
     "route53resolver.CfnResolverConfig": {
