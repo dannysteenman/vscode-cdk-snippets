@@ -10935,6 +10935,20 @@
         "prefix": "l1-emr-studiosessionmapping",
         "scope": "javascript,typescript"
     },
+    "emr.CfnWALWorkspace": {
+        "body": [
+            "new emr.CfnWALWorkspace(this, \"${1:id}\", {",
+            "  tags: [],",
+            "  wALWorkspaceName: \"${3:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: emr.CfnWALWorkspace",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-emr.CfnWALWorkspace"
+        ],
+        "prefix": "l1-emr-walworkspace",
+        "scope": "javascript,typescript"
+    },
     "emrcontainers.CfnVirtualCluster": {
         "body": [
             "new emrcontainers.CfnVirtualCluster(this, \"${1:id}\", {",
@@ -10996,6 +11010,51 @@
             "  attrApplicationId"
         ],
         "prefix": "l1-emrserverless-application",
+        "scope": "javascript,typescript"
+    },
+    "entityresolution.CfnMatchingWorkflow": {
+        "body": [
+            "new entityresolution.CfnMatchingWorkflow(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  inputSourceConfig: [], // Required",
+            "  outputSourceConfig: [], // Required",
+            "  resolutionTechniques: {",
+            "    resolutionType: \"${5:string}\",",
+            "  },",
+            "  roleArn: \"${6:string}\", // Required",
+            "  tags: [],",
+            "  workflowName: \"${8:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: entityresolution.CfnMatchingWorkflow",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-entityresolution.CfnMatchingWorkflow",
+            "Attributes: ",
+            "  attrCreatedAt",
+            "  attrWorkflowArn",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-entityresolution-matchingworkflow",
+        "scope": "javascript,typescript"
+    },
+    "entityresolution.CfnSchemaMapping": {
+        "body": [
+            "new entityresolution.CfnSchemaMapping(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  mappedInputFields: [], // Required",
+            "  schemaName: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: entityresolution.CfnSchemaMapping",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-entityresolution.CfnSchemaMapping",
+            "Attributes: ",
+            "  attrCreatedAt",
+            "  attrUpdatedAt",
+            "  attrSchemaArn"
+        ],
+        "prefix": "l1-entityresolution-schemamapping",
         "scope": "javascript,typescript"
     },
     "events.CfnApiDestination": {
@@ -13311,7 +13370,16 @@
         ],
         "description": [
             "Construct: iam.CfnManagedPolicy",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnManagedPolicy"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iam.CfnManagedPolicy",
+            "Attributes: ",
+            "  attrIsAttachable",
+            "  attrUpdateDate",
+            "  attrPermissionsBoundaryUsageCount",
+            "  attrAttachmentCount",
+            "  attrPolicyArn",
+            "  attrDefaultVersionId",
+            "  attrCreateDate",
+            "  attrPolicyId"
         ],
         "prefix": "l1-iam-managedpolicy",
         "scope": "javascript,typescript"
@@ -17459,6 +17527,7 @@
             "  },",
             "  name: \"${5:string}\", // Required",
             "  position: ${6:Number},",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -22239,8 +22308,14 @@
             "  appAssessmentSchedule: \"${2:string}\",",
             "  appTemplateBody: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
-            "  name: \"${5:string}\", // Required",
-            "  resiliencyPolicyArn: \"${6:string}\",",
+            "  eventSubscriptions: [],",
+            "  name: \"${6:string}\", // Required",
+            "  permissionModel: {",
+            "    crossAccountRoleArns: [],",
+            "    invokerRoleName: \"${8:string}\",",
+            "    type: \"${9:string}\",",
+            "  },",
+            "  resiliencyPolicyArn: \"${8:string}\",",
             "  resourceMappings: [], // Required",
             "  tags: {",
             "  },",
@@ -22250,7 +22325,8 @@
             "Construct: resiliencehub.CfnApp",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-resiliencehub.CfnApp",
             "Attributes: ",
-            "  attrAppArn"
+            "  attrAppArn",
+            "  attrDriftStatus"
         ],
         "prefix": "l1-resiliencehub-app",
         "scope": "javascript,typescript"
@@ -27314,6 +27390,177 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspaces.CfnWorkspace"
         ],
         "prefix": "l1-workspaces-workspace",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnBrowserSettings": {
+        "body": [
+            "new workspacesweb.CfnBrowserSettings(this, \"${1:id}\", {",
+            "  additionalEncryptionContext: {",
+            "  },",
+            "  browserPolicy: \"${3:string}\",",
+            "  customerManagedKey: \"${4:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnBrowserSettings",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnBrowserSettings",
+            "Attributes: ",
+            "  attrAssociatedPortalArns",
+            "  attrBrowserSettingsArn"
+        ],
+        "prefix": "l1-workspacesweb-browsersettings",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnIdentityProvider": {
+        "body": [
+            "new workspacesweb.CfnIdentityProvider(this, \"${1:id}\", {",
+            "  identityProviderDetails: {",
+            "  },",
+            "  identityProviderName: \"${3:string}\", // Required",
+            "  identityProviderType: \"${4:string}\", // Required",
+            "  portalArn: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnIdentityProvider",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnIdentityProvider",
+            "Attributes: ",
+            "  attrIdentityProviderArn"
+        ],
+        "prefix": "l1-workspacesweb-identityprovider",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnIpAccessSettings": {
+        "body": [
+            "new workspacesweb.CfnIpAccessSettings(this, \"${1:id}\", {",
+            "  additionalEncryptionContext: {",
+            "  },",
+            "  customerManagedKey: \"${3:string}\",",
+            "  description: \"${4:string}\",",
+            "  displayName: \"${5:string}\",",
+            "  ipRules: [], // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnIpAccessSettings",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnIpAccessSettings",
+            "Attributes: ",
+            "  attrCreationDate",
+            "  attrAssociatedPortalArns",
+            "  attrIpAccessSettingsArn"
+        ],
+        "prefix": "l1-workspacesweb-ipaccesssettings",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnNetworkSettings": {
+        "body": [
+            "new workspacesweb.CfnNetworkSettings(this, \"${1:id}\", {",
+            "  securityGroupIds: [], // Required",
+            "  subnetIds: [], // Required",
+            "  tags: [],",
+            "  vpcId: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnNetworkSettings",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnNetworkSettings",
+            "Attributes: ",
+            "  attrAssociatedPortalArns",
+            "  attrNetworkSettingsArn"
+        ],
+        "prefix": "l1-workspacesweb-networksettings",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnPortal": {
+        "body": [
+            "new workspacesweb.CfnPortal(this, \"${1:id}\", {",
+            "  additionalEncryptionContext: {",
+            "  },",
+            "  authenticationType: \"${3:string}\",",
+            "  browserSettingsArn: \"${4:string}\",",
+            "  customerManagedKey: \"${5:string}\",",
+            "  displayName: \"${6:string}\",",
+            "  ipAccessSettingsArn: \"${7:string}\",",
+            "  networkSettingsArn: \"${8:string}\",",
+            "  tags: [],",
+            "  trustStoreArn: \"${10:string}\",",
+            "  userAccessLoggingSettingsArn: \"${11:string}\",",
+            "  userSettingsArn: \"${12:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnPortal",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnPortal",
+            "Attributes: ",
+            "  attrCreationDate",
+            "  attrBrowserType",
+            "  attrServiceProviderSamlMetadata",
+            "  attrStatusReason",
+            "  attrPortalArn",
+            "  attrPortalStatus",
+            "  attrRendererType",
+            "  attrPortalEndpoint"
+        ],
+        "prefix": "l1-workspacesweb-portal",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnTrustStore": {
+        "body": [
+            "new workspacesweb.CfnTrustStore(this, \"${1:id}\", {",
+            "  certificateList: [], // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnTrustStore",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnTrustStore",
+            "Attributes: ",
+            "  attrAssociatedPortalArns",
+            "  attrTrustStoreArn"
+        ],
+        "prefix": "l1-workspacesweb-truststore",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnUserAccessLoggingSettings": {
+        "body": [
+            "new workspacesweb.CfnUserAccessLoggingSettings(this, \"${1:id}\", {",
+            "  kinesisStreamArn: \"${2:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnUserAccessLoggingSettings",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnUserAccessLoggingSettings",
+            "Attributes: ",
+            "  attrAssociatedPortalArns",
+            "  attrUserAccessLoggingSettingsArn"
+        ],
+        "prefix": "l1-workspacesweb-useraccessloggingsettings",
+        "scope": "javascript,typescript"
+    },
+    "workspacesweb.CfnUserSettings": {
+        "body": [
+            "new workspacesweb.CfnUserSettings(this, \"${1:id}\", {",
+            "  copyAllowed: \"${2:string}\", // Required",
+            "  disconnectTimeoutInMinutes: ${3:Number},",
+            "  downloadAllowed: \"${4:string}\", // Required",
+            "  idleDisconnectTimeoutInMinutes: ${5:Number},",
+            "  pasteAllowed: \"${6:string}\", // Required",
+            "  printAllowed: \"${7:string}\", // Required",
+            "  tags: [],",
+            "  uploadAllowed: \"${9:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: workspacesweb.CfnUserSettings",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspacesweb.CfnUserSettings",
+            "Attributes: ",
+            "  attrAssociatedPortalArns",
+            "  attrUserSettingsArn"
+        ],
+        "prefix": "l1-workspacesweb-usersettings",
         "scope": "javascript,typescript"
     },
     "xray.CfnGroup": {
