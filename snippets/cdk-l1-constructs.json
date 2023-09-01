@@ -2070,6 +2070,7 @@
             "new appstream.CfnFleet(this, \"${1:id}\", {",
             "  computeCapacity: {",
             "    desiredInstances: ${2:Number},",
+            "    desiredSessions: ${3:Number},",
             "  },",
             "  description: \"${3:string}\",",
             "  disconnectTimeoutInSeconds: ${4:Number},",
@@ -2086,14 +2087,15 @@
             "  imageName: \"${12:string}\",",
             "  instanceType: \"${13:string}\", // Required",
             "  maxConcurrentSessions: ${14:Number},",
-            "  maxUserDurationInSeconds: ${15:Number},",
-            "  name: \"${16:string}\", // Required",
-            "  platform: \"${17:string}\",",
+            "  maxSessionsPerInstance: ${15:Number},",
+            "  maxUserDurationInSeconds: ${16:Number},",
+            "  name: \"${17:string}\", // Required",
+            "  platform: \"${18:string}\",",
             "  sessionScriptS3Location: {",
-            "    s3Bucket: \"${18:string}\",",
-            "    s3Key: \"${19:string}\",",
+            "    s3Bucket: \"${19:string}\",",
+            "    s3Key: \"${20:string}\",",
             "  },",
-            "  streamView: \"${19:string}\",",
+            "  streamView: \"${20:string}\",",
             "  tags: [],",
             "  usbDeviceFilterStrings: [],",
             "  vpcConfig: {",
@@ -3530,6 +3532,35 @@
             "  attrArn"
         ],
         "prefix": "l1-chatbot-slackchannelconfiguration",
+        "scope": "javascript,typescript"
+    },
+    "cleanrooms.CfnAnalysisTemplate": {
+        "body": [
+            "new cleanrooms.CfnAnalysisTemplate(this, \"${1:id}\", {",
+            "  analysisParameters: [],",
+            "  description: \"${3:string}\",",
+            "  format: \"${4:string}\", // Required",
+            "  membershipIdentifier: \"${5:string}\", // Required",
+            "  name: \"${6:string}\", // Required",
+            "  source: {",
+            "    text: \"${7:string}\",",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: cleanrooms.CfnAnalysisTemplate",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cleanrooms.CfnAnalysisTemplate",
+            "Attributes: ",
+            "  attrCollaborationIdentifier",
+            "  attrSchema.ReferencedTables",
+            "  attrMembershipArn",
+            "  attrSchema",
+            "  attrArn",
+            "  attrCollaborationArn",
+            "  attrAnalysisTemplateIdentifier"
+        ],
+        "prefix": "l1-cleanrooms-analysistemplate",
         "scope": "javascript,typescript"
     },
     "cleanrooms.CfnCollaboration": {
@@ -6714,6 +6745,11 @@
             "  },",
             "  sourceLocationArn: \"${9:string}\", // Required",
             "  tags: [],",
+            "  taskReportConfig: {",
+            "    objectVersionIds: \"${12:string}\",",
+            "    outputType: \"${13:string}\",",
+            "    reportLevel: \"${15:string}\",",
+            "  },",
             "})"
         ],
         "description": [
@@ -6836,6 +6872,57 @@
             "  attrGraphArn"
         ],
         "prefix": "l1-detective-organizationadmin",
+        "scope": "javascript,typescript"
+    },
+    "devbatch.CfnJobDefinition": {
+        "body": [
+            "new devbatch.CfnJobDefinition(this, \"${1:id}\", {",
+            "  containerProperties: {",
+            "    command: [],",
+            "    environment: [],",
+            "    executionRoleArn: \"${5:string}\",",
+            "    image: \"${7:string}\",",
+            "    instanceType: \"${8:string}\",",
+            "    jobRoleArn: \"${9:string}\",",
+            "    memory: ${12:Number},",
+            "    mountPoints: [],",
+            "    privileged: ${15|false,true|},",
+            "    readonlyRootFilesystem: ${16|false,true|},",
+            "    resourceRequirements: [],",
+            "    secrets: [],",
+            "    ulimits: [],",
+            "    user: \"${21:string}\",",
+            "    vcpus: ${22:Number},",
+            "    volumes: [],",
+            "  },",
+            "  eksProperties: {",
+            "  },",
+            "  jobDefinitionName: \"${4:string}\",",
+            "  nodeProperties: {",
+            "    mainNode: ${5:Number},",
+            "    nodeRangeProperties: [],",
+            "    numNodes: ${7:Number},",
+            "  },",
+            "  parameters: ${6:JSON},",
+            "  platformCapabilities: [],",
+            "  propagateTags: ${8|false,true|},",
+            "  retryStrategy: {",
+            "    attempts: ${9:Number},",
+            "    evaluateOnExit: [],",
+            "  },",
+            "  schedulingPriority: ${10:Number},",
+            "  tags: ${11:JSON},",
+            "  timeout: {",
+            "    attemptDurationSeconds: ${12:Number},",
+            "  },",
+            "  type: \"${13:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: devbatch.CfnJobDefinition",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-devbatch.CfnJobDefinition"
+        ],
+        "prefix": "l1-devbatch-jobdefinition",
         "scope": "javascript,typescript"
     },
     "devopsguru.CfnLogAnomalyDetectionIntegration": {
@@ -7857,15 +7944,16 @@
         "body": [
             "new ec2.CfnEIPAssociation(this, \"${1:id}\", {",
             "  allocationId: \"${2:string}\",",
-            "  eIP: \"${3:string}\",",
-            "  instanceId: \"${4:string}\",",
-            "  networkInterfaceId: \"${5:string}\",",
-            "  privateIpAddress: \"${6:string}\",",
+            "  instanceId: \"${3:string}\",",
+            "  networkInterfaceId: \"${4:string}\",",
+            "  privateIpAddress: \"${5:string}\",",
             "})"
         ],
         "description": [
             "Construct: ec2.CfnEIPAssociation",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnEIPAssociation"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnEIPAssociation",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ec2-eipassociation",
         "scope": "javascript,typescript"
@@ -15442,11 +15530,9 @@
             "  attrLoRaWAN.DlBucketSize",
             "  attrLoRaWAN.DrMax",
             "  attrLoRaWAN.UlBucketSize",
-            "  attrLoRaWAN.RaAllowed",
             "  attrLoRaWAN.UlRate",
             "  attrLoRaWAN.NwkGeoLoc",
             "  attrLoRaWAN.DevStatusReqFreq",
-            "  attrLoRaWAN.PrAllowed",
             "  attrId",
             "  attrArn"
         ],
@@ -16214,6 +16300,7 @@
             "  admins: {",
             "  },",
             "  allowExternalDataFiltering: ${3|false,true|},",
+            "  allowFullTableExternalDataAccess: ${4|false,true|},",
             "  authorizedSessionTagValueList: [],",
             "  createDatabaseDefaultPermissions: {",
             "  },",
@@ -16221,7 +16308,8 @@
             "  },",
             "  externalDataFilteringAllowList: {",
             "  },",
-            "  parameters: ${8:JSON},",
+            "  mutationType: \"${9:string}\",",
+            "  parameters: ${10:JSON},",
             "  trustedResourceOwners: [],",
             "})"
         ],
@@ -20248,6 +20336,98 @@
         "prefix": "l1-panorama-packageversion",
         "scope": "javascript,typescript"
     },
+    "pcaconnectorad.CfnConnector": {
+        "body": [
+            "new pcaconnectorad.CfnConnector(this, \"${1:id}\", {",
+            "  certificateAuthorityArn: \"${2:string}\", // Required",
+            "  directoryId: \"${3:string}\", // Required",
+            "  tags: {",
+            "  },",
+            "  vpcInformation: {",
+            "    securityGroupIds: [],",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: pcaconnectorad.CfnConnector",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-pcaconnectorad.CfnConnector",
+            "Attributes: ",
+            "  attrConnectorArn"
+        ],
+        "prefix": "l1-pcaconnectorad-connector",
+        "scope": "javascript,typescript"
+    },
+    "pcaconnectorad.CfnDirectoryRegistration": {
+        "body": [
+            "new pcaconnectorad.CfnDirectoryRegistration(this, \"${1:id}\", {",
+            "  directoryId: \"${2:string}\", // Required",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: pcaconnectorad.CfnDirectoryRegistration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-pcaconnectorad.CfnDirectoryRegistration",
+            "Attributes: ",
+            "  attrDirectoryRegistrationArn"
+        ],
+        "prefix": "l1-pcaconnectorad-directoryregistration",
+        "scope": "javascript,typescript"
+    },
+    "pcaconnectorad.CfnServicePrincipalName": {
+        "body": [
+            "new pcaconnectorad.CfnServicePrincipalName(this, \"${1:id}\", {",
+            "  connectorArn: \"${2:string}\",",
+            "  directoryRegistrationArn: \"${3:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: pcaconnectorad.CfnServicePrincipalName",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-pcaconnectorad.CfnServicePrincipalName"
+        ],
+        "prefix": "l1-pcaconnectorad-serviceprincipalname",
+        "scope": "javascript,typescript"
+    },
+    "pcaconnectorad.CfnTemplate": {
+        "body": [
+            "new pcaconnectorad.CfnTemplate(this, \"${1:id}\", {",
+            "  connectorArn: \"${2:string}\", // Required",
+            "  definition: {",
+            "  },",
+            "  name: \"${4:string}\", // Required",
+            "  reenrollAllCertificateHolders: ${5|false,true|},",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: pcaconnectorad.CfnTemplate",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-pcaconnectorad.CfnTemplate",
+            "Attributes: ",
+            "  attrTemplateArn"
+        ],
+        "prefix": "l1-pcaconnectorad-template",
+        "scope": "javascript,typescript"
+    },
+    "pcaconnectorad.CfnTemplateGroupAccessControlEntry": {
+        "body": [
+            "new pcaconnectorad.CfnTemplateGroupAccessControlEntry(this, \"${1:id}\", {",
+            "  accessRights: {",
+            "    autoEnroll: \"${2:string}\",",
+            "    enroll: \"${3:string}\",",
+            "  },",
+            "  groupDisplayName: \"${3:string}\", // Required",
+            "  groupSecurityIdentifier: \"${4:string}\",",
+            "  templateArn: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: pcaconnectorad.CfnTemplateGroupAccessControlEntry",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-pcaconnectorad.CfnTemplateGroupAccessControlEntry"
+        ],
+        "prefix": "l1-pcaconnectorad-templategroupaccesscontrolentry",
+        "scope": "javascript,typescript"
+    },
     "personalize.CfnDataset": {
         "body": [
             "new personalize.CfnDataset(this, \"${1:id}\", {",
@@ -21366,6 +21546,7 @@
             "  permissionArns: [],",
             "  principals: [],",
             "  resourceArns: [],",
+            "  sources: [],",
             "  tags: [],",
             "})"
         ],
@@ -22605,8 +22786,9 @@
             "new rolesanywhere.CfnTrustAnchor(this, \"${1:id}\", {",
             "  enabled: ${2|false,true|},",
             "  name: \"${3:string}\", // Required",
+            "  notificationSettings: [],",
             "  source: {",
-            "    sourceType: \"${5:string}\",",
+            "    sourceType: \"${6:string}\",",
             "  },",
             "  tags: [],",
             "})"
