@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.100.0 (2023-09-01)
+--------------------
+- The following resource was updated: AWS::WAFv2::WebACL. [Github
+  Actions]
+
+
 1.99.0 (2023-08-25)
 -------------------
 - The following resource was updated:         <code
