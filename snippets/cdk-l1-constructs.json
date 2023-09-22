@@ -5967,6 +5967,27 @@
         "prefix": "l1-connect-securitykey",
         "scope": "javascript,typescript"
     },
+    "connect.CfnSecurityProfile": {
+        "body": [
+            "new connect.CfnSecurityProfile(this, \"${1:id}\", {",
+            "  allowedAccessControlTags: [],",
+            "  description: \"${3:string}\",",
+            "  instanceArn: \"${4:string}\", // Required",
+            "  permissions: [],",
+            "  securityProfileName: \"${6:string}\", // Required",
+            "  tagRestrictedResources: [],",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnSecurityProfile",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnSecurityProfile",
+            "Attributes: ",
+            "  attrSecurityProfileArn"
+        ],
+        "prefix": "l1-connect-securityprofile",
+        "scope": "javascript,typescript"
+    },
     "connect.CfnTaskTemplate": {
         "body": [
             "new connect.CfnTaskTemplate(this, \"${1:id}\", {",
@@ -8772,16 +8793,17 @@
             "  carrierGatewayId: \"${2:string}\",",
             "  destinationCidrBlock: \"${3:string}\",",
             "  destinationIpv6CidrBlock: \"${4:string}\",",
-            "  egressOnlyInternetGatewayId: \"${5:string}\",",
-            "  gatewayId: \"${6:string}\",",
-            "  instanceId: \"${7:string}\",",
-            "  localGatewayId: \"${8:string}\",",
-            "  natGatewayId: \"${9:string}\",",
-            "  networkInterfaceId: \"${10:string}\",",
-            "  routeTableId: \"${11:string}\", // Required",
-            "  transitGatewayId: \"${12:string}\",",
-            "  vpcEndpointId: \"${13:string}\",",
-            "  vpcPeeringConnectionId: \"${14:string}\",",
+            "  destinationPrefixListId: \"${5:string}\",",
+            "  egressOnlyInternetGatewayId: \"${6:string}\",",
+            "  gatewayId: \"${7:string}\",",
+            "  instanceId: \"${8:string}\",",
+            "  localGatewayId: \"${9:string}\",",
+            "  natGatewayId: \"${10:string}\",",
+            "  networkInterfaceId: \"${11:string}\",",
+            "  routeTableId: \"${12:string}\", // Required",
+            "  transitGatewayId: \"${13:string}\",",
+            "  vpcEndpointId: \"${14:string}\",",
+            "  vpcPeeringConnectionId: \"${15:string}\",",
             "})"
         ],
         "description": [
@@ -9445,7 +9467,9 @@
         ],
         "description": [
             "Construct: ec2.CfnVPCEndpointConnectionNotification",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCEndpointConnectionNotification"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCEndpointConnectionNotification",
+            "Attributes: ",
+            "  attrVPCEndpointConnectionNotificationId"
         ],
         "prefix": "l1-ec2-vpcendpointconnectionnotification",
         "scope": "javascript,typescript"
@@ -10077,7 +10101,10 @@
             "  lifecyclePolicies: [],",
             "  performanceMode: \"${10:string}\",",
             "  provisionedThroughputInMibps: ${11:Number},",
-            "  throughputMode: \"${12:string}\",",
+            "  replicationConfiguration: {",
+            "    destinations: [],",
+            "  },",
+            "  throughputMode: \"${13:string}\",",
             "})"
         ],
         "description": [
@@ -16945,9 +16972,11 @@
             "  },",
             "  isDisabled: ${3|false,true|},",
             "  power: \"${4:string}\", // Required",
+            "  privateRegistryAccess: {",
+            "  },",
             "  publicDomainNames: [],",
-            "  scale: ${6:Number}, // Required",
-            "  serviceName: \"${7:string}\", // Required",
+            "  scale: ${7:Number}, // Required",
+            "  serviceName: \"${8:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -16955,6 +16984,8 @@
             "Construct: lightsail.CfnContainer",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lightsail.CfnContainer",
             "Attributes: ",
+            "  attrPrincipalArn",
+            "  attrPrivateRegistryAccess.EcrImagePullerRole.PrincipalArn",
             "  attrContainerArn",
             "  attrUrl"
         ],
@@ -17604,6 +17635,7 @@
             "  maximumMatchDistance: ${5:Number},",
             "  name: \"${6:string}\", // Required",
             "  regex: \"${7:string}\", // Required",
+            "  tags: [],",
             "})"
         ],
         "description": [
