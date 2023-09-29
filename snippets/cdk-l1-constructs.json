@@ -1229,21 +1229,6 @@
         "prefix": "l1-apigatewayv2-vpclink",
         "scope": "javascript,typescript"
     },
-    "appconfig.CfnApplication": {
-        "body": [
-            "new appconfig.CfnApplication(this, \"${1:id}\", {",
-            "  description: \"${2:string}\",",
-            "  name: \"${3:string}\", // Required",
-            "  tags: [],",
-            "})"
-        ],
-        "description": [
-            "Construct: appconfig.CfnApplication",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appconfig.CfnApplication"
-        ],
-        "prefix": "l1-appconfig-application",
-        "scope": "javascript,typescript"
-    },
     "appconfig.CfnConfigurationProfile": {
         "body": [
             "new appconfig.CfnConfigurationProfile(this, \"${1:id}\", {",
@@ -5290,7 +5275,8 @@
     "cognito.CfnUserPoolUser": {
         "body": [
             "new cognito.CfnUserPoolUser(this, \"${1:id}\", {",
-            "  clientMetadata: ${2:JSON},",
+            "  clientMetadata: {",
+            "  },",
             "  desiredDeliveryMediums: [],",
             "  forceAliasCreation: ${4|false,true|},",
             "  messageAction: \"${5:string}\",",
@@ -6941,6 +6927,21 @@
         "prefix": "l1-detective-organizationadmin",
         "scope": "javascript,typescript"
     },
+    "dev.CfnAppConfigCfnApplication": {
+        "body": [
+            "new dev.CfnAppConfigCfnApplication(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: dev.CfnAppConfigCfnApplication",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-dev.CfnAppConfigCfnApplication"
+        ],
+        "prefix": "dev-appconfig-application",
+        "scope": "javascript,typescript"
+    },
     "devopsguru.CfnLogAnomalyDetectionIntegration": {
         "body": [
             "})"
@@ -8088,9 +8089,7 @@
     "ec2.CfnIPAM": {
         "body": [
             "new ec2.CfnIPAM(this, \"${1:id}\", {",
-            "  defaultResourceDiscoveryAssociationId: \"${2:string}\",",
-            "  defaultResourceDiscoveryId: \"${3:string}\",",
-            "  description: \"${4:string}\",",
+            "  description: \"${2:string}\",",
             "  operatingRegions: [],",
             "  tags: [],",
             "})"
@@ -8099,6 +8098,8 @@
             "Construct: ec2.CfnIPAM",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnIPAM",
             "Attributes: ",
+            "  attrDefaultResourceDiscoveryAssociationId",
+            "  attrDefaultResourceDiscoveryId",
             "  attrIpamId",
             "  attrResourceDiscoveryAssociationCount",
             "  attrScopeCount",
@@ -10748,11 +10749,12 @@
             "Construct: elasticloadbalancingv2.CfnLoadBalancer",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-elasticloadbalancingv2.CfnLoadBalancer",
             "Attributes: ",
-            "  attrCanonicalHostedZoneID",
-            "  attrDNSName",
-            "  attrLoadBalancerFullName",
+            "  attrSecurityGroups",
             "  attrLoadBalancerName",
-            "  attrSecurityGroups"
+            "  attrCanonicalHostedZoneID",
+            "  attrLoadBalancerArn",
+            "  attrDNSName",
+            "  attrLoadBalancerFullName"
         ],
         "prefix": "l1-elasticloadbalancingv2-loadbalancer",
         "scope": "javascript,typescript"
@@ -13380,6 +13382,28 @@
         "prefix": "l1-guardduty-threatintelset",
         "scope": "javascript,typescript"
     },
+    "healthimaging.CfnDatastore": {
+        "body": [
+            "new healthimaging.CfnDatastore(this, \"${1:id}\", {",
+            "  datastoreName: \"${2:string}\",",
+            "  kmsKeyArn: \"${3:string}\",",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: healthimaging.CfnDatastore",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-healthimaging.CfnDatastore",
+            "Attributes: ",
+            "  attrDatastoreArn",
+            "  attrDatastoreId",
+            "  attrDatastoreStatus",
+            "  attrCreatedAt",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-healthimaging-datastore",
+        "scope": "javascript,typescript"
+    },
     "healthlake.CfnFHIRDatastore": {
         "body": [
             "new healthlake.CfnFHIRDatastore(this, \"${1:id}\", {",
@@ -15866,11 +15890,12 @@
             "  },",
             "  description: \"${4:string}\",",
             "  indexId: \"${5:string}\", // Required",
-            "  name: \"${6:string}\", // Required",
-            "  roleArn: \"${7:string}\",",
-            "  schedule: \"${8:string}\",",
+            "  languageCode: \"${6:string}\",",
+            "  name: \"${7:string}\", // Required",
+            "  roleArn: \"${8:string}\",",
+            "  schedule: \"${9:string}\",",
             "  tags: [],",
-            "  type: \"${10:string}\", // Required",
+            "  type: \"${11:string}\", // Required",
             "})"
         ],
         "description": [
@@ -16175,26 +16200,30 @@
             "    kinesisStreamARN: \"${10:string}\",",
             "    roleARN: \"${11:string}\",",
             "  },",
+            "  mSKSourceConfiguration: {",
+            "    mSKClusterARN: \"${12:string}\",",
+            "    topicName: \"${13:string}\",",
+            "  },",
             "  redshiftDestinationConfiguration: {",
-            "    clusterJDBCURL: \"${12:string}\",",
-            "    password: \"${14:string}\",",
-            "    roleARN: \"${17:string}\",",
-            "    s3BackupMode: \"${19:string}\",",
-            "    username: \"${21:string}\",",
+            "    clusterJDBCURL: \"${13:string}\",",
+            "    password: \"${15:string}\",",
+            "    roleARN: \"${18:string}\",",
+            "    s3BackupMode: \"${20:string}\",",
+            "    username: \"${22:string}\",",
             "  },",
             "  s3DestinationConfiguration: {",
-            "    bucketARN: \"${12:string}\",",
-            "    compressionFormat: \"${15:string}\",",
-            "    errorOutputPrefix: \"${17:string}\",",
-            "    prefix: \"${18:string}\",",
-            "    roleARN: \"${19:string}\",",
+            "    bucketARN: \"${13:string}\",",
+            "    compressionFormat: \"${16:string}\",",
+            "    errorOutputPrefix: \"${18:string}\",",
+            "    prefix: \"${19:string}\",",
+            "    roleARN: \"${20:string}\",",
             "  },",
             "  splunkDestinationConfiguration: {",
-            "    hECAcknowledgmentTimeoutInSeconds: ${14:Number},",
-            "    hECEndpoint: \"${15:string}\",",
-            "    hECEndpointType: \"${16:string}\",",
-            "    hECToken: \"${17:string}\",",
-            "    s3BackupMode: \"${20:string}\",",
+            "    hECAcknowledgmentTimeoutInSeconds: ${15:Number},",
+            "    hECEndpoint: \"${16:string}\",",
+            "    hECEndpointType: \"${17:string}\",",
+            "    hECToken: \"${18:string}\",",
+            "    s3BackupMode: \"${21:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -18840,14 +18869,22 @@
             "new msk.CfnConfiguration(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
             "  kafkaVersionsList: [],",
-            "  name: \"${4:string}\", // Required",
-            "  serverProperties: \"${5:string}\", // Required",
+            "  latestRevision: {",
+            "    creationTime: \"${4:string}\",",
+            "    description: \"${5:string}\",",
+            "    revision: ${6:Number},",
+            "  },",
+            "  name: \"${5:string}\", // Required",
+            "  serverProperties: \"${6:string}\", // Required",
             "})"
         ],
         "description": [
             "Construct: msk.CfnConfiguration",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnConfiguration",
             "Attributes: ",
+            "  attrLatestRevision.Revision",
+            "  attrLatestRevision.CreationTime",
+            "  attrLatestRevision.Description",
             "  attrArn"
         ],
         "prefix": "l1-msk-configuration",
@@ -24416,14 +24453,15 @@
             "  },",
             "  modelPackageVersion: ${19:Number},",
             "  samplePayloadUrl: \"${20:string}\",",
+            "  skipModelValidation: \"${21:string}\",",
             "  sourceAlgorithmSpecification: {",
             "    sourceAlgorithms: [],",
             "  },",
             "  tags: [],",
-            "  task: \"${23:string}\",",
+            "  task: \"${24:string}\",",
             "  validationSpecification: {",
             "    validationProfiles: [],",
-            "    validationRole: \"${25:string}\",",
+            "    validationRole: \"${26:string}\",",
             "  },",
             "})"
         ],
@@ -26066,7 +26104,8 @@
             "  description: \"${4:string}\",",
             "  name: \"${5:string}\",",
             "  policies: \"${6:string}\",",
-            "  tags: ${7:JSON},",
+            "  tags: {",
+            "  },",
             "  tier: \"${8:string}\",",
             "  type: \"${9:string}\", // Required",
             "  value: \"${10:string}\", // Required",
