@@ -10751,11 +10751,12 @@
             "Construct: elasticloadbalancingv2.CfnLoadBalancer",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-elasticloadbalancingv2.CfnLoadBalancer",
             "Attributes: ",
-            "  attrCanonicalHostedZoneID",
-            "  attrDNSName",
-            "  attrLoadBalancerFullName",
+            "  attrSecurityGroups",
             "  attrLoadBalancerName",
-            "  attrSecurityGroups"
+            "  attrCanonicalHostedZoneID",
+            "  attrLoadBalancerArn",
+            "  attrDNSName",
+            "  attrLoadBalancerFullName"
         ],
         "prefix": "l1-elasticloadbalancingv2-loadbalancer",
         "scope": "javascript,typescript"
@@ -11274,7 +11275,6 @@
             "new events.CfnEventBus(this, \"${1:id}\", {",
             "  eventSourceName: \"${2:string}\",",
             "  name: \"${3:string}\", // Required",
-            "  policy: ${4:JSON},",
             "  tags: [],",
             "})"
         ],
@@ -11282,6 +11282,7 @@
             "Construct: events.CfnEventBus",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-events.CfnEventBus",
             "Attributes: ",
+            "  attrPolicy",
             "  attrArn",
             "  attrName"
         ],
@@ -14527,6 +14528,45 @@
         "prefix": "l1-iot-securityprofile",
         "scope": "javascript,typescript"
     },
+    "iot.CfnSoftwarePackage": {
+        "body": [
+            "new iot.CfnSoftwarePackage(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  packageName: \"${3:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: iot.CfnSoftwarePackage",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnSoftwarePackage",
+            "Attributes: ",
+            "  attrPackageArn"
+        ],
+        "prefix": "l1-iot-softwarepackage",
+        "scope": "javascript,typescript"
+    },
+    "iot.CfnSoftwarePackageVersion": {
+        "body": [
+            "new iot.CfnSoftwarePackageVersion(this, \"${1:id}\", {",
+            "  attributes: {",
+            "  },",
+            "  description: \"${3:string}\",",
+            "  packageName: \"${4:string}\", // Required",
+            "  tags: [],",
+            "  versionName: \"${6:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: iot.CfnSoftwarePackageVersion",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-iot.CfnSoftwarePackageVersion",
+            "Attributes: ",
+            "  attrPackageVersionArn",
+            "  attrStatus",
+            "  attrErrorReason"
+        ],
+        "prefix": "l1-iot-softwarepackageversion",
+        "scope": "javascript,typescript"
+    },
     "iot.CfnThing": {
         "body": [
             "new iot.CfnThing(this, \"${1:id}\", {",
@@ -16643,6 +16683,7 @@
             "    mode: \"${24:string}\",",
             "  },",
             "  vpcConfig: {",
+            "    ipv6AllowedForDualStack: ${25|false,true|},",
             "    securityGroupIds: [],",
             "    subnetIds: [],",
             "  },",
@@ -19325,6 +19366,7 @@
             "Attributes: ",
             "  attrDeviceArn",
             "  attrDeviceId",
+            "  attrState",
             "  attrCreatedAt"
         ],
         "prefix": "l1-networkmanager-device",
@@ -19333,7 +19375,9 @@
     "networkmanager.CfnGlobalNetwork": {
         "body": [
             "new networkmanager.CfnGlobalNetwork(this, \"${1:id}\", {",
-            "  description: \"${2:string}\",",
+            "  createdAt: \"${2:string}\",",
+            "  description: \"${3:string}\",",
+            "  state: \"${4:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -19405,7 +19449,9 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-networkmanager.CfnSite",
             "Attributes: ",
             "  attrSiteId",
-            "  attrSiteArn"
+            "  attrSiteArn",
+            "  attrState",
+            "  attrCreatedAt"
         ],
         "prefix": "l1-networkmanager-site",
         "scope": "javascript,typescript"
@@ -23793,10 +23839,8 @@
             "  attrCreationDate",
             "  attrPublicAccessBlockConfiguration",
             "  attrPublicAccessBlockConfiguration.BlockPublicAcls",
-            "  attrPolicyStatus.IsPublic",
             "  attrAlias",
             "  attrAlias.Value",
-            "  attrPolicyStatus",
             "  attrPublicAccessBlockConfiguration.IgnorePublicAcls",
             "  attrPublicAccessBlockConfiguration.RestrictPublicBuckets",
             "  attrPublicAccessBlockConfiguration.BlockPublicPolicy",
