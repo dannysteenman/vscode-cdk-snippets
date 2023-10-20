@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+1.106.0 (2023-10-20)
+--------------------
+- The following resources were updated:                     <code
+  class="code">AWS::EntityResolution::MatchingWorkflow</code> and
+  <code class="code">AWS::EntityResolution::SchemaMapping</code>.
+  [Github Actions]
+
+
 1.105.0 (2023-10-13)
 --------------------
 - The following resource was updated: AWS::IoT::TopicRule KafkaAction.
