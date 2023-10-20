@@ -1250,11 +1250,12 @@
             "new appconfig.CfnConfigurationProfile(this, \"${1:id}\", {",
             "  applicationId: \"${2:string}\", // Required",
             "  description: \"${3:string}\",",
-            "  locationUri: \"${4:string}\", // Required",
-            "  name: \"${5:string}\", // Required",
-            "  retrievalRoleArn: \"${6:string}\",",
+            "  kmsKeyIdentifier: \"${4:string}\",",
+            "  locationUri: \"${5:string}\", // Required",
+            "  name: \"${6:string}\", // Required",
+            "  retrievalRoleArn: \"${7:string}\",",
             "  tags: [],",
-            "  type: \"${8:string}\",",
+            "  type: \"${9:string}\",",
             "  validators: [],",
             "})"
         ],
@@ -2735,13 +2736,7 @@
         ],
         "description": [
             "Construct: autoscaling.CfnAutoScalingGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-autoscaling.CfnAutoScalingGroup",
-            "Attributes: ",
-            "  attrLaunchConfigurationName",
-            "  attrLaunchTemplateSpecification",
-            "  attrMixedInstancesPolicy",
-            "  attrPlacementGroup",
-            "  attrVPCZoneIdentifier"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-autoscaling.CfnAutoScalingGroup"
         ],
         "prefix": "l1-autoscaling-autoscalinggroup",
         "scope": "javascript,typescript"
@@ -5050,6 +5045,22 @@
         "prefix": "l1-cognito-identitypoolroleattachment",
         "scope": "javascript,typescript"
     },
+    "cognito.CfnLogDeliveryConfiguration": {
+        "body": [
+            "new cognito.CfnLogDeliveryConfiguration(this, \"${1:id}\", {",
+            "  logConfigurations: [],",
+            "  userPoolId: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: cognito.CfnLogDeliveryConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnLogDeliveryConfiguration",
+            "Attributes: ",
+            "  attrId"
+        ],
+        "prefix": "l1-cognito-logdeliveryconfiguration",
+        "scope": "javascript,typescript"
+    },
     "cognito.CfnUserPool": {
         "body": [
             "new cognito.CfnUserPool(this, \"${1:id}\", {",
@@ -5907,11 +5918,12 @@
     "connect.CfnRoutingProfile": {
         "body": [
             "new connect.CfnRoutingProfile(this, \"${1:id}\", {",
-            "  defaultOutboundQueueArn: \"${2:string}\", // Required",
-            "  description: \"${3:string}\", // Required",
-            "  instanceArn: \"${4:string}\", // Required",
+            "  agentAvailabilityTimer: \"${2:string}\",",
+            "  defaultOutboundQueueArn: \"${3:string}\", // Required",
+            "  description: \"${4:string}\", // Required",
+            "  instanceArn: \"${5:string}\", // Required",
             "  mediaConcurrencies: [], // Required",
-            "  name: \"${6:string}\", // Required",
+            "  name: \"${7:string}\", // Required",
             "  queueConfigs: [],",
             "  tags: [],",
             "})"
@@ -6080,6 +6092,7 @@
             "  instanceArn: \"${2:string}\", // Required",
             "  name: \"${3:string}\", // Required",
             "  parentGroupArn: \"${4:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -9634,8 +9647,12 @@
             "  policyDocument: \"${10:string}\",",
             "  policyEnabled: ${11|false,true|},",
             "  securityGroupIds: [],",
+            "  sseSpecification: {",
+            "    customerManagedKeyEnabled: ${13|false,true|},",
+            "    kmsKeyArn: \"${14:string}\",",
+            "  },",
             "  tags: [],",
-            "  verifiedAccessGroupId: \"${14:string}\", // Required",
+            "  verifiedAccessGroupId: \"${15:string}\", // Required",
             "})"
         ],
         "description": [
@@ -9659,8 +9676,12 @@
             "  description: \"${2:string}\",",
             "  policyDocument: \"${3:string}\",",
             "  policyEnabled: ${4|false,true|},",
+            "  sseSpecification: {",
+            "    customerManagedKeyEnabled: ${5|false,true|},",
+            "    kmsKeyArn: \"${6:string}\",",
+            "  },",
             "  tags: [],",
-            "  verifiedAccessInstanceId: \"${6:string}\", // Required",
+            "  verifiedAccessInstanceId: \"${7:string}\", // Required",
             "})"
         ],
         "description": [
@@ -9680,9 +9701,10 @@
         "body": [
             "new ec2.CfnVerifiedAccessInstance(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
+            "  fipsEnabled: ${3|false,true|},",
             "  loggingConfigurations: {",
-            "    includeTrustContext: ${4|false,true|},",
-            "    logVersion: \"${6:string}\",",
+            "    includeTrustContext: ${5|false,true|},",
+            "    logVersion: \"${7:string}\",",
             "  },",
             "  tags: [],",
             "  verifiedAccessTrustProviderIds: [],",
@@ -9718,9 +9740,13 @@
             "    userInfoEndpoint: \"${11:string}\",",
             "  },",
             "  policyReferenceName: \"${6:string}\", // Required",
+            "  sseSpecification: {",
+            "    customerManagedKeyEnabled: ${7|false,true|},",
+            "    kmsKeyArn: \"${8:string}\",",
+            "  },",
             "  tags: [],",
-            "  trustProviderType: \"${8:string}\", // Required",
-            "  userTrustProviderType: \"${9:string}\",",
+            "  trustProviderType: \"${9:string}\", // Required",
+            "  userTrustProviderType: \"${10:string}\",",
             "})"
         ],
         "description": [
@@ -11012,7 +11038,9 @@
         ],
         "description": [
             "Construct: emr.CfnStep",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-emr.CfnStep"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-emr.CfnStep",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-emr-step",
         "scope": "javascript,typescript"
@@ -11139,6 +11167,31 @@
         "prefix": "l1-emrserverless-application",
         "scope": "javascript,typescript"
     },
+    "entityresolution.CfnIdMappingWorkflow": {
+        "body": [
+            "new entityresolution.CfnIdMappingWorkflow(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  idMappingTechniques: {",
+            "    idMappingType: \"${3:string}\",",
+            "  },",
+            "  inputSourceConfig: [], // Required",
+            "  outputSourceConfig: [], // Required",
+            "  roleArn: \"${6:string}\", // Required",
+            "  tags: [],",
+            "  workflowName: \"${8:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: entityresolution.CfnIdMappingWorkflow",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-entityresolution.CfnIdMappingWorkflow",
+            "Attributes: ",
+            "  attrCreatedAt",
+            "  attrWorkflowArn",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-entityresolution-idmappingworkflow",
+        "scope": "javascript,typescript"
+    },
     "entityresolution.CfnMatchingWorkflow": {
         "body": [
             "new entityresolution.CfnMatchingWorkflow(this, \"${1:id}\", {",
@@ -11146,7 +11199,7 @@
             "  inputSourceConfig: [], // Required",
             "  outputSourceConfig: [], // Required",
             "  resolutionTechniques: {",
-            "    resolutionType: \"${5:string}\",",
+            "    resolutionType: \"${6:string}\",",
             "  },",
             "  roleArn: \"${6:string}\", // Required",
             "  tags: [],",
@@ -11275,6 +11328,7 @@
             "new events.CfnEventBus(this, \"${1:id}\", {",
             "  eventSourceName: \"${2:string}\",",
             "  name: \"${3:string}\", // Required",
+            "  policy: ${4:JSON},",
             "  tags: [],",
             "})"
         ],
@@ -11282,7 +11336,6 @@
             "Construct: events.CfnEventBus",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-events.CfnEventBus",
             "Attributes: ",
-            "  attrPolicy",
             "  attrArn",
             "  attrName"
         ],
@@ -12119,24 +12172,25 @@
             "  eC2InstanceType: \"${9:string}\",",
             "  fleetType: \"${10:string}\",",
             "  instanceRoleARN: \"${11:string}\",",
+            "  instanceRoleCredentialsProvider: \"${12:string}\",",
             "  locations: [],",
-            "  maxSize: ${13:Number},",
+            "  maxSize: ${14:Number},",
             "  metricGroups: [],",
-            "  minSize: ${15:Number},",
-            "  name: \"${16:string}\", // Required",
-            "  newGameSessionProtectionPolicy: \"${17:string}\",",
-            "  peerVpcAwsAccountId: \"${18:string}\",",
-            "  peerVpcId: \"${19:string}\",",
+            "  minSize: ${16:Number},",
+            "  name: \"${17:string}\", // Required",
+            "  newGameSessionProtectionPolicy: \"${18:string}\",",
+            "  peerVpcAwsAccountId: \"${19:string}\",",
+            "  peerVpcId: \"${20:string}\",",
             "  resourceCreationLimitPolicy: {",
-            "    newGameSessionsPerCreator: ${20:Number},",
-            "    policyPeriodInMinutes: ${21:Number},",
+            "    newGameSessionsPerCreator: ${21:Number},",
+            "    policyPeriodInMinutes: ${22:Number},",
             "  },",
             "  runtimeConfiguration: {",
-            "    gameSessionActivationTimeoutSeconds: ${21:Number},",
-            "    maxConcurrentGameSessionActivations: ${22:Number},",
+            "    gameSessionActivationTimeoutSeconds: ${22:Number},",
+            "    maxConcurrentGameSessionActivations: ${23:Number},",
             "    serverProcesses: [],",
             "  },",
-            "  scriptId: \"${22:string}\",",
+            "  scriptId: \"${23:string}\",",
             "})"
         ],
         "description": [
@@ -14400,6 +14454,7 @@
             "new iot.CfnPolicy(this, \"${1:id}\", {",
             "  policyDocument: ${2:JSON}, // Required",
             "  policyName: \"${3:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -16667,23 +16722,24 @@
             "  layers: [],",
             "  memorySize: ${15:Number},",
             "  packageType: \"${16:string}\",",
-            "  reservedConcurrentExecutions: ${17:Number},",
-            "  role: \"${18:string}\", // Required",
-            "  runtime: \"${19:string}\",",
+            "  policy: ${17:JSON},",
+            "  reservedConcurrentExecutions: ${18:Number},",
+            "  role: \"${19:string}\", // Required",
+            "  runtime: \"${20:string}\",",
             "  runtimeManagementConfig: {",
-            "    runtimeVersionArn: \"${20:string}\",",
-            "    updateRuntimeOn: \"${21:string}\",",
+            "    runtimeVersionArn: \"${21:string}\",",
+            "    updateRuntimeOn: \"${22:string}\",",
             "  },",
             "  snapStart: {",
-            "    applyOn: \"${21:string}\",",
+            "    applyOn: \"${22:string}\",",
             "  },",
             "  tags: [],",
-            "  timeout: ${23:Number},",
+            "  timeout: ${24:Number},",
             "  tracingConfig: {",
-            "    mode: \"${24:string}\",",
+            "    mode: \"${25:string}\",",
             "  },",
             "  vpcConfig: {",
-            "    ipv6AllowedForDualStack: ${25|false,true|},",
+            "    ipv6AllowedForDualStack: ${26|false,true|},",
             "    securityGroupIds: [],",
             "    subnetIds: [],",
             "  },",
@@ -16801,12 +16857,17 @@
             "  provisionedConcurrencyConfig: {",
             "    provisionedConcurrentExecutions: ${5:Number},",
             "  },",
+            "  runtimePolicy: {",
+            "    runtimeVersionArn: \"${6:string}\",",
+            "    updateRuntimeOn: \"${7:string}\",",
+            "  },",
             "})"
         ],
         "description": [
             "Construct: lambda.CfnVersion",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.CfnVersion",
             "Attributes: ",
+            "  attrFunctionArn",
             "  attrVersion"
         ],
         "prefix": "l1-lambda-version",
@@ -19411,6 +19472,8 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-networkmanager.CfnLink",
             "Attributes: ",
             "  attrLinkArn",
+            "  attrState",
+            "  attrCreatedAt",
             "  attrLinkId"
         ],
         "prefix": "l1-networkmanager-link",
@@ -21435,6 +21498,9 @@
             "  status: \"${9:string}\",",
             "  tags: [],",
             "  themeArn: \"${11:string}\",",
+            "  validationStrategy: {",
+            "    mode: \"${12:string}\",",
+            "  },",
             "})"
         ],
         "description": [
@@ -21478,7 +21544,10 @@
             "  },",
             "  tags: [],",
             "  themeArn: \"${11:string}\",",
-            "  versionDescription: \"${12:string}\",",
+            "  validationStrategy: {",
+            "    mode: \"${12:string}\",",
+            "  },",
+            "  versionDescription: \"${13:string}\",",
             "})"
         ],
         "description": [
@@ -21638,7 +21707,10 @@
             "  },",
             "  tags: [],",
             "  templateId: \"${8:string}\", // Required",
-            "  versionDescription: \"${9:string}\",",
+            "  validationStrategy: {",
+            "    mode: \"${9:string}\",",
+            "  },",
+            "  versionDescription: \"${10:string}\",",
             "})"
         ],
         "description": [
