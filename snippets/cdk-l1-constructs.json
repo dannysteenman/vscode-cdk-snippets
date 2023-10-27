@@ -305,21 +305,24 @@
         "body": [
             "new amplify.CfnBranch(this, \"${1:id}\", {",
             "  appId: \"${2:string}\", // Required",
-            "  basicAuthConfig: {",
-            "    enableBasicAuth: ${3|false,true|},",
-            "    password: \"${4:string}\",",
-            "    username: \"${5:string}\",",
+            "  backend: {",
+            "    stackArn: \"${3:string}\",",
             "  },",
-            "  branchName: \"${4:string}\", // Required",
-            "  buildSpec: \"${5:string}\",",
-            "  description: \"${6:string}\",",
-            "  enableAutoBuild: ${7|false,true|},",
-            "  enablePerformanceMode: ${8|false,true|},",
-            "  enablePullRequestPreview: ${9|false,true|},",
+            "  basicAuthConfig: {",
+            "    enableBasicAuth: ${4|false,true|},",
+            "    password: \"${5:string}\",",
+            "    username: \"${6:string}\",",
+            "  },",
+            "  branchName: \"${5:string}\", // Required",
+            "  buildSpec: \"${6:string}\",",
+            "  description: \"${7:string}\",",
+            "  enableAutoBuild: ${8|false,true|},",
+            "  enablePerformanceMode: ${9|false,true|},",
+            "  enablePullRequestPreview: ${10|false,true|},",
             "  environmentVariables: [],",
-            "  framework: \"${11:string}\",",
-            "  pullRequestEnvironmentName: \"${12:string}\",",
-            "  stage: \"${13:string}\",",
+            "  framework: \"${12:string}\",",
+            "  pullRequestEnvironmentName: \"${13:string}\",",
+            "  stage: \"${14:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -664,7 +667,9 @@
         ],
         "description": [
             "Construct: apigateway.CfnGatewayResponse",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnGatewayResponse"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.CfnGatewayResponse",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-apigateway-gatewayresponse",
         "scope": "javascript,typescript"
@@ -1240,7 +1245,9 @@
         ],
         "description": [
             "Construct: appconfig.CfnApplication",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appconfig.CfnApplication"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appconfig.CfnApplication",
+            "Attributes: ",
+            "  attrApplicationId"
         ],
         "prefix": "l1-appconfig-application",
         "scope": "javascript,typescript"
@@ -5119,7 +5126,8 @@
             "    advancedSecurityMode: \"${20:string}\",",
             "  },",
             "  userPoolName: \"${21:string}\",",
-            "  userPoolTags: ${22:JSON},",
+            "  userPoolTags: {",
+            "  },",
             "  usernameAttributes: [],",
             "  usernameConfiguration: {",
             "    caseSensitive: ${24|false,true|},",
@@ -5139,6 +5147,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnUserPool",
             "Attributes: ",
             "  attrProviderName",
+            "  attrUserPoolId",
             "  attrProviderURL",
             "  attrArn"
         ],
@@ -5187,6 +5196,7 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnUserPoolClient",
             "Attributes: ",
             "  attrClientSecret",
+            "  attrClientId",
             "  attrName"
         ],
         "prefix": "l1-cognito-userpoolclient",
@@ -6241,6 +6251,16 @@
             "  defaultEncryptionKey: \"${3:string}\",",
             "  defaultExpirationDays: ${4:Number},",
             "  domainName: \"${5:string}\", // Required",
+            "  matching: {",
+            "    enabled: ${7|false,true|},",
+            "  },",
+            "  ruleBasedMatching: {",
+            "    enabled: ${9|false,true|},",
+            "    matchingRules: [],",
+            "    maxAllowedRuleLevelForMatching: ${12:Number},",
+            "    maxAllowedRuleLevelForMerging: ${13:Number},",
+            "    status: \"${14:string}\",",
+            "  },",
             "  tags: [],",
             "})"
         ],
@@ -6248,8 +6268,14 @@
             "Construct: customerprofiles.CfnDomain",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-customerprofiles.CfnDomain",
             "Attributes: ",
+            "  attrStats.ProfileCount",
+            "  attrStats.ObjectCount",
             "  attrLastUpdatedAt",
-            "  attrCreatedAt"
+            "  attrCreatedAt",
+            "  attrStats",
+            "  attrStats.MeteringProfileCount",
+            "  attrStats.TotalSize",
+            "  attrRuleBasedMatching.Status"
         ],
         "prefix": "l1-customerprofiles-domain",
         "scope": "javascript,typescript"
@@ -6955,6 +6981,56 @@
             "  attrGraphArn"
         ],
         "prefix": "l1-detective-organizationadmin",
+        "scope": "javascript,typescript"
+    },
+    "dev.CfnTransferCfnServer": {
+        "body": [
+            "new dev.CfnTransferCfnServer(this, \"${1:id}\", {",
+            "  certificate: \"${2:string}\",",
+            "  domain: \"${3:string}\",",
+            "  endpointDetails: {",
+            "    addressAllocationIds: [],",
+            "    securityGroupIds: [],",
+            "    subnetIds: [],",
+            "    vpcEndpointId: \"${7:string}\",",
+            "    vpcId: \"${8:string}\",",
+            "  },",
+            "  endpointType: \"${5:string}\",",
+            "  identityProviderDetails: {",
+            "    directoryId: \"${6:string}\",",
+            "    function: \"${7:string}\",",
+            "    invocationRole: \"${8:string}\",",
+            "    sftpAuthenticationMethods: \"${9:string}\",",
+            "    url: \"${10:string}\",",
+            "  },",
+            "  identityProviderType: \"${7:string}\",",
+            "  loggingRole: \"${8:string}\",",
+            "  postAuthenticationLoginBanner: \"${9:string}\",",
+            "  preAuthenticationLoginBanner: \"${10:string}\",",
+            "  protocolDetails: {",
+            "    as2Transports: [],",
+            "    passiveIp: \"${12:string}\",",
+            "    setStatOption: \"${13:string}\",",
+            "    tlsSessionResumptionMode: \"${14:string}\",",
+            "  },",
+            "  protocols: [],",
+            "  securityPolicyName: \"${13:string}\",",
+            "  structuredLogDestinations: [],",
+            "  tags: [],",
+            "  workflowDetails: {",
+            "    onPartialUpload: [],",
+            "    onUpload: [],",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: dev.CfnTransferCfnServer",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-dev.CfnTransferCfnServer",
+            "Attributes: ",
+            "  attrServerId",
+            "  attrArn"
+        ],
+        "prefix": "dev-transfer-server",
         "scope": "javascript,typescript"
     },
     "devopsguru.CfnLogAnomalyDetectionIntegration": {
@@ -8574,7 +8650,9 @@
         ],
         "description": [
             "Construct: ec2.CfnNetworkAclEntry",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnNetworkAclEntry"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnNetworkAclEntry",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ec2-networkaclentry",
         "scope": "javascript,typescript"
@@ -18994,6 +19072,27 @@
         "prefix": "l1-msk-configuration",
         "scope": "javascript,typescript"
     },
+    "msk.CfnReplicator": {
+        "body": [
+            "new msk.CfnReplicator(this, \"${1:id}\", {",
+            "  currentVersion: \"${2:string}\",",
+            "  description: \"${3:string}\",",
+            "  kafkaClusters: [], // Required",
+            "  replicationInfoList: [], // Required",
+            "  replicatorName: \"${6:string}\", // Required",
+            "  serviceExecutionRoleArn: \"${7:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: msk.CfnReplicator",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-msk.CfnReplicator",
+            "Attributes: ",
+            "  attrReplicatorArn"
+        ],
+        "prefix": "l1-msk-replicator",
+        "scope": "javascript,typescript"
+    },
     "msk.CfnServerlessCluster": {
         "body": [
             "new msk.CfnServerlessCluster(this, \"${1:id}\", {",
@@ -19337,6 +19436,7 @@
             "  coreNetworkAddress: \"${4:string}\",",
             "  insideCidrBlocks: [],",
             "  peerAddress: \"${6:string}\", // Required",
+            "  subnetArn: \"${7:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -25975,16 +26075,17 @@
     "sns.CfnTopic": {
         "body": [
             "new sns.CfnTopic(this, \"${1:id}\", {",
-            "  contentBasedDeduplication: ${2|false,true|},",
-            "  dataProtectionPolicy: ${3:JSON},",
-            "  displayName: \"${4:string}\",",
-            "  fifoTopic: ${5|false,true|},",
-            "  kmsMasterKeyId: \"${6:string}\",",
-            "  signatureVersion: \"${7:string}\",",
+            "  archivePolicy: ${2:JSON},",
+            "  contentBasedDeduplication: ${3|false,true|},",
+            "  dataProtectionPolicy: ${4:JSON},",
+            "  displayName: \"${5:string}\",",
+            "  fifoTopic: ${6|false,true|},",
+            "  kmsMasterKeyId: \"${7:string}\",",
+            "  signatureVersion: \"${8:string}\",",
             "  subscription: [],",
             "  tags: [],",
-            "  topicName: \"${10:string}\",",
-            "  tracingConfig: \"${11:string}\",",
+            "  topicName: \"${11:string}\",",
+            "  tracingConfig: \"${12:string}\",",
             "})"
         ],
         "description": [
@@ -26924,56 +27025,6 @@
             "  attrArn"
         ],
         "prefix": "l1-transfer-profile",
-        "scope": "javascript,typescript"
-    },
-    "transfer.CfnServer": {
-        "body": [
-            "new transfer.CfnServer(this, \"${1:id}\", {",
-            "  certificate: \"${2:string}\",",
-            "  domain: \"${3:string}\",",
-            "  endpointDetails: {",
-            "    addressAllocationIds: [],",
-            "    securityGroupIds: [],",
-            "    subnetIds: [],",
-            "    vpcEndpointId: \"${7:string}\",",
-            "    vpcId: \"${8:string}\",",
-            "  },",
-            "  endpointType: \"${5:string}\",",
-            "  identityProviderDetails: {",
-            "    directoryId: \"${6:string}\",",
-            "    function: \"${7:string}\",",
-            "    invocationRole: \"${8:string}\",",
-            "    sftpAuthenticationMethods: \"${9:string}\",",
-            "    url: \"${10:string}\",",
-            "  },",
-            "  identityProviderType: \"${7:string}\",",
-            "  loggingRole: \"${8:string}\",",
-            "  postAuthenticationLoginBanner: \"${9:string}\",",
-            "  preAuthenticationLoginBanner: \"${10:string}\",",
-            "  protocolDetails: {",
-            "    as2Transports: [],",
-            "    passiveIp: \"${12:string}\",",
-            "    setStatOption: \"${13:string}\",",
-            "    tlsSessionResumptionMode: \"${14:string}\",",
-            "  },",
-            "  protocols: [],",
-            "  securityPolicyName: \"${13:string}\",",
-            "  structuredLogDestinations: [],",
-            "  tags: [],",
-            "  workflowDetails: {",
-            "    onPartialUpload: [],",
-            "    onUpload: [],",
-            "  },",
-            "})"
-        ],
-        "description": [
-            "Construct: transfer.CfnServer",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-transfer.CfnServer",
-            "Attributes: ",
-            "  attrServerId",
-            "  attrArn"
-        ],
-        "prefix": "l1-transfer-server",
         "scope": "javascript,typescript"
     },
     "transfer.CfnUser": {
