@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.112.0 (2023-12-22)
+--------------------
+- The following resource was updated: <code
+  class="code">AWS::CodeCommit::Repository</code> [Github Actions]
+
+
 1.111.0 (2023-12-15)
 --------------------
 - The following resources were added: AWS::B2BI::Capability. [Github
