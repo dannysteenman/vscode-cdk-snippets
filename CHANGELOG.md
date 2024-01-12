@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.113.0 (2024-01-12)
+--------------------
+- The following resource was added:
+  AWS::NetworkFirewall::TLSInspectionConfiguration. [Github Actions]
+
+
 1.112.0 (2023-12-22)
 --------------------
 - The following resource was updated: <code
