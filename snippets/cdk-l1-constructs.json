@@ -4305,7 +4305,8 @@
             "  functionCode: \"${3:string}\", // Required",
             "  functionConfig: {",
             "    comment: \"${4:string}\",",
-            "    runtime: \"${5:string}\",",
+            "    keyValueStoreAssociations: [],",
+            "    runtime: \"${6:string}\",",
             "  },",
             "  functionMetadata: {",
             "    functionARN: \"${5:string}\",",
@@ -5379,8 +5380,8 @@
             "    preAuthentication: \"${20:string}\",",
             "    preSignUp: \"${21:string}\",",
             "    preTokenGeneration: \"${22:string}\",",
-            "    userMigration: \"${23:string}\",",
-            "    verifyAuthChallengeResponse: \"${24:string}\",",
+            "    userMigration: \"${24:string}\",",
+            "    verifyAuthChallengeResponse: \"${25:string}\",",
             "  },",
             "  mfaConfiguration: \"${13:string}\",",
             "  policies: {",
@@ -6117,12 +6118,13 @@
     "connect.CfnPhoneNumber": {
         "body": [
             "new connect.CfnPhoneNumber(this, \"${1:id}\", {",
-            "  countryCode: \"${2:string}\", // Required",
+            "  countryCode: \"${2:string}\",",
             "  description: \"${3:string}\",",
             "  prefix: \"${4:string}\",",
+            "  sourcePhoneNumberArn: \"${5:string}\",",
             "  tags: [],",
-            "  targetArn: \"${6:string}\", // Required",
-            "  type: \"${7:string}\", // Required",
+            "  targetArn: \"${7:string}\", // Required",
+            "  type: \"${8:string}\",",
             "})"
         ],
         "description": [
@@ -6133,6 +6135,23 @@
             "  attrPhoneNumberArn"
         ],
         "prefix": "l1-connect-phonenumber",
+        "scope": "javascript,typescript"
+    },
+    "connect.CfnPredefinedAttribute": {
+        "body": [
+            "new connect.CfnPredefinedAttribute(this, \"${1:id}\", {",
+            "  instanceArn: \"${2:string}\", // Required",
+            "  name: \"${3:string}\", // Required",
+            "  values: {",
+            "    stringList: [],",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: connect.CfnPredefinedAttribute",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-connect.CfnPredefinedAttribute"
+        ],
+        "prefix": "l1-connect-predefinedattribute",
         "scope": "javascript,typescript"
     },
     "connect.CfnPrompt": {
@@ -6363,7 +6382,8 @@
             "  routingProfileArn: \"${8:string}\", // Required",
             "  securityProfileArns: [], // Required",
             "  tags: [],",
-            "  username: \"${11:string}\", // Required",
+            "  userProficiencies: [],",
+            "  username: \"${12:string}\", // Required",
             "})"
         ],
         "description": [
@@ -7956,8 +7976,9 @@
             "  snapshotIdentifier: \"${19:string}\",",
             "  sourceDBClusterIdentifier: \"${20:string}\",",
             "  storageEncrypted: ${21|false,true|},",
+            "  storageType: \"${22:string}\",",
             "  tags: [],",
-            "  useLatestRestorableTime: ${23|false,true|},",
+            "  useLatestRestorableTime: ${24|false,true|},",
             "  vpcSecurityGroupIds: [],",
             "})"
         ],
@@ -9156,6 +9177,7 @@
             "Construct: ec2.CfnNetworkInterface",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnNetworkInterface",
             "Attributes: ",
+            "  attrPrimaryIpv6Address",
             "  attrSecondaryPrivateIpAddresses",
             "  attrPrimaryPrivateIpAddress",
             "  attrId"
@@ -9425,18 +9447,22 @@
             "  availabilityZoneId: \"${4:string}\",",
             "  cidrBlock: \"${5:string}\",",
             "  enableDns64: ${6|false,true|},",
-            "  ipv6CidrBlock: \"${7:string}\",",
+            "  ipv4IpamPoolId: \"${7:string}\",",
+            "  ipv4NetmaskLength: ${8:Number},",
+            "  ipv6CidrBlock: \"${9:string}\",",
             "  ipv6CidrBlocks: [],",
-            "  ipv6Native: ${9|false,true|},",
-            "  mapPublicIpOnLaunch: ${10|false,true|},",
-            "  outpostArn: \"${11:string}\",",
+            "  ipv6IpamPoolId: \"${11:string}\",",
+            "  ipv6Native: ${12|false,true|},",
+            "  ipv6NetmaskLength: ${13:Number},",
+            "  mapPublicIpOnLaunch: ${14|false,true|},",
+            "  outpostArn: \"${15:string}\",",
             "  privateDnsNameOptionsOnLaunch: {",
-            "    enableResourceNameDnsAAAARecord: ${12|false,true|},",
-            "    enableResourceNameDnsARecord: ${13|false,true|},",
-            "    hostnameType: \"${14:string}\",",
+            "    enableResourceNameDnsAAAARecord: ${16|false,true|},",
+            "    enableResourceNameDnsARecord: ${17|false,true|},",
+            "    hostnameType: \"${18:string}\",",
             "  },",
             "  tags: [],",
-            "  vpcId: \"${14:string}\", // Required",
+            "  vpcId: \"${18:string}\", // Required",
             "})"
         ],
         "description": [
@@ -9457,8 +9483,10 @@
     "ec2.CfnSubnetCidrBlock": {
         "body": [
             "new ec2.CfnSubnetCidrBlock(this, \"${1:id}\", {",
-            "  ipv6CidrBlock: \"${2:string}\", // Required",
-            "  subnetId: \"${3:string}\", // Required",
+            "  ipv6CidrBlock: \"${2:string}\",",
+            "  ipv6IpamPoolId: \"${3:string}\",",
+            "  ipv6NetmaskLength: ${4:Number},",
+            "  subnetId: \"${5:string}\", // Required",
             "})"
         ],
         "description": [
@@ -15074,12 +15102,15 @@
             "  domainConfigurationStatus: \"${4:string}\",",
             "  domainName: \"${5:string}\",",
             "  serverCertificateArns: [],",
-            "  serviceType: \"${7:string}\",",
+            "  serverCertificateConfig: {",
+            "    enableOCSPCheck: ${7|false,true|},",
+            "  },",
+            "  serviceType: \"${8:string}\",",
             "  tags: [],",
             "  tlsConfig: {",
-            "    securityPolicy: \"${9:string}\",",
+            "    securityPolicy: \"${10:string}\",",
             "  },",
-            "  validationCertificateArn: \"${10:string}\",",
+            "  validationCertificateArn: \"${11:string}\",",
             "})"
         ],
         "description": [
@@ -17069,11 +17100,11 @@
             "    roleARN: \"${20:string}\",",
             "  },",
             "  splunkDestinationConfiguration: {",
-            "    hECAcknowledgmentTimeoutInSeconds: ${15:Number},",
-            "    hECEndpoint: \"${16:string}\",",
-            "    hECEndpointType: \"${17:string}\",",
-            "    hECToken: \"${18:string}\",",
-            "    s3BackupMode: \"${21:string}\",",
+            "    hECAcknowledgmentTimeoutInSeconds: ${16:Number},",
+            "    hECEndpoint: \"${17:string}\",",
+            "    hECEndpointType: \"${18:string}\",",
+            "    hECToken: \"${19:string}\",",
+            "    s3BackupMode: \"${22:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -18097,12 +18128,42 @@
         "prefix": "l1-lightsail-staticip",
         "scope": "javascript,typescript"
     },
+    "location.CfnAPIKey": {
+        "body": [
+            "new location.CfnAPIKey(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  expireTime: \"${3:string}\",",
+            "  forceDelete: ${4|false,true|},",
+            "  forceUpdate: ${5|false,true|},",
+            "  keyName: \"${6:string}\", // Required",
+            "  noExpiry: ${7|false,true|},",
+            "  restrictions: {",
+            "    allowActions: [],",
+            "    allowReferers: [],",
+            "    allowResources: [],",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: location.CfnAPIKey",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-location.CfnAPIKey",
+            "Attributes: ",
+            "  attrCreateTime",
+            "  attrUpdateTime",
+            "  attrKeyArn",
+            "  attrArn"
+        ],
+        "prefix": "l1-location-apikey",
+        "scope": "javascript,typescript"
+    },
     "location.CfnGeofenceCollection": {
         "body": [
             "new location.CfnGeofenceCollection(this, \"${1:id}\", {",
             "  collectionName: \"${2:string}\", // Required",
             "  description: \"${3:string}\",",
             "  kmsKeyId: \"${4:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -18121,11 +18182,13 @@
         "body": [
             "new location.CfnMap(this, \"${1:id}\", {",
             "  configuration: {",
-            "    style: \"${2:string}\",",
+            "    politicalView: \"${2:string}\",",
+            "    style: \"${3:string}\",",
             "  },",
             "  description: \"${3:string}\",",
             "  mapName: \"${4:string}\", // Required",
             "  pricingPlan: \"${5:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -18135,8 +18198,7 @@
             "  attrCreateTime",
             "  attrUpdateTime",
             "  attrArn",
-            "  attrMapArn",
-            "  attrDataSource"
+            "  attrMapArn"
         ],
         "prefix": "l1-location-map",
         "scope": "javascript,typescript"
@@ -18151,6 +18213,7 @@
             "  description: \"${4:string}\",",
             "  indexName: \"${5:string}\", // Required",
             "  pricingPlan: \"${6:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -18172,6 +18235,7 @@
             "  dataSource: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
             "  pricingPlan: \"${5:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -18190,9 +18254,12 @@
         "body": [
             "new location.CfnTracker(this, \"${1:id}\", {",
             "  description: \"${2:string}\",",
-            "  kmsKeyId: \"${3:string}\",",
-            "  positionFiltering: \"${4:string}\",",
-            "  trackerName: \"${5:string}\", // Required",
+            "  eventBridgeEnabled: ${3|false,true|},",
+            "  kmsKeyEnableGeospatialQueries: ${4|false,true|},",
+            "  kmsKeyId: \"${5:string}\",",
+            "  positionFiltering: \"${6:string}\",",
+            "  tags: [],",
+            "  trackerName: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -19541,6 +19608,9 @@
             "  playbackMode: \"${6:string}\", // Required",
             "  tags: [],",
             "  tier: \"${8:string}\",",
+            "  timeShiftConfiguration: {",
+            "    maxTimeDelaySeconds: ${9:Number},",
+            "  },",
             "})"
         ],
         "description": [
@@ -20131,6 +20201,50 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-neptune.CfnDBSubnetGroup"
         ],
         "prefix": "l1-neptune-dbsubnetgroup",
+        "scope": "javascript,typescript"
+    },
+    "neptunegraph.CfnGraph": {
+        "body": [
+            "new neptunegraph.CfnGraph(this, \"${1:id}\", {",
+            "  deletionProtection: ${2|false,true|},",
+            "  graphName: \"${3:string}\",",
+            "  provisionedMemory: ${4:Number}, // Required",
+            "  publicConnectivity: ${5|false,true|},",
+            "  replicaCount: ${6:Number},",
+            "  tags: [],",
+            "  vectorSearchConfiguration: {",
+            "    vectorSearchDimension: ${8:Number},",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: neptunegraph.CfnGraph",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-neptunegraph.CfnGraph",
+            "Attributes: ",
+            "  attrEndpoint",
+            "  attrGraphArn",
+            "  attrGraphId"
+        ],
+        "prefix": "l1-neptunegraph-graph",
+        "scope": "javascript,typescript"
+    },
+    "neptunegraph.CfnPrivateGraphEndpoint": {
+        "body": [
+            "new neptunegraph.CfnPrivateGraphEndpoint(this, \"${1:id}\", {",
+            "  graphIdentifier: \"${2:string}\", // Required",
+            "  securityGroupIds: [],",
+            "  subnetIds: [],",
+            "  vpcId: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: neptunegraph.CfnPrivateGraphEndpoint",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-neptunegraph.CfnPrivateGraphEndpoint",
+            "Attributes: ",
+            "  attrVpcEndpointId",
+            "  attrPrivateGraphEndpointIdentifier"
+        ],
+        "prefix": "l1-neptunegraph-privategraphendpoint",
         "scope": "javascript,typescript"
     },
     "networkfirewall.CfnFirewall": {
@@ -27416,22 +27530,25 @@
             "  approvedPatches: [],",
             "  approvedPatchesComplianceLevel: \"${4:string}\",",
             "  approvedPatchesEnableNonSecurity: ${5|false,true|},",
-            "  description: \"${6:string}\",",
+            "  defaultBaseline: ${6|false,true|},",
+            "  description: \"${7:string}\",",
             "  globalFilters: {",
             "    patchFilters: [],",
             "  },",
-            "  name: \"${8:string}\", // Required",
-            "  operatingSystem: \"${9:string}\",",
+            "  name: \"${9:string}\", // Required",
+            "  operatingSystem: \"${10:string}\",",
             "  patchGroups: [],",
             "  rejectedPatches: [],",
-            "  rejectedPatchesAction: \"${12:string}\",",
+            "  rejectedPatchesAction: \"${13:string}\",",
             "  sources: [],",
             "  tags: [],",
             "})"
         ],
         "description": [
             "Construct: ssm.CfnPatchBaseline",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssm.CfnPatchBaseline"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssm.CfnPatchBaseline",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ssm-patchbaseline",
         "scope": "javascript,typescript"
