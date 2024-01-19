@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.114.0 (2024-01-19)
+--------------------
+- The following resource was added: AWS::IVS::Stage. [Github Actions]
+
+
 1.113.0 (2024-01-12)
 --------------------
 - The following resource was added:
