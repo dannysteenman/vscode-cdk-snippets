@@ -3306,8 +3306,7 @@
             "    nodeRangeProperties: [],",
             "    numNodes: ${7:Number},",
             "  },",
-            "  parameters: {",
-            "  },",
+            "  parameters: ${6:JSON},",
             "  platformCapabilities: [],",
             "  propagateTags: ${8|false,true|},",
             "  retryStrategy: {",
@@ -3315,8 +3314,7 @@
             "    evaluateOnExit: [],",
             "  },",
             "  schedulingPriority: ${10:Number},",
-            "  tags: {",
-            "  },",
+            "  tags: ${11:JSON},",
             "  timeout: {",
             "    attemptDurationSeconds: ${12:Number},",
             "  },",
@@ -3325,12 +3323,7 @@
         ],
         "description": [
             "Construct: batch.CfnJobDefinition",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-batch.CfnJobDefinition",
-            "Attributes: ",
-            "  attrStatus",
-            "  attrRevision",
-            "  attrJobDefinitionArn",
-            "  attrContainerOrchestrationType"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-batch.CfnJobDefinition"
         ],
         "prefix": "l1-batch-jobdefinition",
         "scope": "javascript,typescript"
@@ -4790,6 +4783,25 @@
         "prefix": "l1-codeartifact-repository",
         "scope": "javascript,typescript"
     },
+    "codebuild.CfnFleet": {
+        "body": [
+            "new codebuild.CfnFleet(this, \"${1:id}\", {",
+            "  baseCapacity: ${2:Number},",
+            "  computeType: \"${3:string}\",",
+            "  environmentType: \"${4:string}\",",
+            "  name: \"${5:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: codebuild.CfnFleet",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-codebuild.CfnFleet",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-codebuild-fleet",
+        "scope": "javascript,typescript"
+    },
     "codebuild.CfnProject": {
         "body": [
             "new codebuild.CfnProject(this, \"${1:id}\", {",
@@ -4823,10 +4835,10 @@
             "    certificate: \"${9:string}\",",
             "    computeType: \"${10:string}\",",
             "    environmentVariables: [],",
-            "    image: \"${12:string}\",",
-            "    imagePullCredentialsType: \"${13:string}\",",
-            "    privilegedMode: ${14|false,true|},",
-            "    type: \"${16:string}\",",
+            "    image: \"${13:string}\",",
+            "    imagePullCredentialsType: \"${14:string}\",",
+            "    privilegedMode: ${15|false,true|},",
+            "    type: \"${17:string}\",",
             "  },",
             "  fileSystemLocations: [],",
             "  logsConfig: {",
@@ -5292,6 +5304,7 @@
             "Construct: cognito.CfnIdentityPool",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnIdentityPool",
             "Attributes: ",
+            "  attrId",
             "  attrName"
         ],
         "prefix": "l1-cognito-identitypool",
@@ -5317,13 +5330,17 @@
         "body": [
             "new cognito.CfnIdentityPoolRoleAttachment(this, \"${1:id}\", {",
             "  identityPoolId: \"${2:string}\", // Required",
-            "  roleMappings: ${3:JSON},",
-            "  roles: ${4:JSON},",
+            "  roleMappings: {",
+            "  },",
+            "  roles: {",
+            "  },",
             "})"
         ],
         "description": [
             "Construct: cognito.CfnIdentityPoolRoleAttachment",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnIdentityPoolRoleAttachment"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cognito.CfnIdentityPoolRoleAttachment",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-cognito-identitypoolroleattachment",
         "scope": "javascript,typescript"
@@ -6251,9 +6268,12 @@
             "new connect.CfnRule(this, \"${1:id}\", {",
             "  actions: {",
             "    assignContactCategoryActions: [],",
+            "    createCaseActions: [],",
+            "    endAssociatedTasksActions: [],",
             "    eventBridgeActions: [],",
             "    sendNotificationActions: [],",
             "    taskActions: [],",
+            "    updateCaseActions: [],",
             "  },",
             "  function: \"${3:string}\", // Required",
             "  instanceArn: \"${4:string}\", // Required",
@@ -7193,6 +7213,211 @@
             "  attrTaskArn"
         ],
         "prefix": "l1-datasync-task",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnDataSource": {
+        "body": [
+            "new datazone.CfnDataSource(this, \"${1:id}\", {",
+            "  assetFormsInput: [],",
+            "  configuration: {",
+            "  },",
+            "  description: \"${4:string}\",",
+            "  domainIdentifier: \"${5:string}\", // Required",
+            "  enableSetting: \"${6:string}\",",
+            "  environmentIdentifier: \"${7:string}\", // Required",
+            "  name: \"${8:string}\", // Required",
+            "  projectIdentifier: \"${9:string}\", // Required",
+            "  publishOnImport: ${10|false,true|},",
+            "  recommendation: {",
+            "    enableBusinessNameGeneration: ${11|false,true|},",
+            "  },",
+            "  schedule: {",
+            "    schedule: \"${12:string}\",",
+            "    timezone: \"${13:string}\",",
+            "  },",
+            "  type: \"${13:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnDataSource",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnDataSource",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrEnvironmentId",
+            "  attrDomainId",
+            "  attrLastRunAssetCount",
+            "  attrLastRunAt",
+            "  attrCreatedAt",
+            "  attrProjectId",
+            "  attrLastRunStatus",
+            "  attrId",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-datazone-datasource",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnDomain": {
+        "body": [
+            "new datazone.CfnDomain(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  domainExecutionRole: \"${3:string}\", // Required",
+            "  kmsKeyIdentifier: \"${4:string}\",",
+            "  name: \"${5:string}\", // Required",
+            "  singleSignOn: {",
+            "    type: \"${6:string}\",",
+            "    userAssignment: \"${7:string}\",",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnDomain",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnDomain",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrLastUpdatedAt",
+            "  attrPortalUrl",
+            "  attrCreatedAt",
+            "  attrId",
+            "  attrManagedAccountId",
+            "  attrArn"
+        ],
+        "prefix": "l1-datazone-domain",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnEnvironment": {
+        "body": [
+            "new datazone.CfnEnvironment(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  domainIdentifier: \"${3:string}\", // Required",
+            "  environmentProfileIdentifier: \"${4:string}\", // Required",
+            "  glossaryTerms: [],",
+            "  name: \"${6:string}\", // Required",
+            "  projectIdentifier: \"${7:string}\", // Required",
+            "  userParameters: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnEnvironment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnEnvironment",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrCreatedBy",
+            "  attrDomainId",
+            "  attrEnvironmentProfileId",
+            "  attrAwsAccountRegion",
+            "  attrCreatedAt",
+            "  attrProjectId",
+            "  attrAwsAccountId",
+            "  attrEnvironmentBlueprintId",
+            "  attrId",
+            "  attrUpdatedAt",
+            "  attrProvider"
+        ],
+        "prefix": "l1-datazone-environment",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnEnvironmentBlueprintConfiguration": {
+        "body": [
+            "new datazone.CfnEnvironmentBlueprintConfiguration(this, \"${1:id}\", {",
+            "  domainIdentifier: \"${2:string}\", // Required",
+            "  enabledRegions: [], // Required",
+            "  environmentBlueprintIdentifier: \"${4:string}\", // Required",
+            "  manageAccessRoleArn: \"${5:string}\",",
+            "  provisioningRoleArn: \"${6:string}\",",
+            "  regionalParameters: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnEnvironmentBlueprintConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnEnvironmentBlueprintConfiguration",
+            "Attributes: ",
+            "  attrDomainId",
+            "  attrCreatedAt",
+            "  attrEnvironmentBlueprintId",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-datazone-environmentblueprintconfiguration",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnEnvironmentProfile": {
+        "body": [
+            "new datazone.CfnEnvironmentProfile(this, \"${1:id}\", {",
+            "  awsAccountId: \"${2:string}\", // Required",
+            "  awsAccountRegion: \"${3:string}\", // Required",
+            "  description: \"${4:string}\",",
+            "  domainIdentifier: \"${5:string}\", // Required",
+            "  environmentBlueprintIdentifier: \"${6:string}\", // Required",
+            "  name: \"${7:string}\", // Required",
+            "  projectIdentifier: \"${8:string}\", // Required",
+            "  userParameters: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnEnvironmentProfile",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnEnvironmentProfile",
+            "Attributes: ",
+            "  attrCreatedBy",
+            "  attrDomainId",
+            "  attrCreatedAt",
+            "  attrProjectId",
+            "  attrEnvironmentBlueprintId",
+            "  attrId",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-datazone-environmentprofile",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnProject": {
+        "body": [
+            "new datazone.CfnProject(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  domainIdentifier: \"${3:string}\", // Required",
+            "  glossaryTerms: [],",
+            "  name: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnProject",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnProject",
+            "Attributes: ",
+            "  attrCreatedBy",
+            "  attrDomainId",
+            "  attrLastUpdatedAt",
+            "  attrCreatedAt",
+            "  attrId"
+        ],
+        "prefix": "l1-datazone-project",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnSubscriptionTarget": {
+        "body": [
+            "new datazone.CfnSubscriptionTarget(this, \"${1:id}\", {",
+            "  applicableAssetTypes: [], // Required",
+            "  authorizedPrincipals: [], // Required",
+            "  domainIdentifier: \"${4:string}\", // Required",
+            "  environmentIdentifier: \"${5:string}\", // Required",
+            "  manageAccessRole: \"${6:string}\", // Required",
+            "  name: \"${7:string}\", // Required",
+            "  provider: \"${8:string}\",",
+            "  subscriptionTargetConfig: [], // Required",
+            "  type: \"${10:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnSubscriptionTarget",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnSubscriptionTarget",
+            "Attributes: ",
+            "  attrUpdatedBy",
+            "  attrEnvironmentId",
+            "  attrCreatedBy",
+            "  attrDomainId",
+            "  attrCreatedAt",
+            "  attrProjectId",
+            "  attrId",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-datazone-subscriptiontarget",
         "scope": "javascript,typescript"
     },
     "dax.CfnCluster": {
@@ -11076,7 +11301,7 @@
             "  description: \"${4:string}\",",
             "  endpoint: {",
             "    address: \"${5:string}\",",
-            "    port: ${6:Number},",
+            "    port: \"${6:string}\",",
             "  },",
             "  engine: \"${6:string}\", // Required",
             "  finalSnapshotName: \"${7:string}\",",
@@ -11084,7 +11309,7 @@
             "  majorEngineVersion: \"${9:string}\",",
             "  readerEndpoint: {",
             "    address: \"${10:string}\",",
-            "    port: ${11:Number},",
+            "    port: \"${11:string}\",",
             "  },",
             "  securityGroupIds: [],",
             "  serverlessCacheName: \"${12:string}\", // Required",
@@ -11375,15 +11600,16 @@
     "elasticloadbalancingv2.CfnLoadBalancer": {
         "body": [
             "new elasticloadbalancingv2.CfnLoadBalancer(this, \"${1:id}\", {",
-            "  ipAddressType: \"${2:string}\",",
+            "  enforceSecurityGroupInboundRulesOnPrivateLinkTraffic: \"${2:string}\",",
+            "  ipAddressType: \"${3:string}\",",
             "  loadBalancerAttributes: [],",
-            "  name: \"${4:string}\",",
-            "  scheme: \"${5:string}\",",
+            "  name: \"${5:string}\",",
+            "  scheme: \"${6:string}\",",
             "  securityGroups: [],",
             "  subnetMappings: [],",
             "  subnets: [],",
             "  tags: [],",
-            "  type: \"${10:string}\",",
+            "  type: \"${11:string}\",",
             "})"
         ],
         "description": [
@@ -14063,14 +14289,13 @@
     "guardduty.CfnFilter": {
         "body": [
             "new guardduty.CfnFilter(this, \"${1:id}\", {",
-            "  action: \"${2:string}\", // Required",
-            "  description: \"${3:string}\", // Required",
-            "  detectorId: \"${4:string}\", // Required",
+            "  action: \"${2:string}\",",
+            "  description: \"${3:string}\",",
+            "  detectorId: \"${4:string}\",",
             "  findingCriteria: {",
-            "    criterion: ${5:JSON},",
             "  },",
-            "  name: \"${6:string}\", // Required",
-            "  rank: ${7:Number}, // Required",
+            "  name: \"${6:string}\",",
+            "  rank: ${7:Number},",
             "  tags: [],",
             "})"
         ],
@@ -16671,6 +16896,23 @@
         "prefix": "l1-ivs-recordingconfiguration",
         "scope": "javascript,typescript"
     },
+    "ivs.CfnStage": {
+        "body": [
+            "new ivs.CfnStage(this, \"${1:id}\", {",
+            "  name: \"${2:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ivs.CfnStage",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ivs.CfnStage",
+            "Attributes: ",
+            "  attrArn",
+            "  attrActiveSessionId"
+        ],
+        "prefix": "l1-ivs-stage",
+        "scope": "javascript,typescript"
+    },
     "ivs.CfnStreamKey": {
         "body": [
             "new ivs.CfnStreamKey(this, \"${1:id}\", {",
@@ -17108,12 +17350,26 @@
             "    prefix: \"${19:string}\",",
             "    roleARN: \"${20:string}\",",
             "  },",
+            "  snowflakeDestinationConfiguration: {",
+            "    accountUrl: \"${14:string}\",",
+            "    contentColumnName: \"${16:string}\",",
+            "    dataLoadingOption: \"${17:string}\",",
+            "    database: \"${18:string}\",",
+            "    keyPassphrase: \"${19:string}\",",
+            "    metaDataColumnName: \"${20:string}\",",
+            "    privateKey: \"${21:string}\",",
+            "    roleARN: \"${24:string}\",",
+            "    s3BackupMode: \"${25:string}\",",
+            "    schema: \"${27:string}\",",
+            "    table: \"${30:string}\",",
+            "    user: \"${31:string}\",",
+            "  },",
             "  splunkDestinationConfiguration: {",
-            "    hECAcknowledgmentTimeoutInSeconds: ${16:Number},",
-            "    hECEndpoint: \"${17:string}\",",
-            "    hECEndpointType: \"${18:string}\",",
-            "    hECToken: \"${19:string}\",",
-            "    s3BackupMode: \"${22:string}\",",
+            "    hECAcknowledgmentTimeoutInSeconds: ${17:Number},",
+            "    hECEndpoint: \"${18:string}\",",
+            "    hECEndpointType: \"${19:string}\",",
+            "    hECToken: \"${20:string}\",",
+            "    s3BackupMode: \"${23:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -17322,10 +17578,11 @@
     "lakeformation.CfnResource": {
         "body": [
             "new lakeformation.CfnResource(this, \"${1:id}\", {",
-            "  resourceArn: \"${2:string}\", // Required",
-            "  roleArn: \"${3:string}\",",
-            "  useServiceLinkedRole: ${4|false,true|}, // Required",
-            "  withFederation: ${5|false,true|},",
+            "  hybridAccessEnabled: ${2|false,true|},",
+            "  resourceArn: \"${3:string}\", // Required",
+            "  roleArn: \"${4:string}\",",
+            "  useServiceLinkedRole: ${5|false,true|}, // Required",
+            "  withFederation: ${6|false,true|},",
             "})"
         ],
         "description": [
@@ -27702,6 +27959,21 @@
             "  attrArn"
         ],
         "prefix": "l1-ssmcontacts-rotation",
+        "scope": "javascript,typescript"
+    },
+    "ssmguiconnect.CfnPreferences": {
+        "body": [
+            "new ssmguiconnect.CfnPreferences(this, \"${1:id}\", {",
+            "  idleConnection: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ssmguiconnect.CfnPreferences",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ssmguiconnect.CfnPreferences",
+            "Attributes: ",
+            "  attrAccountId"
+        ],
+        "prefix": "l1-ssmguiconnect-preferences",
         "scope": "javascript,typescript"
     },
     "ssmincidents.CfnReplicationSet": {
