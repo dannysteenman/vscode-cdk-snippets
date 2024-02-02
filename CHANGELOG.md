@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.116.0 (2024-02-02)
+--------------------
+- The following resource was updated:
+  AWS::AutoScaling::AutoScalingGroup. [Github Actions]
+
+
 1.115.0 (2024-01-26)
 --------------------
 - The following resources were updated: AWS::ECS::ServiceConnectService.
