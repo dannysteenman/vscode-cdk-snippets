@@ -13751,6 +13751,26 @@
         "prefix": "l1-glue-table",
         "scope": "javascript,typescript"
     },
+    "glue.CfnTableOptimizer": {
+        "body": [
+            "new glue.CfnTableOptimizer(this, \"${1:id}\", {",
+            "  catalogId: \"${2:string}\", // Required",
+            "  databaseName: \"${3:string}\", // Required",
+            "  tableName: \"${4:string}\", // Required",
+            "  tableOptimizerConfiguration: {",
+            "    enabled: ${5|false,true|},",
+            "    roleArn: \"${6:string}\",",
+            "  },",
+            "  type: \"${6:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: glue.CfnTableOptimizer",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-glue.CfnTableOptimizer"
+        ],
+        "prefix": "l1-glue-tableoptimizer",
+        "scope": "javascript,typescript"
+    },
     "glue.CfnTrigger": {
         "body": [
             "new glue.CfnTrigger(this, \"${1:id}\", {",
@@ -15082,6 +15102,31 @@
             "  attrArn"
         ],
         "prefix": "l1-inspector-resourcegroup",
+        "scope": "javascript,typescript"
+    },
+    "inspectorv2.CfnCisScanConfiguration": {
+        "body": [
+            "new inspectorv2.CfnCisScanConfiguration(this, \"${1:id}\", {",
+            "  scanName: \"${2:string}\",",
+            "  schedule: {",
+            "    oneTime: ${5:JSON},",
+            "  },",
+            "  securityLevel: \"${4:string}\",",
+            "  tags: {",
+            "  },",
+            "  targets: {",
+            "    accountIds: [],",
+            "    targetResourceTags: ${7:JSON},",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: inspectorv2.CfnCisScanConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-inspectorv2.CfnCisScanConfiguration",
+            "Attributes: ",
+            "  attrArn"
+        ],
+        "prefix": "l1-inspectorv2-cisscanconfiguration",
         "scope": "javascript,typescript"
     },
     "inspectorv2.CfnFilter": {
@@ -18448,8 +18493,9 @@
         "body": [
             "new location.CfnMap(this, \"${1:id}\", {",
             "  configuration: {",
-            "    politicalView: \"${2:string}\",",
-            "    style: \"${3:string}\",",
+            "    customLayers: [],",
+            "    politicalView: \"${3:string}\",",
+            "    style: \"${4:string}\",",
             "  },",
             "  description: \"${3:string}\",",
             "  mapName: \"${4:string}\", // Required",
@@ -23644,6 +23690,28 @@
         "prefix": "l1-rds-globalcluster",
         "scope": "javascript,typescript"
     },
+    "rds.CfnIntegration": {
+        "body": [
+            "new rds.CfnIntegration(this, \"${1:id}\", {",
+            "  additionalEncryptionContext: {",
+            "  },",
+            "  integrationName: \"${3:string}\",",
+            "  kMSKeyId: \"${4:string}\",",
+            "  sourceArn: \"${5:string}\", // Required",
+            "  tags: [],",
+            "  targetArn: \"${7:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: rds.CfnIntegration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-rds.CfnIntegration",
+            "Attributes: ",
+            "  attrIntegrationArn",
+            "  attrCreateTime"
+        ],
+        "prefix": "l1-rds-integration",
+        "scope": "javascript,typescript"
+    },
     "rds.CfnOptionGroup": {
         "body": [
             "new rds.CfnOptionGroup(this, \"${1:id}\", {",
@@ -25540,6 +25608,8 @@
         "body": [
             "new sagemaker.CfnAppImageConfig(this, \"${1:id}\", {",
             "  appImageConfigName: \"${2:string}\", // Required",
+            "  jupyterLabAppImageConfig: {",
+            "  },",
             "  kernelGatewayImageConfig: {",
             "    kernelSpecs: [],",
             "  },",
@@ -26348,8 +26418,17 @@
         "body": [
             "new sagemaker.CfnSpace(this, \"${1:id}\", {",
             "  domainId: \"${2:string}\", // Required",
-            "  spaceName: \"${3:string}\", // Required",
+            "  ownershipSettings: {",
+            "    ownerUserProfileName: \"${3:string}\",",
+            "  },",
+            "  spaceDisplayName: \"${4:string}\",",
+            "  spaceName: \"${5:string}\", // Required",
             "  spaceSettings: {",
+            "    appType: \"${6:string}\",",
+            "    customFileSystems: [],",
+            "  },",
+            "  spaceSharingSettings: {",
+            "    sharingType: \"${7:string}\",",
             "  },",
             "  tags: [],",
             "})"
@@ -26358,7 +26437,8 @@
             "Construct: sagemaker.CfnSpace",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sagemaker.CfnSpace",
             "Attributes: ",
-            "  attrSpaceArn"
+            "  attrSpaceArn",
+            "  attrUrl"
         ],
         "prefix": "l1-sagemaker-space",
         "scope": "javascript,typescript"
