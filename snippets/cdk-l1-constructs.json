@@ -6543,7 +6543,8 @@
             "new controltower.CfnEnabledControl(this, \"${1:id}\", {",
             "  controlIdentifier: \"${2:string}\", // Required",
             "  parameters: [],",
-            "  targetIdentifier: \"${4:string}\", // Required",
+            "  tags: [],",
+            "  targetIdentifier: \"${5:string}\", // Required",
             "})"
         ],
         "description": [
@@ -8425,23 +8426,20 @@
             "    readCapacityUnits: ${12:Number},",
             "    writeCapacityUnits: ${13:Number},",
             "  },",
-            "  resourcePolicy: {",
-            "    policyDocument: ${13:JSON},",
-            "  },",
             "  sSESpecification: {",
-            "    kMSMasterKeyId: \"${14:string}\",",
-            "    sSEEnabled: ${15|false,true|},",
-            "    sSEType: \"${16:string}\",",
+            "    kMSMasterKeyId: \"${13:string}\",",
+            "    sSEEnabled: ${14|false,true|},",
+            "    sSEType: \"${15:string}\",",
             "  },",
             "  streamSpecification: {",
-            "    streamViewType: \"${16:string}\",",
+            "    streamViewType: \"${14:string}\",",
             "  },",
-            "  tableClass: \"${16:string}\",",
-            "  tableName: \"${17:string}\",",
+            "  tableClass: \"${15:string}\",",
+            "  tableName: \"${16:string}\",",
             "  tags: [],",
             "  timeToLiveSpecification: {",
-            "    attributeName: \"${19:string}\",",
-            "    enabled: ${20|false,true|},",
+            "    attributeName: \"${18:string}\",",
+            "    enabled: ${19|false,true|},",
             "  },",
             "})"
         ],
@@ -8558,25 +8556,22 @@
             "    bannerText: \"${5:string}\",",
             "    enabled: ${6|false,true|},",
             "  },",
-            "  clientRouteMonitoringOptions: {",
-            "    enabled: ${6|false,true|},",
-            "  },",
             "  connectionLogOptions: {",
-            "    cloudwatchLogGroup: \"${7:string}\",",
-            "    cloudwatchLogStream: \"${8:string}\",",
-            "    enabled: ${9|false,true|},",
+            "    cloudwatchLogGroup: \"${6:string}\",",
+            "    cloudwatchLogStream: \"${7:string}\",",
+            "    enabled: ${8|false,true|},",
             "  },",
-            "  description: \"${8:string}\",",
+            "  description: \"${7:string}\",",
             "  dnsServers: [],",
             "  securityGroupIds: [],",
-            "  selfServicePortal: \"${11:string}\",",
-            "  serverCertificateArn: \"${12:string}\", // Required",
-            "  sessionTimeoutHours: ${13:Number},",
-            "  splitTunnel: ${14|false,true|},",
+            "  selfServicePortal: \"${10:string}\",",
+            "  serverCertificateArn: \"${11:string}\", // Required",
+            "  sessionTimeoutHours: ${12:Number},",
+            "  splitTunnel: ${13|false,true|},",
             "  tagSpecifications: [],",
-            "  transportProtocol: \"${16:string}\",",
-            "  vpcId: \"${17:string}\",",
-            "  vpnPort: ${18:Number},",
+            "  transportProtocol: \"${15:string}\",",
+            "  vpcId: \"${16:string}\",",
+            "  vpnPort: ${17:Number},",
             "})"
         ],
         "description": [
@@ -14414,10 +14409,10 @@
     "guardduty.CfnMember": {
         "body": [
             "new guardduty.CfnMember(this, \"${1:id}\", {",
-            "  detectorId: \"${2:string}\", // Required",
+            "  detectorId: \"${2:string}\",",
             "  disableEmailNotification: ${3|false,true|},",
             "  email: \"${4:string}\", // Required",
-            "  memberId: \"${5:string}\", // Required",
+            "  memberId: \"${5:string}\",",
             "  message: \"${6:string}\",",
             "  status: \"${7:string}\",",
             "})"
@@ -19834,8 +19829,8 @@
     "mediapackagev2.CfnChannel": {
         "body": [
             "new mediapackagev2.CfnChannel(this, \"${1:id}\", {",
-            "  channelGroupName: \"${2:string}\",",
-            "  channelName: \"${3:string}\",",
+            "  channelGroupName: \"${2:string}\", // Required",
+            "  channelName: \"${3:string}\", // Required",
             "  description: \"${4:string}\",",
             "  tags: [],",
             "})"
@@ -19855,7 +19850,7 @@
     "mediapackagev2.CfnChannelGroup": {
         "body": [
             "new mediapackagev2.CfnChannelGroup(this, \"${1:id}\", {",
-            "  channelGroupName: \"${2:string}\",",
+            "  channelGroupName: \"${2:string}\", // Required",
             "  description: \"${3:string}\",",
             "  tags: [],",
             "})"
@@ -19875,8 +19870,8 @@
     "mediapackagev2.CfnChannelPolicy": {
         "body": [
             "new mediapackagev2.CfnChannelPolicy(this, \"${1:id}\", {",
-            "  channelGroupName: \"${2:string}\",",
-            "  channelName: \"${3:string}\",",
+            "  channelGroupName: \"${2:string}\", // Required",
+            "  channelName: \"${3:string}\", // Required",
             "  policy: ${4:JSON}, // Required",
             "})"
         ],
@@ -19890,13 +19885,13 @@
     "mediapackagev2.CfnOriginEndpoint": {
         "body": [
             "new mediapackagev2.CfnOriginEndpoint(this, \"${1:id}\", {",
-            "  channelGroupName: \"${2:string}\",",
-            "  channelName: \"${3:string}\",",
-            "  containerType: \"${4:string}\", // Required",
+            "  channelGroupName: \"${2:string}\", // Required",
+            "  channelName: \"${3:string}\", // Required",
+            "  containerType: \"${4:string}\",",
             "  description: \"${5:string}\",",
             "  hlsManifests: [],",
             "  lowLatencyHlsManifests: [],",
-            "  originEndpointName: \"${8:string}\",",
+            "  originEndpointName: \"${8:string}\", // Required",
             "  segment: {",
             "    includeIframeOnlyStreams: ${10|false,true|},",
             "    segmentDurationSeconds: ${12:Number},",
@@ -19922,9 +19917,9 @@
     "mediapackagev2.CfnOriginEndpointPolicy": {
         "body": [
             "new mediapackagev2.CfnOriginEndpointPolicy(this, \"${1:id}\", {",
-            "  channelGroupName: \"${2:string}\",",
-            "  channelName: \"${3:string}\",",
-            "  originEndpointName: \"${4:string}\",",
+            "  channelGroupName: \"${2:string}\", // Required",
+            "  channelName: \"${3:string}\", // Required",
+            "  originEndpointName: \"${4:string}\", // Required",
             "  policy: ${5:JSON}, // Required",
             "})"
         ],
