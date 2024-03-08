@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.120.0 (2024-03-08)
+--------------------
+- The following resources were updated: AWS::WAFv2::WebACL and
+  AWS::WAFv2::RuleGroup. [Github Actions]
+
+
 1.119.0 (2024-02-23)
 --------------------
 - The following resource was updated: AWS::CodePipeline::Pipeline.
