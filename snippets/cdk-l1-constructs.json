@@ -1300,8 +1300,9 @@
             "  configurationVersion: \"${4:string}\", // Required",
             "  deploymentStrategyId: \"${5:string}\", // Required",
             "  description: \"${6:string}\",",
-            "  environmentId: \"${7:string}\", // Required",
-            "  kmsKeyIdentifier: \"${8:string}\",",
+            "  dynamicExtensionParameters: [],",
+            "  environmentId: \"${8:string}\", // Required",
+            "  kmsKeyIdentifier: \"${9:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -1603,15 +1604,16 @@
     "applicationinsights.CfnApplication": {
         "body": [
             "new applicationinsights.CfnApplication(this, \"${1:id}\", {",
-            "  autoConfigurationEnabled: ${2|false,true|},",
-            "  cWEMonitorEnabled: ${3|false,true|},",
+            "  attachMissingPermission: ${2|false,true|},",
+            "  autoConfigurationEnabled: ${3|false,true|},",
+            "  cWEMonitorEnabled: ${4|false,true|},",
             "  componentMonitoringSettings: [],",
             "  customComponents: [],",
-            "  groupingType: \"${6:string}\",",
+            "  groupingType: \"${7:string}\",",
             "  logPatternSets: [],",
-            "  opsCenterEnabled: ${8|false,true|},",
-            "  opsItemSNSTopicArn: \"${9:string}\",",
-            "  resourceGroupName: \"${10:string}\", // Required",
+            "  opsCenterEnabled: ${9|false,true|},",
+            "  opsItemSNSTopicArn: \"${10:string}\",",
+            "  resourceGroupName: \"${11:string}\", // Required",
             "  tags: [],",
             "})"
         ],
@@ -3363,9 +3365,10 @@
             "new batch.CfnJobQueue(this, \"${1:id}\", {",
             "  computeEnvironmentOrder: [], // Required",
             "  jobQueueName: \"${3:string}\",",
-            "  priority: ${4:Number}, // Required",
-            "  schedulingPolicyArn: \"${5:string}\",",
-            "  state: \"${6:string}\",",
+            "  jobStateTimeLimitActions: [],",
+            "  priority: ${5:Number}, // Required",
+            "  schedulingPolicyArn: \"${6:string}\",",
+            "  state: \"${7:string}\",",
             "  tags: {",
             "  },",
             "})"
@@ -8648,8 +8651,9 @@
             "new ec2.CfnDHCPOptions(this, \"${1:id}\", {",
             "  domainName: \"${2:string}\",",
             "  domainNameServers: [],",
+            "  ipv6AddressPreferredLeaseTime: ${4:Number},",
             "  netbiosNameServers: [],",
-            "  netbiosNodeType: ${5:Number},",
+            "  netbiosNodeType: ${6:Number},",
             "  ntpServers: [],",
             "  tags: [],",
             "})"
@@ -9629,8 +9633,9 @@
             "Construct: ec2.CfnSecurityGroup",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnSecurityGroup",
             "Attributes: ",
-            "  attrGroupId",
-            "  attrVpcId"
+            "  attrVpcId",
+            "  attrId",
+            "  attrGroupId"
         ],
         "prefix": "l1-ec2-securitygroup",
         "scope": "javascript,typescript"
@@ -10222,7 +10227,9 @@
         ],
         "description": [
             "Construct: ec2.CfnVPCCidrBlock",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCCidrBlock"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnVPCCidrBlock",
+            "Attributes: ",
+            "  attrId"
         ],
         "prefix": "l1-ec2-vpccidrblock",
         "scope": "javascript,typescript"
@@ -15248,16 +15255,18 @@
             "    availabilityScoreThreshold: ${3:Number},",
             "    performanceScoreThreshold: ${5:Number},",
             "  },",
+            "  includeLinkedAccounts: ${3|false,true|},",
             "  internetMeasurementsLogDelivery: {",
             "  },",
-            "  maxCityNetworksToMonitor: ${4:Number},",
-            "  monitorName: \"${5:string}\", // Required",
+            "  linkedAccountId: \"${5:string}\",",
+            "  maxCityNetworksToMonitor: ${6:Number},",
+            "  monitorName: \"${7:string}\", // Required",
             "  resources: [],",
             "  resourcesToAdd: [],",
             "  resourcesToRemove: [],",
-            "  status: \"${9:string}\",",
+            "  status: \"${11:string}\",",
             "  tags: [],",
-            "  trafficPercentageToMonitor: ${11:Number},",
+            "  trafficPercentageToMonitor: ${13:Number},",
             "})"
         ],
         "description": [
@@ -22504,7 +22513,8 @@
             "  enabled: ${4|false,true|},",
             "  fromAddress: \"${5:string}\", // Required",
             "  identity: \"${6:string}\", // Required",
-            "  roleArn: \"${7:string}\",",
+            "  orchestrationSendingRoleArn: \"${7:string}\",",
+            "  roleArn: \"${8:string}\",",
             "})"
         ],
         "description": [
