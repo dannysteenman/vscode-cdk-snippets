@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+1.121.0 (2024-03-15)
+--------------------
+- AWS CloudFormation added the <code
+  class="code">CONFIGURATION_COMPLETE</code> event to enable faster
+  workflows involving the creation of      resources. [Github Actions]
+- Feat: add contact information and expertise details. [Danny Steenman]
+
+
 1.120.0 (2024-03-08)
 --------------------
 - The following resources were updated: AWS::WAFv2::WebACL and
