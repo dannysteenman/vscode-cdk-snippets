@@ -1,10 +1,10 @@
-# CDK Construct Snippets for VS Code
+# AWS CDK Construct Snippets for VS Code
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/dannysteenman.cdk-snippets 'Current Release')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/dannysteenman.cdk-snippets 'Currently Installed')](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
 [![Rating](https://img.shields.io/visual-studio-marketplace/stars/dannysteenman.cdk-snippets)](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
 
-This extension adds L1 construct snippets from CDK into Visual Studio Code.
+This extension adds L1 Construct snippets from AWS CDK in Visual Studio Code.
 
 > [!TIP]
 > If you're looking for expertise to elevate your cloud infrastructure, then don't hesitate to get in [touch with me](https://towardsthecloud.com/contact)!
@@ -29,19 +29,14 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 > </details>
 
 ---
-
-## New
-
-- Added support for [Gitpod](https://github.com/dannysteenman/vscode-cloudformation-snippets/issues/14) by publishing this extension to the [Open VSX Registry](https://open-vsx.org/extension/dsteenman/cdk-snippets)
-
 ## Features
 
-1. Supports all resources that are defined by CloudFormation in the form of L1 constructs in CDK
-2. Triggers autocomplete by invoking `l1-<cloudformation-resource>`
-3. The construct snippets are automatically updated every week after AWS updates their [CloudFormation Resource Specification.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html)
-4. Has builtin support for placeholders. This means you can quickly jump from property to property in each resource by using `Tab`
-5. The extension will show which property is required by adding a ```// required``` comment next to it.
-6. The autocomplete prompt shows the matching CDK resource documentation URL in its description.
+1. **Comprehensive Support**: Seamlessly integrates all CloudFormation resources as L1 constructs within CDK, ensuring you have access to the latest AWS offerings.
+2. **Effortless Autocomplete**: Activate autocomplete with `l1-<cloudformation-resource>` to streamline your coding process.
+3. **Weekly Updates**: Construct snippets are refreshed weekly in line with AWS's updates to their [CloudFormation Resource Specification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html), keeping you on the cutting edge.
+4. **Placeholder Support**: Navigate efficiently through resource properties using the `Tab` key, thanks to built-in placeholder functionality.
+5. **Required Property Highlighting**: Easily identify mandatory properties, highlighted with a `// required` comment for your convenience.
+6. **Documentation at Your Fingertips**: Access the corresponding CDK resource documentation directly from the autocomplete prompt, enriching your development experience.
 
 ## Usage
 
@@ -54,29 +49,18 @@ This extension adds L1 construct snippets from CDK into Visual Studio Code.
 > **Note:** Once you start typing a prefix (explained in step 3), the corresponding snippet shows up in the dropdown menu. If this doesn't happen automatically, press `ctrl + space` to invoke IntelliSense and search for the prefix of the resource type that you want to add (as listed in step 3).
 
 ---
-
 ## AWS CDK examples
 
-If you'd like to learn more about AWS CDK, have a look at these [series of AWS CDK examples](https://towardsthecloud.com/category/infrastructure-as-code/aws-cdk) that I've pubished on my blog.
+Looking to level up your infrastructure-as-code skills with the power of AWS CDK? Check out the [AWS CDK Examples](https://github.com/dannysteenman/aws-cdk-examples) repository - a treasure trove of TypeScript-based solutions crafted by a seasoned cloud developer.
 
 ---
-
 ## Support
 
 If you have a feature request or an issue, please let me know on [Github](https://github.com/dannysteenman/vscode-cdk-snippets/issues)
 
-
-## Contributing
-
-If you want to add more snippets or support another programming language, your contribution is more than welcome!
-
-Review the [Contributing Guidelines](https://github.com/dannysteenman/vscode-cdk-snippets/blob/main/.github/CONTRIBUTING.md).
-
----
-
 ## Author
 
-**[Danny Steenman](https://towardsthecloud.com)**
+**[Danny Steenman](https://github.com/dannysteenman)**
 
 <p align="left">
   <a href="https://twitter.com/dannysteenman"><img src="https://img.shields.io/twitter/follow/dannysteenman?label=%40dannysteenman&style=social"></a>

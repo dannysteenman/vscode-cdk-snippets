@@ -1,5 +1,6 @@
 import hashlib
 import json
+
 import requests
 
 
@@ -31,15 +32,11 @@ def check_for_update():
         new_hash = hashlib.md5(get_resource_spec().content).hexdigest()
 
         if new_hash == current_hash:
-            print(
-                f"The new hash: {new_hash} matches with our current hash: {current_hash}."
-            )
+            print(f"The new hash: {new_hash} matches with our current hash: {current_hash}.")
             print("The snippets are up-to-date, stopping the pipeline.")
             exit(1)
         else:
-            print(
-                "Found an update in the cfn-resource-specification, let's update the resource snippets!"
-            )
+            print("Found an update in the cfn-resource-specification, let's update the resource snippets!")
             file.seek(0)
             file.write(new_hash)
             create_cdk_snippet(get_resource_spec().json())
@@ -56,12 +53,7 @@ def parse_body(body, counter, resource_properties, resource_property, resource_t
 
         if "Type" in resource_properties[resource_property]:
             if resource_properties[resource_property]["Type"] == "List":
-                body.append(
-                    " " * 2
-                    + change_case(resource_property)
-                    + ": [],"
-                    + (" // Required" if required else "")
-                )
+                body.append(" " * 2 + change_case(resource_property) + ": []," + (" // Required" if required else ""))
             else:
                 item = resource_properties[resource_property]["Type"]
                 body.append(" " * 2 + change_case(resource_property) + ": {")
@@ -83,9 +75,7 @@ def get_item_type_prop(body, item, resource_type, counter):
     for property_type in response_data["PropertyTypes"]:
         properties = response_data["PropertyTypes"][property_type].get("Properties")
         if resource_property_name == property_type and properties:
-            for updated_counter, property in enumerate(
-                sorted(properties), start=counter
-            ):
+            for updated_counter, property in enumerate(sorted(properties), start=counter):
                 item = types(properties[property])
                 if "Type" in properties[property]:
                     if properties[property]["Type"] == "List":
@@ -167,23 +157,15 @@ def create_cdk_snippet(response_data):
         cfn_resource_type = cfn_resource[:index].lower()
         cdk_l1_construct = cfn_resource_type + "." + cfn_resource[index:]
 
-        description = fetch_description(
-            response_data["ResourceTypes"][resource_type], cdk_l1_construct
-        )
+        description = fetch_description(response_data["ResourceTypes"][resource_type], cdk_l1_construct)
         body = ["new " + cdk_l1_construct + '(this, "${1:id}", {']
 
         # for each resources 'properties'
-        resource_properties = response_data["ResourceTypes"][resource_type][
-            "Properties"
-        ]
+        resource_properties = response_data["ResourceTypes"][resource_type]["Properties"]
 
         updated_body = []
-        for counter, resource_property in enumerate(
-            sorted(resource_properties), start=2
-        ):
-            updated_body = parse_body(
-                body, counter, resource_properties, resource_property, resource_type
-            )
+        for counter, resource_property in enumerate(sorted(resource_properties), start=2):
+            updated_body = parse_body(body, counter, resource_properties, resource_property, resource_type)
 
         updated_body.append("})")
         output[cdk_l1_construct] = {
