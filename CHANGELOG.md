@@ -2,6 +2,16 @@ Changelog
 =========
 
 
+1.125.0 (2024-04-13)
+--------------------
+- The following resources were added: <code
+  class="code">AWS::SecurityLake::AwsLogSource</code>, <code
+  class="code">AWS::SecurityLake::DataLake</code>, <code
+  class="code">AWS::SecurityLake::Subscriber</code>. [Github Actions]
+- Feat: add gh action publish task to Open VSX Registry. [Danny
+  Steenman]
+
+
 1.124.0 (2024-04-05)
 --------------------
 - The following resources were added: <code
