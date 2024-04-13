@@ -4073,6 +4073,32 @@
         "prefix": "l1-cleanrooms-membership",
         "scope": "javascript,typescript"
     },
+    "cleanrooms.CfnPrivacyBudgetTemplate": {
+        "body": [
+            "new cleanrooms.CfnPrivacyBudgetTemplate(this, \"${1:id}\", {",
+            "  autoRefresh: \"${2:string}\", // Required",
+            "  membershipIdentifier: \"${3:string}\", // Required",
+            "  parameters: {",
+            "    epsilon: ${4:Number},",
+            "    usersNoisePerQuery: ${5:Number},",
+            "  },",
+            "  privacyBudgetType: \"${5:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: cleanrooms.CfnPrivacyBudgetTemplate",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cleanrooms.CfnPrivacyBudgetTemplate",
+            "Attributes: ",
+            "  attrCollaborationIdentifier",
+            "  attrMembershipArn",
+            "  attrPrivacyBudgetTemplateIdentifier",
+            "  attrArn",
+            "  attrCollaborationArn"
+        ],
+        "prefix": "l1-cleanrooms-privacybudgettemplate",
+        "scope": "javascript,typescript"
+    },
     "cleanroomsml.CfnTrainingDataset": {
         "body": [
             "new cleanroomsml.CfnTrainingDataset(this, \"${1:id}\", {",
@@ -4876,19 +4902,22 @@
             "    metricTimeZone: \"${3:string}\",",
             "  },",
             "  dimensions: [],",
+            "  metricCharacteristics: {",
+            "    periodicSpikes: ${4|false,true|},",
+            "  },",
             "  metricMathAnomalyDetector: {",
             "    metricDataQueries: [],",
             "  },",
-            "  metricName: \"${5:string}\",",
-            "  namespace: \"${6:string}\",",
+            "  metricName: \"${6:string}\",",
+            "  namespace: \"${7:string}\",",
             "  singleMetricAnomalyDetector: {",
-            "    accountId: \"${7:string}\",",
+            "    accountId: \"${8:string}\",",
             "    dimensions: [],",
-            "    metricName: \"${9:string}\",",
-            "    namespace: \"${10:string}\",",
-            "    stat: \"${11:string}\",",
+            "    metricName: \"${10:string}\",",
+            "    namespace: \"${11:string}\",",
+            "    stat: \"${12:string}\",",
             "  },",
-            "  stat: \"${8:string}\",",
+            "  stat: \"${9:string}\",",
             "})"
         ],
         "description": [
@@ -9071,10 +9100,11 @@
         "body": [
             "new ec2.CfnCustomerGateway(this, \"${1:id}\", {",
             "  bgpAsn: ${2:Number}, // Required",
-            "  deviceName: \"${3:string}\",",
-            "  ipAddress: \"${4:string}\", // Required",
+            "  certificateArn: \"${3:string}\",",
+            "  deviceName: \"${4:string}\",",
+            "  ipAddress: \"${5:string}\", // Required",
             "  tags: [],",
-            "  type: \"${6:string}\", // Required",
+            "  type: \"${7:string}\", // Required",
             "})"
         ],
         "description": [
@@ -29618,11 +29648,6 @@
             "Construct: verifiedpermissions.CfnIdentitySource",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-verifiedpermissions.CfnIdentitySource",
             "Attributes: ",
-            "  attrDetails.DiscoveryUrl",
-            "  attrDetails",
-            "  attrDetails.ClientIds",
-            "  attrDetails.UserPoolArn",
-            "  attrDetails.OpenIdIssuer",
             "  attrIdentitySourceId"
         ],
         "prefix": "l1-verifiedpermissions-identitysource",

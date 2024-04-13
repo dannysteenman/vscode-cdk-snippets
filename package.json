@@ -3,7 +3,7 @@
   "displayName": "CDK Construct Snippets",
   "description": "Adds L1 Construct snippets from AWS CDK in VS Code.",
   "author": "Danny Steenman",
-  "version": "1.124.0",
+  "version": "1.125.0",
   "publisher": "dannysteenman",
   "icon": "images/cdk-extension-icon.png",
   "homepage": "https://towardsthecloud.com",
@@ -19,8 +19,16 @@
     "color": "#2B2C33",
     "theme": "dark"
   },
-  "categories": ["Snippets"],
-  "keywords": ["aws", "cdk", "cloudformation", "construct", "typescript"],
+  "categories": [
+    "Snippets"
+  ],
+  "keywords": [
+    "aws",
+    "cdk",
+    "cloudformation",
+    "construct",
+    "typescript"
+  ],
   "badges": [
     {
       "url": "https://img.shields.io/visual-studio-marketplace/v/dannysteenman.cdk-snippets",
