@@ -1498,6 +1498,7 @@
             "  description: \"${3:string}\", // Required",
             "  name: \"${4:string}\", // Required",
             "  namespace: \"${5:string}\",",
+            "  permissions: [],",
             "  tags: [],",
             "})"
         ],
@@ -9099,12 +9100,13 @@
     "ec2.CfnCustomerGateway": {
         "body": [
             "new ec2.CfnCustomerGateway(this, \"${1:id}\", {",
-            "  bgpAsn: ${2:Number}, // Required",
-            "  certificateArn: \"${3:string}\",",
-            "  deviceName: \"${4:string}\",",
-            "  ipAddress: \"${5:string}\", // Required",
+            "  bgpAsn: ${2:Number},",
+            "  bgpAsnExtended: ${3:Number},",
+            "  certificateArn: \"${4:string}\",",
+            "  deviceName: \"${5:string}\",",
+            "  ipAddress: \"${6:string}\", // Required",
             "  tags: [],",
-            "  type: \"${7:string}\", // Required",
+            "  type: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -11180,6 +11182,32 @@
             "  attrArn"
         ],
         "prefix": "l1-ecr-repository",
+        "scope": "javascript,typescript"
+    },
+    "ecr.CfnRepositoryCreationTemplate": {
+        "body": [
+            "new ecr.CfnRepositoryCreationTemplate(this, \"${1:id}\", {",
+            "  appliedFor: [], // Required",
+            "  description: \"${3:string}\",",
+            "  encryptionConfiguration: {",
+            "    encryptionType: \"${4:string}\",",
+            "    kmsKey: \"${5:string}\",",
+            "  },",
+            "  imageTagMutability: \"${5:string}\",",
+            "  lifecyclePolicy: \"${6:string}\",",
+            "  prefix: \"${7:string}\", // Required",
+            "  repositoryPolicy: \"${8:string}\",",
+            "  resourceTags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: ecr.CfnRepositoryCreationTemplate",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ecr.CfnRepositoryCreationTemplate",
+            "Attributes: ",
+            "  attrCreatedAt",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-ecr-repositorycreationtemplate",
         "scope": "javascript,typescript"
     },
     "ecs.CfnCapacityProvider": {
@@ -18215,6 +18243,7 @@
             "  multiRegion: ${9|false,true|},",
             "  origin: \"${10:string}\",",
             "  pendingWindowInDays: ${11:Number},",
+            "  rotationPeriodInDays: ${12:Number},",
             "  tags: [],",
             "})"
         ],
@@ -18410,7 +18439,9 @@
         ],
         "description": [
             "Construct: lambda.CfnAlias",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.CfnAlias"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda.CfnAlias",
+            "Attributes: ",
+            "  attrAliasArn"
         ],
         "prefix": "l1-lambda-alias",
         "scope": "javascript,typescript"
@@ -21878,8 +21909,10 @@
         "body": [
             "new oam.CfnLink(this, \"${1:id}\", {",
             "  labelTemplate: \"${2:string}\",",
+            "  linkConfiguration: {",
+            "  },",
             "  resourceTypes: [], // Required",
-            "  sinkIdentifier: \"${4:string}\", // Required",
+            "  sinkIdentifier: \"${5:string}\", // Required",
             "  tags: {",
             "  },",
             "})"
@@ -24721,6 +24754,7 @@
             "  namespaceName: \"${13:string}\", // Required",
             "  namespaceResourcePolicy: ${14:JSON},",
             "  redshiftIdcApplicationArn: \"${15:string}\",",
+            "  snapshotCopyConfigurations: [],",
             "  tags: [],",
             "})"
         ],
@@ -29362,6 +29396,42 @@
             "  attrArn"
         ],
         "prefix": "l1-timestream-database",
+        "scope": "javascript,typescript"
+    },
+    "timestream.CfnInfluxDBInstance": {
+        "body": [
+            "new timestream.CfnInfluxDBInstance(this, \"${1:id}\", {",
+            "  allocatedStorage: ${2:Number},",
+            "  bucket: \"${3:string}\",",
+            "  dbInstanceType: \"${4:string}\",",
+            "  dbParameterGroupIdentifier: \"${5:string}\",",
+            "  dbStorageType: \"${6:string}\",",
+            "  deploymentType: \"${7:string}\",",
+            "  logDeliveryConfiguration: {",
+            "  },",
+            "  name: \"${9:string}\",",
+            "  organization: \"${10:string}\",",
+            "  password: \"${11:string}\",",
+            "  publiclyAccessible: ${12|false,true|},",
+            "  tags: [],",
+            "  username: \"${14:string}\",",
+            "  vpcSecurityGroupIds: [],",
+            "  vpcSubnetIds: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: timestream.CfnInfluxDBInstance",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-timestream.CfnInfluxDBInstance",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrEndpoint",
+            "  attrInfluxAuthParametersSecretArn",
+            "  attrAvailabilityZone",
+            "  attrSecondaryAvailabilityZone",
+            "  attrId",
+            "  attrArn"
+        ],
+        "prefix": "l1-timestream-influxdbinstance",
         "scope": "javascript,typescript"
     },
     "timestream.CfnScheduledQuery": {
