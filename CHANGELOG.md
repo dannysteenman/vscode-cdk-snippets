@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.126.0 (2024-04-26)
+--------------------
+- The following resource was updated: <code
+  class="code">AWS::DataSync::Task</code>. [Github Actions]
+- Feat: change license. [Danny Steenman]
+
+
 1.125.0 (2024-04-13)
 --------------------
 - The following resources were added: <code
