@@ -3607,6 +3607,24 @@
         "prefix": "l1-bedrock-guardrail",
         "scope": "javascript,typescript"
     },
+    "bedrock.CfnGuardrailVersion": {
+        "body": [
+            "new bedrock.CfnGuardrailVersion(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  guardrailIdentifier: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: bedrock.CfnGuardrailVersion",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-bedrock.CfnGuardrailVersion",
+            "Attributes: ",
+            "  attrGuardrailId",
+            "  attrGuardrailArn",
+            "  attrVersion"
+        ],
+        "prefix": "l1-bedrock-guardrailversion",
+        "scope": "javascript,typescript"
+    },
     "bedrock.CfnKnowledgeBase": {
         "body": [
             "new bedrock.CfnKnowledgeBase(this, \"${1:id}\", {",
@@ -3760,6 +3778,7 @@
             "    timeUnit: \"${10:string}\",",
             "  },",
             "  notificationsWithSubscribers: [],",
+            "  resourceTags: [],",
             "})"
         ],
         "description": [
@@ -3783,6 +3802,7 @@
             "  },",
             "  executionRoleArn: \"${7:string}\", // Required",
             "  notificationType: \"${8:string}\", // Required",
+            "  resourceTags: [],",
             "  subscribers: [], // Required",
             "})"
         ],
@@ -9614,11 +9634,14 @@
             "Construct: ec2.CfnInstance",
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-ec2.CfnInstance",
             "Attributes: ",
+            "  attrState.Code",
             "  attrPrivateDnsName",
             "  attrVpcId",
             "  attrPrivateIp",
             "  attrInstanceId",
             "  attrPublicIp",
+            "  attrState.Name",
+            "  attrState",
             "  attrAvailabilityZone",
             "  attrPublicDnsName"
         ],
@@ -20019,32 +20042,40 @@
         "body": [
             "new mediaconnect.CfnFlow(this, \"${1:id}\", {",
             "  availabilityZone: \"${2:string}\",",
-            "  name: \"${3:string}\", // Required",
+            "  maintenance: {",
+            "    maintenanceDay: \"${3:string}\",",
+            "    maintenanceStartHour: \"${4:string}\",",
+            "  },",
+            "  mediaStreams: [],",
+            "  name: \"${5:string}\", // Required",
             "  source: {",
-            "    description: \"${5:string}\",",
-            "    entitlementArn: \"${6:string}\",",
-            "    ingestIp: \"${8:string}\",",
-            "    ingestPort: ${9:Number},",
-            "    maxBitrate: ${10:Number},",
-            "    maxLatency: ${11:Number},",
-            "    minLatency: ${12:Number},",
-            "    name: \"${13:string}\",",
-            "    protocol: \"${14:string}\",",
-            "    senderControlPort: ${15:Number},",
-            "    senderIpAddress: \"${16:string}\",",
-            "    sourceArn: \"${17:string}\",",
-            "    sourceIngestPort: \"${18:string}\",",
-            "    sourceListenerAddress: \"${19:string}\",",
-            "    sourceListenerPort: ${20:Number},",
-            "    streamId: \"${21:string}\",",
-            "    vpcInterfaceName: \"${22:string}\",",
-            "    whitelistCidr: \"${23:string}\",",
+            "    description: \"${7:string}\",",
+            "    entitlementArn: \"${8:string}\",",
+            "    ingestIp: \"${10:string}\",",
+            "    ingestPort: ${11:Number},",
+            "    maxBitrate: ${12:Number},",
+            "    maxLatency: ${13:Number},",
+            "    maxSyncBuffer: ${14:Number},",
+            "    mediaStreamSourceConfigurations: [],",
+            "    minLatency: ${16:Number},",
+            "    name: \"${17:string}\",",
+            "    protocol: \"${18:string}\",",
+            "    senderControlPort: ${19:Number},",
+            "    senderIpAddress: \"${20:string}\",",
+            "    sourceArn: \"${21:string}\",",
+            "    sourceIngestPort: \"${22:string}\",",
+            "    sourceListenerAddress: \"${23:string}\",",
+            "    sourceListenerPort: ${24:Number},",
+            "    streamId: \"${25:string}\",",
+            "    vpcInterfaceName: \"${26:string}\",",
+            "    whitelistCidr: \"${27:string}\",",
             "  },",
             "  sourceFailoverConfig: {",
-            "    failoverMode: \"${5:string}\",",
-            "    recoveryWindow: ${6:Number},",
-            "    state: \"${8:string}\",",
+            "    failoverMode: \"${7:string}\",",
+            "    recoveryWindow: ${8:Number},",
+            "    state: \"${10:string}\",",
             "  },",
+            "  vpcInterfaces: [],",
             "})"
         ],
         "description": [
@@ -20055,6 +20086,7 @@
             "  attrSource.SourceIngestPort",
             "  attrSource.IngestIp",
             "  attrSource.SourceArn",
+            "  attrEgressIp",
             "  attrFlowArn"
         ],
         "prefix": "l1-mediaconnect-flow",
@@ -20105,15 +20137,16 @@
             "  },",
             "  flowArn: \"${6:string}\", // Required",
             "  maxLatency: ${7:Number},",
-            "  minLatency: ${8:Number},",
-            "  name: \"${9:string}\",",
-            "  port: ${10:Number},",
-            "  protocol: \"${11:string}\", // Required",
-            "  remoteId: \"${12:string}\",",
-            "  smoothingLatency: ${13:Number},",
-            "  streamId: \"${14:string}\",",
+            "  mediaStreamOutputConfigurations: [],",
+            "  minLatency: ${9:Number},",
+            "  name: \"${10:string}\",",
+            "  port: ${11:Number},",
+            "  protocol: \"${12:string}\", // Required",
+            "  remoteId: \"${13:string}\",",
+            "  smoothingLatency: ${14:Number},",
+            "  streamId: \"${15:string}\",",
             "  vpcInterfaceAttachment: {",
-            "    vpcInterfaceName: \"${15:string}\",",
+            "    vpcInterfaceName: \"${16:string}\",",
             "  },",
             "})"
         ],
@@ -21344,6 +21377,23 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-neptune.CfnDBSubnetGroup"
         ],
         "prefix": "l1-neptune-dbsubnetgroup",
+        "scope": "javascript,typescript"
+    },
+    "neptune.CfnEventSubscription": {
+        "body": [
+            "new neptune.CfnEventSubscription(this, \"${1:id}\", {",
+            "  enabled: ${2|false,true|},",
+            "  eventCategories: [],",
+            "  snsTopicArn: \"${4:string}\",",
+            "  sourceIds: [],",
+            "  sourceType: \"${6:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: neptune.CfnEventSubscription",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-neptune.CfnEventSubscription"
+        ],
+        "prefix": "l1-neptune-eventsubscription",
         "scope": "javascript,typescript"
     },
     "neptunegraph.CfnGraph": {
@@ -24109,13 +24159,13 @@
             "    message: \"${7:string}\",",
             "    type: \"${8:string}\",",
             "  },",
-            "  name: \"${8:string}\",",
+            "  name: \"${8:string}\", // Required",
             "  permissions: [],",
             "  sslProperties: {",
             "    disableSsl: ${10|false,true|},",
             "  },",
             "  tags: [],",
-            "  type: \"${12:string}\",",
+            "  type: \"${12:string}\", // Required",
             "  vpcConnectionProperties: {",
             "    vpcConnectionArn: \"${13:string}\",",
             "  },",
@@ -29438,6 +29488,44 @@
         "prefix": "l1-ssmincidents-responseplan",
         "scope": "javascript,typescript"
     },
+    "sso.CfnApplication": {
+        "body": [
+            "new sso.CfnApplication(this, \"${1:id}\", {",
+            "  applicationProviderArn: \"${2:string}\", // Required",
+            "  description: \"${3:string}\",",
+            "  instanceArn: \"${4:string}\", // Required",
+            "  name: \"${5:string}\", // Required",
+            "  portalOptions: {",
+            "    visibility: \"${7:string}\",",
+            "  },",
+            "  status: \"${7:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: sso.CfnApplication",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sso.CfnApplication",
+            "Attributes: ",
+            "  attrApplicationArn"
+        ],
+        "prefix": "l1-sso-application",
+        "scope": "javascript,typescript"
+    },
+    "sso.CfnApplicationAssignment": {
+        "body": [
+            "new sso.CfnApplicationAssignment(this, \"${1:id}\", {",
+            "  applicationArn: \"${2:string}\", // Required",
+            "  principalId: \"${3:string}\", // Required",
+            "  principalType: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: sso.CfnApplicationAssignment",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sso.CfnApplicationAssignment"
+        ],
+        "prefix": "l1-sso-applicationassignment",
+        "scope": "javascript,typescript"
+    },
     "sso.CfnAssignment": {
         "body": [
             "new sso.CfnAssignment(this, \"${1:id}\", {",
@@ -29454,6 +29542,25 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sso.CfnAssignment"
         ],
         "prefix": "l1-sso-assignment",
+        "scope": "javascript,typescript"
+    },
+    "sso.CfnInstance": {
+        "body": [
+            "new sso.CfnInstance(this, \"${1:id}\", {",
+            "  name: \"${2:string}\",",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: sso.CfnInstance",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-sso.CfnInstance",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrInstanceArn",
+            "  attrIdentityStoreId",
+            "  attrOwnerAccountId"
+        ],
+        "prefix": "l1-sso-instance",
         "scope": "javascript,typescript"
     },
     "sso.CfnInstanceAccessControlAttributeConfiguration": {
