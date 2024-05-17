@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.129.0 (2024-05-17)
+--------------------
+- The following resource was added: <code
+  class="code">AWS::SecurityHub::SecurityControl</code>. [Github
+  Actions]
+
+
 1.128.0 (2024-05-10)
 --------------------
 - The following resource was updated: AWS::Bedrock::Agent. [Github
