@@ -11841,7 +11841,9 @@
         ],
         "description": [
             "Construct: elasticache.CfnParameterGroup",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-elasticache.CfnParameterGroup"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-elasticache.CfnParameterGroup",
+            "Attributes: ",
+            "  attrCacheParameterGroupName"
         ],
         "prefix": "l1-elasticache-parametergroup",
         "scope": "javascript,typescript"
@@ -12901,9 +12903,14 @@
     "events.CfnEventBus": {
         "body": [
             "new events.CfnEventBus(this, \"${1:id}\", {",
-            "  eventSourceName: \"${2:string}\",",
-            "  name: \"${3:string}\", // Required",
-            "  policy: ${4:JSON},",
+            "  deadLetterConfig: {",
+            "    arn: \"${2:string}\",",
+            "  },",
+            "  description: \"${3:string}\",",
+            "  eventSourceName: \"${4:string}\",",
+            "  kmsKeyIdentifier: \"${5:string}\",",
+            "  name: \"${6:string}\", // Required",
+            "  policy: ${7:JSON},",
             "  tags: [],",
             "})"
         ],
@@ -18806,12 +18813,13 @@
             "  codeSha256: \"${2:string}\",",
             "  description: \"${3:string}\",",
             "  functionName: \"${4:string}\", // Required",
+            "  policy: ${5:JSON},",
             "  provisionedConcurrencyConfig: {",
-            "    provisionedConcurrentExecutions: ${5:Number},",
+            "    provisionedConcurrentExecutions: ${6:Number},",
             "  },",
             "  runtimePolicy: {",
-            "    runtimeVersionArn: \"${6:string}\",",
-            "    updateRuntimeOn: \"${7:string}\",",
+            "    runtimeVersionArn: \"${7:string}\",",
+            "    updateRuntimeOn: \"${8:string}\",",
             "  },",
             "})"
         ],
@@ -19217,6 +19225,7 @@
             "  attrPrivateIpAddress",
             "  attrUserName",
             "  attrResourceType",
+            "  attrIpv6Addresses",
             "  attrLocation.RegionName",
             "  attrPublicIpAddress",
             "  attrLocation.AvailabilityZone",
@@ -26915,7 +26924,8 @@
             "  appSecurityGroupManagement: \"${3:string}\",",
             "  authMode: \"${4:string}\", // Required",
             "  defaultSpaceSettings: {",
-            "    executionRole: \"${5:string}\",",
+            "    customFileSystemConfigs: [],",
+            "    executionRole: \"${7:string}\",",
             "    securityGroups: [],",
             "  },",
             "  defaultUserSettings: {",
@@ -28058,6 +28068,23 @@
             "  attrProductSubscriptionArn"
         ],
         "prefix": "l1-securityhub-productsubscription",
+        "scope": "javascript,typescript"
+    },
+    "securityhub.CfnSecurityControl": {
+        "body": [
+            "new securityhub.CfnSecurityControl(this, \"${1:id}\", {",
+            "  lastUpdateReason: \"${2:string}\",",
+            "  parameters: {",
+            "  },",
+            "  securityControlArn: \"${4:string}\",",
+            "  securityControlId: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: securityhub.CfnSecurityControl",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnSecurityControl"
+        ],
+        "prefix": "l1-securityhub-securitycontrol",
         "scope": "javascript,typescript"
     },
     "securityhub.CfnStandard": {
