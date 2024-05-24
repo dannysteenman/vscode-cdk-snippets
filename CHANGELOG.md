@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.130.0 (2024-05-24)
+--------------------
+- The following resource was added: <code
+  class="code">AWS::SecurityLake::SubscriptionNotification</code>
+  [Github Actions]
+
+
 1.129.0 (2024-05-17)
 --------------------
 - The following resource was added: <code
