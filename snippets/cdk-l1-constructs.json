@@ -3974,10 +3974,11 @@
             "  iamRoleArn: \"${4:string}\", // Required",
             "  loggingLevel: \"${5:string}\",",
             "  snsTopicArns: [],",
-            "  teamId: \"${7:string}\", // Required",
-            "  teamsChannelId: \"${8:string}\", // Required",
-            "  teamsTenantId: \"${9:string}\", // Required",
-            "  userRoleRequired: ${10|false,true|},",
+            "  tags: [],",
+            "  teamId: \"${8:string}\", // Required",
+            "  teamsChannelId: \"${9:string}\", // Required",
+            "  teamsTenantId: \"${10:string}\", // Required",
+            "  userRoleRequired: ${11|false,true|},",
             "})"
         ],
         "description": [
@@ -3999,7 +4000,8 @@
             "  slackChannelId: \"${6:string}\", // Required",
             "  slackWorkspaceId: \"${7:string}\", // Required",
             "  snsTopicArns: [],",
-            "  userRoleRequired: ${9|false,true|},",
+            "  tags: [],",
+            "  userRoleRequired: ${10|false,true|},",
             "})"
         ],
         "description": [
@@ -5152,7 +5154,14 @@
             "  baseCapacity: ${2:Number},",
             "  computeType: \"${3:string}\",",
             "  environmentType: \"${4:string}\",",
-            "  name: \"${5:string}\",",
+            "  fleetServiceRole: \"${5:string}\",",
+            "  fleetVpcConfig: {",
+            "    securityGroupIds: [],",
+            "    subnets: [],",
+            "    vpcId: \"${8:string}\",",
+            "  },",
+            "  name: \"${7:string}\",",
+            "  overflowBehavior: \"${8:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -7787,6 +7796,25 @@
         "prefix": "l1-datazone-environmentprofile",
         "scope": "javascript,typescript"
     },
+    "datazone.CfnGroupProfile": {
+        "body": [
+            "new datazone.CfnGroupProfile(this, \"${1:id}\", {",
+            "  domainIdentifier: \"${2:string}\", // Required",
+            "  groupIdentifier: \"${3:string}\", // Required",
+            "  status: \"${4:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnGroupProfile",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnGroupProfile",
+            "Attributes: ",
+            "  attrGroupName",
+            "  attrDomainId",
+            "  attrId"
+        ],
+        "prefix": "l1-datazone-groupprofile",
+        "scope": "javascript,typescript"
+    },
     "datazone.CfnProject": {
         "body": [
             "new datazone.CfnProject(this, \"${1:id}\", {",
@@ -7807,6 +7835,25 @@
             "  attrId"
         ],
         "prefix": "l1-datazone-project",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnProjectMembership": {
+        "body": [
+            "new datazone.CfnProjectMembership(this, \"${1:id}\", {",
+            "  designation: \"${2:string}\", // Required",
+            "  domainIdentifier: \"${3:string}\", // Required",
+            "  member: {",
+            "    groupIdentifier: \"${4:string}\",",
+            "    userIdentifier: \"${5:string}\",",
+            "  },",
+            "  projectIdentifier: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnProjectMembership",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnProjectMembership"
+        ],
+        "prefix": "l1-datazone-projectmembership",
         "scope": "javascript,typescript"
     },
     "datazone.CfnSubscriptionTarget": {
@@ -7837,6 +7884,33 @@
             "  attrUpdatedAt"
         ],
         "prefix": "l1-datazone-subscriptiontarget",
+        "scope": "javascript,typescript"
+    },
+    "datazone.CfnUserProfile": {
+        "body": [
+            "new datazone.CfnUserProfile(this, \"${1:id}\", {",
+            "  domainIdentifier: \"${2:string}\", // Required",
+            "  status: \"${3:string}\",",
+            "  userIdentifier: \"${4:string}\", // Required",
+            "  userType: \"${5:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: datazone.CfnUserProfile",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-datazone.CfnUserProfile",
+            "Attributes: ",
+            "  attrType",
+            "  attrDetails.Sso",
+            "  attrDetails",
+            "  attrDomainId",
+            "  attrDetails.Sso.FirstName",
+            "  attrDetails.Iam",
+            "  attrDetails.Sso.Username",
+            "  attrId",
+            "  attrDetails.Sso.LastName",
+            "  attrDetails.Iam.Arn"
+        ],
+        "prefix": "l1-datazone-userprofile",
         "scope": "javascript,typescript"
     },
     "dax.CfnCluster": {
@@ -14298,19 +14372,20 @@
             "  },",
             "  glueVersion: \"${9:string}\",",
             "  logUri: \"${10:string}\",",
-            "  maxCapacity: ${11:Number},",
-            "  maxRetries: ${12:Number},",
-            "  name: \"${13:string}\",",
-            "  nonOverridableArguments: ${14:JSON},",
+            "  maintenanceWindow: \"${11:string}\",",
+            "  maxCapacity: ${12:Number},",
+            "  maxRetries: ${13:Number},",
+            "  name: \"${14:string}\",",
+            "  nonOverridableArguments: ${15:JSON},",
             "  notificationProperty: {",
-            "    notifyDelayAfter: ${15:Number},",
+            "    notifyDelayAfter: ${16:Number},",
             "  },",
-            "  numberOfWorkers: ${16:Number},",
-            "  role: \"${17:string}\", // Required",
-            "  securityConfiguration: \"${18:string}\",",
-            "  tags: ${19:JSON},",
-            "  timeout: ${20:Number},",
-            "  workerType: \"${21:string}\",",
+            "  numberOfWorkers: ${17:Number},",
+            "  role: \"${18:string}\", // Required",
+            "  securityConfiguration: \"${19:string}\",",
+            "  tags: ${20:JSON},",
+            "  timeout: ${21:Number},",
+            "  workerType: \"${22:string}\",",
             "})"
         ],
         "description": [
@@ -20844,8 +20919,9 @@
             "new mediatailor.CfnPlaybackConfiguration(this, \"${1:id}\", {",
             "  adDecisionServerUrl: \"${2:string}\", // Required",
             "  availSuppression: {",
-            "    mode: \"${3:string}\",",
-            "    value: \"${4:string}\",",
+            "    fillPolicy: \"${3:string}\",",
+            "    mode: \"${4:string}\",",
+            "    value: \"${5:string}\",",
             "  },",
             "  bumper: {",
             "    endUrl: \"${4:string}\",",
@@ -21229,24 +21305,26 @@
             "  kmsKey: \"${8:string}\",",
             "  loggingConfiguration: {",
             "  },",
-            "  maxWorkers: ${10:Number},",
-            "  minWorkers: ${11:Number},",
-            "  name: \"${12:string}\", // Required",
+            "  maxWebservers: ${10:Number},",
+            "  maxWorkers: ${11:Number},",
+            "  minWebservers: ${12:Number},",
+            "  minWorkers: ${13:Number},",
+            "  name: \"${14:string}\", // Required",
             "  networkConfiguration: {",
             "    securityGroupIds: [],",
             "    subnetIds: [],",
             "  },",
-            "  pluginsS3ObjectVersion: \"${14:string}\",",
-            "  pluginsS3Path: \"${15:string}\",",
-            "  requirementsS3ObjectVersion: \"${16:string}\",",
-            "  requirementsS3Path: \"${17:string}\",",
-            "  schedulers: ${18:Number},",
-            "  sourceBucketArn: \"${19:string}\",",
-            "  startupScriptS3ObjectVersion: \"${20:string}\",",
-            "  startupScriptS3Path: \"${21:string}\",",
-            "  tags: ${22:JSON},",
-            "  webserverAccessMode: \"${23:string}\",",
-            "  weeklyMaintenanceWindowStart: \"${24:string}\",",
+            "  pluginsS3ObjectVersion: \"${16:string}\",",
+            "  pluginsS3Path: \"${17:string}\",",
+            "  requirementsS3ObjectVersion: \"${18:string}\",",
+            "  requirementsS3Path: \"${19:string}\",",
+            "  schedulers: ${20:Number},",
+            "  sourceBucketArn: \"${21:string}\",",
+            "  startupScriptS3ObjectVersion: \"${22:string}\",",
+            "  startupScriptS3Path: \"${23:string}\",",
+            "  tags: ${24:JSON},",
+            "  webserverAccessMode: \"${25:string}\",",
+            "  weeklyMaintenanceWindowStart: \"${26:string}\",",
             "})"
         ],
         "description": [
