@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+1.131.0 (2024-05-31)
+--------------------
+- The following resource was added: <code
+  class="code">AWS::SecurityLake::SubscriptionNotification</code>
+  [Github Actions]
+- Feat: add openvsx badge. [Danny Steenman]
+
+
 1.130.0 (2024-05-24)
 --------------------
 - The following resource was added: <code
