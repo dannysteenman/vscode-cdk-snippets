@@ -9248,11 +9248,12 @@
         "body": [
             "new ec2.CfnCustomerGateway(this, \"${1:id}\", {",
             "  bgpAsn: ${2:Number},",
-            "  certificateArn: \"${3:string}\",",
-            "  deviceName: \"${4:string}\",",
-            "  ipAddress: \"${5:string}\", // Required",
+            "  bgpAsnExtended: ${3:Number},",
+            "  certificateArn: \"${4:string}\",",
+            "  deviceName: \"${5:string}\",",
+            "  ipAddress: \"${6:string}\", // Required",
             "  tags: [],",
-            "  type: \"${7:string}\", // Required",
+            "  type: \"${8:string}\", // Required",
             "})"
         ],
         "description": [
@@ -11656,9 +11657,10 @@
             "  addonVersion: \"${3:string}\",",
             "  clusterName: \"${4:string}\", // Required",
             "  configurationValues: \"${5:string}\",",
-            "  preserveOnDelete: ${6|false,true|},",
-            "  resolveConflicts: \"${7:string}\",",
-            "  serviceAccountRoleArn: \"${8:string}\",",
+            "  podIdentityAssociations: [],",
+            "  preserveOnDelete: ${7|false,true|},",
+            "  resolveConflicts: \"${8:string}\",",
+            "  serviceAccountRoleArn: \"${9:string}\",",
             "  tags: [],",
             "})"
         ],
@@ -20786,18 +20788,19 @@
             "  channelGroupName: \"${2:string}\", // Required",
             "  channelName: \"${3:string}\", // Required",
             "  containerType: \"${4:string}\",",
-            "  description: \"${5:string}\",",
+            "  dashManifests: [],",
+            "  description: \"${6:string}\",",
             "  hlsManifests: [],",
             "  lowLatencyHlsManifests: [],",
-            "  originEndpointName: \"${8:string}\", // Required",
+            "  originEndpointName: \"${9:string}\", // Required",
             "  segment: {",
-            "    includeIframeOnlyStreams: ${10|false,true|},",
-            "    segmentDurationSeconds: ${12:Number},",
-            "    segmentName: \"${13:string}\",",
-            "    tsIncludeDvbSubtitles: ${14|false,true|},",
-            "    tsUseAudioRenditionGroup: ${15|false,true|},",
+            "    includeIframeOnlyStreams: ${11|false,true|},",
+            "    segmentDurationSeconds: ${13:Number},",
+            "    segmentName: \"${14:string}\",",
+            "    tsIncludeDvbSubtitles: ${15|false,true|},",
+            "    tsUseAudioRenditionGroup: ${16|false,true|},",
             "  },",
-            "  startoverWindowSeconds: ${10:Number},",
+            "  startoverWindowSeconds: ${11:Number},",
             "  tags: [],",
             "})"
         ],
@@ -27979,6 +27982,30 @@
         "prefix": "l1-securityhub-automationrule",
         "scope": "javascript,typescript"
     },
+    "securityhub.CfnConfigurationPolicy": {
+        "body": [
+            "new securityhub.CfnConfigurationPolicy(this, \"${1:id}\", {",
+            "  configurationPolicy: {",
+            "  },",
+            "  description: \"${3:string}\",",
+            "  name: \"${4:string}\", // Required",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: securityhub.CfnConfigurationPolicy",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnConfigurationPolicy",
+            "Attributes: ",
+            "  attrCreatedAt",
+            "  attrServiceEnabled",
+            "  attrId",
+            "  attrArn",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-securityhub-configurationpolicy",
+        "scope": "javascript,typescript"
+    },
     "securityhub.CfnDelegatedAdmin": {
         "body": [
             "new securityhub.CfnDelegatedAdmin(this, \"${1:id}\", {",
@@ -27993,6 +28020,23 @@
             "  attrDelegatedAdminIdentifier"
         ],
         "prefix": "l1-securityhub-delegatedadmin",
+        "scope": "javascript,typescript"
+    },
+    "securityhub.CfnFindingAggregator": {
+        "body": [
+            "new securityhub.CfnFindingAggregator(this, \"${1:id}\", {",
+            "  regionLinkingMode: \"${2:string}\", // Required",
+            "  regions: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: securityhub.CfnFindingAggregator",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnFindingAggregator",
+            "Attributes: ",
+            "  attrFindingAggregationRegion",
+            "  attrFindingAggregatorArn"
+        ],
+        "prefix": "l1-securityhub-findingaggregator",
         "scope": "javascript,typescript"
     },
     "securityhub.CfnHub": {
@@ -28133,6 +28177,47 @@
         "prefix": "l1-securityhub-insight",
         "scope": "javascript,typescript"
     },
+    "securityhub.CfnOrganizationConfiguration": {
+        "body": [
+            "new securityhub.CfnOrganizationConfiguration(this, \"${1:id}\", {",
+            "  autoEnable: ${2|false,true|}, // Required",
+            "  autoEnableStandards: \"${3:string}\",",
+            "  configurationType: \"${4:string}\",",
+            "})"
+        ],
+        "description": [
+            "Construct: securityhub.CfnOrganizationConfiguration",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnOrganizationConfiguration",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrOrganizationConfigurationIdentifier",
+            "  attrMemberAccountLimitReached",
+            "  attrStatusMessage"
+        ],
+        "prefix": "l1-securityhub-organizationconfiguration",
+        "scope": "javascript,typescript"
+    },
+    "securityhub.CfnPolicyAssociation": {
+        "body": [
+            "new securityhub.CfnPolicyAssociation(this, \"${1:id}\", {",
+            "  configurationPolicyId: \"${2:string}\", // Required",
+            "  targetId: \"${3:string}\", // Required",
+            "  targetType: \"${4:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: securityhub.CfnPolicyAssociation",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securityhub.CfnPolicyAssociation",
+            "Attributes: ",
+            "  attrAssociationStatusMessage",
+            "  attrAssociationType",
+            "  attrAssociationIdentifier",
+            "  attrAssociationStatus",
+            "  attrUpdatedAt"
+        ],
+        "prefix": "l1-securityhub-policyassociation",
+        "scope": "javascript,typescript"
+    },
     "securityhub.CfnProductSubscription": {
         "body": [
             "new securityhub.CfnProductSubscription(this, \"${1:id}\", {",
@@ -28250,6 +28335,24 @@
             "  attrS3BucketArn"
         ],
         "prefix": "l1-securitylake-subscriber",
+        "scope": "javascript,typescript"
+    },
+    "securitylake.CfnSubscriberNotification": {
+        "body": [
+            "new securitylake.CfnSubscriberNotification(this, \"${1:id}\", {",
+            "  notificationConfiguration: {",
+            "    sqsNotificationConfiguration: ${3:JSON},",
+            "  },",
+            "  subscriberArn: \"${3:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: securitylake.CfnSubscriberNotification",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-securitylake.CfnSubscriberNotification",
+            "Attributes: ",
+            "  attrSubscriberEndpoint"
+        ],
+        "prefix": "l1-securitylake-subscribernotification",
         "scope": "javascript,typescript"
     },
     "servicecatalog.CfnAcceptedPortfolioShare": {
