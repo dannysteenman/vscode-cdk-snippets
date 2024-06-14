@@ -6670,6 +6670,7 @@
             "    endAssociatedTasksActions: [],",
             "    eventBridgeActions: [],",
             "    sendNotificationActions: [],",
+            "    submitAutoEvaluationActions: [],",
             "    taskActions: [],",
             "    updateCaseActions: [],",
             "  },",
@@ -10730,7 +10731,7 @@
         "body": [
             "new ec2.CfnTransitGatewayRoute(this, \"${1:id}\", {",
             "  blackhole: ${2|false,true|},",
-            "  destinationCidrBlock: \"${3:string}\",",
+            "  destinationCidrBlock: \"${3:string}\", // Required",
             "  transitGatewayAttachmentId: \"${4:string}\",",
             "  transitGatewayRouteTableId: \"${5:string}\", // Required",
             "})"
@@ -13650,8 +13651,8 @@
             "    exportPath: \"${13:string}\",",
             "    importPath: \"${14:string}\",",
             "    importedFileChunkSize: ${15:Number},",
-            "    perUnitStorageThroughput: ${16:Number},",
-            "    weeklyMaintenanceStartTime: \"${17:string}\",",
+            "    perUnitStorageThroughput: ${17:Number},",
+            "    weeklyMaintenanceStartTime: \"${18:string}\",",
             "  },",
             "  ontapConfiguration: {",
             "    automaticBackupRetentionDays: ${7:Number},",
@@ -25721,13 +25722,14 @@
     "rolesanywhere.CfnProfile": {
         "body": [
             "new rolesanywhere.CfnProfile(this, \"${1:id}\", {",
-            "  durationSeconds: ${2:Number},",
-            "  enabled: ${3|false,true|},",
+            "  attributeMappings: [],",
+            "  durationSeconds: ${3:Number},",
+            "  enabled: ${4|false,true|},",
             "  managedPolicyArns: [],",
-            "  name: \"${5:string}\", // Required",
-            "  requireInstanceProperties: ${6|false,true|},",
+            "  name: \"${6:string}\", // Required",
+            "  requireInstanceProperties: ${7|false,true|},",
             "  roleArns: [], // Required",
-            "  sessionPolicy: \"${8:string}\",",
+            "  sessionPolicy: \"${9:string}\",",
             "  tags: [],",
             "})"
         ],
