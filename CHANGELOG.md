@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.134.0 (2024-06-21)
+--------------------
+- The following resource was added: <code
+  class="code">AWS::GuardDuty::MalwareProtectionPlan</code> [Github
+  Actions]
+
+
 1.133.0 (2024-06-14)
 --------------------
 - The following resource was added:
