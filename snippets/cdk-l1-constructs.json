@@ -1647,6 +1647,33 @@
         "prefix": "l1-applicationinsights-application",
         "scope": "javascript,typescript"
     },
+    "applicationsignals.CfnServiceLevelObjective": {
+        "body": [
+            "new applicationsignals.CfnServiceLevelObjective(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  goal: {",
+            "    attainmentGoal: ${3:Number},",
+            "    warningThreshold: ${5:Number},",
+            "  },",
+            "  name: \"${4:string}\", // Required",
+            "  sli: {",
+            "    comparisonOperator: \"${5:string}\",",
+            "    metricThreshold: ${6:Number},",
+            "  },",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: applicationsignals.CfnServiceLevelObjective",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-applicationsignals.CfnServiceLevelObjective",
+            "Attributes: ",
+            "  attrCreatedTime",
+            "  attrLastUpdatedTime",
+            "  attrArn"
+        ],
+        "prefix": "l1-applicationsignals-servicelevelobjective",
+        "scope": "javascript,typescript"
+    },
     "appmesh.CfnGatewayRoute": {
         "body": [
             "new appmesh.CfnGatewayRoute(this, \"${1:id}\", {",
@@ -2582,6 +2609,33 @@
             "  attrSourceApiId"
         ],
         "prefix": "l1-appsync-sourceapiassociation",
+        "scope": "javascript,typescript"
+    },
+    "apptest.CfnTestCase": {
+        "body": [
+            "new apptest.CfnTestCase(this, \"${1:id}\", {",
+            "  description: \"${2:string}\",",
+            "  name: \"${3:string}\", // Required",
+            "  steps: [], // Required",
+            "  tags: {",
+            "  },",
+            "})"
+        ],
+        "description": [
+            "Construct: apptest.CfnTestCase",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apptest.CfnTestCase",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrLastUpdateTime",
+            "  attrLatestVersion",
+            "  attrCreationTime",
+            "  attrTestCaseId",
+            "  attrLatestVersion.Version",
+            "  attrLatestVersion.Status",
+            "  attrTestCaseVersion",
+            "  attrTestCaseArn"
+        ],
+        "prefix": "l1-apptest-testcase",
         "scope": "javascript,typescript"
     },
     "aps.CfnRuleGroupsNamespace": {
@@ -7982,6 +8036,7 @@
             "  description: \"${2:string}\",",
             "  displayName: \"${3:string}\", // Required",
             "  kmsKeyArn: \"${4:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -8005,6 +8060,7 @@
             "  maxWorkerCount: ${6:Number}, // Required",
             "  minWorkerCount: ${7:Number},",
             "  roleArn: \"${8:string}\", // Required",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -8027,7 +8083,8 @@
             "new deadline.CfnLicenseEndpoint(this, \"${1:id}\", {",
             "  securityGroupIds: [], // Required",
             "  subnetIds: [], // Required",
-            "  vpcId: \"${4:string}\", // Required",
+            "  tags: [],",
+            "  vpcId: \"${5:string}\", // Required",
             "})"
         ],
         "description": [
@@ -8062,6 +8119,27 @@
         "prefix": "l1-deadline-meteredproduct",
         "scope": "javascript,typescript"
     },
+    "deadline.CfnMonitor": {
+        "body": [
+            "new deadline.CfnMonitor(this, \"${1:id}\", {",
+            "  displayName: \"${2:string}\", // Required",
+            "  identityCenterInstanceArn: \"${3:string}\", // Required",
+            "  roleArn: \"${4:string}\", // Required",
+            "  subdomain: \"${5:string}\", // Required",
+            "})"
+        ],
+        "description": [
+            "Construct: deadline.CfnMonitor",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-deadline.CfnMonitor",
+            "Attributes: ",
+            "  attrIdentityCenterApplicationArn",
+            "  attrArn",
+            "  attrMonitorId",
+            "  attrUrl"
+        ],
+        "prefix": "l1-deadline-monitor",
+        "scope": "javascript,typescript"
+    },
     "deadline.CfnQueue": {
         "body": [
             "new deadline.CfnQueue(this, \"${1:id}\", {",
@@ -8079,6 +8157,7 @@
             "  },",
             "  requiredFileSystemLocationNames: [],",
             "  roleArn: \"${10:string}\",",
+            "  tags: [],",
             "})"
         ],
         "description": [
@@ -15164,6 +15243,30 @@
             "  attrId"
         ],
         "prefix": "l1-guardduty-ipset",
+        "scope": "javascript,typescript"
+    },
+    "guardduty.CfnMalwareProtectionPlan": {
+        "body": [
+            "new guardduty.CfnMalwareProtectionPlan(this, \"${1:id}\", {",
+            "  actions: {",
+            "  },",
+            "  protectedResource: {",
+            "  },",
+            "  role: \"${4:string}\", // Required",
+            "  tags: [],",
+            "})"
+        ],
+        "description": [
+            "Construct: guardduty.CfnMalwareProtectionPlan",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-guardduty.CfnMalwareProtectionPlan",
+            "Attributes: ",
+            "  attrStatus",
+            "  attrStatusReasons",
+            "  attrCreatedAt",
+            "  attrMalwareProtectionPlanId",
+            "  attrArn"
+        ],
+        "prefix": "l1-guardduty-malwareprotectionplan",
         "scope": "javascript,typescript"
     },
     "guardduty.CfnMaster": {
@@ -22907,6 +23010,7 @@
             "  vpcOptions: {",
             "    securityGroupIds: [],",
             "    subnetIds: [],",
+            "    vpcEndpointManagement: \"${12:string}\",",
             "  },",
             "})"
         ],
@@ -22916,7 +23020,8 @@
             "Attributes: ",
             "  attrPipelineArn",
             "  attrVpcEndpoints",
-            "  attrIngestEndpointUrls"
+            "  attrIngestEndpointUrls",
+            "  attrVpcEndpointService"
         ],
         "prefix": "l1-osis-pipeline",
         "scope": "javascript,typescript"
