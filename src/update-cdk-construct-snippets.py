@@ -46,27 +46,37 @@ def change_case(property):
     return property[0].lower() + property[1:]
 
 
-def parse_body(body, counter, resource_properties, resource_property, resource_type):
+def parse_body(body, counter, resource_properties, resource_property, resource_type, is_python):
     try:
         required = resource_properties[resource_property]["Required"]
         item = types(resource_properties[resource_property])
 
         if "Type" in resource_properties[resource_property]:
             if resource_properties[resource_property]["Type"] == "List":
-                body.append(" " * 2 + change_case(resource_property) + ": []," + (" // Required" if required else ""))
+                if is_python:
+                    body.append(" " * 8 + change_case(resource_property) + "=[]," + (" # Required" if required else ""))
+                else:
+                    body.append(
+                        " " * 2 + change_case(resource_property) + ": []," + (" // Required" if required else "")
+                    )
             else:
                 item = resource_properties[resource_property]["Type"]
-                body.append(" " * 2 + change_case(resource_property) + ": {")
-                get_item_type_prop(body, item, resource_type, counter)
+                if is_python:
+                    body.append(" " * 8 + change_case(resource_property) + "={")
+                else:
+                    body.append(" " * 2 + change_case(resource_property) + ": {")
+                get_item_type_prop(body, item, resource_type, counter, is_python)
         else:
-            set_value_type(body, resource_property, item, counter, required, indent=2)
+            set_value_type(
+                body, resource_property, item, counter, required, indent=8 if is_python else 2, is_python=is_python
+            )
     except KeyError:
         pass
 
     return body
 
 
-def get_item_type_prop(body, item, resource_type, counter):
+def get_item_type_prop(body, item, resource_type, counter, is_python):
     # Get cfn resource spec
     response_data = get_resource_spec().json()
     # Make resource compatible with L1 construct name
@@ -79,7 +89,10 @@ def get_item_type_prop(body, item, resource_type, counter):
                 item = types(properties[property])
                 if "Type" in properties[property]:
                     if properties[property]["Type"] == "List":
-                        body.append(" " * 4 + change_case(property) + ": [],")
+                        if is_python:
+                            body.append(" " * 12 + change_case(property) + "=[],")
+                        else:
+                            body.append(" " * 4 + change_case(property) + ": [],")
                     elif property == (properties[property]["Type"] or None):
                         continue
                 else:
@@ -89,33 +102,47 @@ def get_item_type_prop(body, item, resource_type, counter):
                         item,
                         updated_counter,
                         required=None,
-                        indent=4,
+                        indent=12 if is_python else 4,
+                        is_python=is_python,
                     )
 
-    body.append(" " * 2 + "},")
+    if is_python:
+        body.append(" " * 8 + "},")
+    else:
+        body.append(" " * 2 + "},")
     return body
 
 
-def set_value_type(body, property, item, counter, required, indent):
+def set_value_type(body, property, item, counter, required, indent, is_python):
     value_type = {
-        "Boolean": "|false,true|",
-        "Double": ":Number",
-        "Integer": ":Number",
-        "Json": ":JSON",
-        "Long": ":Number",
-        "String": ":string",
+        "Boolean": "bool",
+        "Double": "float",
+        "Integer": "int",
+        "Json": "dict",
+        "Long": "int",
+        "String": "str",
     }
 
-    body.append(
-        " " * indent
-        + change_case(property)
-        + ": "
-        + ('"${' if item == "String" else "${")
-        + f"{str(counter)}{value_type[item]}"
-        + ('}"' if item == "String" else "}")
-        + ","
-        + (" // Required" if required else "")
-    )
+    if is_python:
+        body.append(
+            " " * indent
+            + change_case(property)
+            + "="
+            + f"${{{str(counter)}:{value_type[item]}}}"
+            + ","
+            + (" # Required" if required else "")
+        )
+    else:
+        body.append(
+            " " * indent
+            + change_case(property)
+            + ": "
+            + ('"${' if item == "String" else "${")
+            + f"{str(counter)}{':' + value_type[item]}"
+            + ('}"' if item == "String" else "}")
+            + ","
+            + (" // Required" if required else "")
+        )
 
     return body
 
@@ -145,8 +172,9 @@ def fetch_description(resource_type, cdk_l1_construct):
 
 
 def create_cdk_snippet(response_data):
-    # Start the output data
-    output = {}
+    # Start the output data for TypeScript and Python
+    output_ts = {}
+    output_py = {}
 
     # Add the resources to the output
     for resource_type in response_data["ResourceTypes"]:
@@ -158,25 +186,48 @@ def create_cdk_snippet(response_data):
         cdk_l1_construct = cfn_resource_type + "." + cfn_resource[index:]
 
         description = fetch_description(response_data["ResourceTypes"][resource_type], cdk_l1_construct)
-        body = ["new " + cdk_l1_construct + '(this, "${1:id}", {']
+
+        # TypeScript body
+        body_ts = ["new " + cdk_l1_construct + '(this, "${1:id}", {']
+
+        # Python body
+        body_py = [cdk_l1_construct + '(self, "${1:id}", ']
 
         # for each resources 'properties'
         resource_properties = response_data["ResourceTypes"][resource_type]["Properties"]
 
-        updated_body = []
+        updated_body_ts = []
+        updated_body_py = []
         for counter, resource_property in enumerate(sorted(resource_properties), start=2):
-            updated_body = parse_body(body, counter, resource_properties, resource_property, resource_type)
+            updated_body_ts = parse_body(
+                body_ts, counter, resource_properties, resource_property, resource_type, is_python=False
+            )
+            updated_body_py = parse_body(
+                body_py, counter, resource_properties, resource_property, resource_type, is_python=True
+            )
 
-        updated_body.append("})")
-        output[cdk_l1_construct] = {
-            "body": updated_body,
+        updated_body_ts.append("})")
+        updated_body_py.append(")")
+
+        output_ts[cdk_l1_construct] = {
+            "body": updated_body_ts,
             "description": description,
             "prefix": prefix.lower(),
             "scope": "javascript,typescript",
         }
 
-    with open("snippets/cdk-l1-constructs.json", "w") as file:
-        file.write(json.dumps(output, sort_keys=True, indent=4))
+        output_py[cdk_l1_construct] = {
+            "body": updated_body_py,
+            "description": description,
+            "prefix": prefix.lower(),
+            "scope": "python",
+        }
+
+    with open("snippets/cdk-l1-constructs-ts.json", "w") as file:
+        file.write(json.dumps(output_ts, sort_keys=True, indent=4))
+
+    with open("snippets/cdk-l1-constructs-py.json", "w") as file:
+        file.write(json.dumps(output_py, sort_keys=True, indent=4))
 
 
 # Run cdk resource updater

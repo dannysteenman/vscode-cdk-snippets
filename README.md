@@ -8,34 +8,38 @@
 This extension adds L1 Construct snippets from AWS CDK in Visual Studio Code.
 
 > [!TIP]
-> Ready to unlock the full potential of your AWS infrastructure or make a smooth transition from on-premise?
+> Struggling with AWS complexity or stuck on-premise? Let's transform your cloud journey.
 >
-> [Schedule a call with me](https://towardsthecloud.com/contact) to find out how we can enhance your existing AWS setup or guide your journey from on-premise to the Cloud.
+> [Schedule a call with me](https://towardsthecloud.com/contact) to find out how I can enhance your existing AWS setup or guide your journey from on-premise to the Cloud.
 >
 > <details><summary>☁️ <strong>Discover more about my one-person business: Towards the Cloud</strong></summary>
 >
 > <br/>
 >
-> Hey there! I'm Danny, the driving force behind **Towards the Cloud**, bringing over a decade of hands-on experience to the table. My specialty? Crafting rock-solid AWS infrastructures using IaC for both startups and enterprises.
->
-> *I'm all about architecting and building distributed, scalable cloud-native systems using AWS CDK. My mission is simple: I'll help you supercharge your application by deploying well-architected, highly scalable and cost-effective cloud infrastructure.*
+> Hi, I'm Danny – AWS expert and founder of [Towards the Cloud](https://towardsthecloud.com). With over a decade of hands-on experience, I specialized myself in deploying well-architected, highly scalable and cost-effective AWS Solutions using Infrastructure as Code (IaC).
 >
 > #### When you work with me, you're getting a package deal of expertise and personalized service:
 >
-> - **AWS CDK Expertise**: I bring deep AWS CDK knowledge to the table, ensuring your infrastructure is not just maintainable and scalable, but also fully automated.
-> - **Custom Solutions**: Understanding that no two businesses are alike, I tailor cloud solutions to fit your unique needs perfectly.
+> - **AWS CDK Proficiency**: I bring deep AWS CDK knowledge to the table, ensuring your infrastructure is not just maintainable and scalable, but also fully automated.
+> - **AWS Certified**: [Equipped with 7 AWS Certifications](https://www.credly.com/users/dannysteenman/badges), including DevOps Engineer & Solutions Architect Professional, to ensure best practices across diverse cloud scenarios.
+> - **Tailored Solutions**: Understanding that no two businesses are alike, I Custom-fit cloud infrastructure for your unique needs.
 > - **Cost-Effective**: I'll optimize your AWS spending without cutting corners on performance or security.
 > - **Direct Access**: You work with me, not a team of managers. Expect quick decisions and high-quality work.
 > - **Seamless CI/CD**: I'll set up smooth CI/CD processes using GitHub Actions, making changes a breeze through Pull Requests.
 >
-> My ultimate goal is to transform your cloud infrastructure and give your business a serious boost.
+> *My mission is simple: I'll free you from infrastructure headaches so you can focus on what truly matters – your core business.*
 >
-> Let's talk about how we can make that happen.
+> Ready to unlock the full potential of AWS Cloud?
 >
 > <a href="https://towardsthecloud.com/contact"><img alt="Schedule your call" src="https://img.shields.io/badge/schedule%20your%20call-success.svg?style=for-the-badge"/></a>
 > </details>
 
 ---
+
+## New in version 2!
+
+- Added support for L1 constructs snippets in AWS CDK Python! Open up a CDK Python project and type `l1` to trigger the L1 construct autocomplete.
+
 ## Features
 
 1. **Comprehensive Support**: Seamlessly integrates all CloudFormation resources as L1 constructs within CDK, ensuring you have access to the latest AWS offerings.
@@ -48,7 +52,7 @@ This extension adds L1 Construct snippets from AWS CDK in Visual Studio Code.
 ## Usage
 
 * **Step 1.** Install [this extension](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
-* **Step 2.** Start working in your CDK project (TypeScript)
+* **Step 2.** Start working in your CDK project (TypeScript or Python)
 * **Step 3.** Start adding L1 constructs in your code by using their prefix name e.g. ```l1-s3-bucket``` equals to L1 construct ```s3.CfnBucket```
 
 ![CDK Construct Snippets example](https://raw.githubusercontent.com/dannysteenman/vscode-cdk-snippets/main/images/cdk-snippet-tutorial.gif)
@@ -69,6 +73,6 @@ If you have a feature request or an issue, please let me know on [Github](https:
 
 Danny Steenman
 
-[![](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/dannysteenman)
 [![](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dannysteenman)
+[![](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/dannysteenman)
 [![](https://img.shields.io/badge/GitHub-2b3137?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dannysteenman)
