@@ -22,9 +22,9 @@ This extension adds L1 Construct snippets from AWS CDK in Visual Studio Code.
 >
 > - **AWS CDK Proficiency**: I bring deep AWS CDK knowledge to the table, ensuring your infrastructure is not just maintainable and scalable, but also fully automated.
 > - **AWS Certified**: [Equipped with 7 AWS Certifications](https://www.credly.com/users/dannysteenman/badges), including DevOps Engineer & Solutions Architect Professional, to ensure best practices across diverse cloud scenarios.
+> - **Direct Access**: You work with me, not a team of managers. Expect quick decisions and high-quality work.
 > - **Tailored Solutions**: Understanding that no two businesses are alike, I Custom-fit cloud infrastructure for your unique needs.
 > - **Cost-Effective**: I'll optimize your AWS spending without cutting corners on performance or security.
-> - **Direct Access**: You work with me, not a team of managers. Expect quick decisions and high-quality work.
 > - **Seamless CI/CD**: I'll set up smooth CI/CD processes using GitHub Actions, making changes a breeze through Pull Requests.
 >
 > *My mission is simple: I'll free you from infrastructure headaches so you can focus on what truly matters – your core business.*
