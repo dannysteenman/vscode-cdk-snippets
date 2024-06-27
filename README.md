@@ -8,25 +8,31 @@
 This extension adds L1 Construct snippets from AWS CDK in Visual Studio Code.
 
 > [!TIP]
-> If you're looking for expertise to elevate your cloud infrastructure, then don't hesitate to get in [touch with me](https://towardsthecloud.com/contact)!
+> Ready to unlock the full potential of your AWS infrastructure or make a smooth transition from on-premise?
 >
-> <details><summary>📚 <strong>Discover more about us</strong></summary>
+> [Schedule a call with me](https://towardsthecloud.com/contact) to find out how we can enhance your existing AWS setup or guide your journey from on-premise to the Cloud.
+>
+> <details><summary>☁️ <strong>Discover more about my one-person business: Towards the Cloud</strong></summary>
 >
 > <br/>
 >
-> Towards the Cloud is a one-person agency with over 9 years of extensive hands-on experience in architecting and building highly scalable distributed systems on AWS Cloud using Infrastructure as Code for startups and enterprises.
+> Hey there! I'm Danny, the driving force behind **Towards the Cloud**, bringing over a decade of hands-on experience to the table. My specialty? Crafting rock-solid AWS infrastructures using IaC for both startups and enterprises.
 >
-> *Maximize your development speed by harnessing our expertise in crafting high-performance Cloud infrastructures.*
+> *I'm all about architecting and building distributed, scalable cloud-native systems using AWS CDK. My mission is simple: I'll help you supercharge your application by deploying well-architected, highly scalable and cost-effective cloud infrastructure.*
 >
-> #### Why Choose Towards the Cloud?
+> #### When you work with me, you're getting a package deal of expertise and personalized service:
 >
-> - **Expertise in AWS CDK**: Leverage the full power of AWS Cloud Development Kit (AWS CDK) with our deep expertise. We architect and build infrastructure as code (IaC) solutions that are maintainable, scalable, and fully automated.
-> - **Tailored Solutions**: Your business is unique, and so are your cloud needs. We provide personalized consultations and solutions tailored to perfectly align with your project requirements and business goals.
-> - **Cost-Effective and Efficient**: Benefit from our streamlined processes and deep AWS knowledge to optimize costs without compromising on performance or security.
-> - **One-on-One Attention**: As a one-person agency, Towards the Cloud guarantees you receive dedicated support and expertise directly from an AWS Cloud Engineer. This ensures high-quality deliverables and swift decision-making.<br/>
-> - **Seamless CI/CD**: Empower your team to manage infrastructure changes confidently and efficiently through Pull Requests, leveraging the full power of GitHub Actions.
+> - **AWS CDK Expertise**: I bring deep AWS CDK knowledge to the table, ensuring your infrastructure is not just maintainable and scalable, but also fully automated.
+> - **Custom Solutions**: Understanding that no two businesses are alike, I tailor cloud solutions to fit your unique needs perfectly.
+> - **Cost-Effective**: I'll optimize your AWS spending without cutting corners on performance or security.
+> - **Direct Access**: You work with me, not a team of managers. Expect quick decisions and high-quality work.
+> - **Seamless CI/CD**: I'll set up smooth CI/CD processes using GitHub Actions, making changes a breeze through Pull Requests.
 >
-> <a href="https://towardsthecloud.com/contact"><img alt="Schedule introduction call" src="https://img.shields.io/badge/schedule%20introduction%20call-success.svg?style=for-the-badge"/></a>
+> My ultimate goal is to transform your cloud infrastructure and give your business a serious boost.
+>
+> Let's talk about how we can make that happen.
+>
+> <a href="https://towardsthecloud.com/contact"><img alt="Schedule your call" src="https://img.shields.io/badge/schedule%20your%20call-success.svg?style=for-the-badge"/></a>
 > </details>
 
 ---
@@ -50,9 +56,9 @@ This extension adds L1 Construct snippets from AWS CDK in Visual Studio Code.
 > **Note:** Once you start typing a prefix (explained in step 3), the corresponding snippet shows up in the dropdown menu. If this doesn't happen automatically, press `ctrl + space` to invoke IntelliSense and search for the prefix of the resource type that you want to add (as listed in step 3).
 
 ---
-## AWS CDK examples
+## AWS CDK Examples
 
-Looking to level up your infrastructure-as-code skills with the power of AWS CDK? Check out the [AWS CDK Examples](https://github.com/dannysteenman/aws-cdk-examples) repository - a treasure trove of TypeScript-based solutions crafted by a seasoned cloud developer.
+[Explore our AWS CDK Examples repository](https://github.com/dannysteenman/aws-cdk-examples) - a rich collection of TypeScript-based solutions that bring your cloud architecture to life. Crafted by a seasoned AWS professional.
 
 ---
 ## Support
@@ -61,8 +67,8 @@ If you have a feature request or an issue, please let me know on [Github](https:
 
 ## Author
 
-**[Danny Steenman](https://github.com/dannysteenman)**
+Danny Steenman
 
-<p align="left">
-  <a href="https://twitter.com/dannysteenman"><img src="https://img.shields.io/twitter/follow/dannysteenman?label=%40dannysteenman&style=social"></a>
-</p>
+[![](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/dannysteenman)
+[![](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dannysteenman)
+[![](https://img.shields.io/badge/GitHub-2b3137?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dannysteenman)
