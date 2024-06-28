@@ -2,6 +2,16 @@ Changelog
 =========
 
 
+2.1.0 (2024-06-28)
+------------------
+- The following resource was added: <code
+  class="code">AWS::WorkSpaces::WorkspacesPool</code> [Github Actions]
+- Chore: update README.md. [Danny Steenman]
+- Feat: add support for aws cdk python l1 construct snippets. [Danny
+  Steenman]
+- Chore: update contact information in README.md. [Danny Steenman]
+
+
 1.134.0 (2024-06-21)
 --------------------
 - The following resource was added: <code
