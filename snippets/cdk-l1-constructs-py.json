@@ -153,7 +153,7 @@
         "body": [
             "amazonmq.CfnBroker(self, \"${1:id}\", ",
             "        authenticationStrategy=${2:str},",
-            "        autoMinorVersionUpgrade=${3:bool}, # Required",
+            "        autoMinorVersionUpgrade=${3:bool},",
             "        brokerName=${4:str}, # Required",
             "        configuration={",
             "            id=${5:str},",
@@ -167,7 +167,7 @@
             "            useAwsOwnedKey=${10:bool},",
             "        },",
             "        engineType=${10:str}, # Required",
-            "        engineVersion=${11:str}, # Required",
+            "        engineVersion=${11:str},",
             "        hostInstanceType=${12:str}, # Required",
             "        ldapServerMetadata={",
             "            hosts=[],",
@@ -223,7 +223,7 @@
             "        data=${3:str}, # Required",
             "        description=${4:str},",
             "        engineType=${5:str}, # Required",
-            "        engineVersion=${6:str}, # Required",
+            "        engineVersion=${6:str},",
             "        name=${7:str}, # Required",
             "        tags=[],",
             ")"
@@ -8834,21 +8834,22 @@
             "            replicationSubnetGroupId=${9:str},",
             "            vpcSecurityGroupIds=[],",
             "        },",
-            "        replicationConfigArn=${3:str},",
-            "        replicationConfigIdentifier=${4:str},",
-            "        replicationSettings=${5:dict},",
-            "        replicationType=${6:str},",
-            "        resourceIdentifier=${7:str},",
-            "        sourceEndpointArn=${8:str},",
-            "        supplementalSettings=${9:dict},",
-            "        tableMappings=${10:dict},",
+            "        replicationConfigIdentifier=${3:str},",
+            "        replicationSettings=${4:dict},",
+            "        replicationType=${5:str},",
+            "        resourceIdentifier=${6:str},",
+            "        sourceEndpointArn=${7:str},",
+            "        supplementalSettings=${8:dict},",
+            "        tableMappings=${9:dict},",
             "        tags=[],",
-            "        targetEndpointArn=${12:str},",
+            "        targetEndpointArn=${11:str},",
             ")"
         ],
         "description": [
             "Construct: dms.CfnReplicationConfig",
-            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-dms.CfnReplicationConfig"
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-dms.CfnReplicationConfig",
+            "Attributes: ",
+            "  attrReplicationConfigArn"
         ],
         "prefix": "l1-dms-replicationconfig",
         "scope": "python"
@@ -24990,10 +24991,11 @@
             "rds.CfnGlobalCluster(self, \"${1:id}\", ",
             "        deletionProtection=${2:bool},",
             "        engine=${3:str},",
-            "        engineVersion=${4:str},",
-            "        globalClusterIdentifier=${5:str},",
-            "        sourceDBClusterIdentifier=${6:str},",
-            "        storageEncrypted=${7:bool},",
+            "        engineLifecycleSupport=${4:str},",
+            "        engineVersion=${5:str},",
+            "        globalClusterIdentifier=${6:str},",
+            "        sourceDBClusterIdentifier=${7:str},",
+            "        storageEncrypted=${8:bool},",
             ")"
         ],
         "description": [
@@ -31342,6 +31344,39 @@
             "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspaces.CfnWorkspace"
         ],
         "prefix": "l1-workspaces-workspace",
+        "scope": "python"
+    },
+    "workspaces.CfnWorkspacesPool": {
+        "body": [
+            "workspaces.CfnWorkspacesPool(self, \"${1:id}\", ",
+            "        applicationSettings={",
+            "            settingsGroup=${2:str},",
+            "            status=${3:str},",
+            "        },",
+            "        bundleId=${3:str}, # Required",
+            "        capacity={",
+            "            desiredUserSessions=${4:int},",
+            "        },",
+            "        description=${5:str},",
+            "        directoryId=${6:str}, # Required",
+            "        poolName=${7:str}, # Required",
+            "        tags=[],",
+            "        timeoutSettings={",
+            "            disconnectTimeoutInSeconds=${9:int},",
+            "            idleDisconnectTimeoutInSeconds=${10:int},",
+            "            maxUserDurationInSeconds=${11:int},",
+            "        },",
+            ")"
+        ],
+        "description": [
+            "Construct: workspaces.CfnWorkspacesPool",
+            "Documentation: https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-workspaces.CfnWorkspacesPool",
+            "Attributes: ",
+            "  attrPoolId",
+            "  attrCreatedAt",
+            "  attrPoolArn"
+        ],
+        "prefix": "l1-workspaces-workspacespool",
         "scope": "python"
     },
     "workspacesthinclient.CfnEnvironment": {
