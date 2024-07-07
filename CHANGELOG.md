@@ -2,6 +2,18 @@ Changelog
 =========
 
 
+2.2.0 (2024-07-07)
+------------------
+- The following resource was released: <a href="https://docs.aws.amazon.
+  com/AWSCloudFormation/latest/UserGuide/AWSCloudFormation/latest/UserGu
+  ide/aws-resource-launchwizard-deployment.html" rel="noopener
+  noreferrer" target="_blank"><code
+  class="code">AWS::LaunchWizard::Deployment</code></a>. [Github
+  Actions]
+- Chore: Update CDK Snippets extension to support nested properties of
+  L1 constructs. [Danny Steenman]
+
+
 2.1.0 (2024-06-28)
 ------------------
 - The following resource was added: <code
