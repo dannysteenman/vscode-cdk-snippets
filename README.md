@@ -51,9 +51,11 @@ This extension adds L1 Construct snippets from AWS CDK in Visual Studio Code.
 
 ## Usage
 
-* **Step 1.** Install [this extension](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets)
-* **Step 2.** Start working in your CDK project (TypeScript or Python)
-* **Step 3.** Start adding L1 constructs in your code by using their prefix name e.g. ```l1-s3-bucket``` equals to L1 construct ```s3.CfnBucket```
+1. Install the [CDK Snippets extension](https://marketplace.visualstudio.com/items?itemName=dannysteenman.cdk-snippets) in VS Code.
+2. Open your CDK project (TypeScript or Python).
+3. Add L1 constructs using their short prefix (e.g. `l1-s3-bucket` for `s3.CfnBucket`).
+
+Example:
 
 ![CDK Construct Snippets example](https://raw.githubusercontent.com/dannysteenman/vscode-cdk-snippets/main/images/cdk-snippet-tutorial.gif)
 

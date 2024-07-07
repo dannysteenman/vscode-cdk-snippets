@@ -19,15 +19,8 @@
     "color": "#2B2C33",
     "theme": "dark"
   },
-  "categories": [
-    "Snippets"
-  ],
-  "keywords": [
-    "aws",
-    "cdk",
-    "construct",
-    "typescript"
-  ],
+  "categories": ["Snippets"],
+  "keywords": ["aws", "cdk", "construct", "typescript", "python"],
   "badges": [
     {
       "url": "https://img.shields.io/visual-studio-marketplace/v/dannysteenman.cdk-snippets",
@@ -46,14 +39,26 @@
     }
   ],
   "contributes": {
+    "languages": [
+      {
+        "id": "python",
+        "aliases": ["Python", "py"],
+        "extensions": [".py"]
+      },
+      {
+        "id": "typescript",
+        "aliases": ["TypeScript", "ts"],
+        "extensions": [".ts"]
+      }
+    ],
     "snippets": [
       {
         "language": "python",
-        "path": "./snippets/cdk-l1-constructs-py.json"
+        "path": "./snippets/cdk-l1-constructs-python.json"
       },
       {
         "language": "typescript",
-        "path": "./snippets/cdk-l1-constructs-ts.json"
+        "path": "./snippets/cdk-l1-constructs-typescript.json"
       }
     ]
   }
