@@ -2,6 +2,16 @@ Changelog
 =========
 
 
+2.3.0 (2024-07-12)
+------------------
+- The following resource was released: <a href="https://docs.aws.amazon.
+  com/AWSCloudFormation/latest/UserGuide/AWSCloudFormation/latest/UserGu
+  ide/aws-resource-launchwizard-deployment.html" rel="noopener
+  noreferrer" target="_blank"><code
+  class="code">AWS::LaunchWizard::Deployment</code></a>. [Github
+  Actions]
+
+
 2.2.0 (2024-07-07)
 ------------------
 - The following resource was released: <a href="https://docs.aws.amazon.
