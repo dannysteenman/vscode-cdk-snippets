@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.4.0 (2024-07-19)
+------------------
+- The following resource was updated: AWS::MWAA::Environment. [Github
+  Actions]
+
+
 2.3.0 (2024-07-12)
 ------------------
 - The following resource was released: <a href="https://docs.aws.amazon.
