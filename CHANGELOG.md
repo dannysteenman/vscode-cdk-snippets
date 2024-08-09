@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.7.0 (2024-08-09)
+------------------
+- AWS CloudFormation Git sync now publishes sync status changes as
+  events to Amazon EventBridge. [Github Actions]
+
+
 2.6.0 (2024-08-02)
 ------------------
 - AWS CloudFormation Git sync now publishes sync status changes as
