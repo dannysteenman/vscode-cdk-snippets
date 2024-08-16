@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+2.8.0 (2024-08-16)
+------------------
+- Added S3Configuration and FirehoseConfiguration to
+  LogDeliveryConfiguration.             Adds support for log export to
+  Amazon S3 and Amazon Data Firehose. [Github Actions]
+
+
 2.7.0 (2024-08-09)
 ------------------
 - AWS CloudFormation Git sync now publishes sync status changes as
