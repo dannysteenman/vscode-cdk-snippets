@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+2.9.0 (2024-08-23)
+------------------
+- The following resource was updated: AWS::IVS::Stage. [Github Actions]
+
+
 2.8.0 (2024-08-16)
 ------------------
 - Added S3Configuration and FirehoseConfiguration to
