@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+2.10.0 (2024-08-30)
+-------------------
+- The following resource was updated:
+  AWS::AutoScaling::AutoScalingGroup. [Github Actions]
+- Docs: add hyperlink to author name in README.md. [Danny Steenman]
+
+
 2.9.0 (2024-08-23)
 ------------------
 - The following resource was updated: AWS::IVS::Stage. [Github Actions]
