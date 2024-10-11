@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.16.0 (2024-10-11)
+-------------------
+- The following resource was updated: AWS::IoT::DomainConfiguration.
+  [Github Actions]
+
+
 2.15.0 (2024-10-04)
 -------------------
 - The following resource was updated: AWS::IoT::DomainConfiguration.
