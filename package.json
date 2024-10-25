@@ -5,7 +5,7 @@
   "author": "Danny Steenman",
   "version": "2.17.0",
   "publisher": "dannysteenman",
-  "icon": "images/cdk-extension-icon.png",
+  "icon": "images/cdk-snippets-extension-icon.png",
   "homepage": "https://towardsthecloud.com",
   "license": "Apache-2.0",
   "repository": {
@@ -19,16 +19,8 @@
     "color": "#2B2C33",
     "theme": "dark"
   },
-  "categories": [
-    "Snippets"
-  ],
-  "keywords": [
-    "aws",
-    "cdk",
-    "construct",
-    "typescript",
-    "python"
-  ],
+  "categories": ["Snippets"],
+  "keywords": ["aws", "cdk", "construct", "typescript", "python"],
   "badges": [
     {
       "url": "https://img.shields.io/visual-studio-marketplace/v/dannysteenman.cdk-snippets",
@@ -50,23 +42,13 @@
     "languages": [
       {
         "id": "python",
-        "aliases": [
-          "Python",
-          "py"
-        ],
-        "extensions": [
-          ".py"
-        ]
+        "aliases": ["Python", "py"],
+        "extensions": [".py"]
       },
       {
         "id": "typescript",
-        "aliases": [
-          "TypeScript",
-          "ts"
-        ],
-        "extensions": [
-          ".ts"
-        ]
+        "aliases": ["TypeScript", "ts"],
+        "extensions": [".ts"]
       }
     ],
     "snippets": [
