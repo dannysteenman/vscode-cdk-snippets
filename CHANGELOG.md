@@ -2,6 +2,24 @@ Changelog
 =========
 
 
+2.18.0 (2024-11-15)
+-------------------
+
+Fix
+~~~
+- Revert pipeline steps. [Danny Steenman]
+
+Other
+~~~~~
+- The following properties were added to the <code
+  class="code">AWS::DynamoDB::GlobalTable</code>             resource
+  and the <code class="code">AWS::DynamoDB::Table</code> resource:
+  [Github Actions]
+- Chore: update .vscodeignore exclusions. [Danny Steenman]
+- Ci(workflow): update git config and release steps. [Danny Steenman]
+- Chore: update vscode extension icon. [Danny Steenman]
+
+
 2.17.0 (2024-10-18)
 -------------------
 - Added <code class="code">EMAIL_OTP</code> to <code
