@@ -1,5 +1,5 @@
-feedparser==6.0.8
+feedparser==6.0.11
 gitchangelog==3.0.4
-pystache==0.6.0
-requests==2.27.1
-wheel==0.37.1
+pystache==0.6.5
+requests==2.32.3
+wheel==0.45.0
