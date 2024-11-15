@@ -2,6 +2,15 @@ Changelog
 =========
 
 
+2.19.0 (2024-11-15)
+-------------------
+- The following properties were added to the <code
+  class="code">AWS::DynamoDB::GlobalTable</code>             resource
+  and the <code class="code">AWS::DynamoDB::Table</code> resource:
+  [Github Actions]
+- Feat: update deps. [Danny Steenman]
+
+
 2.18.0 (2024-11-15)
 -------------------
 
