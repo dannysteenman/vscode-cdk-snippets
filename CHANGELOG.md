@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.20.0 (2024-11-22)
+-------------------
+- The following resource was added: AWS::ResourceGroups::TagSyncTask.
+  [Github Actions]
+
+
 2.19.0 (2024-11-15)
 -------------------
 - The following properties were added to the <code
