@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.21.0 (2024-11-29)
+-------------------
+- The following resource was updated:             <code
+  class="code">AWS::WorkSpacesWeb::Portal</code>. [Github Actions]
+
+
 2.20.0 (2024-11-22)
 -------------------
 - The following resource was added: AWS::ResourceGroups::TagSyncTask.
