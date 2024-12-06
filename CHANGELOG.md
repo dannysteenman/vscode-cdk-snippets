@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.22.0 (2024-12-06)
+-------------------
+- The following resource was updated: AWS::AutoScaling::ScalingPolicy.
+  [Github Actions]
+
+
 2.21.0 (2024-11-29)
 -------------------
 - The following resource was updated:             <code
