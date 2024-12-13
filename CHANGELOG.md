@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.23.0 (2024-12-13)
+-------------------
+- The following resource was updated: AWS::S3Express::DirectoryBucket.
+  [Github Actions]
+
+
 2.22.0 (2024-12-06)
 -------------------
 - The following resource was updated: AWS::AutoScaling::ScalingPolicy.
