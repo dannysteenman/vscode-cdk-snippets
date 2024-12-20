@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.24.0 (2024-12-20)
+-------------------
+- The following resources were updated: AWS::ECS::TaskDefinition.
+  [Github Actions]
+
+
 2.23.0 (2024-12-13)
 -------------------
 - The following resource was updated: AWS::S3Express::DirectoryBucket.
