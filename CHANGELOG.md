@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.27.0 (2025-01-10)
+-------------------
+- The following resource was updated:
+  AWS::ImageBuilder::InfrastructureConfiguration. [Github Actions]
+
+
 2.26.0 (2025-01-03)
 -------------------
 - The following resource was updated: <code
