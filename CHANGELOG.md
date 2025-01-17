@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+2.28.0 (2025-01-17)
+-------------------
+- The following resources were added: [Github Actions]
+
+
 2.27.0 (2025-01-10)
 -------------------
 - The following resource was updated:
