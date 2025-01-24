@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.29.0 (2025-01-24)
+-------------------
+- The following resource was added: AWS::SNS::Topic.FifoThroughputScope.
+  [Github Actions]
+
+
 2.28.0 (2025-01-17)
 -------------------
 - The following resources were added: [Github Actions]
