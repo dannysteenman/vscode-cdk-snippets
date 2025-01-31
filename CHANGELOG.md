@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.30.0 (2025-01-31)
+-------------------
+- The following resource was updated: <code
+  class="code">AWS::Batch:JobDefinition</code>. [Github Actions]
+
+
 2.29.0 (2025-01-24)
 -------------------
 - The following resource was added: AWS::SNS::Topic.FifoThroughputScope.
