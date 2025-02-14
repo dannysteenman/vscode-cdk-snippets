@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.32.0 (2025-02-14)
+-------------------
+- The following resource was updated: <code
+  class="code">AWS::DataSync::LocationSMB</code>. [Github Actions]
+
+
 2.31.0 (2025-02-07)
 -------------------
 - The following resource was updated: <code
