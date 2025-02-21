@@ -2,6 +2,18 @@ Changelog
 =========
 
 
+2.33.0 (2025-02-21)
+-------------------
+- The following resource were added:             AWS::OpenSearchServerle
+  ss::SecurityConfig.IamIdentityCenterOptions.ApplicationArn,
+  AWS::OpenSearchServerless::SecurityConfig.IamIdentityCenterOptions.App
+  licationDescription,             AWS::OpenSearchServerless::SecurityCo
+  nfig.IamIdentityCenterOptions.ApplicationName
+  SecurityConfig.IamIdentityCenterConfigOptions.ApplicationName,
+  SecurityConfig.IamIdentityCenterConfigOptions.GroupAttribute
+  . [Github Actions]
+
+
 2.32.0 (2025-02-14)
 -------------------
 - The following resource was updated: <code
