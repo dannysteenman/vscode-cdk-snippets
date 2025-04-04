@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+2.39.0 (2025-04-04)
+-------------------
+- The following resources were updated: AWS::ApiGateway::RestApi and
+  AWS::ApiGateway::DomainName. [Github Actions]
+
+
 2.38.0 (2025-03-28)
 -------------------
 - The following resource were added:             AWS::OpenSearchServerle
