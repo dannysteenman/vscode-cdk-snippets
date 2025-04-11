@@ -2,6 +2,15 @@ Changelog
 =========
 
 
+2.40.0 (2025-04-11)
+-------------------
+- The following resources were updated: <code
+  class="code">AWS::CleanRooms::AnalysisTemplate</code>, <code
+  class="code">AWS::CleanRooms::Collaboration</code>, <code
+  class="code">AWS::CleanRooms::Membership</code>, and <code
+  class="code">AWS::CleanRooms::ConfiguredTable</code>. [Github Actions]
+
+
 2.39.0 (2025-04-04)
 -------------------
 - The following resources were updated: AWS::ApiGateway::RestApi and
