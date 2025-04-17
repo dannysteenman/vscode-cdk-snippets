@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dannysteenman/vscode-cdk-snippets"
+    "url": "https://github.com/towardsthecloud/vscode-cdk-snippets"
   },
   "engines": {
     "vscode": "^1.31.0"
@@ -19,16 +19,8 @@
     "color": "#2B2C33",
     "theme": "dark"
   },
-  "categories": [
-    "Snippets"
-  ],
-  "keywords": [
-    "aws",
-    "cdk",
-    "construct",
-    "typescript",
-    "python"
-  ],
+  "categories": ["Snippets"],
+  "keywords": ["aws", "cdk", "construct", "typescript", "python"],
   "badges": [
     {
       "url": "https://img.shields.io/visual-studio-marketplace/v/dannysteenman.cdk-snippets",
@@ -50,23 +42,13 @@
     "languages": [
       {
         "id": "python",
-        "aliases": [
-          "Python",
-          "py"
-        ],
-        "extensions": [
-          ".py"
-        ]
+        "aliases": ["Python", "py"],
+        "extensions": [".py"]
       },
       {
         "id": "typescript",
-        "aliases": [
-          "TypeScript",
-          "ts"
-        ],
-        "extensions": [
-          ".ts"
-        ]
+        "aliases": ["TypeScript", "ts"],
+        "extensions": [".ts"]
       }
     ],
     "snippets": [
